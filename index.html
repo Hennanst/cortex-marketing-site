@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews de Hardware, Consoles e Jogos Gamer | Setup Cortex</title>
+    <meta name="description" content="Reviews de hardware, periféricos, consoles e jogos. Monte seu setup gamer ideal com comparativos e guias para cada orçamento.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hennanst.github.io/cortex-marketing-site">
+
+    <!-- Google Ads Conversion -->
+    <meta name="google-ads-conversion" content="">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Reviews de Hardware, Consoles e Jogos Gamer">
+    <meta property="og:description" content="Reviews de hardware, periféricos, consoles e jogos. Monte seu setup gamer ideal com comparativos e guias para cada orçamento.">
+    <meta property="og:url" content="https://hennanst.github.io/cortex-marketing-site">
+    <meta property="og:site_name" content="Setup Cortex">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Reviews de Hardware, Consoles e Jogos Gamer">
+    <meta name="twitter:description" content="Reviews de hardware, periféricos, consoles e jogos. Monte seu setup gamer ideal com comparativos e guias para cada orçamento.">
+
+    
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/cortex-marketing-site/css/style.css">
+    
+    
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/cortex-marketing-site/" class="logo">
+      <span class="logo-icon">🎮</span>
+      <span>Setup Cortex</span>
+    </a>
+    <div class="nav-search">
+      <input type="text" id="search-input" placeholder="Buscar produtos, jogos, consoles..." autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/cortex-marketing-site/" class="active">Reviews</a></li>
+            <li><a href="/cortex-marketing-site/#categorias">Categorias</a></li>
+            <li><a href="/cortex-marketing-site/#jogos">Consoles & Jogos</a></li>
+            <li><a href="/cortex-marketing-site/monte-seu-setup.html">Monte seu Setup</a></li>
+            <li><a href="/cortex-marketing-site/sobre.html">Sobre</a></li>
+            
+      <li><a href="/cortex-marketing-site/monte-seu-setup.html" class="nav-cta">Monte seu Setup</a></li>
+    </ul>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-badge">🎯 Reviews Imparciais & Guias de Setup</span>
+      <h1>Tudo de <span class="gradient-text">Games</span> Num Só Lugar</h1>
+      <p>Reviews de hardware, periféricos, consoles e jogos. Monte seu setup gamer ideal com comparativos e guias para cada orçamento.</p>
+      <div class="hero-search">
+        <input type="text" id="hero-search" placeholder="🔍 O que você está procurando? (ex: RTX 4060, PS5, headset...)" autocomplete="off">
+        <div id="hero-search-results" class="search-results"></div>
+      </div>
+      <div class="hero-buttons">
+        <a href="/cortex-marketing-site/monte-seu-setup.html" class="btn btn-primary btn-lg">🎮 Monte seu Setup</a>
+        <a href="#reviews" class="btn btn-secondary btn-lg">📝 Ver Reviews</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Budget Quick Builder -->
+<section class="section budget-quick">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>💰 Quanto quer gastar no seu setup?</h2>
+      <p>Digite seu orçamento e veja o melhor setup possível</p>
+    </div>
+    <div class="budget-input-wrapper fade-in">
+      <div class="budget-input-box">
+        <span class="currency">R$</span>
+        <input type="number" id="custom-budget" placeholder="5000" min="500" max="100000" step="100">
+        <button class="btn btn-primary" id="budget-go-btn">Montar Setup</button>
+      </div>
+      <div class="budget-presets">
+        <button class="budget-preset" data-value="2000">R$ 2.000</button>
+        <button class="budget-preset" data-value="5000">R$ 5.000</button>
+        <button class="budget-preset" data-value="10000">R$ 10.000</button>
+        <button class="budget-preset" data-value="20000">R$ 20.000</button>
+      </div>
+    </div>
+    <div id="custom-budget-result" class="custom-budget-result"></div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section-alt">
+  <div class="container">
+    <div class="stats-bar">
+      <div class="stat-item fade-in">
+        <div class="number">128+</div>
+        <div class="label">Produtos Analisados</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="number">19</div>
+        <div class="label">Categorias</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="number">10</div>
+        <div class="label">Critérios de Avaliação</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="number">24h</div>
+        <div class="label">Preços Atualizados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Categorias Hardware -->
+<section class="section" id="categorias">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>⚙️ Hardware & Periféricos</h2>
+      <p>Encontre o periférico perfeito para o seu estilo de jogo</p>
+    </div>
+    <div class="categories-grid">
+      
+      <a href="/cortex-marketing-site/categoria/mouses-gamer.html" class="category-card fade-in">
+        <span class="icon">🖱️</span>
+        <h3>Mouses Gamer</h3>
+        <p>Os melhores mouses para FPS, MOBA e uso diário</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/teclados-mecanicos.html" class="category-card fade-in">
+        <span class="icon">⌨️</span>
+        <h3>Teclados Mecânicos</h3>
+        <p>Teclados mecânicos com switches Cherry, Gateron e mais</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/monitores-gamer.html" class="category-card fade-in">
+        <span class="icon">🖥️</span>
+        <h3>Monitores Gamer</h3>
+        <p>Monitores 144Hz+, IPS, VA e OLED para gaming</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/headsets-gamer.html" class="category-card fade-in">
+        <span class="icon">🎧</span>
+        <h3>Headsets Gamer</h3>
+        <p>Headsets com som surround, microfone e conforto para longas </p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/cadeiras-gamer.html" class="category-card fade-in">
+        <span class="icon">🪑</span>
+        <h3>Cadeiras Gamer</h3>
+        <p>Cadeiras ergonômicas para gamers e home office</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/placas-de-video.html" class="category-card fade-in">
+        <span class="icon">🎮</span>
+        <h3>Placas de Vídeo</h3>
+        <p>GPUs NVIDIA e AMD para todos os orçamentos</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/processadores.html" class="category-card fade-in">
+        <span class="icon">🧠</span>
+        <h3>Processadores</h3>
+        <p>CPUs Intel e AMD para gaming e produtividade</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/gabinetes.html" class="category-card fade-in">
+        <span class="icon">🗄️</span>
+        <h3>Gabinetes</h3>
+        <p>Gabinetes com fluxo de ar, RGB e vidro temperado</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/armazenamento.html" class="category-card fade-in">
+        <span class="icon">💾</span>
+        <h3>SSDs & Armazenamento</h3>
+        <p>SSDs NVMe, SATA e HDs para pc e console</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/memoria-ram.html" class="category-card fade-in">
+        <span class="icon">🧩</span>
+        <h3>Memória RAM</h3>
+        <p>Kits de RAM DDR4 e DDR5 para gaming e produtividade</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/fontes.html" class="category-card fade-in">
+        <span class="icon">⚡</span>
+        <h3>Fontes de Alimentação</h3>
+        <p>Fontes 80 Plus para PCs gamers</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/streaming.html" class="category-card fade-in">
+        <span class="icon">📹</span>
+        <h3>Streaming & Criação</h3>
+        <p>Webcams, microfones, captura e iluminação para streamers</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/perifericos.html" class="category-card fade-in">
+        <span class="icon">🎯</span>
+        <h3>Periféricos & Acessórios</h3>
+        <p>Mousepads, webcams, microfones, controles e mais</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Jogos & Consoles -->
+<section class="section section-alt" id="jogos">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>🎮 Consoles & Jogos</h2>
+      <p>PS5, Xbox, Switch — jogos e acessórios com os melhores preços</p>
+    </div>
+    <div class="categories-grid">
+      
+      <a href="/cortex-marketing-site/categoria/consoles.html" class="category-card fade-in">
+        <span class="icon">🎮</span>
+        <h3>Consoles</h3>
+        <p>PlayStation, Xbox, Nintendo Switch e acessórios</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/jogos-ps5.html" class="category-card fade-in">
+        <span class="icon">🕹️</span>
+        <h3>Jogos PS5</h3>
+        <p>Os melhores jogos para PlayStation 5</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/jogos-xbox.html" class="category-card fade-in">
+        <span class="icon">🟢</span>
+        <h3>Jogos Xbox</h3>
+        <p>Os melhores jogos para Xbox Series X|S</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/jogos-switch.html" class="category-card fade-in">
+        <span class="icon">🔴</span>
+        <h3>Jogos Nintendo Switch</h3>
+        <p>Os melhores jogos para Nintendo Switch</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/jogos-pc.html" class="category-card fade-in">
+        <span class="icon">💻</span>
+        <h3>Jogos PC</h3>
+        <p>Jogos físicos e digitais para PC gamers</p>
+      </a>
+      <a href="/cortex-marketing-site/categoria/controles.html" class="category-card fade-in">
+        <span class="icon">🕹️</span>
+        <h3>Controles & Joysticks</h3>
+        <p>Controles para PC, console e mobile gaming</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews em Destaque -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-header fade-in">
+      <h2>Reviews em Destaque</h2>
+      <p>Os produtos com melhor avaliação do nosso time</p>
+    </div>
+    <div class="products-grid">
+      
+    <article class="product-card fade-in" data-price="45.0" data-score="10.0" data-rating="5.0" data-title="Teclado Gamer Semi Mecânico 60% com Fio Preto Led Rgb Abnt2 Usb Pc Computador Vi" data-cat="teclados-mecanicos">
+      <div class="product-card-img">
+        
+        <span class="product-card-score">10.0</span>
+        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop&auto=format" alt="Teclado Gamer Semi Mecânico 60% com Fio Preto Led Rgb Abnt2 Usb Pc Computador Video Game Pequeno" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Teclados-Mecanicos</span>
+        <h3><a href="/cortex-marketing-site/review/B0GSSHVRGG.html">Teclado Gamer Semi Mecânico 60% com Fio Preto Led Rgb Abnt2 Usb Pc Computador Vi</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 45.00
+            
+          </div>
+          <div class="product-rating">
+            ★★★★★ <span>(3877)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0GSSHVRGG.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0GSSHVRGG?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0GSSHVRGG">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="4197.0" data-score="10.0" data-rating="5.0" data-title="PLACA DE VIDEO NV RTX5060TI EX 8GB BLACK GF 128BITS GDDR7 GALAX 56ISN8MDCREX" data-cat="placas-de-video">
+      <div class="product-card-img">
+        
+        <span class="product-card-score">10.0</span>
+        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format" alt="PLACA DE VIDEO NV RTX5060TI EX 8GB BLACK GF 128BITS GDDR7 GALAX 56ISN8MDCREX" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Placas-De-Video</span>
+        <h3><a href="/cortex-marketing-site/review/B0FDCLKJ1H.html">PLACA DE VIDEO NV RTX5060TI EX 8GB BLACK GF 128BITS GDDR7 GALAX 56ISN8MDCREX</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 4,197.00
+            
+          </div>
+          <div class="product-rating">
+            ★★★★★ <span>(1281)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0FDCLKJ1H.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0FDCLKJ1H?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0FDCLKJ1H">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="4099.0" data-score="9.8" data-rating="4.9" data-title="PlayStation®5 Slim Edição Digital com 2 Jogos" data-cat="consoles">
+      <div class="product-card-img">
+        
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format" alt="PlayStation®5 Slim Edição Digital com 2 Jogos" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Consoles</span>
+        <h3><a href="/cortex-marketing-site/review/B0CYJBWGH5.html">PlayStation®5 Slim Edição Digital com 2 Jogos</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 4,099.00
+            
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(45548)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0CYJBWGH5.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0CYJBWGH5?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0CYJBWGH5">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="100.0" data-score="9.8" data-rating="4.9" data-title="Gift Card Steam R$ 100 Digital" data-cat="jogos-pc">
+      <div class="product-card-img">
+        
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format" alt="Gift Card Steam R$ 100 Digital" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Jogos-Pc</span>
+        <h3><a href="/cortex-marketing-site/review/B0D5GT8QJF.html">Gift Card Steam R$ 100 Digital</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 100.00
+            
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(35000)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0D5GT8QJF.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0D5GT8QJF?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0D5GT8QJF">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="279.9" data-score="9.8" data-rating="4.9" data-title="Mario Kart 8 Deluxe Nintendo Switch Mídia Física" data-cat="jogos-switch">
+      <div class="product-card-img">
+        <span class="product-card-badge">-20%</span>
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&h=300&fit=crop&auto=format" alt="Mario Kart 8 Deluxe Nintendo Switch Mídia Física" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Jogos-Switch</span>
+        <h3><a href="/cortex-marketing-site/review/B09JKTFWGB.html">Mario Kart 8 Deluxe Nintendo Switch Mídia Física</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 279.90
+            <small>R$ 349.90</small>
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(25000)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B09JKTFWGB.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B09JKTFWGB?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B09JKTFWGB">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="119.9" data-score="9.8" data-rating="4.9" data-title="Xbox Game Pass Ultimate 3 Meses Digital" data-cat="jogos-xbox">
+      <div class="product-card-img">
+        
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format" alt="Xbox Game Pass Ultimate 3 Meses Digital" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Jogos-Xbox</span>
+        <h3><a href="/cortex-marketing-site/review/B0D8J7KMQW.html">Xbox Game Pass Ultimate 3 Meses Digital</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 119.90
+            
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(22000)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0D8J7KMQW.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0D8J7KMQW?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0D8J7KMQW">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="299.9" data-score="9.8" data-rating="4.9" data-title="The Legend of Zelda Tears of the Kingdom Switch Mídia Física" data-cat="jogos-switch">
+      <div class="product-card-img">
+        <span class="product-card-badge">-14%</span>
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format" alt="The Legend of Zelda Tears of the Kingdom Switch Mídia Física" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Jogos-Switch</span>
+        <h3><a href="/cortex-marketing-site/review/B0CFGZ8QLP.html">The Legend of Zelda Tears of the Kingdom Switch Mídia Física</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 299.90
+            <small>R$ 349.90</small>
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(18000)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0CFGZ8QLP.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0CFGZ8QLP?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0CFGZ8QLP">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="199.9" data-score="9.8" data-rating="4.9" data-title="God of War Ragnarök PS5 Mídia Física Dublado PT-BR" data-cat="jogos-ps5">
+      <div class="product-card-img">
+        <span class="product-card-badge">-33%</span>
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop&auto=format" alt="God of War Ragnarök PS5 Mídia Física Dublado PT-BR" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Jogos-Ps5</span>
+        <h3><a href="/cortex-marketing-site/review/B0D3JPHKFV.html">God of War Ragnarök PS5 Mídia Física Dublado PT-BR</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 199.90
+            <small>R$ 299.90</small>
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(15000)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0D3JPHKFV.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0D3JPHKFV?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0D3JPHKFV">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="3999.0" data-score="9.8" data-rating="4.9" data-title="Console PlayStation 5 Slim com Disco 1TB SSD Branco" data-cat="consoles">
+      <div class="product-card-img">
+        <span class="product-card-badge">-11%</span>
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop&auto=format" alt="Console PlayStation 5 Slim com Disco 1TB SSD Branco" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Consoles</span>
+        <h3><a href="/cortex-marketing-site/review/B0CHX1PLDJ.html">Console PlayStation 5 Slim com Disco 1TB SSD Branco</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 3,999.00
+            <small>R$ 4,499.00</small>
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(4500)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0CHX1PLDJ.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0CHX1PLDJ?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0CHX1PLDJ">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="1399.0" data-score="9.8" data-rating="4.9" data-title="Processador AMD Ryzen 7 5800X3D 8 Cores 3.4GHz AM4 V-Cache" data-cat="processadores">
+      <div class="product-card-img">
+        <span class="product-card-badge">-18%</span>
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format" alt="Processador AMD Ryzen 7 5800X3D 8 Cores 3.4GHz AM4 V-Cache" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Processadores</span>
+        <h3><a href="/cortex-marketing-site/review/B0D3K7FJLM.html">Processador AMD Ryzen 7 5800X3D 8 Cores 3.4GHz AM4 V-Cache</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 1,399.00
+            <small>R$ 1,699.00</small>
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(4200)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0D3K7FJLM.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0D3K7FJLM?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0D3K7FJLM">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="205.0" data-score="9.8" data-rating="4.9" data-title="God of War Ragnarök - Edição Standard - PlayStation 5" data-cat="jogos-ps5">
+      <div class="product-card-img">
+        
+        <span class="product-card-score">9.8</span>
+        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=300&fit=crop&auto=format" alt="God of War Ragnarök - Edição Standard - PlayStation 5" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Jogos-Ps5</span>
+        <h3><a href="/cortex-marketing-site/review/B0BH59HP23.html">God of War Ragnarök - Edição Standard - PlayStation 5</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 205.00
+            
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(2702)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0BH59HP23.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0BH59HP23?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0BH59HP23">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    <article class="product-card fade-in" data-price="3799.0" data-score="9.6" data-rating="4.8" data-title="PlayStation®5 Slim Digital 825GB – Pacote ASTRO BOT e Gran Turismo 7" data-cat="consoles">
+      <div class="product-card-img">
+        
+        <span class="product-card-score">9.6</span>
+        <img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format" alt="PlayStation®5 Slim Digital 825GB – Pacote ASTRO BOT e Gran Turismo 7" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format'">
+      </div>
+      <div class="product-card-body">
+        <span class="product-card-category">Consoles</span>
+        <h3><a href="/cortex-marketing-site/review/B0FPGF9J2J.html">PlayStation®5 Slim Digital 825GB – Pacote ASTRO BOT e Gran Turismo 7</a></h3>
+        <p class="product-card-excerpt">Review completo com análise de performance, build quality e custo-benefício.</p>
+        <div class="product-card-footer">
+          <div class="product-price">
+            R$ 3,799.00
+            
+          </div>
+          <div class="product-rating">
+            ★★★★☆ <span>(45624)</span>
+          </div>
+        </div>
+        <div class="product-card-actions">
+          <a href="/cortex-marketing-site/review/B0FPGF9J2J.html" class="btn btn-sm btn-secondary">📝 Ver Review</a>
+          <a href="https://www.amazon.com.br/dp/B0FPGF9J2J?tag=hennanst-20" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon" data-product="B0FPGF9J2J">🛒 Amazon</a>
+        </div>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Setup Builder -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="newsletter fade-in">
+      <h3>🎮 Não sabe por onde começar?</h3>
+      <p>Use nosso montador de setup e descubra os melhores produtos para o seu orçamento.</p>
+      <a href="/cortex-marketing-site/monte-seu-setup.html" class="btn btn-primary btn-lg">Monte seu Setup Agora</a>
+    </div>
+  </div>
+</section>
+
+<!-- Search data for client-side search -->
+<script>window.__PRODUCTS__ = [{"t": "Teclado Gamer Semi Mecânico 60% com Fio Preto Led Rgb Abnt2 Usb Pc Computador Vi", "p": 45.0, "c": "teclados-mecanicos", "a": "B0GSSHVRGG", "r": 5.0, "i": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0GSSHVRGG?tag=hennanst-20"}, {"t": "PLACA DE VIDEO NV RTX5060TI EX 8GB BLACK GF 128BITS GDDR7 GALAX 56ISN8MDCREX", "p": 4197.0, "c": "placas-de-video", "a": "B0FDCLKJ1H", "r": 5.0, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FDCLKJ1H?tag=hennanst-20"}, {"t": "Cabo HDMI 4K 2.0 Ultra HD 1 Metro – Alta Definição com HDR, 3D, Ethernet e Const", "p": 27.0, "c": "consoles", "a": "B0GTBH1HJ9", "r": 5.0, "i": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0GTBH1HJ9?tag=hennanst-20"}, {"t": "Memória Ram 16gb Ddr4 | Rise Mode | 3200mhz | Z Series White", "p": 743.0, "c": "memoria-ram", "a": "B0DKQDKZQ1", "r": 5.0, "i": "https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0DKQDKZQ1?tag=hennanst-20"}, {"t": "PlayStation®5 Slim Edição Digital com 2 Jogos", "p": 4099.0, "c": "consoles", "a": "B0CYJBWGH5", "r": 4.9, "i": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CYJBWGH5?tag=hennanst-20"}, {"t": "Gift Card Steam R$ 100 Digital", "p": 100.0, "c": "jogos-pc", "a": "B0D5GT8QJF", "r": 4.9, "i": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5GT8QJF?tag=hennanst-20"}, {"t": "Mario Kart 8 Deluxe Nintendo Switch Mídia Física", "p": 279.9, "c": "jogos-switch", "a": "B09JKTFWGB", "r": 4.9, "i": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09JKTFWGB?tag=hennanst-20"}, {"t": "Xbox Game Pass Ultimate 3 Meses Digital", "p": 119.9, "c": "jogos-xbox", "a": "B0D8J7KMQW", "r": 4.9, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D8J7KMQW?tag=hennanst-20"}, {"t": "The Legend of Zelda Tears of the Kingdom Switch Mídia Física", "p": 299.9, "c": "jogos-switch", "a": "B0CFGZ8QLP", "r": 4.9, "i": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CFGZ8QLP?tag=hennanst-20"}, {"t": "God of War Ragnarök PS5 Mídia Física Dublado PT-BR", "p": 199.9, "c": "jogos-ps5", "a": "B0D3JPHKFV", "r": 4.9, "i": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D3JPHKFV?tag=hennanst-20"}, {"t": "Console PlayStation 5 Slim com Disco 1TB SSD Branco", "p": 3999.0, "c": "consoles", "a": "B0CHX1PLDJ", "r": 4.9, "i": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CHX1PLDJ?tag=hennanst-20"}, {"t": "Processador AMD Ryzen 7 5800X3D 8 Cores 3.4GHz AM4 V-Cache", "p": 1399.0, "c": "processadores", "a": "B0D3K7FJLM", "r": 4.9, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D3K7FJLM?tag=hennanst-20"}, {"t": "God of War Ragnarök - Edição Standard - PlayStation 5", "p": 205.0, "c": "jogos-ps5", "a": "B0BH59HP23", "r": 4.9, "i": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BH59HP23?tag=hennanst-20"}, {"t": "Memória Ram 16GB DDR5 5600MHz 1.1V com Alta Desempenho e Performance Jogos, Mult", "p": 1307.0, "c": "memoria-ram", "a": "B0G2YMTDFS", "r": 4.9, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0G2YMTDFS?tag=hennanst-20"}, {"t": "PlayStation®5 Slim Digital 825GB – Pacote ASTRO BOT e Gran Turismo 7", "p": 3799.0, "c": "consoles", "a": "B0FPGF9J2J", "r": 4.8, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FPGF9J2J?tag=hennanst-20"}, {"t": "PlayStation®5 Slim Disk - Pacote ASTRO BOT e Gran Turismo 7", "p": 4599.0, "c": "consoles", "a": "B0F8R9NDXC", "r": 4.8, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0F8R9NDXC?tag=hennanst-20"}, {"t": "Gift Card Xbox Game Pass PC 3 Meses Digital", "p": 79.9, "c": "jogos-pc", "a": "B0D8GKRQF7", "r": 4.8, "i": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D8GKRQF7?tag=hennanst-20"}, {"t": "Controle DualSense PS5 Wireless Branco Original Sony", "p": 349.9, "c": "controles", "a": "B0BTJF9QFR", "r": 4.8, "i": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJF9QFR?tag=hennanst-20"}, {"t": "Controle sem fio DualSense Midnight Black", "p": 415.0, "c": "controles", "a": "B0CQKKHT5J", "r": 4.8, "i": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CQKKHT5J?tag=hennanst-20"}, {"t": "Controle DualSense - PlayStation 5", "p": 389.0, "c": "controles", "a": "B088GNW267", "r": 4.8, "i": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B088GNW267?tag=hennanst-20"}, {"t": "PlayStation®5 Slim Edição Digital", "p": 3799.0, "c": "consoles", "a": "B0CQKJN2C6", "r": 4.8, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CQKJN2C6?tag=hennanst-20"}, {"t": "Processador AMD Ryzen 5 5600X 6 Cores 3.7GHz AM4", "p": 749.0, "c": "processadores", "a": "B0BHEN8ZJS", "r": 4.8, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BHEN8ZJS?tag=hennanst-20"}, {"t": "Spider-Man 2 PS5 Mídia Física Insomniac Games", "p": 199.9, "c": "jogos-ps5", "a": "B0CG6J8PLD", "r": 4.8, "i": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6J8PLD?tag=hennanst-20"}, {"t": "Módulo de Memória Ddr4 16gb, Ram de Alto Desempenho Com Dissipação de Calor Rápi", "p": 639.0, "c": "memoria-ram", "a": "B0GGL8GGFY", "r": 4.8, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0GGL8GGFY?tag=hennanst-20"}, {"t": "Forza Horizon 5 Premium Edition Xbox Series X/S Digital", "p": 149.9, "c": "jogos-xbox", "a": "B0D3KJR8FV", "r": 4.8, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D3KJR8FV?tag=hennanst-20"}, {"t": "Console Nintendo Switch OLED 64GB Branco Joy-Con", "p": 2199.0, "c": "consoles", "a": "B0BFJWCYTL", "r": 4.8, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BFJWCYTL?tag=hennanst-20"}, {"t": "Console PlayStation 5 Slim Digital Edition 1TB SSD", "p": 3499.0, "c": "consoles", "a": "B0BCNKKZ91", "r": 4.8, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BCNKKZ91?tag=hennanst-20"}, {"t": "The Last of Us Part I PS5 Remake Mídia Física", "p": 149.9, "c": "jogos-ps5", "a": "B0CFGGQWJT", "r": 4.8, "i": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CFGGQWJT?tag=hennanst-20"}, {"t": "Super Mario Bros Wonder Switch Mídia Física Nintendo", "p": 279.9, "c": "jogos-switch", "a": "B0D5FRMJ8K", "r": 4.8, "i": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5FRMJ8K?tag=hennanst-20"}, {"t": "Headset Gamer Redragon Zeus Lite Preto P3 H510-LT", "p": 149.0, "c": "headsets-gamer", "a": "B0F1C3MRMF", "r": 4.8, "i": "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0F1C3MRMF?tag=hennanst-20"}, {"t": "TECLADO MECÂNICO GAMER REDRAGON VALHEIM ILUMINAÇÃO RAINBOW PRETO SWITCH BROWN K6", "p": 199.0, "c": "teclados-mecanicos", "a": "B0DG6HGF93", "r": 4.8, "i": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0DG6HGF93?tag=hennanst-20"}, {"t": "SSD Samsung 980 PRO 1TB M.2 NVMe PCIe 4.0 7000MB/s", "p": 599.9, "c": "armazenamento", "a": "B0BTJF7KQR", "r": 4.8, "i": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJF7KQR?tag=hennanst-20"}, {"t": "Fonte Corsair RM750 750W 80 Plus Gold Full Modular", "p": 499.9, "c": "fontes", "a": "B0BTJF8QFR", "r": 4.8, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJF8QFR?tag=hennanst-20"}, {"t": "SSD WD Black SN850X 1TB M.2 NVMe PCIe 4.0 7300MB/s PS5 Ready", "p": 499.9, "c": "armazenamento", "a": "B0CG6JK8QR", "r": 4.8, "i": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6JK8QR?tag=hennanst-20"}, {"t": "Microfone Condensador HyperX QuadCast S USB RGB", "p": 599.9, "c": "streaming", "a": "B0BTJK8LFR", "r": 4.8, "i": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJK8LFR?tag=hennanst-20"}, {"t": "Monitor Gamer Samsung 24&#34; FHD,100 Hz, HDMI, VGA,Preto, S3", "p": 519.0, "c": "monitores-gamer", "a": "B0F1C49115", "r": 4.8, "i": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0F1C49115?tag=hennanst-20"}, {"t": "Processador AMD Ryzen 7 9700X Box (AM5/ 8 Cores/ 16 Threads/ 5.5GHz / 40MB Cache", "p": 1941.0, "c": "processadores", "a": "B0D6NMDNNX", "r": 4.8, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D6NMDNNX?tag=hennanst-20"}, {"t": "Memória RAM G.Skill Trident Z5 DDR5 32GB (2x16GB) 6000MHz RGB", "p": 699.9, "c": "memoria-ram", "a": "B0D5FQ8QFR", "r": 4.8, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5FQ8QFR?tag=hennanst-20"}, {"t": "Monitor Gamer LG UltraGear 24” 24GS60F-B IPS Full HD 180Hz 1ms (GtG) NVIDIA® G-S", "p": 749.0, "c": "monitores-gamer", "a": "B0D8DPT7ZY", "r": 4.8, "i": "https://images.unsplash.com/photo-1616588589676-62b3d4ff6a10?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D8DPT7ZY?tag=hennanst-20"}, {"t": "Teclado Mecânico Logitech G Pro X TKL LIGHTSPEED Wireless", "p": 749.9, "c": "teclados-mecanicos", "a": "B0D5M3RWJL", "r": 4.8, "i": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5M3RWJL?tag=hennanst-20"}, {"t": "MSI GeForce RTX 5060 Ventus 2X OC (8GB GDDR7/PCI Express 5.0/2535MHz/28000MHz)", "p": 2719.0, "c": "placas-de-video", "a": "B0972BP9YR", "r": 4.8, "i": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0972BP9YR?tag=hennanst-20"}, {"t": "TECLADO MECÂNICO GAMER REDRAGON FIZZ RGB PRETO SWITCH MARROM K617-RGB-B (PT-BROW", "p": 187.0, "c": "teclados-mecanicos", "a": "B0B6KFCC19", "r": 4.8, "i": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0B6KFCC19?tag=hennanst-20"}, {"t": "Fonte Kalkan Maxpower 650W ATX 80 Plus Bronze Cabos Flat Preto MP-0750W-B", "p": 346.0, "c": "fontes", "a": "B0GL4W8522", "r": 4.8, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0GL4W8522?tag=hennanst-20"}, {"t": "Nintendo, Jogo, Super Mario Galaxy + Super Mario Galaxy 2, Nintendo Switch", "p": 355.0, "c": "jogos-switch", "a": "B0FS8WQVJZ", "r": 4.8, "i": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FS8WQVJZ?tag=hennanst-20"}, {"t": "Placa de Vídeo RTX 4070 Super Gigabyte WindForce OC 12GB", "p": 3899.0, "c": "placas-de-video", "a": "B0D5F8GNKH", "r": 4.8, "i": "https://images.unsplash.com/photo-1555618568-fac1bf13f0f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5F8GNKH?tag=hennanst-20"}, {"t": "PLACA DE VIDEO ASUS DUAL RADEON RX 7600 EVO OC EDITION 8GB GDDR6 128 BITS - DUAL", "p": 1775.0, "c": "placas-de-video", "a": "B0DKPGQT97", "r": 4.8, "i": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0DKPGQT97?tag=hennanst-20"}, {"t": "Webcam HD C270 com 3 MP para Chamadas e Gravações em Vídeo Widescreen, Logitech,", "p": 144.0, "c": "streaming", "a": "B003PAOAWG", "r": 4.7, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B003PAOAWG?tag=hennanst-20"}, {"t": "Sony Control Inalámbrico PS5 DualSense Midnight Black", "p": 389.0, "c": "controles", "a": "B0956PFTDK", "r": 4.7, "i": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0956PFTDK?tag=hennanst-20"}, {"t": "Controle Xbox Wireless Carbon Black Original Microsoft", "p": 379.9, "c": "controles", "a": "B0CG6JKQFR", "r": 4.7, "i": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6JKQFR?tag=hennanst-20"}, {"t": "Mousepad Gamer HyperX Fury S XL 900x420mm", "p": 129.9, "c": "perifericos", "a": "B0BTJFAQFR", "r": 4.7, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJFAQFR?tag=hennanst-20"}, {"t": "Memória RAM Corsair Vengeance DDR4 16GB (2x8GB) 3200MHz RGB", "p": 289.9, "c": "memoria-ram", "a": "B0BTJDKQFR", "r": 4.7, "i": "https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJDKQFR?tag=hennanst-20"}, {"t": "SSD Kingston NV2 1TB M.2 NVMe PCIe 4.0 3500MB/s", "p": 349.9, "c": "armazenamento", "a": "B0BHG5NRM2", "r": 4.7, "i": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BHG5NRM2?tag=hennanst-20"}, {"t": "Memória RAM Kingston Fury Beast DDR4 16GB (2x8GB) 3600MHz", "p": 249.9, "c": "memoria-ram", "a": "B0CG6JPMQR", "r": 4.7, "i": "https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6JPMQR?tag=hennanst-20"}, {"t": "Mouse Gamer Logitech G305 LIGHTSPEED Wireless 12000 DPI", "p": 189.9, "c": "mouses-gamer", "a": "B09JLPWN5L", "r": 4.7, "i": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09JLPWN5L?tag=hennanst-20"}, {"t": "Console Xbox Series X 1TB SSD 4K UHD Blu-Ray", "p": 3999.0, "c": "consoles", "a": "B0BT1H4GGV", "r": 4.7, "i": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BT1H4GGV?tag=hennanst-20"}, {"t": "Headset HyperX Cloud II Wireless Gaming 7.1 Surround", "p": 599.0, "c": "headsets-gamer", "a": "B08HMWZBXC", "r": 4.7, "i": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B08HMWZBXC?tag=hennanst-20"}, {"t": "Headset Gamer Redragon Zeus Pro Preto Sem Fio 7.1 H510-PRO", "p": 361.0, "c": "headsets-gamer", "a": "B0CNKVYLF5", "r": 4.7, "i": "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CNKVYLF5?tag=hennanst-20"}, {"t": "Processador Intel Core i5-13400F 10 Cores LGA 1700", "p": 899.0, "c": "processadores", "a": "B0CCJ2ZJFG", "r": 4.7, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CCJ2ZJFG?tag=hennanst-20"}, {"t": "SAMSUNG Monitor Gamer Odyssey 25&#34;, FHD, 240 Hz, 1ms, com ajuste de altura, H", "p": 1598.0, "c": "monitores-gamer", "a": "B0B7SNNMNG", "r": 4.7, "i": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0B7SNNMNG?tag=hennanst-20"}, {"t": "Teclado Mecânico HyperX Alloy Origins Core TKL RGB", "p": 399.9, "c": "teclados-mecanicos", "a": "B09LYTCFHP", "r": 4.7, "i": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09LYTCFHP?tag=hennanst-20"}, {"t": "Final Fantasy VII Rebirth PS5 Mídia Física", "p": 229.9, "c": "jogos-ps5", "a": "B0D8R7MQKL", "r": 4.7, "i": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D8R7MQKL?tag=hennanst-20"}, {"t": "Teclado Mecânico Corsair K70 RGB PRO Cherry MX Red", "p": 599.9, "c": "teclados-mecanicos", "a": "B0BF6JKT9H", "r": 4.7, "i": "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BF6JKT9H?tag=hennanst-20"}, {"t": "Webcam Logitech Brio 4K Pro Stream Ultra HD Autofoco HDR", "p": 799.9, "c": "streaming", "a": "B09DKTQMTL", "r": 4.7, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09DKTQMTL?tag=hennanst-20"}, {"t": "Fonte Cooler Master V850 Gold V2 850W 80 Plus Gold Modular", "p": 599.9, "c": "fontes", "a": "B0D5FQ7QFR", "r": 4.7, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5FQ7QFR?tag=hennanst-20"}, {"t": "MONITOR GAMER SAMSUNG ODYSSEY G30 24&#34; 144Hz 1ms AMD FreeSync Premium", "p": 683.0, "c": "monitores-gamer", "a": "B0BTJ86YFZ", "r": 4.7, "i": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJ86YFZ?tag=hennanst-20"}, {"t": "EMEET Webcam 1080p com microfone, câmera Web C960, webcam de streaming de 2 micr", "p": 214.0, "c": "streaming", "a": "B07M6Y7355", "r": 4.7, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B07M6Y7355?tag=hennanst-20"}, {"t": "Gabinete Gamer Corsair 4000D Airflow ATX Mid-Tower Vidro Temperado", "p": 499.9, "c": "gabinetes", "a": "B0BTJF9RLV", "r": 4.7, "i": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJF9RLV?tag=hennanst-20"}, {"t": "Fonte Gamemax Gp750 750w 80 Plus Bronze Pfc Ativo Preta", "p": 379.0, "c": "fontes", "a": "B09VK3ZLNS", "r": 4.7, "i": "https://images.unsplash.com/photo-1555618568-fac1bf13f0f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09VK3ZLNS?tag=hennanst-20"}, {"t": "Yakuza 0 - Director&#39;s Cut - Nintendo Switch 2", "p": 184.0, "c": "jogos-switch", "a": "B0F65ZBSXY", "r": 4.7, "i": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0F65ZBSXY?tag=hennanst-20"}, {"t": "Mouse Logitech G502 X PLUS LIGHTSPEED Wireless RGB Gaming", "p": 449.9, "c": "mouses-gamer", "a": "B0BXQM3WJX", "r": 4.7, "i": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BXQM3WJX?tag=hennanst-20"}, {"t": "Placa de Captura Elgato HD60 X 4K30 HDR10 USB-C Passthrough", "p": 899.9, "c": "streaming", "a": "B0CG6JFQML", "r": 4.7, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6JFQML?tag=hennanst-20"}, {"t": "Placa de Vídeo RTX 4060 MSI Ventus 2X OC 8GB GDDR6", "p": 2199.0, "c": "placas-de-video", "a": "B0CG61DYWH", "r": 4.7, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG61DYWH?tag=hennanst-20"}, {"t": "Placa de Vídeo Galax GeForce RTX 3050 EX V2, 6GB, GDDR6, 96 Bits - 35NRLDHP9OID", "p": 1365.0, "c": "placas-de-video", "a": "B0F34F1K5R", "r": 4.7, "i": "https://images.unsplash.com/photo-1555618568-fac1bf13f0f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0F34F1K5R?tag=hennanst-20"}, {"t": "Memória Desktop Gamer Adata XPG Gammix D35 16GB DDR4 3200 Mhz - Branco - AX4U320", "p": 975.0, "c": "memoria-ram", "a": "B0C6HW8M89", "r": 4.7, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0C6HW8M89?tag=hennanst-20"}, {"t": "MSI GeForce RTX 3050 LP 6G OC (6GB GDDR6/PCI Express 4.0/1492MHz/14000MHz/Perfil", "p": 1675.0, "c": "placas-de-video", "a": "B0CSPRNRZC", "r": 4.7, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CSPRNRZC?tag=hennanst-20"}, {"t": "Controle sem fio DualSense® – Edição limitada do Genshin Impact", "p": 599.0, "c": "controles", "a": "B0G4S3GZ5N", "r": 4.7, "i": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0G4S3GZ5N?tag=hennanst-20"}, {"t": "Controle sem fio DualSense® – Edição Limitada Black: Ghost of Yōtei - PlayStatio", "p": 599.0, "c": "controles", "a": "B0G154TXGX", "r": 4.7, "i": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0G154TXGX?tag=hennanst-20"}, {"t": "EMEET Webcam NOVA 4K para PC - Ultra 4K HD, foco automático PDAF, microfones omn", "p": 229.0, "c": "streaming", "a": "B0CY2C7H6S", "r": 4.6, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CY2C7H6S?tag=hennanst-20"}, {"t": "UGREEN Webcam 2K para PC Ultra HD com Microfone, Câmera para PC com Capa de Priv", "p": 243.0, "c": "streaming", "a": "B0DGXFNVLD", "r": 4.6, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0DGXFNVLD?tag=hennanst-20"}, {"t": "Teclado Mecânico Redragon Kumara K552 RGB Switch Blue", "p": 179.9, "c": "teclados-mecanicos", "a": "B0C7C7RYR1", "r": 4.6, "i": "https://images.unsplash.com/photo-1595044426077-d36d9236d54a?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0C7C7RYR1?tag=hennanst-20"}, {"t": "Console Xbox Series S 512GB Digital", "p": 1999.0, "c": "consoles", "a": "B0CG5F7KKQ", "r": 4.6, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG5F7KKQ?tag=hennanst-20"}, {"t": "Gran Turismo 7 PS5 25th Anniversary Mídia Física", "p": 179.9, "c": "jogos-ps5", "a": "B0D5FTPSG7", "r": 4.6, "i": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5FTPSG7?tag=hennanst-20"}, {"t": "Minecraft - Nintendo Switch", "p": 249.0, "c": "jogos-switch", "a": "B07D13QGXM", "r": 4.6, "i": "https://images.unsplash.com/photo-1486401899868-0e435ed85128?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B07D13QGXM?tag=hennanst-20"}, {"t": "KF432C16BB/16 - Memória de 16GB DIMM DDR4 3200Mhz FURY Beast 1,35V 1Rx8 288 pino", "p": 971.0, "c": "memoria-ram", "a": "B097K3WV9J", "r": 4.6, "i": "https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B097K3WV9J?tag=hennanst-20"}, {"t": "Monitor Gamer LG UltraGear 27 IPS 144Hz 1ms FreeSync", "p": 1299.0, "c": "monitores-gamer", "a": "B09V3KXJPB", "r": 4.6, "i": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09V3KXJPB?tag=hennanst-20"}, {"t": "Controle 8BitDo Ultimate Wireless Bluetooth PC Switch", "p": 299.9, "c": "controles", "a": "B0D5FQ9QFR", "r": 4.6, "i": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5FQ9QFR?tag=hennanst-20"}, {"t": "Mouse Razer DeathAdder V3 Ergonomico 30000 DPI Sensor Focus Pro", "p": 349.9, "c": "mouses-gamer", "a": "B0BS7ZT2FN", "r": 4.6, "i": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BS7ZT2FN?tag=hennanst-20"}, {"t": "Headset Corsair HS80 RGB Wireless Premium 7.1 Surround Dolby Atmos", "p": 799.9, "c": "headsets-gamer", "a": "B0D7M5RGHJ", "r": 4.6, "i": "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D7M5RGHJ?tag=hennanst-20"}, {"t": "Cadeira Gamer DT3 GX Pro Ergonômica Apoio Lombar", "p": 1299.0, "c": "cadeiras-gamer", "a": "B0BTJD5K2L", "r": 4.6, "i": "https://images.unsplash.com/photo-1616627577385-5c0c4dab10af?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJD5K2L?tag=hennanst-20"}, {"t": "Havit Fone de Ouvido Headset Gamer Fuxi-H3 Black Com Fio e Sem Fio, Wireless 2,4", "p": 152.0, "c": "headsets-gamer", "a": "B0CHJXCJTW", "r": 4.6, "i": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CHJXCJTW?tag=hennanst-20"}, {"t": "Mouse HyperX Pulsefire Haste 2 Wireless Gaming 26000 DPI", "p": 329.9, "c": "mouses-gamer", "a": "B0D8R4ZZG1", "r": 4.6, "i": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D8R4ZZG1?tag=hennanst-20"}, {"t": "KF426C16BB1/16 - Memória de 16GB DIMM DDR4 2666Mhz FURY Beast 1,2V 2Rx8 288 pino", "p": 1145.0, "c": "memoria-ram", "a": "B097K43M9H", "r": 4.6, "i": "https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B097K43M9H?tag=hennanst-20"}, {"t": "Kingston, KF432C16BBK2/16 - Kit de memórias de 16GB (2 x 8GB) DIMM DDR4 3200Mhz ", "p": 1040.0, "c": "memoria-ram", "a": "B097K2WBL3", "r": 4.6, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B097K2WBL3?tag=hennanst-20"}, {"t": "Cadeira Gamer, Assento Extra Largo e Espesso, Tecido de Pelúcia Curta, Apoio de ", "p": 599.0, "c": "cadeiras-gamer", "a": "B0G7H7NBMF", "r": 4.6, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0G7H7NBMF?tag=hennanst-20"}, {"t": "Monitor Gamer TCL 25 Polegadas QLED Mini LED Full HD G64 300Hz 1ms (GtG) Freesyn", "p": 1699.0, "c": "monitores-gamer", "a": "B0FPDW9PLB", "r": 4.6, "i": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FPDW9PLB?tag=hennanst-20"}, {"t": "Fonte de Alimentação Gamer Redragon RGPS-750W 80 Plus Gold Full Modular, Preto", "p": 689.0, "c": "fontes", "a": "B09V89JMY9", "r": 4.6, "i": "https://images.unsplash.com/photo-1555618568-fac1bf13f0f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09V89JMY9?tag=hennanst-20"}, {"t": "SSD Externo SanDisk Extreme PS5, 1TB, USB 3.2 Gen 2, Portátil, Leitura: 1000 MB/", "p": 1298.0, "c": "consoles", "a": "B0DQWHWWNS", "r": 4.6, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0DQWHWWNS?tag=hennanst-20"}, {"t": "Monitor Gamer Curvo TCL 57 Polegadas QLED Mini LED 4K R94 120Hz 1ms (GtG) HDR 10", "p": 1699.0, "c": "monitores-gamer", "a": "B0FPDW2GSQ", "r": 4.6, "i": "https://images.unsplash.com/photo-1616588589676-62b3d4ff6a10?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FPDW2GSQ?tag=hennanst-20"}, {"t": "COOLER MASTER, FONTE COOLER MASTER ATX 3.1 650W MWE GOLD 650 V3 PFC ATIVO 80 PLU", "p": 389.0, "c": "fontes", "a": "B0FS7WG7RV", "r": 4.6, "i": "https://images.unsplash.com/photo-1555618568-fac1bf13f0f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FS7WG7RV?tag=hennanst-20"}, {"t": "COOLER MASTER, FONTE COOLER MASTER ATX 3.1 750W MWE GOLD 750 V3 PFC ATIVO 80 PLU", "p": 445.0, "c": "fontes", "a": "B0FS7RH2DB", "r": 4.6, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FS7RH2DB?tag=hennanst-20"}, {"t": "Mouse Gamer Redragon Cobra M711 10000 DPI RGB", "p": 89.9, "c": "mouses-gamer", "a": "B0CG61DYWK", "r": 4.5, "i": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG61DYWK?tag=hennanst-20"}, {"t": "HD Externo Seagate Expansion 2TB USB 3.0 Portátil", "p": 399.9, "c": "armazenamento", "a": "B0D3K7PMFR", "r": 4.5, "i": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D3K7PMFR?tag=hennanst-20"}, {"t": "Headset Gamer Redragon Zeus X H510 7.1 USB RGB", "p": 159.9, "c": "headsets-gamer", "a": "B0CGP8JN1L", "r": 4.5, "i": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CGP8JN1L?tag=hennanst-20"}, {"t": "Halo Infinite Xbox Series X Mídia Física", "p": 99.9, "c": "jogos-xbox", "a": "B0BTJD9KFG", "r": 4.5, "i": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJD9KFG?tag=hennanst-20"}, {"t": "Pokémon Violet Nintendo Switch Mídia Física", "p": 249.9, "c": "jogos-switch", "a": "B0CG6KPQRT", "r": 4.5, "i": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6KPQRT?tag=hennanst-20"}, {"t": "Monitor AOC 24G2E1 24 IPS 100Hz 1ms FreeSync", "p": 699.0, "c": "monitores-gamer", "a": "B0D3K7P2CB", "r": 4.5, "i": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D3K7P2CB?tag=hennanst-20"}, {"t": "EA Play Pro 12 Meses PC Digital", "p": 199.9, "c": "jogos-pc", "a": "B0BTJGFQ7D", "r": 4.5, "i": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BTJGFQ7D?tag=hennanst-20"}, {"t": "Controle Gamesir G7 SE Wired Xbox Series X/S PC", "p": 249.9, "c": "controles", "a": "B0D8R5FQFR", "r": 4.5, "i": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D8R5FQFR?tag=hennanst-20"}, {"t": "Suporte de Headset Corsair ST100 RGB Premium USB Hub", "p": 199.9, "c": "perifericos", "a": "B0CG6JLQFR", "r": 4.5, "i": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6JLQFR?tag=hennanst-20"}, {"t": "Monitor Samsung Odyssey G5 27 WQHD 165Hz VA 1ms HDR10", "p": 1699.0, "c": "monitores-gamer", "a": "B0BHJF5VKG", "r": 4.5, "i": "https://images.unsplash.com/photo-1616588589676-62b3d4ff6a10?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0BHJF5VKG?tag=hennanst-20"}, {"t": "Octopath Traveler - Switch", "p": 339.0, "c": "jogos-switch", "a": "B07BHGXV5R", "r": 4.5, "i": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B07BHGXV5R?tag=hennanst-20"}, {"t": "Placa de Vídeo RX 7600 ASRock Challenger 8GB GDDR6", "p": 1599.0, "c": "placas-de-video", "a": "B0D2J7T8QZ", "r": 4.5, "i": "https://images.unsplash.com/photo-1555618568-fac1bf13f0f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D2J7T8QZ?tag=hennanst-20"}, {"t": "Cadeira Gamer ThunderX3 EC3 Ergonômica Reclinável", "p": 849.9, "c": "cadeiras-gamer", "a": "B0D3J5LN8X", "r": 4.5, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D3J5LN8X?tag=hennanst-20"}, {"t": "Ring Light Profissional 26cm com Tripé 1.6m e Suporte Celular", "p": 89.9, "c": "streaming", "a": "B0D5FQ8KRM", "r": 4.4, "i": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5FQ8KRM?tag=hennanst-20"}, {"t": "Fonte Gamemax GP-600 600W 80 Plus Bronze", "p": 249.9, "c": "fontes", "a": "B0CG6JFQFR", "r": 4.4, "i": "https://images.unsplash.com/photo-1555618568-fac1bf13f0f5?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6JFQFR?tag=hennanst-20"}, {"t": "Gabinete Gamer Redragon Wheel Jack GC-606 RGB Mid Tower", "p": 249.9, "c": "gabinetes", "a": "B0CGK7JQ2R", "r": 4.4, "i": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CGK7JQ2R?tag=hennanst-20"}, {"t": "Starfield Xbox Series X Mídia Física Bethesda", "p": 179.9, "c": "jogos-xbox", "a": "B0CG6QMBJR", "r": 4.4, "i": "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CG6QMBJR?tag=hennanst-20"}, {"t": "Cadeira Gamer Elite Pro Dazz – Reclinável 130°, Couro PU, Pistão Classe 4, Supor", "p": 620.0, "c": "cadeiras-gamer", "a": "B0D81D1358", "r": 4.4, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D81D1358?tag=hennanst-20"}, {"t": "Headphone Com Microfone Neon Tune Go I2go 1,2m Cinza", "p": 32.0, "c": "headsets-gamer", "a": "B09MWNPPLX", "r": 4.4, "i": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B09MWNPPLX?tag=hennanst-20"}, {"t": "Top 1 Webcam Premium Full HD 1080p com Microfone, USB Plug &amp; Play, Foco Auto", "p": 34.0, "c": "streaming", "a": "B0FLZ2T78C", "r": 4.4, "i": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FLZ2T78C?tag=hennanst-20"}, {"t": "Webcams 4K Tiny 2 com controle de voz PTZ, rastreamento AI multimodo e foco auto", "p": 980.0, "c": "streaming", "a": "B0FGNB2R8B", "r": 4.4, "i": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FGNB2R8B?tag=hennanst-20"}, {"t": "Teclado Personalizado Português (cinza-azulado)", "p": 112.0, "c": "teclados-mecanicos", "a": "B0G63V4NFC", "r": 4.4, "i": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0G63V4NFC?tag=hennanst-20"}, {"t": "NUBWO U3 Fone de Ouvido Com fio e Microfone, Fone de Ouvido Gamer Hadset for PC,", "p": 169.0, "c": "headsets-gamer", "a": "B07K2676W7", "r": 4.3, "i": "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B07K2676W7?tag=hennanst-20"}, {"t": "Hub USB 3.0 7 Portas com Alimentação Individual e LEDs", "p": 79.9, "c": "perifericos", "a": "B0D5FQ0QFR", "r": 4.3, "i": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0D5FQ0QFR?tag=hennanst-20"}, {"t": "Kit Teclado e Mouse Gamer com LED RGB – Semi Mecânico, Iluminação RGB, Alta Prec", "p": 59.0, "c": "teclados-mecanicos", "a": "B0FTMRDPH1", "r": 4.3, "i": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0FTMRDPH1?tag=hennanst-20"}, {"t": "Memória RAM Desktop Rise Mode Diamond Series 16GB 3200Mhz DDR4 1.2v - RM-D4-16G-", "p": 842.0, "c": "memoria-ram", "a": "B0CRWQXPD9", "r": 4.2, "i": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CRWQXPD9?tag=hennanst-20"}, {"t": "Headset Gamer 71 Beast Xr Hs404 Led Usb Oex Preto - Hs404", "p": 242.0, "c": "headsets-gamer", "a": "B076ZS5111", "r": 4.2, "i": "https://images.unsplash.com/photo-1599669454699-248893623440?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B076ZS5111?tag=hennanst-20"}, {"t": "FONE DE OUVIDO HEADSET GAMER STARTER - EG308 - EVOLUT", "p": 29.0, "c": "headsets-gamer", "a": "B0CM6TDBTH", "r": 3.7, "i": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=300&fit=crop&auto=format", "l": "https://www.amazon.com.br/dp/B0CM6TDBTH?tag=hennanst-20"}];</script>
+<script>window.__BASE_PATH__ = "/cortex-marketing-site";</script>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/cortex-marketing-site/" class="logo">
+          <span class="logo-icon">🎮</span>
+          <span>Setup Cortex</span>
+        </a>
+        <p>Reviews de hardware, periféricos, consoles e jogos. Monte seu setup gamer ideal com comparativos e guias para cada orçamento.</p>
+      </div>
+      <div>
+        <h4>Categorias</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/categoria/mouses-gamer.html">Mouses Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/teclados-mecanicos.html">Teclados Mecânicos</a></li>
+          <li><a href="/cortex-marketing-site/categoria/monitores-gamer.html">Monitores Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/headsets-gamer.html">Headsets Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/cadeiras-gamer.html">Cadeiras Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/placas-de-video.html">Placas de Vídeo</a></li>
+          <li><a href="/cortex-marketing-site/categoria/processadores.html">Processadores</a></li>
+          <li><a href="/cortex-marketing-site/categoria/gabinetes.html">Gabinetes</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h4>Jogos & Consoles</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/categoria/consoles.html">Consoles</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-ps5.html">Jogos PS5</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-xbox.html">Jogos Xbox</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-switch.html">Jogos Switch</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-pc.html">Jogos PC</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guias</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/monte-seu-setup.html">Monte seu Setup</a></li>
+          <li><a href="/cortex-marketing-site/#reviews">Últimos Reviews</a></li>
+          <li><a href="/cortex-marketing-site/sobre.html">Sobre Nós</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/politica-de-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/cortex-marketing-site/termos-de-uso.html">Termos de Uso</a></li>
+          <li><a href="https://pinterest.com" target="_blank">Pinterest</a></li>
+          <li><a href="https://t.me/cortex_ofertas" target="_blank">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Setup Cortex. Todos os direitos reservados.</p>
+      <p class="affiliate-disclaimer">
+        Como associado Amazon, este site ganha comissões por compras qualificadas. 
+        Os preços exibidos podem sofrer alterações. Consulte a Amazon para preços atualizados.
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="/cortex-marketing-site/js/main.js"></script>
+</body>
+</html>
