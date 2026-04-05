@@ -370,7 +370,7 @@
     'fontes': ['fonte gamer','fonte 80','fonte modular','fonte atx']
   };
 
-  function findBest(catSlug, maxPrice) {
+  function findTop3(catSlug, maxPrice) {
     const kws = catKw[catSlug] || [catSlug.replace(/-/g, ' ')];
     const matches = products.filter(p => {
       if (p.p <= 0 || p.p > maxPrice) return false;
@@ -378,7 +378,7 @@
       return kws.some(k => txt.includes(k));
     });
     matches.sort((a, b) => (b.r || 0) - (a.r || 0));
-    return matches[0] || null;
+    return matches.slice(0, 3);
   }
 
   function buildCustomSetup(budget, resultElId) {
@@ -386,34 +386,49 @@
     if (!resultEl) return;
 
     let totalSpent = 0;
-    let items = [];
+    let categories = [];
 
     for (const [cat, pct] of Object.entries(budgetDist)) {
       const maxP = Math.round(budget * pct);
-      const best = findBest(cat, maxP);
+      const top3 = findTop3(cat, maxP);
       const label = catLabels[cat] || cat;
 
-      if (best) {
-        totalSpent += best.p;
-        items.push(
-          '<div class="setup-item fade-in">' +
-            '<div class="setup-item-img"><img src="' + best.i + '" alt="" loading="lazy"></div>' +
-            '<div class="setup-item-info">' +
-              '<span class="cat">' + label + '</span>' +
-              '<h4><a href="' + BP + '/review/' + best.a + '.html">' + best.t + '</a></h4>' +
-              '<span class="price">R$ ' + best.p.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</span>' +
-              '<a href="' + best.l + '" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon">🛒 Comprar</a>' +
+      if (top3.length > 0) {
+        totalSpent += top3[0].p;
+        let optionsHtml = '';
+        top3.forEach((p, idx) => {
+          const badgeClass = idx === 0 ? 'option-best' : 'option-alt';
+          const badgeLabel = idx === 0 ? '⭐ Melhor opção' : 'Opção ' + (idx + 1);
+          optionsHtml +=
+            '<div class="setup-option ' + badgeClass + '">' +
+              '<span class="option-badge">' + badgeLabel + '</span>' +
+              '<img src="' + p.i + '" alt="" loading="lazy">' +
+              '<h4><a href="' + BP + '/review/' + p.a + '.html">' + p.t + '</a></h4>' +
+              '<div class="option-meta">' +
+                '<span class="price">R$ ' + p.p.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</span>' +
+                '<span class="rating">★ ' + (p.r || 0).toFixed(1) + '</span>' +
+              '</div>' +
+              '<a href="' + p.l + '" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon">🛒 Comprar</a>' +
+            '</div>';
+        });
+        categories.push(
+          '<div class="setup-category fade-in">' +
+            '<div class="setup-cat-header">' +
+              '<span class="cat-name">' + label + '</span>' +
+              '<span class="cat-budget">até R$ ' + maxP.toLocaleString('pt-BR') + '</span>' +
             '</div>' +
+            '<div class="setup-options">' + optionsHtml + '</div>' +
           '</div>'
         );
       } else {
-        items.push(
-          '<div class="setup-item fade-in">' +
-            '<div class="setup-item-img"><span style="font-size:2rem">' + (label.split(' ')[0]) + '</span></div>' +
-            '<div class="setup-item-info">' +
-              '<span class="cat">' + label + '</span>' +
-              '<h4>Sem produto até R$ ' + maxP.toLocaleString('pt-BR') + '</h4>' +
-              '<span class="price" style="color:var(--text-muted)">Budget: R$ ' + maxP.toLocaleString('pt-BR') + '</span>' +
+        categories.push(
+          '<div class="setup-category fade-in">' +
+            '<div class="setup-cat-header">' +
+              '<span class="cat-name">' + label + '</span>' +
+              '<span class="cat-budget">até R$ ' + maxP.toLocaleString('pt-BR') + '</span>' +
+            '</div>' +
+            '<div class="setup-options">' +
+              '<div class="setup-option option-empty"><p>Sem produto nessa faixa</p></div>' +
             '</div>' +
           '</div>'
         );
@@ -423,7 +438,7 @@
     const savings = budget - totalSpent;
     resultEl.innerHTML =
       '<div class="budget-result-header"><h3>🎮 Setup para R$ ' + budget.toLocaleString('pt-BR') + '</h3></div>' +
-      '<div class="setup-grid">' + items.join('') + '</div>' +
+      '<div class="setup-grid">' + categories.join('') + '</div>' +
       '<div class="budget-result-total">' +
         '<div class="total-value">Total: R$ ' + totalSpent.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</div>' +
         (savings > 0 ? '<div class="total-savings">💰 Sobra: R$ ' + savings.toLocaleString('pt-BR', {minimumFractionDigits:2}) + ' para jogos!</div>' : '') +
