@@ -181,12 +181,14 @@
           value: 1,
         });
 
-        // Google Ads Conversion Event (quando configurado)
+        // Google Ads Conversion Event
         const conversionId = document.querySelector('meta[name="google-ads-conversion"]');
-        if (conversionId) {
+        if (conversionId && conversionId.content) {
           gtag('event', 'conversion', {
             send_to: conversionId.content,
-            event_callback: function() {}
+            value: 1.0,
+            currency: 'BRL',
+            transaction_id: productId || ''
           });
         }
       }
