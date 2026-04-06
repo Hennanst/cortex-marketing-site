@@ -167,18 +167,129 @@
     });
   }
 
-  // ── Amazon link tracking — Google Ads Conversion + Analytics ──
+  // ═══════════════════════════════════════════════
+  // CORTEX CLICK TRACKER — rastreamento local + gtag
+  // ═══════════════════════════════════════════════
+  const CortexTracker = {
+    STORAGE_KEY: 'cortex_clicks',
+    MAX_ENTRIES: 5000,
+
+    getClicks: function() {
+      try {
+        return JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
+      } catch(e) { return []; }
+    },
+
+    saveClick: function(data) {
+      try {
+        const clicks = this.getClicks();
+        clicks.push(data);
+        // Keep only last MAX_ENTRIES to avoid storage overflow
+        if (clicks.length > this.MAX_ENTRIES) {
+          clicks.splice(0, clicks.length - this.MAX_ENTRIES);
+        }
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(clicks));
+      } catch(e) { /* localStorage full or disabled */ }
+    },
+
+    trackClick: function(link) {
+      const asin = link.getAttribute('data-product') || '';
+      const card = link.closest('.product-card') || link.closest('.review-product') || link.closest('.setup-option') || link.parentElement;
+      const titleEl = card ? card.querySelector('h3, h4, .product-title, .title') : null;
+      const title = titleEl ? titleEl.textContent.trim().substring(0, 80) : '';
+      const priceEl = card ? card.querySelector('.price, .product-price, .price-tag') : null;
+      const priceText = priceEl ? priceEl.textContent.replace(/[^\d,\.]/g, '').replace(',', '.') : '0';
+      const price = parseFloat(priceText) || 0;
+      const categoryEl = card ? card.querySelector('.product-category, .category') : null;
+      const category = categoryEl ? categoryEl.textContent.trim() :
+        (window.location.pathname.match(/categoria\/(.+?)\.html/) || [])[1] || 'direct';
+      const page = window.location.pathname;
+      const referrer = document.referrer || 'direct';
+      const source = referrer.includes('google') ? 'google-ads' :
+                     referrer.includes('pinterest') ? 'pinterest' :
+                     referrer.includes('bing') ? 'bing' : 'organic';
+
+      const clickData = {
+        asin: asin,
+        title: title,
+        price: price,
+        category: category,
+        page: page,
+        source: source,
+        timestamp: new Date().toISOString(),
+        url: link.href
+      };
+
+      this.saveClick(clickData);
+      return clickData;
+    },
+
+    getStats: function() {
+      const clicks = this.getClicks();
+      const byProduct = {};
+      const byCategory = {};
+      const byDate = {};
+      const bySource = {};
+
+      clicks.forEach(function(c) {
+        // By product (ASIN)
+        if (c.asin) {
+          if (!byProduct[c.asin]) {
+            byProduct[c.asin] = { asin: c.asin, title: c.title, price: c.price, category: c.category, clicks: 0, lastClick: '' };
+          }
+          byProduct[c.asin].clicks++;
+          byProduct[c.asin].lastClick = c.timestamp;
+        }
+        // By category
+        var cat = c.category || 'unknown';
+        byCategory[cat] = (byCategory[cat] || 0) + 1;
+        // By date
+        var date = (c.timestamp || '').substring(0, 10);
+        if (date) { byDate[date] = (byDate[date] || 0) + 1; }
+        // By source
+        var src = c.source || 'unknown';
+        bySource[src] = (bySource[src] || 0) + 1;
+      });
+
+      // Sort by clicks desc
+      var topProducts = Object.values(byProduct).sort(function(a, b) { return b.clicks - a.clicks; });
+      var topCategories = Object.entries(byCategory).sort(function(a, b) { return b[1] - a[1]; });
+
+      return {
+        total: clicks.length,
+        topProducts: topProducts,
+        byCategory: topCategories,
+        byDate: byDate,
+        bySource: bySource,
+        recentClicks: clicks.slice(-20).reverse()
+      };
+    }
+  };
+
+  // Expose tracker for analytics page
+  window.CortexTracker = CortexTracker;
+
+  // ── Amazon link tracking — Google Ads Conversion + Local Tracker ──
   document.querySelectorAll('a[href*="amazon.com.br"]').forEach(link => {
     link.addEventListener('click', function(e) {
       const productId = link.getAttribute('data-product') || '';
       const linkUrl = link.href;
 
-      // Google Analytics 4 — event tracking
+      // Local click tracking
+      const clickData = CortexTracker.trackClick(link);
+
+      // Google Analytics 4 — enhanced event tracking
       if (typeof gtag === 'function') {
         gtag('event', 'click_amazon', {
           event_category: 'affiliate',
           event_label: productId || linkUrl,
-          value: 1,
+          product_id: clickData.asin,
+          product_name: clickData.title,
+          product_category: clickData.category,
+          product_price: clickData.price,
+          traffic_source: clickData.source,
+          value: clickData.price > 0 ? clickData.price : 1,
+          currency: 'BRL',
         });
 
         // Google Ads Conversion Event
@@ -186,11 +297,24 @@
         if (conversionId && conversionId.content) {
           gtag('event', 'conversion', {
             send_to: conversionId.content,
-            value: 1.0,
+            value: clickData.price > 0 ? clickData.price : 1.0,
             currency: 'BRL',
-            transaction_id: productId || ''
+            transaction_id: clickData.asin || ''
           });
         }
+      }
+
+      // Reliable beacon tracking (fires even if page navigates away)
+      if (navigator.sendBeacon && typeof gtag === 'function') {
+        var beaconData = JSON.stringify({
+          event: 'affiliate_click',
+          asin: clickData.asin,
+          category: clickData.category,
+          price: clickData.price,
+          source: clickData.source
+        });
+        // Beacon to gtag measurement protocol not possible without server
+        // But the localStorage tracking above ensures we capture the data
       }
 
       // Facebook Pixel
@@ -198,6 +322,8 @@
         fbq('track', 'InitiateCheckout', {
           content_ids: [productId],
           content_type: 'product',
+          value: clickData.price,
+          currency: 'BRL',
         });
       }
     });

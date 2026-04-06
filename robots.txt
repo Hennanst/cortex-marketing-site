@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hennanst.github.io/cortex-marketing-site/sitemap.xml

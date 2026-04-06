@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Rastreamento de Cliques | Setup Cortex</title>
+    <meta name="description" content="Dashboard interno de rastreamento de cliques nos links de afiliado">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hennanst.github.io/cortex-marketing-site/analytics.html">
+
+    <!-- Google Ads Conversion -->
+    <meta name="google-ads-conversion" content="AW-18065727515/mZZgCNqbopYcEJvAtKZD">
+    <!-- Google Search Console -->
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Analytics - Rastreamento de Cliques">
+    <meta property="og:description" content="Dashboard interno de rastreamento de cliques nos links de afiliado">
+    <meta property="og:url" content="https://hennanst.github.io/cortex-marketing-site/analytics.html">
+    <meta property="og:site_name" content="Setup Cortex">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Analytics - Rastreamento de Cliques">
+    <meta name="twitter:description" content="Dashboard interno de rastreamento de cliques nos links de afiliado">
+
+    
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/cortex-marketing-site/css/style.css">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18065727515"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18065727515');
+    </script>
+    
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <a href="/cortex-marketing-site/" class="logo">
+      <span class="logo-icon">🎮</span>
+      <span>Setup Cortex</span>
+    </a>
+    <div class="nav-search">
+      <input type="text" id="search-input" placeholder="Buscar produtos, jogos, consoles..." autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/cortex-marketing-site/">Reviews</a></li>
+            <li><a href="/cortex-marketing-site/#categorias">Categorias</a></li>
+            <li><a href="/cortex-marketing-site/#jogos">Consoles & Jogos</a></li>
+            <li><a href="/cortex-marketing-site/monte-seu-setup.html">Monte seu Setup</a></li>
+            <li><a href="/cortex-marketing-site/guias/">📚 Guias</a></li>
+            <li><a href="/cortex-marketing-site/sobre.html">Sobre</a></li>
+            
+      <li><a href="/cortex-marketing-site/monte-seu-setup.html" class="nav-cta">Monte seu Setup</a></li>
+    </ul>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
+<main class="analytics-page" style="padding-top: 100px; min-height: 100vh;">
+  <div class="container">
+    <h1 style="color: var(--green); margin-bottom: 10px;">📊 Analytics — Rastreamento de Cliques</h1>
+    <p style="color: var(--gray-400); margin-bottom: 30px;">
+      Dashboard local — dados armazenados no navegador via localStorage.
+      Acompanhe quais produtos recebem mais cliques nos links de afiliado e quais têm maior chance de conversão.
+    </p>
+
+    <!-- Summary Cards -->
+    <div id="stats-summary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 30px;">
+    </div>
+
+    <!-- Controls -->
+    <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+      <button id="btn-refresh" class="btn btn-sm" style="background: var(--green); color: #000; border: none; padding: 8px 20px; border-radius: 8px; cursor: pointer; font-weight: 600;">
+        🔄 Atualizar Dados
+      </button>
+      <button id="btn-export" class="btn btn-sm" style="background: var(--card-bg); color: var(--green); border: 1px solid var(--green); padding: 8px 20px; border-radius: 8px; cursor: pointer;">
+        📥 Exportar CSV
+      </button>
+      <button id="btn-clear" class="btn btn-sm" style="background: var(--card-bg); color: #ff5555; border: 1px solid #ff5555; padding: 8px 20px; border-radius: 8px; cursor: pointer;">
+        🗑️ Limpar Dados
+      </button>
+      <span id="last-update" style="color: var(--gray-500); font-size: 0.85rem; align-self: center;"></span>
+    </div>
+
+    <!-- Top Products Table -->
+    <div style="background: var(--card-bg); border-radius: 12px; padding: 24px; margin-bottom: 30px; border: 1px solid var(--border-color);">
+      <h2 style="color: var(--green); font-size: 1.2rem; margin-bottom: 15px;">🏆 Top Produtos — Maior Chance de Conversão</h2>
+      <div style="overflow-x: auto;">
+        <table id="top-products-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--green);">
+              <th style="text-align: left; padding: 10px; color: var(--green);">#</th>
+              <th style="text-align: left; padding: 10px; color: var(--green);">Produto</th>
+              <th style="text-align: left; padding: 10px; color: var(--green);">ASIN</th>
+              <th style="text-align: left; padding: 10px; color: var(--green);">Categoria</th>
+              <th style="text-align: right; padding: 10px; color: var(--green);">Preço</th>
+              <th style="text-align: right; padding: 10px; color: var(--green);">Cliques</th>
+              <th style="text-align: left; padding: 10px; color: var(--green);">Último Clique</th>
+            </tr>
+          </thead>
+          <tbody id="top-products-body">
+          </tbody>
+        </table>
+      </div>
+      <p id="no-data-msg" style="color: var(--gray-500); text-align: center; padding: 40px; display: none;">
+        Ainda não há dados de cliques. Os dados aparecerão aqui quando visitantes clicarem nos links da Amazon.
+      </p>
+    </div>
+
+    <!-- Category Breakdown -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+      <div style="background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border-color);">
+        <h2 style="color: var(--green); font-size: 1.2rem; margin-bottom: 15px;">📂 Cliques por Categoria</h2>
+        <div id="category-chart"></div>
+      </div>
+      <div style="background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border-color);">
+        <h2 style="color: var(--green); font-size: 1.2rem; margin-bottom: 15px;">📡 Cliques por Fonte</h2>
+        <div id="source-chart"></div>
+      </div>
+    </div>
+
+    <!-- Daily Chart -->
+    <div style="background: var(--card-bg); border-radius: 12px; padding: 24px; margin-bottom: 30px; border: 1px solid var(--border-color);">
+      <h2 style="color: var(--green); font-size: 1.2rem; margin-bottom: 15px;">📈 Cliques por Dia</h2>
+      <div id="daily-chart" style="display: flex; align-items: flex-end; gap: 4px; height: 200px; padding: 10px 0;"></div>
+    </div>
+
+    <!-- Recent Clicks -->
+    <div style="background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border-color);">
+      <h2 style="color: var(--green); font-size: 1.2rem; margin-bottom: 15px;">🕐 Últimos Cliques</h2>
+      <div id="recent-clicks" style="font-size: 0.85rem;"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+(function() {
+  'use strict';
+
+  function renderDashboard() {
+    if (!window.CortexTracker) {
+      document.getElementById('no-data-msg').style.display = 'block';
+      return;
+    }
+
+    var stats = CortexTracker.getStats();
+    document.getElementById('last-update').textContent = 'Atualizado: ' + new Date().toLocaleString('pt-BR');
+
+    // Summary cards
+    var today = new Date().toISOString().substring(0, 10);
+    var todayClicks = stats.byDate[today] || 0;
+    var avgPrice = 0;
+    if (stats.topProducts.length > 0) {
+      var totalPrice = stats.topProducts.reduce(function(sum, p) { return sum + (p.price * p.clicks); }, 0);
+      avgPrice = totalPrice / stats.total;
+    }
+    var googleClicks = stats.bySource['google-ads'] || 0;
+
+    document.getElementById('stats-summary').innerHTML =
+      '<div style="background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--border-color); text-align: center;">' +
+        '<div style="color: var(--green); font-size: 2rem; font-weight: 800;">' + stats.total + '</div>' +
+        '<div style="color: var(--gray-400); font-size: 0.85rem;">Total Cliques</div>' +
+      '</div>' +
+      '<div style="background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--border-color); text-align: center;">' +
+        '<div style="color: var(--green); font-size: 2rem; font-weight: 800;">' + todayClicks + '</div>' +
+        '<div style="color: var(--gray-400); font-size: 0.85rem;">Cliques Hoje</div>' +
+      '</div>' +
+      '<div style="background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--border-color); text-align: center;">' +
+        '<div style="color: var(--green); font-size: 2rem; font-weight: 800;">' + stats.topProducts.length + '</div>' +
+        '<div style="color: var(--gray-400); font-size: 0.85rem;">Produtos Clicados</div>' +
+      '</div>' +
+      '<div style="background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--border-color); text-align: center;">' +
+        '<div style="color: var(--green); font-size: 2rem; font-weight: 800;">R$ ' + avgPrice.toFixed(0) + '</div>' +
+        '<div style="color: var(--gray-400); font-size: 0.85rem;">Ticket Médio</div>' +
+      '</div>' +
+      '<div style="background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--border-color); text-align: center;">' +
+        '<div style="color: var(--green); font-size: 2rem; font-weight: 800;">' + googleClicks + '</div>' +
+        '<div style="color: var(--gray-400); font-size: 0.85rem;">Via Google Ads</div>' +
+      '</div>';
+
+    // Top Products Table
+    var tbody = document.getElementById('top-products-body');
+    var noData = document.getElementById('no-data-msg');
+    if (stats.topProducts.length === 0) {
+      noData.style.display = 'block';
+      tbody.innerHTML = '';
+    } else {
+      noData.style.display = 'none';
+      tbody.innerHTML = stats.topProducts.slice(0, 30).map(function(p, idx) {
+        var lastDate = p.lastClick ? new Date(p.lastClick).toLocaleString('pt-BR') : '-';
+        var barWidth = Math.round((p.clicks / stats.topProducts[0].clicks) * 100);
+        return '<tr style="border-bottom: 1px solid var(--border-color);">' +
+          '<td style="padding: 8px; color: var(--green); font-weight: 700;">' + (idx + 1) + '</td>' +
+          '<td style="padding: 8px; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' +
+            '<a href="/cortex-marketing-site/review/' + p.asin + '.html" style="color: var(--text-color); text-decoration: none;">' + (p.title || p.asin) + '</a>' +
+            '<div style="background: var(--border-color); height: 4px; border-radius: 2px; margin-top: 4px;">' +
+              '<div style="background: var(--green); height: 4px; border-radius: 2px; width: ' + barWidth + '%;"></div>' +
+            '</div>' +
+          '</td>' +
+          '<td style="padding: 8px; font-family: monospace; font-size: 0.8rem; color: var(--gray-400);">' + p.asin + '</td>' +
+          '<td style="padding: 8px; color: var(--gray-400);">' + (p.category || '-') + '</td>' +
+          '<td style="padding: 8px; text-align: right; color: var(--green);">R$ ' + (p.price || 0).toFixed(2) + '</td>' +
+          '<td style="padding: 8px; text-align: right; font-weight: 700; color: var(--text-color);">' + p.clicks + '</td>' +
+          '<td style="padding: 8px; color: var(--gray-500); font-size: 0.8rem;">' + lastDate + '</td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    // Category chart (horizontal bars)
+    var catChart = document.getElementById('category-chart');
+    if (stats.byCategory.length === 0) {
+      catChart.innerHTML = '<p style="color: var(--gray-500); text-align: center;">Sem dados</p>';
+    } else {
+      var maxCat = stats.byCategory[0][1];
+      catChart.innerHTML = stats.byCategory.map(function(c) {
+        var pct = Math.round((c[1] / maxCat) * 100);
+        return '<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">' +
+          '<span style="min-width: 150px; font-size: 0.85rem; color: var(--gray-300);">' + c[0] + '</span>' +
+          '<div style="flex: 1; background: var(--border-color); height: 20px; border-radius: 4px;">' +
+            '<div style="background: var(--green); height: 100%; border-radius: 4px; width: ' + pct + '%; display: flex; align-items: center; justify-content: flex-end; padding-right: 6px; font-size: 0.75rem; font-weight: 700; color: #000;">' + c[1] + '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // Source chart
+    var srcChart = document.getElementById('source-chart');
+    var srcEntries = Object.entries(stats.bySource).sort(function(a, b) { return b[1] - a[1]; });
+    if (srcEntries.length === 0) {
+      srcChart.innerHTML = '<p style="color: var(--gray-500); text-align: center;">Sem dados</p>';
+    } else {
+      var srcColors = {'google-ads': '#4285f4', 'organic': '#39ff14', 'pinterest': '#e60023', 'bing': '#00809d', 'direct': '#ff9800'};
+      srcChart.innerHTML = srcEntries.map(function(s) {
+        var color = srcColors[s[0]] || '#888';
+        var pct = Math.round((s[1] / stats.total) * 100);
+        return '<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">' +
+          '<span style="min-width: 100px; font-size: 0.85rem; color: var(--gray-300);">' + s[0] + '</span>' +
+          '<div style="flex: 1; background: var(--border-color); height: 24px; border-radius: 4px;">' +
+            '<div style="background: ' + color + '; height: 100%; border-radius: 4px; width: ' + pct + '%; display: flex; align-items: center; padding-left: 8px; font-size: 0.8rem; font-weight: 600; color: #fff;">' + s[1] + ' (' + pct + '%)</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+
+    // Daily chart (bar chart)
+    var dailyChart = document.getElementById('daily-chart');
+    var dateEntries = Object.entries(stats.byDate).sort();
+    var last14 = dateEntries.slice(-14);
+    if (last14.length === 0) {
+      dailyChart.innerHTML = '<p style="color: var(--gray-500); text-align: center; width: 100%;">Sem dados</p>';
+    } else {
+      var maxDay = Math.max.apply(null, last14.map(function(d) { return d[1]; }));
+      dailyChart.innerHTML = last14.map(function(d) {
+        var pct = Math.round((d[1] / maxDay) * 100);
+        var day = d[0].substring(5);
+        return '<div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;">' +
+          '<span style="font-size: 0.75rem; color: var(--green); font-weight: 700;">' + d[1] + '</span>' +
+          '<div style="background: var(--green); width: 100%; max-width: 40px; border-radius: 4px 4px 0 0; height: ' + Math.max(pct, 5) + '%;"></div>' +
+          '<span style="font-size: 0.65rem; color: var(--gray-500); white-space: nowrap;">' + day + '</span>' +
+        '</div>';
+      }).join('');
+    }
+
+    // Recent clicks
+    var recentDiv = document.getElementById('recent-clicks');
+    if (stats.recentClicks.length === 0) {
+      recentDiv.innerHTML = '<p style="color: var(--gray-500); text-align: center;">Sem cliques recentes</p>';
+    } else {
+      recentDiv.innerHTML = stats.recentClicks.map(function(c) {
+        var time = new Date(c.timestamp).toLocaleString('pt-BR');
+        return '<div style="display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-color);">' +
+          '<span style="color: var(--green); min-width: 140px; font-size: 0.8rem;">' + time + '</span>' +
+          '<span style="color: var(--gray-300); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' + (c.title || c.asin || '-') + '</span>' +
+          '<span style="color: var(--gray-500); font-size: 0.8rem;">' + (c.category || '') + '</span>' +
+          '<span style="color: var(--green); font-weight: 600; min-width: 80px; text-align: right;">R$ ' + (c.price || 0).toFixed(2) + '</span>' +
+          '<span style="font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; background: ' +
+            (c.source === 'google-ads' ? '#4285f422; color: #4285f4' : 'var(--border-color); color: var(--gray-400)') + ';">' + (c.source || 'organic') + '</span>' +
+        '</div>';
+      }).join('');
+    }
+  }
+
+  // Export CSV
+  document.getElementById('btn-export').addEventListener('click', function() {
+    var stats = CortexTracker.getStats();
+    var csv = 'ASIN,Produto,Categoria,Preco,Cliques,Ultimo Clique\n';
+    stats.topProducts.forEach(function(p) {
+      csv += p.asin + ',"' + (p.title || '').replace(/"/g, "'") + '",' + (p.category || '') + ',' + p.price + ',' + p.clicks + ',' + p.lastClick + '\n';
+    });
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    var link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'cortex_clicks_' + new Date().toISOString().substring(0, 10) + '.csv';
+    link.click();
+  });
+
+  // Clear data
+  document.getElementById('btn-clear').addEventListener('click', function() {
+    if (confirm('Tem certeza? Isso apagará todos os dados de rastreamento de cliques.')) {
+      localStorage.removeItem('cortex_clicks');
+      renderDashboard();
+    }
+  });
+
+  // Refresh
+  document.getElementById('btn-refresh').addEventListener('click', renderDashboard);
+
+  // Initial render
+  renderDashboard();
+})();
+</script>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/cortex-marketing-site/" class="logo">
+          <span class="logo-icon">🎮</span>
+          <span>Setup Cortex</span>
+        </a>
+        <p>Reviews de hardware, periféricos, consoles e jogos. Monte seu setup gamer ideal com comparativos e guias para cada orçamento.</p>
+      </div>
+      <div>
+        <h4>Categorias</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/categoria/mouses-gamer.html">Mouses Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/teclados-mecanicos.html">Teclados Mecânicos</a></li>
+          <li><a href="/cortex-marketing-site/categoria/monitores-gamer.html">Monitores Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/headsets-gamer.html">Headsets Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/cadeiras-gamer.html">Cadeiras Gamer</a></li>
+          <li><a href="/cortex-marketing-site/categoria/placas-de-video.html">Placas de Vídeo</a></li>
+          <li><a href="/cortex-marketing-site/categoria/processadores.html">Processadores</a></li>
+          <li><a href="/cortex-marketing-site/categoria/gabinetes.html">Gabinetes</a></li>
+          
+        </ul>
+      </div>
+      <div>
+        <h4>Jogos & Consoles</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/categoria/consoles.html">Consoles</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-ps5.html">Jogos PS5</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-xbox.html">Jogos Xbox</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-switch.html">Jogos Switch</a></li>
+          <li><a href="/cortex-marketing-site/categoria/jogos-pc.html">Jogos PC</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guias</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/monte-seu-setup.html">Monte seu Setup</a></li>
+          <li><a href="/cortex-marketing-site/#reviews">Últimos Reviews</a></li>
+          <li><a href="/cortex-marketing-site/sobre.html">Sobre Nós</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="/cortex-marketing-site/politica-de-privacidade.html">Política de Privacidade</a></li>
+          <li><a href="/cortex-marketing-site/termos-de-uso.html">Termos de Uso</a></li>
+          <li><a href="https://t.me/cortex_ofertas" target="_blank">Telegram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Setup Cortex. Todos os direitos reservados.</p>
+      <p class="affiliate-disclaimer">
+        Como associado Amazon, este site ganha comissões por compras qualificadas. 
+        Os preços exibidos podem variar e são verificados semanalmente. Consulte a Amazon para o valor atualizado antes de finalizar a compra.
+      </p>
+    </div>
+  </div>
+</footer>
+<script src="/cortex-marketing-site/js/main.js"></script>
+</body>
+</html>
