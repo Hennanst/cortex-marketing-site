@@ -530,13 +530,13 @@
           optionsHtml +=
             '<div class="setup-option ' + badgeClass + '">' +
               '<span class="option-badge">' + badgeLabel + '</span>' +
-              '<img src="' + p.i + '" alt="" loading="lazy">' +
+              '<div class="setup-img-wrapper"><img src="' + p.i + '" alt="" loading="lazy"></div>' +
               '<h4><a href="' + BP + '/review/' + p.a + '.html">' + p.t + '</a></h4>' +
               '<div class="option-meta">' +
                 '<span class="price">R$ ' + p.p.toLocaleString('pt-BR', {minimumFractionDigits:2}) + '</span>' +
                 '<span class="rating">★ ' + (p.r || 0).toFixed(1) + '</span>' +
               '</div>' +
-              '<a href="' + p.l + '" target="_blank" rel="nofollow sponsored" class="btn btn-sm btn-amazon">🛒 Comprar</a>' +
+              '<a href="' + p.l + '" target="_blank" rel="nofollow sponsored" class="btn btn-amazon">🛒 Ver Preço na Amazon</a>' +
             '</div>';
         });
         categories.push(
