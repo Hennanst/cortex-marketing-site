@@ -13,20 +13,27 @@ jobs:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout deployment repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Download frozen Córtex SITE-FIRST source
+      - name: Checkout frozen Córtex SITE-FIRST source
+        uses: actions/checkout@v4
+        with:
+          repository: Hennanst/cortex-sistema
+          ref: revive/p0-remediation-20260829
+          path: _source
+          fetch-depth: 1
+
+      - name: Stage frozen source payload
         run: |
           set -euo pipefail
-          rm -rf /tmp/cortex-sync
-          git clone --depth 1 --branch revive/p0-remediation-20260829 \
-            https://github.com/Hennanst/cortex-sistema.git \
-            /tmp/cortex-sync
-          SOURCE_DIR="/tmp/cortex-sync/site_output"
+          SOURCE_DIR="$GITHUB_WORKSPACE/_source/site_output"
           test -d "$SOURCE_DIR"
-          echo "SOURCE_DIR=$SOURCE_DIR" >> "$GITHUB_ENV"
+          rm -rf /tmp/cortex-site-output
+          cp -a "$SOURCE_DIR" /tmp/cortex-site-output
+          echo "SOURCE_DIR=/tmp/cortex-site-output" >> "$GITHUB_ENV"
 
       - name: Validate source fail-closed gate
         run: |
