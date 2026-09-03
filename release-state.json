@@ -1,0 +1,18 @@
+{
+  "account_code": "CO",
+  "tailwind_account_id": "1653454",
+  "mode": "preview_fail_closed",
+  "commercial_links_enabled": false,
+  "routes": [
+    "/",
+    "/casa-inteligente/",
+    "/comparativos/",
+    "/creator-streaming/",
+    "/guias/",
+    "/recomendados/",
+    "/setup-games/",
+    "/trabalho-estudo/"
+  ],
+  "landings": 12,
+  "modules": 6
+}
