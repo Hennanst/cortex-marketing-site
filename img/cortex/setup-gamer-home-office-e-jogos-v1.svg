@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Setup híbrido para home office e jogos</title>
+  <desc id="desc">Ilustração editorial original da Córtex com uma estação de trabalho genérica dividida entre necessidades de produtividade e jogos, destacando ergonomia, monitor, áudio, conectividade e duplicação apenas quando houver conflito real.</desc>
+  <rect width="1200" height="800" rx="36" fill="#0b1020"/>
+  <rect x="54" y="54" width="1092" height="692" rx="30" fill="#11182b" stroke="#26314d" stroke-width="2"/>
+
+  <text x="96" y="126" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">Home office + jogos</text>
+  <text x="96" y="170" fill="#aeb8ce" font-family="Arial, Helvetica, sans-serif" font-size="24">uma estação, dois usos, menos duplicação</text>
+
+  <g transform="translate(92 232)">
+    <rect x="0" y="0" width="626" height="360" rx="26" fill="#0d1426" stroke="#33415f" stroke-width="3"/>
+
+    <rect x="42" y="34" width="352" height="208" rx="16" fill="#161f36" stroke="#4a5a7d" stroke-width="3"/>
+    <rect x="62" y="54" width="312" height="168" rx="10" fill="#10182b"/>
+    <line x1="218" y1="54" x2="218" y2="222" stroke="#3f4f6c" stroke-width="3"/>
+
+    <g transform="translate(80 72)">
+      <rect x="0" y="0" width="120" height="18" rx="9" fill="#78e0b5" opacity="0.9"/>
+      <rect x="0" y="36" width="104" height="10" rx="5" fill="#556684"/>
+      <rect x="0" y="58" width="92" height="10" rx="5" fill="#556684"/>
+      <rect x="0" y="80" width="112" height="10" rx="5" fill="#556684"/>
+      <rect x="0" y="112" width="52" height="28" rx="8" fill="#243a45" stroke="#78e0b5" stroke-width="2"/>
+      <rect x="62" y="112" width="52" height="28" rx="8" fill="#243a45" stroke="#78e0b5" stroke-width="2"/>
+    </g>
+
+    <g transform="translate(238 70)">
+      <path d="M8 112 C42 72 64 132 92 84 S142 78 160 42" fill="none" stroke="#8dd3ff" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="28" cy="42" r="18" fill="#21314d" stroke="#8dd3ff" stroke-width="4"/>
+      <path d="M12 42 h32 M28 26 v32" stroke="#8dd3ff" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="128" cy="132" r="20" fill="#2c2340" stroke="#c9a7ff" stroke-width="4"/>
+      <circle cx="122" cy="132" r="3.8" fill="#c9a7ff"/>
+      <circle cx="134" cy="132" r="3.8" fill="#c9a7ff"/>
+    </g>
+
+    <rect x="176" y="244" width="72" height="40" rx="9" fill="#344461"/>
+    <rect x="118" y="284" width="188" height="14" rx="7" fill="#526180"/>
+
+    <rect x="430" y="38" width="146" height="232" rx="18" fill="#171f31" stroke="#4a5a7d" stroke-width="3"/>
+    <circle cx="503" cy="98" r="34" fill="none" stroke="#78e0b5" stroke-width="8"/>
+    <circle cx="503" cy="190" r="34" fill="none" stroke="#8dd3ff" stroke-width="8"/>
+    <rect x="458" y="242" width="90" height="10" rx="5" fill="#40506f"/>
+
+    <rect x="70" y="318" width="256" height="24" rx="12" fill="#283754"/>
+    <rect x="342" y="310" width="84" height="34" rx="17" fill="#283754"/>
+    <path d="M382 310 v-26" stroke="#526180" stroke-width="5" stroke-linecap="round"/>
+
+    <g transform="translate(468 296)">
+      <path d="M18 16 a30 30 0 0 1 60 0" fill="none" stroke="#c9a7ff" stroke-width="8" stroke-linecap="round"/>
+      <rect x="6" y="14" width="16" height="42" rx="8" fill="#c9a7ff"/>
+      <rect x="74" y="14" width="16" height="42" rx="8" fill="#c9a7ff"/>
+    </g>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="764" y="232" width="346" height="100" rx="22" fill="#152b2d" stroke="#2d5a56" stroke-width="2"/>
+    <circle cx="812" cy="282" r="19" fill="#78e0b5"/>
+    <text x="848" y="272" fill="#f5f7fb" font-size="22" font-weight="700">1. Jornada de trabalho</text>
+    <text x="848" y="300" fill="#aeb8ce" font-size="18">ergonomia • organização • tela</text>
+
+    <rect x="764" y="350" width="346" height="100" rx="22" fill="#16243a" stroke="#35516e" stroke-width="2"/>
+    <circle cx="812" cy="400" r="19" fill="#8dd3ff"/>
+    <text x="848" y="390" fill="#f5f7fb" font-size="22" font-weight="700">2. Perfil dos jogos</text>
+    <text x="848" y="418" fill="#aeb8ce" font-size="18">resolução • fluidez • conexão</text>
+
+    <rect x="764" y="468" width="346" height="100" rx="22" fill="#2b2238" stroke="#5b4770" stroke-width="2"/>
+    <circle cx="812" cy="518" r="19" fill="#c9a7ff"/>
+    <text x="848" y="508" fill="#f5f7fb" font-size="22" font-weight="700">3. Itens compartilhados</text>
+    <text x="848" y="536" fill="#aeb8ce" font-size="18">áudio • teclado • mouse • monitor</text>
+
+    <rect x="764" y="586" width="346" height="100" rx="22" fill="#33291c" stroke="#6a5736" stroke-width="2"/>
+    <circle cx="812" cy="636" r="19" fill="#ffd38a"/>
+    <text x="848" y="626" fill="#f5f7fb" font-size="22" font-weight="700">4. Duplique só se precisar</text>
+    <text x="848" y="654" fill="#aeb8ce" font-size="18">conflito real antes da compra</text>
+  </g>
+
+  <text x="96" y="706" fill="#78e0b5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">CÓRTEX OFERTAS</text>
+  <text x="282" y="706" fill="#8f9bb3" font-family="Arial, Helvetica, sans-serif" font-size="19">curadoria para comprar melhor</text>
+</svg>
