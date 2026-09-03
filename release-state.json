@@ -1,8 +1,8 @@
 {
   "account_code": "CO",
   "tailwind_account_id": "1653454",
-  "mode": "preview_fail_closed",
-  "commercial_links_enabled": false,
+  "mode": "premium_affiliate_release_candidate",
+  "commercial_links_enabled": true,
   "routes": [
     "/",
     "/casa-inteligente/",
@@ -14,5 +14,7 @@
     "/trabalho-estudo/"
   ],
   "landings": 12,
-  "modules": 6
+  "modules": 6,
+  "release_attempt": "2026-09-03T20:24:00-03:00",
+  "gate": "G6_DEPLOY_PARITY_RETRY"
 }
