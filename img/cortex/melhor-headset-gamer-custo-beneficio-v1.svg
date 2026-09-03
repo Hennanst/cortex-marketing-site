@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Headset gamer custo-benefício</title>
+  <desc id="desc">Ilustração editorial original da Córtex com um headset genérico e quatro critérios de decisão: conforto, compatibilidade, microfone e conexão.</desc>
+  <rect width="1200" height="800" rx="36" fill="#0b1020"/>
+  <rect x="54" y="54" width="1092" height="692" rx="30" fill="#11182b" stroke="#26314d" stroke-width="2"/>
+
+  <text x="96" y="126" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">Headset gamer custo-benefício</text>
+  <text x="96" y="170" fill="#aeb8ce" font-family="Arial, Helvetica, sans-serif" font-size="24">compare valor pelo uso — não por uma ficha técnica isolada</text>
+
+  <g transform="translate(94 232)">
+    <rect x="0" y="0" width="600" height="380" rx="28" fill="#0d1426" stroke="#33415f" stroke-width="3"/>
+
+    <path d="M150 174 a150 150 0 0 1 300 0" fill="none" stroke="#8dd3ff" stroke-width="28" stroke-linecap="round"/>
+    <path d="M175 172 a124 124 0 0 1 250 0" fill="none" stroke="#203454" stroke-width="12" stroke-linecap="round"/>
+
+    <rect x="102" y="176" width="86" height="130" rx="34" fill="#1b2944" stroke="#78e0b5" stroke-width="5"/>
+    <rect x="412" y="176" width="86" height="130" rx="34" fill="#1b2944" stroke="#78e0b5" stroke-width="5"/>
+    <rect x="120" y="198" width="50" height="86" rx="24" fill="#263a5d"/>
+    <rect x="430" y="198" width="50" height="86" rx="24" fill="#263a5d"/>
+
+    <path d="M448 286 C450 330 416 346 380 348" fill="none" stroke="#c9a7ff" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="371" cy="348" r="10" fill="#c9a7ff"/>
+
+    <g font-family="Arial, Helvetica, sans-serif">
+      <rect x="54" y="324" width="126" height="36" rx="18" fill="#152b2d" stroke="#2d5a56" stroke-width="2"/>
+      <text x="117" y="348" text-anchor="middle" fill="#78e0b5" font-size="18" font-weight="700">CONFORTO</text>
+
+      <rect x="194" y="324" width="142" height="36" rx="18" fill="#16243a" stroke="#35516e" stroke-width="2"/>
+      <text x="265" y="348" text-anchor="middle" fill="#8dd3ff" font-size="18" font-weight="700">COMPATÍVEL</text>
+
+      <rect x="350" y="324" width="112" height="36" rx="18" fill="#2b2238" stroke="#5b4770" stroke-width="2"/>
+      <text x="406" y="348" text-anchor="middle" fill="#c9a7ff" font-size="18" font-weight="700">MICROFONE</text>
+
+      <rect x="476" y="324" width="84" height="36" rx="18" fill="#33291c" stroke="#6a5736" stroke-width="2"/>
+      <text x="518" y="348" text-anchor="middle" fill="#ffd38a" font-size="18" font-weight="700">LINK</text>
+    </g>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="742" y="232" width="370" height="94" rx="22" fill="#152b2d" stroke="#2d5a56" stroke-width="2"/>
+    <circle cx="790" cy="279" r="19" fill="#78e0b5"/>
+    <text x="826" y="270" fill="#f5f7fb" font-size="22" font-weight="700">1. Conforto primeiro</text>
+    <text x="826" y="299" fill="#aeb8ce" font-size="18">peso • almofadas • sessões longas</text>
+
+    <rect x="742" y="344" width="370" height="94" rx="22" fill="#16243a" stroke="#35516e" stroke-width="2"/>
+    <circle cx="790" cy="391" r="19" fill="#8dd3ff"/>
+    <text x="826" y="382" fill="#f5f7fb" font-size="22" font-weight="700">2. Compatibilidade</text>
+    <text x="826" y="411" fill="#aeb8ce" font-size="18">PC • console • notebook • celular</text>
+
+    <rect x="742" y="456" width="370" height="94" rx="22" fill="#2b2238" stroke="#5b4770" stroke-width="2"/>
+    <circle cx="790" cy="503" r="19" fill="#c9a7ff"/>
+    <text x="826" y="494" fill="#f5f7fb" font-size="22" font-weight="700">3. Microfone útil</text>
+    <text x="826" y="523" fill="#aeb8ce" font-size="18">voz • controles • arquitetura</text>
+
+    <rect x="742" y="568" width="370" height="94" rx="22" fill="#33291c" stroke="#6a5736" stroke-width="2"/>
+    <circle cx="790" cy="615" r="19" fill="#ffd38a"/>
+    <text x="826" y="606" fill="#f5f7fb" font-size="22" font-weight="700">4. Conexão certa</text>
+    <text x="826" y="635" fill="#aeb8ce" font-size="18">3,5 mm • USB • sem adaptador surpresa</text>
+  </g>
+
+  <text x="96" y="706" fill="#78e0b5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">CÓRTEX OFERTAS</text>
+  <text x="282" y="706" fill="#8f9bb3" font-family="Arial, Helvetica, sans-serif" font-size="19">curadoria para comprar melhor</text>
+</svg>
