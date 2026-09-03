@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Como montar um setup gamer por ordem de decisões</title>
+  <desc id="desc">Ilustração editorial original da Córtex mostrando uma sequência de cinco decisões: objetivo de uso, espaço e ergonomia, monitor e desempenho, compatibilidade e periféricos.</desc>
+  <rect width="1200" height="800" rx="36" fill="#0b1020"/>
+  <rect x="54" y="54" width="1092" height="692" rx="30" fill="#11182b" stroke="#26314d" stroke-width="2"/>
+
+  <text x="96" y="126" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700">Como montar um setup gamer</text>
+  <text x="96" y="170" fill="#aeb8ce" font-family="Arial, Helvetica, sans-serif" font-size="24">decida a função antes de preencher a mesa</text>
+
+  <g transform="translate(92 226)">
+    <rect x="0" y="0" width="490" height="388" rx="26" fill="#0d1426" stroke="#33415f" stroke-width="3"/>
+
+    <rect x="46" y="54" width="276" height="164" rx="16" fill="#161f36" stroke="#4a5a7d" stroke-width="3"/>
+    <rect x="64" y="72" width="240" height="128" rx="10" fill="#10182b"/>
+    <path d="M100 164 C138 126 174 174 210 126 S266 116 286 92" fill="none" stroke="#8dd3ff" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="118" cy="104" r="17" fill="#21314d" stroke="#78e0b5" stroke-width="4"/>
+    <path d="M104 104 h28 M118 90 v28" stroke="#78e0b5" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="260" cy="170" r="19" fill="#2c2340" stroke="#c9a7ff" stroke-width="4"/>
+    <circle cx="254" cy="170" r="3.5" fill="#c9a7ff"/>
+    <circle cx="266" cy="170" r="3.5" fill="#c9a7ff"/>
+
+    <rect x="154" y="218" width="64" height="36" rx="8" fill="#344461"/>
+    <rect x="102" y="254" width="170" height="12" rx="6" fill="#526180"/>
+    <rect x="72" y="306" width="252" height="20" rx="10" fill="#283754"/>
+    <rect x="340" y="62" width="102" height="228" rx="18" fill="#171f31" stroke="#4a5a7d" stroke-width="3"/>
+    <circle cx="391" cy="118" r="26" fill="none" stroke="#78e0b5" stroke-width="7"/>
+    <circle cx="391" cy="190" r="26" fill="none" stroke="#8dd3ff" stroke-width="7"/>
+    <rect x="360" y="244" width="62" height="9" rx="4.5" fill="#40506f"/>
+
+    <line x1="42" y1="350" x2="448" y2="350" stroke="#283754" stroke-width="3"/>
+    <circle cx="78" cy="350" r="11" fill="#78e0b5"/>
+    <circle cx="166" cy="350" r="11" fill="#8dd3ff"/>
+    <circle cx="254" cy="350" r="11" fill="#c9a7ff"/>
+    <circle cx="342" cy="350" r="11" fill="#ffd38a"/>
+    <circle cx="430" cy="350" r="11" fill="#f0a7b6"/>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="624" y="222" width="484" height="82" rx="20" fill="#152b2d" stroke="#2d5a56" stroke-width="2"/>
+    <circle cx="668" cy="263" r="18" fill="#78e0b5"/>
+    <text x="704" y="255" fill="#f5f7fb" font-size="21" font-weight="700">1. Objetivo de uso</text>
+    <text x="704" y="280" fill="#aeb8ce" font-size="17">jogos • tarefas • resolução • fluidez</text>
+
+    <rect x="624" y="318" width="484" height="82" rx="20" fill="#16243a" stroke="#35516e" stroke-width="2"/>
+    <circle cx="668" cy="359" r="18" fill="#8dd3ff"/>
+    <text x="704" y="351" fill="#f5f7fb" font-size="21" font-weight="700">2. Espaço e ergonomia</text>
+    <text x="704" y="376" fill="#aeb8ce" font-size="17">mesa • monitor • entrada • circulação</text>
+
+    <rect x="624" y="414" width="484" height="82" rx="20" fill="#2b2238" stroke="#5b4770" stroke-width="2"/>
+    <circle cx="668" cy="455" r="18" fill="#c9a7ff"/>
+    <text x="704" y="447" fill="#f5f7fb" font-size="21" font-weight="700">3. Monitor + desempenho</text>
+    <text x="704" y="472" fill="#aeb8ce" font-size="17">resolução • Hz • VRR • capacidade da plataforma</text>
+
+    <rect x="624" y="510" width="484" height="82" rx="20" fill="#33291c" stroke="#6a5736" stroke-width="2"/>
+    <circle cx="668" cy="551" r="18" fill="#ffd38a"/>
+    <text x="704" y="543" fill="#f5f7fb" font-size="21" font-weight="700">4. Compatibilidade</text>
+    <text x="704" y="568" fill="#aeb8ce" font-size="17">plataforma • memória • energia • portas</text>
+
+    <rect x="624" y="606" width="484" height="82" rx="20" fill="#35222d" stroke="#70485c" stroke-width="2"/>
+    <circle cx="668" cy="647" r="18" fill="#f0a7b6"/>
+    <text x="704" y="639" fill="#f5f7fb" font-size="21" font-weight="700">5. Periféricos e acabamento</text>
+    <text x="704" y="664" fill="#aeb8ce" font-size="17">compre para resolver uso real, não checklist estética</text>
+  </g>
+
+  <text x="96" y="706" fill="#78e0b5" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">CÓRTEX OFERTAS</text>
+  <text x="282" y="706" fill="#8f9bb3" font-family="Arial, Helvetica, sans-serif" font-size="19">curadoria para comprar melhor</text>
+</svg>
