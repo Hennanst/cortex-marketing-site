@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="960" viewBox="0 0 720 960" role="img" aria-labelledby="title desc">
+  <title id="title">Headset com fio ou sem fio — composição mobile</title>
+  <desc id="desc">Ilustração editorial original da Córtex em formato vertical. Com fio destaca conexão direta e ausência de recarga; sem fio destaca mobilidade e rotina de recarga.</desc>
+  <rect width="720" height="960" rx="32" fill="#0b1020"/>
+  <rect x="28" y="28" width="664" height="904" rx="28" fill="#11182b" stroke="#26314d" stroke-width="3"/>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="52" y="88" fill="#f5f7fb" font-size="44" font-weight="700">Com fio ou sem fio?</text>
+    <text x="52" y="132" fill="#c5ccda" font-size="30" font-weight="600">Escolha pela rotina.</text>
+  </g>
+
+  <g transform="translate(48 178)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="624" height="292" rx="28" fill="#0e2030" stroke="#31536c" stroke-width="4"/>
+    <rect x="24" y="22" width="178" height="54" rx="27" fill="#17354a"/>
+    <text x="113" y="59" text-anchor="middle" fill="#9bddff" font-size="30" font-weight="700">COM FIO</text>
+
+    <path d="M84 174 a94 94 0 0 1 188 0" fill="none" stroke="#8dd3ff" stroke-width="22" stroke-linecap="round"/>
+    <path d="M100 172 a78 78 0 0 1 156 0" fill="none" stroke="#203b54" stroke-width="9" stroke-linecap="round"/>
+    <rect x="56" y="170" width="64" height="92" rx="25" fill="#1d3348" stroke="#78e0b5" stroke-width="5"/>
+    <rect x="238" y="170" width="64" height="92" rx="25" fill="#1d3348" stroke="#78e0b5" stroke-width="5"/>
+    <path d="M270 262 C270 280 250 282 232 282" fill="none" stroke="#8dd3ff" stroke-width="7" stroke-linecap="round"/>
+
+    <circle cx="348" cy="150" r="9" fill="#78e0b5"/>
+    <text x="372" y="160" fill="#78e0b5" font-size="32" font-weight="700">SEM RECARGA</text>
+    <circle cx="348" cy="218" r="9" fill="#8dd3ff"/>
+    <text x="372" y="228" fill="#f5f7fb" font-size="28" font-weight="700">CONEXÃO DIRETA</text>
+  </g>
+
+  <g transform="translate(48 494)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="624" height="292" rx="28" fill="#241c34" stroke="#594570" stroke-width="4"/>
+    <rect x="24" y="22" width="178" height="54" rx="27" fill="#34254b"/>
+    <text x="113" y="59" text-anchor="middle" fill="#d5baff" font-size="30" font-weight="700">SEM FIO</text>
+
+    <path d="M84 174 a94 94 0 0 1 188 0" fill="none" stroke="#c9a7ff" stroke-width="22" stroke-linecap="round"/>
+    <path d="M100 172 a78 78 0 0 1 156 0" fill="none" stroke="#45345d" stroke-width="9" stroke-linecap="round"/>
+    <rect x="56" y="170" width="64" height="92" rx="25" fill="#352847" stroke="#ffb56b" stroke-width="5"/>
+    <rect x="238" y="170" width="64" height="92" rx="25" fill="#352847" stroke="#ffb56b" stroke-width="5"/>
+    <path d="M306 126 q30 30 0 60" fill="none" stroke="#c9a7ff" stroke-width="7" stroke-linecap="round"/>
+    <path d="M326 108 q46 46 0 92" fill="none" stroke="#8b70ae" stroke-width="6" stroke-linecap="round"/>
+
+    <circle cx="364" cy="150" r="9" fill="#d5baff"/>
+    <text x="388" y="160" fill="#d5baff" font-size="32" font-weight="700">MOBILIDADE</text>
+    <circle cx="364" cy="218" r="9" fill="#ffb56b"/>
+    <text x="388" y="228" fill="#f5f7fb" font-size="32" font-weight="700">RECARGA</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="112" y="826" width="496" height="70" rx="35" fill="#152b2d" stroke="#2d5a56" stroke-width="3"/>
+    <text x="360" y="872" text-anchor="middle" fill="#78e0b5" font-size="30" font-weight="700">DECIDA PELO USO REAL</text>
+  </g>
+</svg>
