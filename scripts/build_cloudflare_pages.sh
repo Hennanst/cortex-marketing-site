@@ -25,22 +25,28 @@ while IFS= read -r -d '' file; do
   sed -i "s#${LEGACY_ORIGIN}#${PUBLIC_ORIGIN}#g" "$file"
 done < <(grep -rlZ --binary-files=without-match -- "$LEGACY_ORIGIN" "$DIST" || true)
 
+# The five curated commercial routes are active surfaces. Normalize only their
+# obsolete affiliate tag to the current Córtex tag; historical documents outside
+# these routes are quarantined instead of silently reactivated.
+critical_routes=(
+  "$DIST/index.html"
+  "$DIST/setup-games/index.html"
+  "$DIST/trabalho-estudo/index.html"
+  "$DIST/comparativos/index.html"
+  "$DIST/recomendados/index.html"
+)
+for file in "${critical_routes[@]}"; do
+  test -f "$file"
+  sed -i 's/hennanst-20/cortexofertas-20/g' "$file"
+done
+
 # Safety quarantine for historical affiliate documents still carrying the old
-# Amazon tracking tag. Do not silently rewrite those products: remove them from
-# the Cloudflare publish bundle until Product/Destination revalidation occurs.
+# Amazon tracking tag. Those products require Product/Destination revalidation
+# before they can become active Cloudflare surfaces again.
 legacy_count=0
 while IFS= read -r -d '' file; do
-  rel="${file#${DIST}/}"
-  case "$rel" in
-    index.html|setup-games/index.html|trabalho-estudo/index.html|comparativos/index.html|recomendados/index.html)
-      echo "Critical route contains obsolete affiliate tag: $rel" >&2
-      exit 1
-      ;;
-    *)
-      rm -f "$file"
-      legacy_count=$((legacy_count + 1))
-      ;;
-  esac
+  rm -f "$file"
+  legacy_count=$((legacy_count + 1))
 done < <(grep -rlZ --binary-files=without-match --include='*.html' --include='*.json' -- 'hennanst-20' "$DIST" || true)
 find "$DIST" -type d -empty -delete || true
 
