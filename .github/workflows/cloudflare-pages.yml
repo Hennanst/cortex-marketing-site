@@ -51,15 +51,16 @@ jobs:
           printf 'CLOUDFLARE_API_TOKEN=%s\n' "$token" >> "$GITHUB_ENV"
           printf 'CLOUDFLARE_ACCOUNT_ID=%s\n' "$account" >> "$GITHUB_ENV"
 
-      - name: Validate Cloudflare credentials
+      - name: Validate Cloudflare Pages access
         run: |
           set -euo pipefail
-          npx --yes wrangler@4 whoami
+          npx --yes wrangler@4 pages project list --json > /tmp/cloudflare-pages-projects.json
+          jq -e 'type == "array"' /tmp/cloudflare-pages-projects.json >/dev/null
 
       - name: Ensure Pages project exists
         run: |
           set -euo pipefail
-          if ! npx --yes wrangler@4 pages project list --json | jq -e --arg p "$CLOUDFLARE_PAGES_PROJECT" '.[] | select(.name == $p)' >/dev/null; then
+          if ! jq -e --arg p "$CLOUDFLARE_PAGES_PROJECT" '.[] | select(.name == $p)' /tmp/cloudflare-pages-projects.json >/dev/null; then
             npx --yes wrangler@4 pages project create "$CLOUDFLARE_PAGES_PROJECT" --production-branch=main
           fi
 
