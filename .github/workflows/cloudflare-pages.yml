@@ -95,20 +95,89 @@ jobs:
           npx --yes wrangler@4 pages deploy dist \
             --project-name="$CLOUDFLARE_PAGES_PROJECT" \
             --branch="${GITHUB_REF_NAME}" \
-            --commit-hash="${GITHUB_SHA}"
+            --commit-hash="${GITHUB_SHA}" | tee /tmp/wrangler-deploy.log
+          deploy_url="$(grep -Eo 'https://[A-Za-z0-9.-]+\.pages\.dev' /tmp/wrangler-deploy.log | head -n1)"
+          test -n "$deploy_url"
+          printf 'DEPLOY_URL=%s\n' "$deploy_url" >> "$GITHUB_ENV"
+          echo "Cloudflare deployment URL: ${deploy_url}"
+
+      - name: HTTP preview smoke test
+        run: |
+          set -euo pipefail
+          for i in 1 2 3 4 5; do
+            if curl --fail --silent --show-error --location "${DEPLOY_URL}/" -o /tmp/home.html \
+              && curl --fail --silent --show-error --location "${DEPLOY_URL}/setup-games/" -o /tmp/setup.html \
+              && grep -q "Córtex Ofertas" /tmp/home.html \
+              && grep -q "G305" /tmp/setup.html \
+              && grep -q "assets/cortex" /tmp/home.html \
+              && grep -q "cortexofertas-20" /tmp/setup.html; then
+              echo "HTTP preview smoke test passed."
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Cloudflare preview smoke test failed" >&2
+          exit 1
+
+      - name: Browser render QA mobile and desktop
+        run: |
+          set -euo pipefail
+          npm install --no-save playwright@latest >/dev/null 2>&1
+          npx playwright install chromium >/dev/null 2>&1
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          const base = process.env.DEPLOY_URL;
+          const viewports = [
+            {name:'mobile', width:390, height:844},
+            {name:'desktop', width:1440, height:900}
+          ];
+          (async()=>{
+            const browser = await chromium.launch({headless:true});
+            const failures=[];
+            for (const vp of viewports) {
+              const page = await browser.newPage({viewport:{width:vp.width,height:vp.height}});
+              for (const route of ['/', '/setup-games/']) {
+                const url = base + route;
+                const response = await page.goto(url,{waitUntil:'networkidle',timeout:60000});
+                if (!response || !response.ok()) failures.push(`${vp.name} ${route}: HTTP ${response && response.status()}`);
+                const result = await page.evaluate(() => {
+                  const imgs=[...document.images].map(img=>({src:img.getAttribute('src'),complete:img.complete,naturalWidth:img.naturalWidth,rect:img.getBoundingClientRect().toJSON()}));
+                  const badImgs=imgs.filter(x=>!x.complete || x.naturalWidth===0);
+                  const overflow=document.documentElement.scrollWidth > window.innerWidth + 2;
+                  const bodyText=document.body.innerText;
+                  const ctas=[...document.querySelectorAll('a')].filter(a=>/Amazon|Ver na Amazon|Ver produto/i.test(a.textContent||''));
+                  const disclosures=[...document.querySelectorAll('body *')].filter(el=>/link de afiliado|publicidade/i.test(el.textContent||'')).length;
+                  return {title:document.title,overflow,badImgs,images:imgs.length,ctas:ctas.length,disclosures,bodyText:bodyText.slice(0,500)};
+                });
+                console.log(JSON.stringify({viewport:vp.name,route,...result}));
+                if (result.overflow) failures.push(`${vp.name} ${route}: horizontal overflow`);
+                if (result.badImgs.length) failures.push(`${vp.name} ${route}: ${result.badImgs.length} broken images`);
+                if (route==='/' && result.images < 4) failures.push(`${vp.name} /: expected image-led home`);
+                if (route==='/setup-games/' && result.ctas < 2) failures.push(`${vp.name} setup: expected >=2 merchant CTAs`);
+                await page.close();
+              }
+            }
+            await browser.close();
+            if (failures.length) {
+              console.error('RENDER_QA_FAIL\n' + failures.join('\n'));
+              process.exit(1);
+            }
+            console.log('RENDER_QA_PASS');
+          })();
+          NODE
 
       - name: Production smoke test
         if: github.ref == 'refs/heads/main'
         run: |
           set -euo pipefail
           for i in 1 2 3 4 5; do
-            if curl --fail --silent --show-error --location "https://${CLOUDFLARE_PAGES_PROJECT}.pages.dev/" -o /tmp/home.html \
-              && curl --fail --silent --show-error --location "https://${CLOUDFLARE_PAGES_PROJECT}.pages.dev/setup-games/" -o /tmp/setup.html \
-              && grep -q "Córtex Ofertas" /tmp/home.html \
-              && grep -q "G305" /tmp/setup.html; then
+            if curl --fail --silent --show-error --location "https://${CLOUDFLARE_PAGES_PROJECT}.pages.dev/" -o /tmp/home-prod.html \
+              && curl --fail --silent --show-error --location "https://${CLOUDFLARE_PAGES_PROJECT}.pages.dev/setup-games/" -o /tmp/setup-prod.html \
+              && grep -q "Córtex Ofertas" /tmp/home-prod.html \
+              && grep -q "G305" /tmp/setup-prod.html; then
               exit 0
             fi
             sleep 10
           done
-          echo "Cloudflare Pages smoke test failed" >&2
+          echo "Cloudflare Pages production smoke test failed" >&2
           exit 1
