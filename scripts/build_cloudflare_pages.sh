@@ -38,6 +38,9 @@ critical_routes=(
 for file in "${critical_routes[@]}"; do
   test -f "$file"
   sed -i 's/hennanst-20/cortexofertas-20/g' "$file"
+  # Width hardening for mobile. This targets legacy cards/grids with intrinsic
+  # widths without changing desktop composition.
+  sed -i 's#</head>#<style id="cortex-mobile-width-guard">html,body{max-width:100%;overflow-x:hidden}main,section,article,nav,.card,.comparison-grid,.pillar-grid,.product-card{min-width:0;max-width:100%}img,svg,video,iframe{max-width:100%;height:auto}a,p,h1,h2,h3,li,span{overflow-wrap:anywhere;word-break:normal}@media(max-width:760px){.comparison-grid,.pillar-grid{grid-template-columns:minmax(0,1fr)!important}.card,.product-card,.product-module{max-width:100%!important}header nav{max-width:100vw!important}}</style></head>#' "$file"
 done
 
 # Safety quarantine for historical affiliate documents still carrying the old
