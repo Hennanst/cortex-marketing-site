@@ -36,3 +36,6 @@ Enquanto o domínio definitivo não for apontado para Cloudflare, nenhuma mudan�
 ## Projeto Cloudflare
 Nome operacional sugerido: `cortex-ofertas`.
 Production branch: `main`.
+
+## Estado operacional
+CF0 credenciais configuradas pelo usuário em 2026-09-04. Push de validação disparado nesta branch para criar o primeiro preview Cloudflare Pages sem alterar produção.
