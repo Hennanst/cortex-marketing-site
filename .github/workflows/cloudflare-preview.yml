@@ -1,0 +1,59 @@
+name: Cloudflare Pages Preview
+
+on:
+  push:
+    branches:
+      - migrate/cloudflare-pages-20260904
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: cloudflare-pages-preview-${{ github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  CLOUDFLARE_PAGES_PROJECT: cortex-ofertas
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build static publish directory
+        run: bash scripts/build_cloudflare_pages.sh
+
+      - name: Validate Cloudflare credentials
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          npx --yes wrangler@4 whoami
+
+      - name: Ensure Pages project exists
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if ! npx --yes wrangler@4 pages project list --json | jq -e --arg p "$CLOUDFLARE_PAGES_PROJECT" '.[] | select(.name == $p)' >/dev/null; then
+            npx --yes wrangler@4 pages project create "$CLOUDFLARE_PAGES_PROJECT" --production-branch=main
+          fi
+
+      - name: Deploy preview to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 pages deploy dist \
+            --project-name="$CLOUDFLARE_PAGES_PROJECT" \
+            --branch="${GITHUB_REF_NAME}" \
+            --commit-hash="${GITHUB_SHA}"
