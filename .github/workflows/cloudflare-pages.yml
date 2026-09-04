@@ -154,8 +154,8 @@ jobs:
                 if (result.badImgs.length) failures.push(`${vp.name} ${route}: ${result.badImgs.length} broken images`);
                 if (route==='/' && result.images < 4) failures.push(`${vp.name} /: expected image-led home`);
                 if (route==='/setup-games/' && result.ctas < 2) failures.push(`${vp.name} setup: expected >=2 merchant CTAs`);
-                await page.close();
               }
+              await page.close();
             }
             await browser.close();
             if (failures.length) {
