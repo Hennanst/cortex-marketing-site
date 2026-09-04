@@ -45,9 +45,7 @@ jobs:
           account_raw="${account_raw#\"}"; account_raw="${account_raw%\"}"
           account_raw="${account_raw#\'}"; account_raw="${account_raw%\'}"
           account="$(printf '%s' "$account_raw" | grep -Eo '[A-Fa-f0-9]{32}' | head -n1 || true)"
-          if [ -z "$account" ]; then
-            account="$account_raw"
-          fi
+          if [ -z "$account" ]; then account="$account_raw"; fi
           test -n "$token"
           test -n "$account"
           echo "::add-mask::$token"
@@ -55,11 +53,34 @@ jobs:
           printf 'CLOUDFLARE_API_TOKEN=%s\n' "$token" >> "$GITHUB_ENV"
           printf 'CLOUDFLARE_ACCOUNT_ID=%s\n' "$account" >> "$GITHUB_ENV"
 
-      - name: Validate Cloudflare Pages access
+      - name: Verify Cloudflare API token
         run: |
           set -euo pipefail
-          npx --yes wrangler@4 pages project list --json > /tmp/cloudflare-pages-projects.json
-          jq -e 'type == "array"' /tmp/cloudflare-pages-projects.json >/dev/null
+          curl --fail-with-body --silent --show-error \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            https://api.cloudflare.com/client/v4/user/tokens/verify \
+            -o /tmp/token-verify.json
+          jq -e '.success == true and .result.status == "active"' /tmp/token-verify.json >/dev/null
+          echo "Cloudflare API token is active."
+
+      - name: Validate Cloudflare Pages account access
+        run: |
+          set -euo pipefail
+          http_code="$(curl --silent --show-error \
+            -o /tmp/cloudflare-pages-response.json \
+            -w '%{http_code}' \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/pages/projects")"
+          if [ "$http_code" -lt 200 ] || [ "$http_code" -ge 300 ]; then
+            echo "Cloudflare Pages API returned HTTP ${http_code}." >&2
+            jq -r '.errors[]? | "code=\(.code) message=\(.message)"' /tmp/cloudflare-pages-response.json >&2 || true
+            exit 1
+          fi
+          jq -e '.success == true and (.result | type == "array")' /tmp/cloudflare-pages-response.json >/dev/null
+          jq '.result' /tmp/cloudflare-pages-response.json > /tmp/cloudflare-pages-projects.json
+          echo "Cloudflare Pages account access confirmed."
 
       - name: Ensure Pages project exists
         run: |
