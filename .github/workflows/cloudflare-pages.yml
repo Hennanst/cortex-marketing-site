@@ -35,15 +35,19 @@ jobs:
         run: |
           set -euo pipefail
           token="$(printf '%s' "$RAW_CLOUDFLARE_API_TOKEN" | tr -d '\r\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
-          account="$(printf '%s' "$RAW_CLOUDFLARE_ACCOUNT_ID" | tr -d '\r\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+          account_raw="$(printf '%s' "$RAW_CLOUDFLARE_ACCOUNT_ID" | tr -d '\r\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
           token="${token#Bearer }"
           token="${token#bearer }"
           token="${token#CLOUDFLARE_API_TOKEN=}"
-          account="${account#CLOUDFLARE_ACCOUNT_ID=}"
           token="${token#\"}"; token="${token%\"}"
           token="${token#\'}"; token="${token%\'}"
-          account="${account#\"}"; account="${account%\"}"
-          account="${account#\'}"; account="${account%\'}"
+          account_raw="${account_raw#CLOUDFLARE_ACCOUNT_ID=}"
+          account_raw="${account_raw#\"}"; account_raw="${account_raw%\"}"
+          account_raw="${account_raw#\'}"; account_raw="${account_raw%\'}"
+          account="$(printf '%s' "$account_raw" | grep -Eo '[A-Fa-f0-9]{32}' | head -n1 || true)"
+          if [ -z "$account" ]; then
+            account="$account_raw"
+          fi
           test -n "$token"
           test -n "$account"
           echo "::add-mask::$token"
