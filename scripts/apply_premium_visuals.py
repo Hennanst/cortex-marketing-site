@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Apply the Córtex G-IMG-01 premium visual layer to the built Cloudflare bundle.
 
-This pass intentionally replaces the previous vector-placeholder visual language with
-rights-safe editorial photography for primary consumer-facing surfaces. Product-specific
-cards use clearly labelled editorial context imagery until exact catalog imagery is
-available through an authorized source.
+This pass replaces the previous vector-placeholder visual language with rights-safe
+editorial photography for primary consumer-facing surfaces. The hero/category candidates
+below are source-verified under the Unsplash License and are staged for rendered crop and
+qualitative review; source verification alone does not equal G-IMG-01 PASS.
 
-Visual sources were selected from photographs marked free to use under the Unsplash
-License on 2026-09-05. We hotlink the canonical images.unsplash.com CDN URLs rather
-than scraping retailer/manufacturer imagery.
+Named-product cards remain explicitly CONTEXT_ONLY until exact rights-safe product imagery
+passes G-IMG-01P. They must not be promoted to premium product-visual PASS merely because
+the contextual photography is attractive.
 """
 
 from __future__ import annotations
@@ -22,14 +22,14 @@ if not DIST.exists():
     raise SystemExit(f"publish directory not found: {DIST}")
 
 PHOTOS = {
-    "hero-tech-v1.svg": "https://images.unsplash.com/photo-1693880269247-97721478c508?auto=format&fit=crop&w=1800&q=86",
-    "category-gaming-v1.svg": "https://images.unsplash.com/photo-1691580438246-a6e5cb35ca05?auto=format&fit=crop&w=1500&q=86",
+    # Source-verified hero/category candidates. Final PASS requires rendered review.
+    "hero-tech-v1.svg": "https://images.unsplash.com/photo-1762096070873-63e82ab143ca?auto=format&fit=crop&w=1800&q=86",
+    "category-gaming-v1.svg": "https://images.unsplash.com/photo-1779452525134-bb7c08326179?auto=format&fit=crop&w=1500&q=86",
     "category-work-v1.svg": "https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&fit=crop&w=1500&q=86",
-    "category-creator-v1.svg": "https://images.unsplash.com/photo-1764664035176-8e92ff4f128e?auto=format&fit=crop&w=1500&q=86",
-    "category-home-v1.svg": "https://images.unsplash.com/photo-1594419015530-4676f41c4bb9?auto=format&fit=crop&w=1500&q=86",
-    # Product cards remain explicitly labelled as editorial context until an
-    # authorized exact-SKU catalog image source is available. Reuse known-good
-    # licensed technology photography instead of risking a broken/guessed asset.
+    "category-creator-v1.svg": "https://images.unsplash.com/photo-1764664035187-e89b27d54c7b?auto=format&fit=crop&w=1500&q=86",
+    "category-home-v1.svg": "https://images.unsplash.com/photo-1772475329864-e30a2f1278c0?auto=format&fit=crop&w=1500&q=86",
+    # Named-product visuals remain CONTEXT_ONLY until an exact rights-safe source passes
+    # the frozen G-IMG-01P Product Recognition subgate.
     "product-g305-editorial-v1.svg": "https://images.unsplash.com/photo-1691580438246-a6e5cb35ca05?auto=format&fit=crop&w=1400&q=86",
     "product-g203-editorial-v1.svg": "https://images.unsplash.com/photo-1693880269247-97721478c508?auto=format&fit=crop&w=1400&q=86",
     "product-ideapad-editorial-v1.svg": "https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&fit=crop&w=1400&q=86",
@@ -51,11 +51,12 @@ STYLE = r"""
 img[src*="images.unsplash.com"]{background:#0d1218;object-fit:cover;image-rendering:auto}
 .visual-context-label{display:block;margin:8px 14px 0;color:#8f99a6;font-size:.69rem;line-height:1.35;letter-spacing:.01em}
 .hero img[src*="images.unsplash.com"],.g8-hero img[src*="images.unsplash.com"]{min-height:320px;max-height:560px;object-fit:cover}
+.hero img[src*="photo-1762096070873-63e82ab143ca"]{object-position:center 38%}
 .g8-tile img[src*="images.unsplash.com"],.product img[src*="images.unsplash.com"]{object-fit:cover}
 .product-visual{background:center/cover no-repeat!important;border:1px solid rgba(255,255,255,.08)!important;overflow:hidden!important;position:relative!important}
 .product-visual:after,.product-visual>span,.product-visual>b{display:none!important}
 .product-visual:before{content:"Imagem editorial de contexto";position:absolute;left:14px;bottom:12px;z-index:2;padding:5px 8px;border-radius:999px;background:rgba(6,9,13,.78);color:#d7dee7;font-size:.66rem;font-weight:750;letter-spacing:.03em;backdrop-filter:blur(8px)}
-@media(max-width:760px){.hero img[src*="images.unsplash.com"],.g8-hero img[src*="images.unsplash.com"]{min-height:240px;max-height:380px}.visual-context-label{margin:7px 10px 0}}
+@media(max-width:760px){.hero img[src*="images.unsplash.com"],.g8-hero img[src*="images.unsplash.com"]{min-height:240px;max-height:380px}.visual-context-label{margin:7px 10px 0}.hero img[src*="photo-1762096070873-63e82ab143ca"]{object-position:center 34%}}
 </style>
 """.strip()
 
@@ -76,8 +77,6 @@ ALT_REPLACEMENTS = {
 
 def replace_asset_refs(text: str) -> str:
     for filename, url in PHOTOS.items():
-        # Source pages use a mix of ./assets, ../assets and /assets. Replace the
-        # complete path prefix so we never leave a malformed './https://...' URL.
         pattern = re.compile(rf"(?:\.\./|\./|/)?assets/cortex/{re.escape(filename)}")
         text = pattern.sub(url, text)
     for old, new in ALT_REPLACEMENTS.items():
