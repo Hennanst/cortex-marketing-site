@@ -152,6 +152,14 @@ jobs:
                 for (const route of routes) {
                   const response = await page.goto(target.url + route,{waitUntil:'networkidle',timeout:60000});
                   if (!response || !response.ok()) failures.push(`${target.name} ${vp.name} ${route}: HTTP ${response && response.status()}`);
+                  await page.evaluate(async()=>{
+                    const imgs=[...document.images];
+                    for (const img of imgs) img.scrollIntoView({block:'center'});
+                    window.scrollTo(0,document.body.scrollHeight);
+                    await new Promise(resolve=>setTimeout(resolve,1400));
+                    window.scrollTo(0,0);
+                    await new Promise(resolve=>setTimeout(resolve,250));
+                  });
                   const result = await page.evaluate(({productionBase}) => {
                     const imgs=[...document.images].map(img=>({src:img.getAttribute('src')||'',complete:img.complete,naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight}));
                     const badImgs=imgs.filter(x=>!x.complete || x.naturalWidth===0);
