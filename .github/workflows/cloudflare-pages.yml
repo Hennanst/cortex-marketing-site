@@ -28,6 +28,9 @@ jobs:
       - name: Build static publish directory
         run: bash scripts/build_cloudflare_pages.sh
 
+      - name: Apply G-IMG-01 premium visual pass
+        run: python3 scripts/apply_premium_visuals.py dist
+
       - name: Normalize Cloudflare credentials
         env:
           RAW_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -101,7 +104,7 @@ jobs:
           printf 'DEPLOY_URL=%s\n' "$deploy_url" >> "$GITHUB_ENV"
           echo "Cloudflare deployment URL: ${deploy_url}"
 
-      - name: HTTP parity smoke test
+      - name: HTTP parity and premium visual smoke test
         run: |
           set -euo pipefail
           routes=(/ /setup-games/ /trabalho-estudo/ /creator-streaming/ /casa-inteligente/ /guias/ /comparativos/ /recomendados/)
@@ -111,10 +114,15 @@ jobs:
             grep -q "Córtex Ofertas" "$out"
             if grep -q "hennanst-20" "$out"; then echo "obsolete affiliate tag at $route" >&2; exit 1; fi
             if grep -q "cortex-public.vercel.app" "$out"; then echo "stale Vercel origin at $route" >&2; exit 1; fi
+            if grep -Eq "hero-tech-v1\.svg|category-(gaming|work|creator|home)-v1\.svg|product-(g305|g203|ideapad)-editorial-v1\.svg" "$out"; then
+              echo "G-IMG-01 old model/template visual remains at $route" >&2
+              exit 1
+            fi
           done
           grep -q "G305" /tmp/http_setup_games_.html
           grep -q "cortexofertas-20" /tmp/http_setup_games_.html
-          echo "HTTP parity smoke test passed."
+          grep -q "images.unsplash.com" /tmp/http_.html
+          echo "HTTP parity + premium visual smoke test passed."
 
       - name: Browser parity QA mobile and desktop
         run: |
@@ -132,6 +140,8 @@ jobs:
             {name:'mobile', width:390, height:844},
             {name:'desktop', width:1440, height:900}
           ];
+          const oldVisualRe = /(?:hero-tech-v1|category-(?:gaming|work|creator|home)-v1|product-(?:g305|g203|ideapad)-editorial-v1)\.svg/;
+          const premiumMin = {'/':5,'/setup-games/':3,'/trabalho-estudo/':2,'/creator-streaming/':2,'/casa-inteligente/':2,'/guias/':2,'/comparativos/':2,'/recomendados/':2};
           (async()=>{
             const browser = await chromium.launch({headless:true});
             const failures=[];
@@ -143,8 +153,10 @@ jobs:
                   const response = await page.goto(target.url + route,{waitUntil:'networkidle',timeout:60000});
                   if (!response || !response.ok()) failures.push(`${target.name} ${vp.name} ${route}: HTTP ${response && response.status()}`);
                   const result = await page.evaluate(({productionBase}) => {
-                    const imgs=[...document.images].map(img=>({src:img.getAttribute('src'),complete:img.complete,naturalWidth:img.naturalWidth}));
+                    const imgs=[...document.images].map(img=>({src:img.getAttribute('src')||'',complete:img.complete,naturalWidth:img.naturalWidth,naturalHeight:img.naturalHeight}));
                     const badImgs=imgs.filter(x=>!x.complete || x.naturalWidth===0);
+                    const premiumImgs=imgs.filter(x=>x.src.includes('images.unsplash.com'));
+                    const smallPremium=premiumImgs.filter(x=>x.naturalWidth>0 && x.naturalWidth<600);
                     const overflow=document.documentElement.scrollWidth > window.innerWidth + 2;
                     const html=document.documentElement.innerHTML;
                     const canonical=document.querySelector('link[rel="canonical"]')?.href || '';
@@ -152,25 +164,29 @@ jobs:
                     const currentTagLinks=[...document.querySelectorAll('a[href*="amazon.com.br"]')].filter(a=>a.href.includes('tag=cortexofertas-20'));
                     const disclosures=[...document.querySelectorAll('body *')].filter(el=>/link de afiliado|associado da amazon|publicidade/i.test(el.textContent||'')).length;
                     const blocked=[...document.querySelectorAll('[data-merchant-state="blocked"]')].filter(el=>el.getClientRects().length>0 && getComputedStyle(el).visibility!=='hidden').length;
+                    const contextLabels=[...document.querySelectorAll('.visual-context-label')].filter(el=>el.getClientRects().length>0).length;
                     const links=[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')).filter(Boolean);
                     return {
-                      title:document.title, overflow, badImgs, images:imgs.length, ctas:ctas.length,
-                      currentTagLinks:currentTagLinks.length, disclosures, blocked, canonical, links,
+                      title:document.title, overflow, badImgs, images:imgs.length, premiumImages:premiumImgs.length,
+                      smallPremium, contextLabels, ctas:ctas.length, currentTagLinks:currentTagLinks.length,
+                      disclosures, blocked, canonical, links, html,
                       staleOrigin:html.includes('cortex-public.vercel.app'), staleTag:html.includes('hennanst-20'),
                       productionCanonical:canonical.startsWith(productionBase)
                     };
                   }, {productionBase});
-                  console.log(JSON.stringify({target:target.name,viewport:vp.name,route,...result,links:undefined}));
+                  console.log(JSON.stringify({target:target.name,viewport:vp.name,route,title:result.title,overflow:result.overflow,badImgs:result.badImgs.length,images:result.images,premiumImages:result.premiumImages,smallPremium:result.smallPremium.length,contextLabels:result.contextLabels,ctas:result.ctas,currentTagLinks:result.currentTagLinks,disclosures:result.disclosures,blocked:result.blocked,canonical:result.canonical}));
                   if (result.overflow) failures.push(`${target.name} ${vp.name} ${route}: horizontal overflow`);
                   if (result.badImgs.length) failures.push(`${target.name} ${vp.name} ${route}: ${result.badImgs.length} broken images`);
+                  if (result.smallPremium.length) failures.push(`${target.name} ${vp.name} ${route}: premium image below 600px natural width`);
                   if (result.staleOrigin) failures.push(`${target.name} ${vp.name} ${route}: stale Vercel origin`);
                   if (result.staleTag) failures.push(`${target.name} ${vp.name} ${route}: obsolete affiliate tag`);
+                  if (oldVisualRe.test(result.html)) failures.push(`${target.name} ${vp.name} ${route}: old model/template visual reference remains`);
                   if (!result.productionCanonical) failures.push(`${target.name} ${vp.name} ${route}: canonical not Cloudflare production`);
-                  if (route==='/' && result.images < 4) failures.push(`${target.name} ${vp.name} /: expected image-led home`);
+                  if (result.premiumImages < premiumMin[route]) failures.push(`${target.name} ${vp.name} ${route}: premium visual count ${result.premiumImages} < ${premiumMin[route]}`);
                   if (route==='/setup-games/' && result.ctas < 2) failures.push(`${target.name} ${vp.name} setup: expected >=2 merchant CTAs`);
                   if (route==='/setup-games/' && result.currentTagLinks < 2) failures.push(`${target.name} ${vp.name} setup: current affiliate tag missing`);
                   if (route==='/setup-games/' && result.disclosures < 1) failures.push(`${target.name} ${vp.name} setup: affiliate disclosure missing`);
-                  if (['/creator-streaming/','/casa-inteligente/','/guias/'].includes(route) && result.images < 2) failures.push(`${target.name} ${vp.name} ${route}: primary nav route not image-led`);
+                  if (route==='/setup-games/' && result.contextLabels < 2) failures.push(`${target.name} ${vp.name} setup: editorial-context labels missing`);
                   if (['/creator-streaming/','/casa-inteligente/'].includes(route) && result.blocked > 0) failures.push(`${target.name} ${vp.name} ${route}: unfinished merchant blocks still visible`);
                   for (const href of result.links) {
                     if (href.startsWith('/')) internal.add(href.split('#')[0]);
@@ -190,10 +206,10 @@ jobs:
             }
             await browser.close();
             if (failures.length) {
-              console.error('PARITY_QA_FAIL\n' + failures.join('\n'));
+              console.error('G_IMG_01_RENDER_FAIL\n' + failures.join('\n'));
               process.exit(1);
             }
-            console.log('PARITY_QA_PASS');
+            console.log('G_IMG_01_RENDER_PRECHECK_PASS');
           })();
           NODE
 
@@ -210,4 +226,4 @@ jobs:
               exit 1
             fi
           done
-          echo "Production parity smoke test passed."
+          echo "Production premium visual parity smoke test passed."
