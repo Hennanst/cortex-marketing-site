@@ -9,6 +9,7 @@ Schema: cortex.product-visuals.v1
 
 Allowed rights-safe source types:
 - amazon_creators_api
+- amazon_sitestripe_image_link
 - manufacturer_explicit_permission
 - owner_supplied_original
 
@@ -29,6 +30,7 @@ from urllib.parse import parse_qs, urlparse
 SCHEMA = "cortex.product-visuals.v1"
 ALLOWED_SOURCES = {
     "amazon_creators_api",
+    "amazon_sitestripe_image_link",
     "manufacturer_explicit_permission",
     "owner_supplied_original",
 }
@@ -36,6 +38,10 @@ EXPECTED_HOST = "www.amazon.com.br"
 EXPECTED_TAG = "cortexofertas-20"
 MIN_LONG_EDGE = 800
 ASIN_RE = re.compile(r"^[A-Z0-9]{10}$")
+AMAZON_IMAGE_HOST_SUFFIXES = (
+    "media-amazon.com",
+    "ssl-images-amazon.com",
+)
 
 
 class ManifestError(RuntimeError):
@@ -87,6 +93,34 @@ def validate_image(item: dict, asin: str) -> str:
             f"{asin}: image long edge {max(width, height)}px is below {MIN_LONG_EDGE}px"
         )
     return image_url
+
+
+def validate_source_specific(
+    source_type: str,
+    rights_basis: str,
+    source_ref: str,
+    image_url: str,
+    asin: str,
+) -> None:
+    if source_type != "amazon_sitestripe_image_link":
+        return
+
+    if "sitestripe" not in rights_basis.lower():
+        raise ManifestError(
+            f"{asin}: SiteStripe source requires an explicit SiteStripe rights_basis"
+        )
+    if not source_ref.startswith("sitestripe:"):
+        raise ManifestError(
+            f"{asin}: SiteStripe source_ref must use the sitestripe: provenance prefix"
+        )
+    image_host = urlparse(image_url).netloc.lower()
+    if not any(
+        image_host == suffix or image_host.endswith("." + suffix)
+        for suffix in AMAZON_IMAGE_HOST_SUFFIXES
+    ):
+        raise ManifestError(
+            f"{asin}: SiteStripe image_url must be hosted on an Amazon image domain"
+        )
 
 
 def collect_category_urls(path: str | None) -> set[str]:
@@ -143,6 +177,13 @@ def validate_manifest(data: dict, category_urls: set[str]) -> dict:
 
         destination = validate_destination(raw.get("destination_url"), asin)
         image_url = validate_image(raw, asin)
+        validate_source_specific(
+            source_type,
+            rights_basis,
+            source_ref,
+            image_url,
+            asin,
+        )
         if image_url in seen_images:
             raise ManifestError(f"{asin}: image_url is reused by another named product")
         if image_url in category_urls:
