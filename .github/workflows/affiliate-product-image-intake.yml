@@ -4,11 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       asin:
-        description: Exact 10-character ASIN
-        required: true
-        type: string
-      product_name:
-        description: Exact consumer-facing product name
+        description: Exact active Córtex ASIN
         required: true
         type: string
       image_url:
@@ -34,14 +30,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Canonical affiliate route check
-        id: route
+      - name: Resolve active product identity from registry
+        id: product
         env:
           ASIN: ${{ inputs.asin }}
         run: |
           set -euo pipefail
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          from pathlib import Path
+          asin = os.environ['ASIN'].strip().upper()
+          data = json.loads(Path('data/active-affiliate-products.json').read_text(encoding='utf-8'))
+          if data.get('marketplace') != 'www.amazon.com.br' or data.get('tracking_tag') != 'cortexofertas-20':
+              raise SystemExit('Active product registry route drift')
+          matches = [p for p in data.get('products', []) if p.get('asin') == asin]
+          if len(matches) != 1:
+              raise SystemExit(f'{asin}: not exactly one active Córtex product in registry')
+          product = matches[0]
+          name = str(product.get('product_name') or '').strip()
+          route = str(product.get('primary_route') or '').strip()
+          if not name or not route.startswith('/'):
+              raise SystemExit(f'{asin}: incomplete product registry entry')
+          print(f'product_name={name}')
+          print(f'primary_route={route}')
+          print(f'asin={asin}')
+          PY
+
+      - name: Canonical affiliate route check
+        id: route
+        env:
+          ASIN: ${{ steps.product.outputs.asin }}
+        run: |
+          set -euo pipefail
           URL="$(python3 scripts/amazon_affiliate.py --asin "$ASIN")"
-          test "$URL" = "https://www.amazon.com.br/dp/${ASIN^^}?tag=cortexofertas-20"
+          test "$URL" = "https://www.amazon.com.br/dp/${ASIN}?tag=cortexofertas-20"
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "Canonical destination: $URL"
 
@@ -72,7 +94,7 @@ jobs:
           import io, os, urllib.request
           from PIL import Image
           url = os.environ['IMAGE_URL'].strip()
-          req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 Córtex-Image-Gate/1.0'})
+          req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 Cortex-Image-Gate/1.0'})
           with urllib.request.urlopen(req, timeout=30) as r:
               data = r.read(12_000_000)
           with Image.open(io.BytesIO(data)) as im:
@@ -85,8 +107,8 @@ jobs:
 
       - name: Build SiteStripe exact-product manifest
         env:
-          ASIN: ${{ inputs.asin }}
-          PRODUCT_NAME: ${{ inputs.product_name }}
+          ASIN: ${{ steps.product.outputs.asin }}
+          PRODUCT_NAME: ${{ steps.product.outputs.product_name }}
           IMAGE_URL: ${{ inputs.image_url }}
           EVIDENCE_ID: ${{ inputs.evidence_id }}
           DESTINATION_EVIDENCE: ${{ inputs.destination_url }}
@@ -111,6 +133,8 @@ jobs:
           grep -q '"status": "PASS"' /tmp/product-pass.json
 
       - name: Build site and apply exact affiliate image
+        env:
+          PRIMARY_ROUTE: ${{ steps.product.outputs.primary_route }}
         run: |
           set -euo pipefail
           bash scripts/build_cloudflare_pages.sh
@@ -119,6 +143,8 @@ jobs:
           grep -R -q '${{ steps.route.outputs.url }}' dist
           grep -R -q '${{ inputs.image_url }}' dist
           grep -R -q 'Publicidade · imagem com link de afiliado para a Amazon' dist
+          test -f "dist${PRIMARY_ROUTE}index.html"
+          grep -q '${{ inputs.image_url }}' "dist${PRIMARY_ROUTE}index.html"
           if grep -RIl --binary-files=without-match -- 'hennanst-20' dist | grep -q .; then
             echo 'Obsolete affiliate tag reached intake preview' >&2
             exit 1
@@ -127,10 +153,12 @@ jobs:
       - name: Package gate evidence only
         run: |
           mkdir -p /tmp/evidence
+          cp data/active-affiliate-products.json /tmp/evidence/active-product-registry.json
           cp /tmp/product.json /tmp/evidence/product-source-manifest.json
           cp /tmp/product-pass.json /tmp/evidence/product-validated-manifest.json
           cat > /tmp/evidence/route.txt <<EOF
-          ${{ steps.route.outputs.url }}
+          affiliate_destination=${{ steps.route.outputs.url }}
+          primary_route=${{ steps.product.outputs.primary_route }}
           EOF
           cat > /tmp/evidence/image-dimensions.txt <<EOF
           width=${{ steps.image.outputs.width }}
@@ -140,7 +168,7 @@ jobs:
       - name: Upload validated intake evidence
         uses: actions/upload-artifact@v4
         with:
-          name: cortex-exact-product-${{ inputs.asin }}
+          name: cortex-exact-product-${{ steps.product.outputs.asin }}
           path: /tmp/evidence
           if-no-files-found: error
           retention-days: 14
@@ -148,4 +176,5 @@ jobs:
       - name: Summary
         run: |
           echo 'G_IMG_01P_INTAKE_PASS'
+          echo 'Product identity came from the active Córtex ASIN registry.'
           echo 'No production deploy was performed.'
