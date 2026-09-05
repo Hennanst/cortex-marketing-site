@@ -151,7 +151,7 @@ jobs:
                     const ctas=[...document.querySelectorAll('a')].filter(a=>/Amazon|Ver na Amazon|Ver produto/i.test(a.textContent||''));
                     const currentTagLinks=[...document.querySelectorAll('a[href*="amazon.com.br"]')].filter(a=>a.href.includes('tag=cortexofertas-20'));
                     const disclosures=[...document.querySelectorAll('body *')].filter(el=>/link de afiliado|associado da amazon|publicidade/i.test(el.textContent||'')).length;
-                    const blocked=[...document.querySelectorAll('[data-merchant-state="blocked"]')].filter(el=>getComputedStyle(el).display!=='none').length;
+                    const blocked=[...document.querySelectorAll('[data-merchant-state="blocked"]')].filter(el=>el.getClientRects().length>0 && getComputedStyle(el).visibility!=='hidden').length;
                     const links=[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')).filter(Boolean);
                     return {
                       title:document.title, overflow, badImgs, images:imgs.length, ctas:ctas.length,
