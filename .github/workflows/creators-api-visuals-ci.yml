@@ -1,0 +1,63 @@
+name: Validate Creators API visual adapter
+
+on:
+  push:
+    branches:
+      - feat/creators-api-visuals-20260905
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Syntax check
+        run: python3 -m py_compile scripts/amazon_creators_catalog.py
+
+      - name: Fail-closed route checks
+        run: |
+          python3 - <<'PY'
+          import importlib.util
+          from pathlib import Path
+
+          path = Path('scripts/amazon_creators_catalog.py')
+          spec = importlib.util.spec_from_file_location('catalog', path)
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+
+          def expect_error(fn, contains):
+              try:
+                  fn()
+              except module.CreatorsAPIError as exc:
+                  assert contains in str(exc), (contains, str(exc))
+              else:
+                  raise AssertionError(f'expected CreatorsAPIError containing {contains!r}')
+
+          expect_error(
+              lambda: module.AmazonCreatorsCatalog('', '', partner_tag='cortexofertas-20'),
+              'credentials',
+          )
+          expect_error(
+              lambda: module.AmazonCreatorsCatalog('id', 'secret', partner_tag='hennanst-20'),
+              'partner tag must be cortexofertas-20',
+          )
+          expect_error(
+              lambda: module.AmazonCreatorsCatalog('id', 'secret', marketplace='www.amazon.com'),
+              'marketplace must be www.amazon.com.br',
+          )
+          expect_error(
+              lambda: module.AmazonCreatorsCatalog('id', 'secret', version='9.9'),
+              'Unsupported Creators API credential version',
+          )
+
+          client = module.AmazonCreatorsCatalog('id', 'secret')
+          expect_error(lambda: client.get_items(['BAD']), 'Invalid ASIN format')
+          expect_error(lambda: client.get_items([]), 'No ASINs supplied')
+
+          print('CREATORS_API_ADAPTER_STATIC_CHECK_PASS')
+          PY
