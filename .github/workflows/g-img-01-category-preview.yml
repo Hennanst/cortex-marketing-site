@@ -86,17 +86,21 @@ jobs:
                 if (!res || !res.ok()) failures.push(`${vpName} ${path}: HTTP ${res && res.status()}`);
                 await page.evaluate(async()=>{
                   for (const img of document.images) img.scrollIntoView({block:'center'});
+                  document.documentElement.style.scrollBehavior='auto';
+                  document.body.style.scrollBehavior='auto';
                   window.scrollTo(0,document.body.scrollHeight);
                   await new Promise(r=>setTimeout(r,900));
-                  window.scrollTo(0,0);
-                  await new Promise(r=>setTimeout(r,250));
+                  window.scrollTo({top:0,left:0,behavior:'instant'});
+                  await new Promise(r=>setTimeout(r,900));
                 });
                 const state = await page.evaluate(()=>({
+                  scrollY: window.scrollY,
                   overflow: document.documentElement.scrollWidth > innerWidth + 2,
                   broken: [...document.images].filter(i=>!i.complete || i.naturalWidth===0).map(i=>i.currentSrc||i.src),
                   oldModels: /hero-tech-v1|category-(gaming|work|creator|home)-v1/.test(document.documentElement.innerHTML),
                   photos: [...document.images].filter(i=>(i.currentSrc||i.src).includes('images.unsplash.com')).length
                 }));
+                if (state.scrollY > 2) failures.push(`${vpName} ${path}: screenshot not at page top (${state.scrollY}px)`);
                 if (state.overflow) failures.push(`${vpName} ${path}: horizontal overflow`);
                 if (state.broken.length) failures.push(`${vpName} ${path}: broken images ${state.broken.join(',')}`);
                 if (state.oldModels) failures.push(`${vpName} ${path}: old model visual remains`);
