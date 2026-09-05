@@ -1,0 +1,99 @@
+name: Validate SiteStripe manifest builder
+
+on:
+  push:
+    branches:
+      - feat/creators-api-visuals-20260905
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Syntax check
+        run: |
+          python3 -m py_compile scripts/amazon_affiliate.py
+          python3 -m py_compile scripts/build_sitestripe_product_manifest.py
+          python3 -m py_compile scripts/validate_product_visual_manifest.py
+          python3 -m py_compile scripts/apply_exact_product_visuals.py
+
+      - name: Canonical affiliate URL is shared by Pins and site
+        run: |
+          test "$(python3 scripts/amazon_affiliate.py --asin B07GPRWFC5)" = \
+            'https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20'
+
+      - name: Build and validate exact G305 SiteStripe manifest
+        run: |
+          python3 scripts/build_sitestripe_product_manifest.py \
+            --asin B07GPRWFC5 \
+            --product-name 'Logitech G305 LIGHTSPEED' \
+            --image-url 'https://m.media-amazon.com/images/I/g305-sitestripe-example.jpg' \
+            --width 1200 \
+            --height 1200 \
+            --evidence-id ci-example \
+            --verified-at 2026-09-05T00:00:00Z \
+            --output /tmp/g305.json
+          python3 scripts/validate_product_visual_manifest.py /tmp/g305.json --output /tmp/g305-pass.json
+          grep -q '"status": "PASS"' /tmp/g305-pass.json
+          grep -q '"source_type": "amazon_sitestripe_image_link"' /tmp/g305-pass.json
+          grep -q 'sitestripe:B07GPRWFC5:ci-example' /tmp/g305-pass.json
+          grep -q 'https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20' /tmp/g305.json
+
+      - name: Fail closed on obsolete affiliate tag evidence
+        run: |
+          if python3 scripts/build_sitestripe_product_manifest.py \
+            --asin B07GPRWFC5 \
+            --product-name 'Logitech G305 LIGHTSPEED' \
+            --destination-url 'https://www.amazon.com.br/dp/B07GPRWFC5?tag=hennanst-20' \
+            --image-url 'https://m.media-amazon.com/images/I/g305.jpg' \
+            --width 1200 --height 1200 --evidence-id bad-tag --output /tmp/bad-tag.json; then
+            echo 'builder incorrectly accepted obsolete affiliate tag' >&2
+            exit 1
+          fi
+
+      - name: Fail closed on non-Amazon image host
+        run: |
+          python3 scripts/build_sitestripe_product_manifest.py \
+            --asin B07GPRWFC5 \
+            --product-name 'Logitech G305 LIGHTSPEED' \
+            --image-url 'https://example.com/g305.jpg' \
+            --width 1200 --height 1200 --evidence-id bad-host --output /tmp/bad-host.json
+          if python3 scripts/validate_product_visual_manifest.py /tmp/bad-host.json; then
+            echo 'validator incorrectly accepted non-Amazon SiteStripe image host' >&2
+            exit 1
+          fi
+
+      - name: Fail closed on insufficient premium resolution
+        run: |
+          python3 scripts/build_sitestripe_product_manifest.py \
+            --asin B07GPRWFC5 \
+            --product-name 'Logitech G305 LIGHTSPEED' \
+            --image-url 'https://m.media-amazon.com/images/I/g305-small.jpg' \
+            --width 500 --height 500 --evidence-id low-res --output /tmp/low-res.json
+          if python3 scripts/validate_product_visual_manifest.py /tmp/low-res.json; then
+            echo 'validator incorrectly accepted low-resolution SiteStripe image' >&2
+            exit 1
+          fi
+
+      - name: Apply exact affiliate image to built site
+        run: |
+          bash scripts/build_cloudflare_pages.sh
+          python3 scripts/apply_premium_visuals.py dist
+          python3 scripts/apply_exact_product_visuals.py dist /tmp/g305.json
+          grep -q 'class="exact-product-image"' dist/setup-games/index.html
+          grep -q 'href="https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20"' dist/setup-games/index.html
+          grep -q 'Publicidade · imagem com link de afiliado para a Amazon' dist/setup-games/index.html
+          grep -q 'object-fit:contain!important' dist/setup-games/index.html
+          if grep -q 'product-g305-editorial-v1.svg' dist/setup-games/index.html; then
+            echo 'legacy G305 model visual survived exact-product install' >&2
+            exit 1
+          fi
+
+      - name: Summary
+        run: echo 'SITESTRIPE_AFFILIATE_IMAGE_METHOD_PASS'
