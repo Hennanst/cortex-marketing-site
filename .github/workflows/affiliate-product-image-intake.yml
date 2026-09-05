@@ -1,0 +1,151 @@
+name: Intake exact affiliate product image
+
+on:
+  workflow_dispatch:
+    inputs:
+      asin:
+        description: Exact 10-character ASIN
+        required: true
+        type: string
+      product_name:
+        description: Exact consumer-facing product name
+        required: true
+        type: string
+      image_url:
+        description: Official Amazon SiteStripe image URL (Amazon-hosted)
+        required: true
+        type: string
+      evidence_id:
+        description: Stable SiteStripe evidence label or timestamp
+        required: true
+        type: string
+      destination_url:
+        description: Optional affiliate URL evidence; canonical URL is generated from ASIN
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Canonical affiliate route check
+        id: route
+        env:
+          ASIN: ${{ inputs.asin }}
+        run: |
+          set -euo pipefail
+          URL="$(python3 scripts/amazon_affiliate.py --asin "$ASIN")"
+          test "$URL" = "https://www.amazon.com.br/dp/${ASIN^^}?tag=cortexofertas-20"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "Canonical destination: $URL"
+
+      - name: Preflight official image host
+        env:
+          IMAGE_URL: ${{ inputs.image_url }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from urllib.parse import urlparse
+          url = os.environ['IMAGE_URL'].strip()
+          p = urlparse(url)
+          allowed = ('media-amazon.com', 'ssl-images-amazon.com')
+          host = p.netloc.lower()
+          if p.scheme != 'https' or not any(host == s or host.endswith('.' + s) for s in allowed):
+              raise SystemExit('Image must be an official Amazon-hosted SiteStripe image URL')
+          print('Amazon image host PASS:', host)
+          PY
+
+      - name: Measure official image without manual dimensions
+        id: image
+        env:
+          IMAGE_URL: ${{ inputs.image_url }}
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pillow
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import io, os, urllib.request
+          from PIL import Image
+          url = os.environ['IMAGE_URL'].strip()
+          req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0 Córtex-Image-Gate/1.0'})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              data = r.read(12_000_000)
+          with Image.open(io.BytesIO(data)) as im:
+              w, h = im.size
+              print(f'width={w}')
+              print(f'height={h}')
+          if max(w, h) < 800:
+              raise SystemExit(f'G-IMG-01P: long edge {max(w,h)}px is below 800px')
+          PY
+
+      - name: Build SiteStripe exact-product manifest
+        env:
+          ASIN: ${{ inputs.asin }}
+          PRODUCT_NAME: ${{ inputs.product_name }}
+          IMAGE_URL: ${{ inputs.image_url }}
+          EVIDENCE_ID: ${{ inputs.evidence_id }}
+          DESTINATION_EVIDENCE: ${{ inputs.destination_url }}
+          WIDTH: ${{ steps.image.outputs.width }}
+          HEIGHT: ${{ steps.image.outputs.height }}
+        run: |
+          set -euo pipefail
+          args=(
+            --asin "$ASIN"
+            --product-name "$PRODUCT_NAME"
+            --image-url "$IMAGE_URL"
+            --width "$WIDTH"
+            --height "$HEIGHT"
+            --evidence-id "$EVIDENCE_ID"
+            --output /tmp/product.json
+          )
+          if [ -n "$DESTINATION_EVIDENCE" ]; then
+            args+=(--destination-url "$DESTINATION_EVIDENCE")
+          fi
+          python3 scripts/build_sitestripe_product_manifest.py "${args[@]}"
+          python3 scripts/validate_product_visual_manifest.py /tmp/product.json --output /tmp/product-pass.json
+          grep -q '"status": "PASS"' /tmp/product-pass.json
+
+      - name: Build site and apply exact affiliate image
+        run: |
+          set -euo pipefail
+          bash scripts/build_cloudflare_pages.sh
+          python3 scripts/apply_premium_visuals.py dist
+          PYTHONPATH=scripts python3 scripts/apply_exact_product_visuals.py dist /tmp/product-pass.json
+          grep -R -q '${{ steps.route.outputs.url }}' dist
+          grep -R -q '${{ inputs.image_url }}' dist
+          grep -R -q 'Publicidade · imagem com link de afiliado para a Amazon' dist
+          if grep -RIl --binary-files=without-match -- 'hennanst-20' dist | grep -q .; then
+            echo 'Obsolete affiliate tag reached intake preview' >&2
+            exit 1
+          fi
+
+      - name: Package gate evidence only
+        run: |
+          mkdir -p /tmp/evidence
+          cp /tmp/product.json /tmp/evidence/product-source-manifest.json
+          cp /tmp/product-pass.json /tmp/evidence/product-validated-manifest.json
+          cat > /tmp/evidence/route.txt <<EOF
+          ${{ steps.route.outputs.url }}
+          EOF
+          cat > /tmp/evidence/image-dimensions.txt <<EOF
+          width=${{ steps.image.outputs.width }}
+          height=${{ steps.image.outputs.height }}
+          EOF
+
+      - name: Upload validated intake evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cortex-exact-product-${{ inputs.asin }}
+          path: /tmp/evidence
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Summary
+        run: |
+          echo 'G_IMG_01P_INTAKE_PASS'
+          echo 'No production deploy was performed.'
