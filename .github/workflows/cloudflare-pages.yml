@@ -104,7 +104,7 @@ jobs:
       - name: HTTP parity smoke test
         run: |
           set -euo pipefail
-          routes=(/ /setup-games/ /trabalho-estudo/ /comparativos/ /recomendados/)
+          routes=(/ /setup-games/ /trabalho-estudo/ /creator-streaming/ /casa-inteligente/ /guias/ /comparativos/ /recomendados/)
           for route in "${routes[@]}"; do
             out="/tmp/http$(echo "$route" | tr '/-' '__').html"
             curl --fail --silent --show-error --location "${DEPLOY_URL}${route}" -o "$out"
@@ -127,7 +127,7 @@ jobs:
           const productionBase = `https://${process.env.CLOUDFLARE_PAGES_PROJECT}.pages.dev`;
           const bases = [{name:'deployment', url:deployBase}];
           if (process.env.GITHUB_REF === 'refs/heads/main') bases.push({name:'production', url:productionBase});
-          const routes = ['/', '/setup-games/', '/trabalho-estudo/', '/comparativos/', '/recomendados/'];
+          const routes = ['/', '/setup-games/', '/trabalho-estudo/', '/creator-streaming/', '/casa-inteligente/', '/guias/', '/comparativos/', '/recomendados/'];
           const viewports = [
             {name:'mobile', width:390, height:844},
             {name:'desktop', width:1440, height:900}
@@ -151,10 +151,11 @@ jobs:
                     const ctas=[...document.querySelectorAll('a')].filter(a=>/Amazon|Ver na Amazon|Ver produto/i.test(a.textContent||''));
                     const currentTagLinks=[...document.querySelectorAll('a[href*="amazon.com.br"]')].filter(a=>a.href.includes('tag=cortexofertas-20'));
                     const disclosures=[...document.querySelectorAll('body *')].filter(el=>/link de afiliado|associado da amazon|publicidade/i.test(el.textContent||'')).length;
+                    const blocked=[...document.querySelectorAll('[data-merchant-state="blocked"]')].filter(el=>getComputedStyle(el).display!=='none').length;
                     const links=[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')).filter(Boolean);
                     return {
                       title:document.title, overflow, badImgs, images:imgs.length, ctas:ctas.length,
-                      currentTagLinks:currentTagLinks.length, disclosures, canonical, links,
+                      currentTagLinks:currentTagLinks.length, disclosures, blocked, canonical, links,
                       staleOrigin:html.includes('cortex-public.vercel.app'), staleTag:html.includes('hennanst-20'),
                       productionCanonical:canonical.startsWith(productionBase)
                     };
@@ -169,6 +170,8 @@ jobs:
                   if (route==='/setup-games/' && result.ctas < 2) failures.push(`${target.name} ${vp.name} setup: expected >=2 merchant CTAs`);
                   if (route==='/setup-games/' && result.currentTagLinks < 2) failures.push(`${target.name} ${vp.name} setup: current affiliate tag missing`);
                   if (route==='/setup-games/' && result.disclosures < 1) failures.push(`${target.name} ${vp.name} setup: affiliate disclosure missing`);
+                  if (['/creator-streaming/','/casa-inteligente/','/guias/'].includes(route) && result.images < 2) failures.push(`${target.name} ${vp.name} ${route}: primary nav route not image-led`);
+                  if (['/creator-streaming/','/casa-inteligente/'].includes(route) && result.blocked > 0) failures.push(`${target.name} ${vp.name} ${route}: unfinished merchant blocks still visible`);
                   for (const href of result.links) {
                     if (href.startsWith('/')) internal.add(href.split('#')[0]);
                     else if (href.startsWith(productionBase)) internal.add(new URL(href).pathname);
@@ -177,7 +180,7 @@ jobs:
                 await page.close();
               }
               const request = await browser.newPage();
-              for (const href of [...internal].filter(Boolean).slice(0,120)) {
+              for (const href of [...internal].filter(Boolean).slice(0,140)) {
                 try {
                   const r = await request.request.get(target.url + href, {timeout:30000});
                   if (r.status() >= 400) failures.push(`${target.name} internal link ${href}: HTTP ${r.status()}`);
@@ -199,7 +202,7 @@ jobs:
         run: |
           set -euo pipefail
           base="https://${CLOUDFLARE_PAGES_PROJECT}.pages.dev"
-          routes=(/ /setup-games/ /trabalho-estudo/ /comparativos/ /recomendados/ /robots.txt /sitemap.xml)
+          routes=(/ /setup-games/ /trabalho-estudo/ /creator-streaming/ /casa-inteligente/ /guias/ /comparativos/ /recomendados/ /robots.txt /sitemap.xml)
           for route in "${routes[@]}"; do
             curl --fail --silent --show-error --location "${base}${route}" -o /tmp/prod-check
             if grep -q "cortex-public.vercel.app\|hennanst-20" /tmp/prod-check; then
