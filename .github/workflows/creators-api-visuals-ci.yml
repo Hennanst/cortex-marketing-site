@@ -19,7 +19,7 @@ jobs:
       - name: Syntax check
         run: python3 -m py_compile scripts/amazon_creators_catalog.py
 
-      - name: Fail-closed route checks
+      - name: Fail-closed route and response-contract checks
         run: |
           python3 - <<'PY'
           import importlib.util
@@ -40,6 +40,7 @@ jobs:
               else:
                   raise AssertionError(f'expected CreatorsAPIError containing {contains!r}')
 
+          # Fail closed on missing credentials or route drift.
           expect_error(
               lambda: module.AmazonCreatorsCatalog('', '', partner_tag='cortexofertas-20'),
               'credentials',
@@ -60,6 +61,57 @@ jobs:
           client = module.AmazonCreatorsCatalog('id', 'secret')
           expect_error(lambda: client.get_items(['BAD']), 'Invalid ASIN format')
           expect_error(lambda: client.get_items([]), 'No ASINs supplied')
+
+          # Contract-check the current Creators API lowerCamelCase request/response
+          # shape without requiring credentials or a network call.
+          class StubCatalog(module.AmazonCreatorsCatalog):
+              def _access_token(self):
+                  return 'test-token'
+
+              def _json_request(self, url, payload, headers=None):
+                  assert url == 'https://creatorsapi.amazon/catalog/v1/getItems'
+                  assert payload['itemIds'] == ['B07GPRWFC5', 'B087CT8PWY']
+                  assert payload['itemIdType'] == 'ASIN'
+                  assert payload['marketplace'] == 'www.amazon.com.br'
+                  assert payload['partnerTag'] == 'cortexofertas-20'
+                  assert 'images.primary.large' in payload['resources']
+                  assert 'images.variants.large' in payload['resources']
+                  assert 'itemInfo.title' in payload['resources']
+                  assert headers['Authorization'] == 'Bearer test-token'
+                  assert headers['x-marketplace'] == 'www.amazon.com.br'
+                  return {
+                      'itemsResult': {
+                          'items': [
+                              {
+                                  'asin': 'B07GPRWFC5',
+                                  'detailPageURL': 'https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20',
+                                  'images': {
+                                      'primary': {'large': {'url': 'https://m.media-amazon.com/images/I/g305.jpg', 'width': 500, 'height': 500}},
+                                      'variants': [{'large': {'url': 'https://m.media-amazon.com/images/I/g305-v2.jpg', 'width': 500, 'height': 500}}],
+                                  },
+                                  'itemInfo': {'title': {'displayValue': 'Logitech G305 LIGHTSPEED'}},
+                              },
+                              {
+                                  'asin': 'B087CT8PWY',
+                                  'detailPageURL': 'https://www.amazon.com.br/dp/B087CT8PWY?tag=cortexofertas-20',
+                                  'images': {
+                                      'primary': {'large': {'url': 'https://m.media-amazon.com/images/I/g203.jpg', 'width': 500, 'height': 500}},
+                                      'variants': [],
+                                  },
+                                  'itemInfo': {'title': {'displayValue': 'Logitech G203 LIGHTSYNC'}},
+                              },
+                          ]
+                      }
+                  }
+
+          stub = StubCatalog('id', 'secret')
+          items = stub.get_items(['B07GPRWFC5', 'B087CT8PWY'])
+          assert [item['asin'] for item in items] == ['B07GPRWFC5', 'B087CT8PWY']
+          assert items[0]['primary_image']['url'].startswith('https://m.media-amazon.com/')
+          assert items[0]['variant_images'][0]['url'].endswith('g305-v2.jpg')
+          assert items[1]['title'] == 'Logitech G203 LIGHTSYNC'
+          assert all(item['source'] == 'amazon_creators_api' for item in items)
+          assert all(item['partner_tag'] == 'cortexofertas-20' for item in items)
 
           print('CREATORS_API_ADAPTER_STATIC_CHECK_PASS')
           PY
