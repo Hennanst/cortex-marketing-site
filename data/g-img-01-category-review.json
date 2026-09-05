@@ -1,0 +1,107 @@
+{
+  "gate": "G-IMG-01C",
+  "scope": "primary hero/category visuals only",
+  "status": "PASS",
+  "review_date": "2026-09-05",
+  "evidence": {
+    "cloudflare_preview_run": 33978661699,
+    "review_commit": "25024a0b07dc802cc77210fc82197c00629c14aa",
+    "artifact_id": 9973090644,
+    "artifact_name": "g-img-01-category-preview",
+    "viewports": ["390x844", "1440x900"],
+    "technical_result": "PASS",
+    "notes": "Screenshots were recaptured from verified scrollY=0 after lazy-load forcing; no broken images, old model visuals or horizontal overflow were detected by the preview job."
+  },
+  "threshold": {
+    "primary_mean_min": 4.3,
+    "core_min": 4.0,
+    "core": ["realism_credibility", "premium_finish", "product_category_recognition"]
+  },
+  "reviews": [
+    {
+      "role": "home hero",
+      "photo_id": "photo-1762096070873-63e82ab143ca",
+      "scores": {
+        "realism_credibility": 5.0,
+        "premium_finish": 4.6,
+        "commercial_clarity": 4.5,
+        "product_category_recognition": 4.5,
+        "cortex_brand_coherence": 4.4,
+        "mobile_quality": 4.3,
+        "originality_without_template_feel": 4.3
+      },
+      "mean": 4.51,
+      "outcome": "PASS",
+      "review_note": "Rendered desktop and mobile crops preserve a recognizable high-end technology workspace; the portrait source no longer causes a premium-loss crop at the actual page top."
+    },
+    {
+      "role": "Setup & Games category",
+      "photo_id": "photo-1779452525134-bb7c08326179",
+      "scores": {
+        "realism_credibility": 5.0,
+        "premium_finish": 4.7,
+        "commercial_clarity": 4.7,
+        "product_category_recognition": 5.0,
+        "cortex_brand_coherence": 4.4,
+        "mobile_quality": 4.7,
+        "originality_without_template_feel": 4.4
+      },
+      "mean": 4.70,
+      "outcome": "PASS",
+      "review_note": "High-fidelity gaming/creator desk with monitor, custom PC, speakers and peripherals reads immediately as a premium setup category visual."
+    },
+    {
+      "role": "Trabalho & Estudo category",
+      "photo_id": "photo-1781106743595-1a2c6397e812",
+      "scores": {
+        "realism_credibility": 5.0,
+        "premium_finish": 4.6,
+        "commercial_clarity": 4.2,
+        "product_category_recognition": 4.1,
+        "cortex_brand_coherence": 4.4,
+        "mobile_quality": 4.5,
+        "originality_without_template_feel": 4.2
+      },
+      "mean": 4.43,
+      "outcome": "PASS",
+      "review_note": "Premium workspace image with a clearly visible laptop and desk context. Product prominence is restrained but remains sufficient for the broad work/study category."
+    },
+    {
+      "role": "Creator & Streaming category",
+      "photo_id": "photo-1764664035187-e89b27d54c7b",
+      "scores": {
+        "realism_credibility": 5.0,
+        "premium_finish": 4.7,
+        "commercial_clarity": 4.7,
+        "product_category_recognition": 4.9,
+        "cortex_brand_coherence": 4.4,
+        "mobile_quality": 4.6,
+        "originality_without_template_feel": 4.5
+      },
+      "mean": 4.69,
+      "outcome": "PASS",
+      "review_note": "Camera, microphone and laptop remain immediately legible in both target viewports; visual feels editorial rather than template-like."
+    },
+    {
+      "role": "Casa Inteligente category",
+      "photo_id": "photo-1772475329864-e30a2f1278c0",
+      "scores": {
+        "realism_credibility": 5.0,
+        "premium_finish": 4.7,
+        "commercial_clarity": 4.2,
+        "product_category_recognition": 4.0,
+        "cortex_brand_coherence": 4.5,
+        "mobile_quality": 4.6,
+        "originality_without_template_feel": 4.4
+      },
+      "mean": 4.49,
+      "outcome": "PASS",
+      "review_note": "High-end living-room scene with visible TV and speaker establishes connected-home/entertainment context without reverting to generic vector symbolism."
+    }
+  ],
+  "exclusions": {
+    "named_product_cards": "NOT_COVERED",
+    "reason": "G305, G203 and IdeaPad remain under G-IMG-01P exact-product recognition HOLD. Category PASS cannot promote those product cards."
+  },
+  "release_rule": "Do not merge/deploy PR #3 alone. Combine this category PASS only with rights-safe exact-product visuals that independently pass G-IMG-01P, then run a single production release and public G-IMG-01/G9 review."
+}

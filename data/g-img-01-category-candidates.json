@@ -1,0 +1,63 @@
+{
+  "schema": "cortex.g-img-01.category-candidates.v1",
+  "account_code": "CO",
+  "status": "STAGED_NOT_DEPLOYED",
+  "verified_at": "2026-09-05",
+  "rule": "Source/license verification is necessary but not sufficient for G-IMG-01 PASS. Every candidate still requires rendered mobile/desktop crop and qualitative scoring.",
+  "candidates": [
+    {
+      "role": "home_hero",
+      "cdn_url": "https://images.unsplash.com/photo-1762096070873-63e82ab143ca?auto=format&fit=crop&w=1800&q=86",
+      "source_page": "https://unsplash.com/photos/a-modern-computer-desk-setup-with-curved-monitor-XLUTwdh5tG8",
+      "source_title": "A modern computer desk setup with curved monitor",
+      "license": "Unsplash License",
+      "license_evidence": "Source page states Free to use under the Unsplash License",
+      "visual_review": "REVISE_LIGHT",
+      "notes": "High-fidelity real desk/monitor/audio scene. Source image is portrait-oriented; staged CSS object-position requires crop validation at 390x844 and 1440x900 before PASS."
+    },
+    {
+      "role": "setup_games_category",
+      "cdn_url": "https://images.unsplash.com/photo-1779452525134-bb7c08326179?auto=format&fit=crop&w=1500&q=86",
+      "source_page": "https://unsplash.com/photos/modern-desk-setup-with-multiple-screens-custom-pc-and-plant-T_Z_o3k5QjA",
+      "source_title": "Modern desk setup with multiple screens, custom pc, and plant",
+      "license": "Unsplash License",
+      "license_evidence": "Source page states Free to use under the Unsplash License",
+      "visual_review": "PENDING_RENDERED_QUALITATIVE_REVIEW",
+      "notes": "Category-aligned real gaming/desktop environment with multiple screens, custom PC, mouse and speakers."
+    },
+    {
+      "role": "trabalho_estudo_category",
+      "cdn_url": "https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&fit=crop&w=1500&q=86",
+      "source_page": "https://unsplash.com/photos/workspace-with-laptop-and-wooden-desk-ngpAHJludHA",
+      "source_title": "Modern home office with laptop, wooden desk, and stylish chair",
+      "license": "Unsplash License",
+      "license_evidence": "Source page states Free to use under the Unsplash License",
+      "visual_review": "QUALITATIVE_CANDIDATE",
+      "notes": "Strong semantic fit for work/study and already present in the current visual pass; still requires final rendered scoring."
+    },
+    {
+      "role": "creator_streaming_category",
+      "cdn_url": "https://images.unsplash.com/photo-1764664035187-e89b27d54c7b?auto=format&fit=crop&w=1500&q=86",
+      "source_page": "https://unsplash.com/photos/camera-microphone-and-laptop-set-up-for-recording-jC2BNWcwFTA",
+      "source_title": "Camera, microphone, and laptop set up for recording",
+      "license": "Unsplash License",
+      "license_evidence": "Source page states Free to use under the Unsplash License",
+      "visual_review": "PENDING_RENDERED_QUALITATIVE_REVIEW",
+      "notes": "Professional recording/podcast scene with camera, microphone and laptop; directly aligned with creator/streaming intent."
+    },
+    {
+      "role": "casa_inteligente_category",
+      "cdn_url": "https://images.unsplash.com/photo-1772475329864-e30a2f1278c0?auto=format&fit=crop&w=1500&q=86",
+      "source_page": "https://unsplash.com/photos/modern-living-room-with-sectional-sofa-and-speaker-A2d7oJb8f9U",
+      "source_title": "Modern living room with sectional sofa and speaker",
+      "license": "Unsplash License",
+      "license_evidence": "Source page states Free to use under the Unsplash License",
+      "visual_review": "PENDING_RENDERED_QUALITATIVE_REVIEW",
+      "notes": "High-end living-room context with speaker and television; semantically appropriate for smart-home curation."
+    }
+  ],
+  "named_product_visuals": {
+    "status": "EXCLUDED_FROM_THIS_RELEASE_BRANCH",
+    "reason": "G305, G203 and IdeaPad remain G-IMG-01P FAIL_REPLACE until rights-safe exact-product manifests pass. Category candidates must not be reused as named-product primary images."
+  }
+}
