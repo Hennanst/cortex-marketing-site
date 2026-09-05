@@ -80,6 +80,27 @@ def replace_asset_refs(text: str) -> str:
     return text
 
 
+def force_primary_images_eager(text: str) -> str:
+    """Primary G-IMG-01 visuals must be rendered immediately, not deferred by lazy loading.
+
+    This keeps the public experience deterministic above the fold and prevents the browser
+    QA from mistaking an intentionally deferred image for a broken image.
+    """
+    text = re.sub(
+        r'(<img\b(?=[^>]*images\.unsplash\.com)[^>]*?)\sloading=("|\')lazy\2',
+        r'\1 loading="eager"',
+        text,
+        flags=re.IGNORECASE,
+    )
+    text = re.sub(
+        r'(<img\b(?=[^>]*images\.unsplash\.com)(?![^>]*\sloading=)[^>]*)(>)',
+        r'\1 loading="eager"\2',
+        text,
+        flags=re.IGNORECASE,
+    )
+    return text
+
+
 def add_context_label_after_image(text: str, photo_url: str) -> str:
     pattern = re.compile(rf'(<img\b[^>]*src="{re.escape(photo_url)}"[^>]*>)(?!\s*<span class="visual-context-label")')
     return pattern.sub(
@@ -96,6 +117,7 @@ for rel in PRIMARY_ROUTES:
     text = path.read_text(encoding="utf-8")
     original = text
     text = replace_asset_refs(text)
+    text = force_primary_images_eager(text)
 
     if STYLE not in text:
         text = text.replace("</head>", STYLE + "</head>", 1)
