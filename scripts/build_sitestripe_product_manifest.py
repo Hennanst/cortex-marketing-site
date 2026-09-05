@@ -1,19 +1,23 @@
 #!/usr/bin/env python3
 """Build a Córtex exact-product visual manifest from official Amazon SiteStripe output metadata.
 
+The affiliate destination is generated with the SAME canonical method used by Córtex
+for Pin destinations: exact ASIN -> https://www.amazon.com.br/dp/ASIN?tag=cortexofertas-20.
+
 This helper intentionally does NOT scrape Amazon pages and does NOT assume SiteStripe's
-current HTML snippet shape. It accepts only explicit metadata copied from the official
-Associate tool output for one exact product and emits a `cortex.product-visuals.v1`
-manifest that must still pass `validate_product_visual_manifest.py`.
+current HTML snippet shape. It accepts explicit image metadata copied from the official
+Associate SiteStripe Image-link output and emits a `cortex.product-visuals.v1` manifest
+that must still pass `validate_product_visual_manifest.py`.
 
 Required inputs:
 - exact ASIN
 - product name
-- Amazon BR destination generated/confirmed for that product
 - Amazon-hosted image URL from SiteStripe's Image link output
 - actual image pixel width/height
 - provenance/evidence identifier
 
+An optional --destination-url may be supplied as evidence, but it must validate against
+the exact ASIN/tag. The emitted destination is always canonicalized by amazon_affiliate.py.
 No secrets are accepted or written.
 """
 
@@ -24,6 +28,8 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+from amazon_affiliate import canonical_affiliate_url, validate_affiliate_url
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
@@ -31,7 +37,10 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--asin", required=True)
     parser.add_argument("--product-name", required=True)
-    parser.add_argument("--destination-url", required=True)
+    parser.add_argument(
+        "--destination-url",
+        help="Optional Amazon BR affiliate destination evidence; must match exact ASIN/tag",
+    )
     parser.add_argument("--image-url", required=True)
     parser.add_argument("--width", type=int, required=True)
     parser.add_argument("--height", type=int, required=True)
@@ -59,8 +68,18 @@ def main() -> int:
         else datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     )
 
+    if not product_name:
+        raise SystemExit("product-name must not be empty")
     if not evidence_id:
         raise SystemExit("evidence-id must not be empty")
+
+    destination_url = canonical_affiliate_url(asin)
+    if args.destination_url:
+        supplied = validate_affiliate_url(args.destination_url.strip(), asin)
+        if supplied != destination_url:
+            raise SystemExit(
+                "destination-url is valid but not canonical; use the exact /dp/ASIN?tag=cortexofertas-20 form"
+            )
 
     manifest = {
         "schema": "cortex.product-visuals.v1",
@@ -72,7 +91,7 @@ def main() -> int:
                 "rights_basis": "Amazon Associates SiteStripe - Obter link: Imagem",
                 "source_ref": f"sitestripe:{asin}:{evidence_id}",
                 "verified_at": verified_at,
-                "destination_url": args.destination_url.strip(),
+                "destination_url": destination_url,
                 "image_url": args.image_url.strip(),
                 "width": args.width,
                 "height": args.height,
