@@ -27,8 +27,11 @@ PHOTOS = {
     "category-work-v1.svg": "https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&fit=crop&w=1500&q=86",
     "category-creator-v1.svg": "https://images.unsplash.com/photo-1764664035176-8e92ff4f128e?auto=format&fit=crop&w=1500&q=86",
     "category-home-v1.svg": "https://images.unsplash.com/photo-1594419015530-4676f41c4bb9?auto=format&fit=crop&w=1500&q=86",
-    "product-g305-editorial-v1.svg": "https://images.unsplash.com/photo-1700582363636-a8d7a99b3eeb?auto=format&fit=crop&w=1400&q=86",
-    "product-g203-editorial-v1.svg": "https://images.unsplash.com/photo-1760805823599-54f0ba71ab49?auto=format&fit=crop&w=1400&q=86",
+    # Product cards remain explicitly labelled as editorial context until an
+    # authorized exact-SKU catalog image source is available. Reuse known-good
+    # licensed technology photography instead of risking a broken/guessed asset.
+    "product-g305-editorial-v1.svg": "https://images.unsplash.com/photo-1691580438246-a6e5cb35ca05?auto=format&fit=crop&w=1400&q=86",
+    "product-g203-editorial-v1.svg": "https://images.unsplash.com/photo-1693880269247-97721478c508?auto=format&fit=crop&w=1400&q=86",
     "product-ideapad-editorial-v1.svg": "https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&fit=crop&w=1400&q=86",
 }
 
@@ -73,7 +76,9 @@ ALT_REPLACEMENTS = {
 
 def replace_asset_refs(text: str) -> str:
     for filename, url in PHOTOS.items():
-        pattern = re.compile(rf"(?:\.\./|/)?assets/cortex/{re.escape(filename)}")
+        # Source pages use a mix of ./assets, ../assets and /assets. Replace the
+        # complete path prefix so we never leave a malformed './https://...' URL.
+        pattern = re.compile(rf"(?:\.\./|\./|/)?assets/cortex/{re.escape(filename)}")
         text = pattern.sub(url, text)
     for old, new in ALT_REPLACEMENTS.items():
         text = text.replace(old, new)
@@ -81,11 +86,7 @@ def replace_asset_refs(text: str) -> str:
 
 
 def force_primary_images_eager(text: str) -> str:
-    """Primary G-IMG-01 visuals must be rendered immediately, not deferred by lazy loading.
-
-    This keeps the public experience deterministic above the fold and prevents the browser
-    QA from mistaking an intentionally deferred image for a broken image.
-    """
+    """Primary G-IMG-01 visuals must render immediately on the audited routes."""
     text = re.sub(
         r'(<img\b(?=[^>]*images\.unsplash\.com)[^>]*?)\sloading=("|\')lazy\2',
         r'\1 loading="eager"',
@@ -147,6 +148,8 @@ for rel in PRIMARY_ROUTES:
     leftovers = [name for name in old_names if name in text]
     if leftovers:
         raise SystemExit(f"G-IMG-01 precheck failed at {rel}: old primary visual refs remain: {leftovers}")
+    if "./https://images.unsplash.com" in text or "../https://images.unsplash.com" in text:
+        raise SystemExit(f"G-IMG-01 precheck failed at {rel}: malformed external image URL")
 
 print("Premium visual pass applied to:")
 for rel in changed:
