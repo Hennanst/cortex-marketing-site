@@ -44,10 +44,10 @@ for file in "$DIST/trabalho-estudo/index.html" "$DIST/creator-streaming/index.ht
   sed -i "s|</head>|${CRO_STYLE}</head>|" "$file"
 done
 
-# Remove visibly unfinished merchant modules from public primary routes until
-# Product/Destination validation supplies a live destination. Setup & Games is
-# excluded because its two merchant CTAs are already validated.
-BLOCKED_STYLE='<style id="cortex-g9-blocked-cleanup">.product-module:has([data-merchant-state="blocked"]){display:none!important}</style>'
+# Hide merchant modules only when they have no validated live destination.
+# A mixed module may keep editorial/blocked alternatives visible when at least
+# one product has passed Product/Destination validation and is marked active.
+BLOCKED_STYLE='<style id="cortex-g9-blocked-cleanup">.product-module:not(:has([data-merchant-state="active"])){display:none!important}</style>'
 for file in "$DIST/trabalho-estudo/index.html" "$DIST/creator-streaming/index.html" "$DIST/casa-inteligente/index.html" "$DIST/comparativos/index.html" "$DIST/recomendados/index.html"; do
   sed -i "s|</head>|${BLOCKED_STYLE}</head>|" "$file"
 done
@@ -79,6 +79,8 @@ grep -q 'product-g305-editorial-v1.svg' "$DIST/comparativos/index.html"
 grep -q 'product-g203-editorial-v1.svg' "$DIST/comparativos/index.html"
 grep -q 'hero-tech-v1.svg' "$DIST/recomendados/index.html"
 grep -q 'category-creator-v1.svg' "$DIST/creator-streaming/index.html"
+grep -q 'B0CJRXT3L6?tag=cortexofertas-20' "$DIST/creator-streaming/index.html"
+grep -q 'data-merchant-state="active"' "$DIST/creator-streaming/index.html"
 grep -q 'category-home-v1.svg' "$DIST/casa-inteligente/index.html"
 grep -q 'biblioteca-guias' "$DIST/guias/index.html"
 
