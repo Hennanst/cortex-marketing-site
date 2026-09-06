@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Recomendados | Córtex Ofertas</title>
-  <meta name="description" content="Shortlists transparentes: para quem faz sentido, por que entrou, trade-off e alternativa.">
-  <link rel="canonical" href="https://cortex-public.vercel.app/recomendados/">
-  <meta property="og:title" content="Recomendados | Córtex Ofertas">
-  <meta property="og:description" content="Shortlists transparentes: para quem faz sentido, por que entrou, trade-off e alternativa.">
-  <meta property="og:url" content="https://cortex-public.vercel.app/recomendados/">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Recomendados | Córtex Ofertas</title>
+<meta content="Shortlists transparentes: para quem faz sentido, por que entrou, trade-off e alternativa." name="description"/>
+<link href="https://cortex-ofertas.pages.dev/recomendados/" rel="canonical"/>
+<meta content="Recomendados | Córtex Ofertas" property="og:title"/>
+<meta content="Shortlists transparentes: para quem faz sentido, por que entrou, trade-off e alternativa." property="og:description"/>
+<meta content="https://cortex-ofertas.pages.dev/recomendados/" property="og:url"/>
+<style>
     :root{color-scheme:dark;--bg:#0a0a0f;--surface:#161622;--surface2:#1c1c2b;--text:#e8e8e8;--muted:#aaa;--accent:#00ff88;--border:#2a2a3e}
     *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6}
     a{color:var(--accent)} header,main,footer{max-width:1120px;margin:auto;padding:24px} nav{display:flex;flex-wrap:wrap;gap:8px 16px} nav a{white-space:nowrap}
@@ -46,174 +47,36 @@ h2{letter-spacing:-.035em;line-height:1.08} h3{letter-spacing:-.025em}
 footer{max-width:none!important;border-top:1px solid rgba(255,255,255,.08);padding:36px 24px!important}footer>*{max-width:1180px;margin:8px auto!important}footer a{color:#dfe6ee!important}
 @media(max-width:760px){header nav{padding:14px 18px;overflow-x:auto;flex-wrap:nowrap!important}header nav a:first-child{position:sticky;left:0;background:#080b10;padding-right:14px}main{padding:44px 18px!important}.cortex-intro{grid-template-columns:1fr}.card{padding:20px!important}main>h1{font-size:clamp(2.35rem,13vw,4rem)}}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Córtex Ofertas","url":"https://cortex-public.vercel.app/","description":"Curadoria independente de tecnologia para comprar melhor.","inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Córtex Ofertas","url":"https://cortex-public.vercel.app/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Córtex Ofertas","url":"https://cortex-ofertas.pages.dev/","description":"Curadoria independente de tecnologia para comprar melhor.","inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"Córtex Ofertas","url":"https://cortex-ofertas.pages.dev/"}}</script>
 <style id="cortex-system-v2">
 .affiliate-note,.cortex-intro{display:none!important}.trustbar{padding:10px 24px 0!important;font-size:.8rem!important}.product-module{margin:38px 0!important;padding:32px!important}.product-module>h2{font-size:clamp(1.8rem,4vw,3rem)!important;margin:.3em 0!important}.product-module>p{max-width:760px;color:#b7c0cb}.comparison-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.product-card{min-height:360px;padding:27px!important;display:flex;flex-direction:column}.product-card:before{content:"CÓRTEX PICK";display:inline-flex;width:max-content;margin-bottom:16px;padding:5px 9px;border:1px solid rgba(98,246,165,.3);border-radius:999px;color:#62f6a5;font-size:.66rem;font-weight:900;letter-spacing:.12em}.product-card h3{font-size:1.45rem!important;margin-bottom:12px}.product-card ul{display:flex;flex-wrap:wrap;gap:7px;padding:0;list-style:none}.product-card li{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.045);font-size:.8rem;color:#c9d1db}.product-label{font-size:.73rem;text-transform:uppercase;letter-spacing:.08em}.cta-disabled{display:block!important;margin-top:auto!important;border:0!important;padding:12px 0 0!important;background:transparent!important;color:#8e99a6!important;font-weight:600!important}.card:not(.product-module){box-shadow:none!important}.card h3 a{text-decoration:none;color:#f2f5f8!important}.card h3 a:hover{color:#62f6a5!important}
 @media(max-width:760px){header nav{overflow-x:hidden!important;flex-wrap:nowrap!important}header nav a:not(:first-child){display:none!important}header nav:after{content:"Menu";margin-left:auto;color:#cbd3dc;font-weight:750;font-size:.9rem}main{padding:34px 18px!important}main>h1{font-size:clamp(2.7rem,14vw,4rem)!important;line-height:.93!important}.comparison-grid{grid-template-columns:1fr!important}.product-card{min-height:auto;padding:21px!important}.product-module{padding:21px!important;margin:25px 0!important}.product-module>h2{font-size:1.7rem!important}.trustbar{padding:9px 18px 0!important}.card{padding:20px!important}}
 </style>
-<style id="cortex-product-visual-v1">.product-visual{height:170px;border-radius:16px;margin:-5px 0 22px;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;position:relative;overflow:hidden;background:radial-gradient(circle at 72% 28%,rgba(98,246,165,.24),transparent 25%),linear-gradient(145deg,#1b2530,#0b0f14)}.product-visual:after{content:"";position:absolute;width:92px;height:130px;right:18%;top:18px;border:1px solid rgba(255,255,255,.24);border-radius:48% 48% 42% 42%;transform:rotate(10deg);box-shadow:inset 0 0 30px rgba(98,246,165,.06)}.product-visual span{font-size:.65rem;letter-spacing:.16em;color:#62f6a5;font-weight:900}.product-visual b{font-size:1.8rem;letter-spacing:-.05em}.mouse-wired:before{content:"";position:absolute;width:1px;height:90px;background:#697481;right:35%;top:-48px;transform:rotate(16deg)}.merchant{margin-top:auto!important;width:max-content}.local-disclosure{display:block;color:#7f8995;font-size:.7rem;margin-top:5px}@media(max-width:760px){.product-visual{height:145px}.merchant{width:100%;text-align:center}}</style></head>
+<style id="cortex-product-visual-v1">.product-visual{height:170px;border-radius:16px;margin:-5px 0 22px;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;position:relative;overflow:hidden;background:radial-gradient(circle at 72% 28%,rgba(98,246,165,.24),transparent 25%),linear-gradient(145deg,#1b2530,#0b0f14)}.product-visual:after{content:"";position:absolute;width:92px;height:130px;right:18%;top:18px;border:1px solid rgba(255,255,255,.24);border-radius:48% 48% 42% 42%;transform:rotate(10deg);box-shadow:inset 0 0 30px rgba(98,246,165,.06)}.product-visual span{font-size:.65rem;letter-spacing:.16em;color:#62f6a5;font-weight:900}.product-visual b{font-size:1.8rem;letter-spacing:-.05em}.mouse-wired:before{content:"";position:absolute;width:1px;height:90px;background:#697481;right:35%;top:-48px;transform:rotate(16deg)}.merchant{margin-top:auto!important;width:max-content}.local-disclosure{display:block;color:#7f8995;font-size:.7rem;margin-top:5px}@media(max-width:760px){.product-visual{height:145px}.merchant{width:100%;text-align:center}}</style><style id="cortex-mobile-width-guard">html,body{max-width:100%;overflow-x:hidden}main,section,article,nav,.card,.comparison-grid,.pillar-grid,.product-card{min-width:0;max-width:100%}img,svg,video,iframe{max-width:100%;height:auto}a,p,h1,h2,h3,li,span{overflow-wrap:anywhere;word-break:normal}@media(max-width:760px){.comparison-grid,.pillar-grid{grid-template-columns:minmax(0,1fr)!important}.card,.product-card,.product-module{max-width:100%!important}header nav{max-width:100vw!important}}</style><style id="cortex-g8-cro">.g8-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin:0 0 34px;align-items:stretch}.g8-hero img,.g8-tile img{display:block;width:100%;height:100%;object-fit:cover;border-radius:22px;border:1px solid rgba(255,255,255,.09);background:#10151c}.g8-copy{padding:28px;border:1px solid rgba(255,255,255,.09);border-radius:22px;background:linear-gradient(145deg,rgba(25,31,40,.94),rgba(14,18,24,.96));display:flex;flex-direction:column;justify-content:center}.g8-copy h2{font-size:clamp(1.7rem,4vw,3rem);margin:.25em 0}.g8-copy p{color:#b7c0cb;max-width:650px}.g8-link{display:inline-flex;width:max-content;margin-top:8px;padding:12px 18px;border-radius:999px;background:#62f6a5;color:#07110c!important;text-decoration:none;font-weight:850}.g8-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0 38px}.g8-tile{min-width:0}.g8-tile img{aspect-ratio:16/10}.g8-tile a{text-decoration:none}.g8-caption{padding:12px 2px 0;color:#c9d1db;font-size:.9rem}@media(max-width:760px){.g8-hero,.g8-grid{grid-template-columns:minmax(0,1fr)}.g8-copy{padding:21px}.g8-hero{margin-bottom:26px}.g8-link{width:100%;justify-content:center}}</style><style id="cortex-premium-photo-pass-v1">
+img[src*="images.unsplash.com"]{background:#0d1218;object-fit:cover;image-rendering:auto}
+.visual-context-label{display:block;margin:8px 14px 0;color:#8f99a6;font-size:.69rem;line-height:1.35;letter-spacing:.01em}
+.hero img[src*="images.unsplash.com"],.g8-hero img[src*="images.unsplash.com"]{min-height:320px;max-height:560px;object-fit:cover}
+.g8-tile img[src*="images.unsplash.com"],.product img[src*="images.unsplash.com"]{object-fit:cover}
+.product-visual{background:center/cover no-repeat!important;border:1px solid rgba(255,255,255,.08)!important;overflow:hidden!important;position:relative!important}
+.product-visual:after,.product-visual>span,.product-visual>b{display:none!important}
+.product-visual:before{content:"Imagem editorial de contexto";position:absolute;left:14px;bottom:12px;z-index:2;padding:5px 8px;border-radius:999px;background:rgba(6,9,13,.78);color:#d7dee7;font-size:.66rem;font-weight:750;letter-spacing:.03em;backdrop-filter:blur(8px)}
+.cortex-context-strip{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:0 0 12px}.cortex-context-strip figure{margin:0}.cortex-context-strip img{width:100%;aspect-ratio:16/9;border-radius:18px;border:1px solid rgba(255,255,255,.08);display:block}.cortex-context-strip .visual-context-label{margin:7px 2px 0}
+@media(max-width:760px){.hero img[src*="images.unsplash.com"],.g8-hero img[src*="images.unsplash.com"]{min-height:240px;max-height:380px}.visual-context-label{margin:7px 10px 0}.cortex-context-strip{grid-template-columns:1fr}.cortex-context-strip .visual-context-label{margin:7px 2px 0}}
+</style></head>
 <body>
 <header>
-  <nav><a href="../">Córtex Ofertas</a><a href="../setup-games/">Setup &amp; Games</a><a href="../trabalho-estudo/">Trabalho &amp; Estudo</a><a href="../creator-streaming/">Creator &amp; Streaming</a><a href="../casa-inteligente/">Casa Inteligente</a><a href="../guias/">Guias</a><a href="../comparativos/">Comparativos</a><a href="../recomendados/">Recomendados</a></nav>
+<nav><a href="../">Córtex Ofertas</a><a href="../setup-games/">Setup &amp; Games</a><a href="../trabalho-estudo/">Trabalho &amp; Estudo</a><a href="../creator-streaming/">Creator &amp; Streaming</a><a href="../casa-inteligente/">Casa Inteligente</a><a href="../guias/">Guias</a><a href="../comparativos/">Comparativos</a><a href="../recomendados/">Recomendados</a></nav>
 </header>
 <div class="trustbar"><strong>Curadoria independente.</strong> Comparamos pelo uso real, mostramos trade-offs e identificamos links comerciais com transparência.</div>
-
-<main><div class="eyebrow">Córtex Ofertas</div><h1>Recomendados</h1><p class="muted">Shortlists transparentes: para quem faz sentido, por que entrou, trade-off e alternativa.</p>
+<main><section aria-label="Destaque Recomendados" class="g8-hero"><img alt="Fotografia editorial de contexto para curadoria de tecnologia" loading="eager" src="https://images.unsplash.com/photo-1693880269247-97721478c508?auto=format&amp;fit=crop&amp;w=1800&amp;q=86"/><div class="g8-copy"><div class="eyebrow">Recomendados</div><h2>Shortlists pequenas, justificadas e acionáveis.</h2><p>Cada indicação precisa dizer para quem faz sentido, por que entrou, qual é o trade-off e qual alternativa considerar.</p><a class="g8-link" href="../setup-games/">Explorar recomendações ativas →</a></div></section><div class="g8-grid"><a class="g8-tile" href="../setup-games/"><img alt="Fotografia editorial de contexto para Setup &amp; Games" loading="eager" src="https://images.unsplash.com/photo-1691580438246-a6e5cb35ca05?auto=format&amp;fit=crop&amp;w=1500&amp;q=86"/><div class="g8-caption">Setup &amp; Games · escolhas ativas com destino comercial validado.</div></a><a class="g8-tile" href="../trabalho-estudo/"><img alt="Fotografia editorial de contexto para trabalho e estudo" loading="eager" src="https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&amp;fit=crop&amp;w=1500&amp;q=86"/><div class="g8-caption">Trabalho &amp; Estudo · decisões para uma rotina híbrida.</div></a></div><div class="eyebrow">Córtex Ofertas</div><h1>Recomendados</h1><p class="muted">Shortlists transparentes: para quem faz sentido, por que entrou, trade-off e alternativa.</p>
 <div class="affiliate-note" role="note"><strong>Transparência:</strong> quando houver botão para varejista, ele pode ser um link de afiliado. Publicidade. Como associado da Amazon, eu ganho com compras qualificadas.</div>
 <section class="cortex-intro"><div class="cortex-proof"><b>Escolha por contexto, não por hype.</b><span class="muted">A Córtex transforma especificações em decisões: para quem faz sentido, onde estão os limites e qual alternativa considerar.</span></div><div class="cortex-proof"><b>Transparência comercial.</b><span class="muted">Alguns links podem gerar comissão, sem custo adicional para você. A seleção editorial não depende da comissão.</span></div></section>
-<section class="card product-module" data-module-id="CO-MOD-LP001-MOUSE-001">
-<div class="eyebrow">Comparação Córtex</div>
-<h2>G305 ou G203: wireless ou simplicidade com fio?</h2>
-<p>Escolha pelo perfil: liberdade sem fio e autonomia no G305; conexão simples, menor peso e zero preocupação com bateria no G203.</p>
-<div class="comparison-grid">
-<article class="product-card">
-<div class="product-visual mouse-wireless"><span>WIRELESS</span><b>G305</b></div><h3>Logitech G305 LIGHTSPEED</h3>
-<p><span class="product-label">Para quem:</span> Para quem quer liberdade sem fio e longa autonomia.</p>
-<p>Sensor HERO e LIGHTSPEED 1 ms dão ao G305 um papel claro de wireless maduro e previsível.</p>
-<ul><li>HERO 200–12.000 DPI</li><li>LIGHTSPEED 1 ms</li><li>99 g • até 250 h com AA</li></ul>
-<p><span class="product-label">Trade-off:</span> Usa pilha AA e não é ultraleve nem recarregável.</p>
-<p class="muted">Alternativa: G203 se cabo e simplicidade forem aceitáveis.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-<article class="product-card">
-<div class="product-visual mouse-wired"><span>WIRED</span><b>G203</b></div><h3>Logitech G203 LIGHTSYNC</h3>
-<p><span class="product-label">Para quem:</span> Para quem quer um mouse com fio simples e mais leve.</p>
-<p>1000 Hz/1 ms, 85 g e seis botões mantêm o G203 como uma opção de entrada fácil de entender.</p>
-<ul><li>200–8.000 DPI</li><li>1000 Hz / 1 ms</li><li>85 g • 6 botões</li></ul>
-<p><span class="product-label">Trade-off:</span> O cabo reduz a liberdade de mesa em relação ao G305.</p>
-<p class="muted">Alternativa: G305 se liberdade sem fio e autonomia forem prioridade.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-</div></section>
-<section class="card product-module" data-module-id="CO-MOD-LP001-MONITOR-001">
-<div class="eyebrow">Comparação Córtex</div>
-<h2>Monitor 1080p 180 Hz: base simples ou ergonomia completa?</h2>
-<p>Os dois entregam 1080p, IPS e 180 Hz. A diferença editorial principal é simples: LG para uma base direta; AOC para quem valoriza mais ajustes físicos na própria base.</p>
-<div class="comparison-grid">
-<article class="product-card">
-<h3>LG UltraGear 24GS60F-B</h3>
-<p><span class="product-label">Para quem:</span> Para quem quer 1080p/180 Hz com IPS e aceita uma base simples.</p>
-<p>É uma referência direta de monitor FHD IPS de alta taxa de atualização, sem depender de recursos ergonômicos da base.</p>
-<ul><li>23,8/24 pol. FHD IPS</li><li>180 Hz • 1 ms GtG</li><li>inclinação • VESA 100×100</li></ul>
-<p><span class="product-label">Trade-off:</span> A base oferece poucos ajustes além de inclinação.</p>
-<p class="muted">Alternativa: AOC 24G4/P se ergonomia na própria base for prioridade.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-<article class="product-card">
-<h3>AOC 24G4/P</h3>
-<p><span class="product-label">Para quem:</span> Para quem quer 1080p/180 Hz e mais liberdade para ajustar a tela à mesa.</p>
-<p>Mantém o perfil FHD/IPS/180 Hz, mas adiciona um motivo de escolha claro: uma base mais ajustável.</p>
-<ul><li>23,8 pol. FHD IPS</li><li>180 Hz • 1 ms GtG</li><li>altura 130 mm • swivel • pivô</li></ul>
-<p><span class="product-label">Trade-off:</span> A base mais completa pesa menos se você já usa braço VESA.</p>
-<p class="muted">Alternativa: LG 24GS60F-B se uma base simples já resolve sua mesa.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-</div></section>
-<section class="card product-module" data-module-id="CO-MOD-LP004-HS-001">
-<div class="eyebrow">Comparação Córtex</div>
-<h2>Havit H2002D ou Cloud III: entrada direta ou mais conexões?</h2>
-<p>Os dois são headsets com fio. A decisão muda entre uma proposta 3,5 mm simples e uma opção com rotas 3,5 mm, USB-C e USB-A.</p>
-<div class="comparison-grid">
-<article class="product-card">
-<h3>Havit H2002D</h3>
-<p><span class="product-label">Para quem:</span> Para quem quer um headset com fio 3,5 mm e microfone destacável.</p>
-<p>O papel de entrada é claro e a conexão analógica simplifica o uso entre plataformas compatíveis.</p>
-<ul><li>driver de 53 mm</li><li>conexão 3,5 mm</li><li>microfone destacável</li></ul>
-<p><span class="product-label">Trade-off:</span> Variantes e listagens próximas exigem conferir o ASIN exato.</p>
-<p class="muted">Alternativa: Cloud III se mais rotas físicas de conexão forem prioridade.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-<article class="product-card">
-<h3>HyperX Cloud III Wired</h3>
-<p><span class="product-label">Para quem:</span> Para quem quer alternar entre 3,5 mm, USB-C e USB-A em dispositivos compatíveis.</p>
-<p>As três rotas físicas de conexão criam um motivo de seleção concreto e verificável.</p>
-<ul><li>drivers angulados de 53 mm</li><li>microfone destacável de 10 mm</li><li>3,5 mm • USB-C • USB-A</li></ul>
-<p><span class="product-label">Trade-off:</span> Continua com fio e conforto/assinatura sonora dependem do usuário.</p>
-<p class="muted">Alternativa: Havit H2002D para uma proposta de entrada mais direta.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-</div></section>
-<section class="card product-module" data-module-id="CO-MOD-LP010-WC-001">
-<div class="eyebrow">Comparação Córtex</div>
-<h2>C920s ou Brio 100: autofocus ou foco fixo?</h2>
-<p>As duas trabalham em Full HD a 30 fps, mas resolvem rotinas diferentes: a C920s acompanha mudanças de distância; a Brio 100 favorece uma posição estável e simples.</p>
-<div class="comparison-grid">
-<article class="product-card">
-<h3>Logitech C920s</h3>
-<p><span class="product-label">Para quem:</span> Para chamadas, aulas e criação básica quando autofocus pesa na rotina.</p>
-<p>É uma referência Full HD madura com autofocus, microfones duplos e obturador físico.</p>
-<ul><li>1080p/30 fps</li><li>autofocus</li><li>microfones estéreo duplos</li></ul>
-<p><span class="product-label">Trade-off:</span> Não oferece 4K nem maior taxa de quadros em Full HD.</p>
-<p class="muted">Alternativa: Brio 100 para uso estável com foco fixo.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-<article class="product-card">
-<h3>Logitech Brio 100 Graphite</h3>
-<p><span class="product-label">Para quem:</span> Para uma posição estável de trabalho ou estudo em Full HD.</p>
-<p>O SKU brasileiro confirma foco fixo, RightLight 2, microfone integrado e obturador de privacidade.</p>
-<ul><li>1080p/30 fps</li><li>foco fixo • RightLight 2</li><li>USB-A • obturador integrado</li></ul>
-<p><span class="product-label">Trade-off:</span> O foco fixo não acompanha grandes mudanças de distância.</p>
-<p class="muted">Alternativa: C920s quando autofocus e microfones duplos forem prioridade.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-</div></section>
-<section class="card product-module" data-module-id="CO-MOD-PIL-CASA-001">
-<div class="eyebrow">Shortlist Córtex</div>
-<h2>Automação, Alexa ou streaming: qual problema vem primeiro?</h2>
-<p>Os três produtos cumprem papéis diferentes. A escolha começa pelo resultado desejado, sem transformar categorias complementares em um ranking artificial.</p>
-<div class="comparison-grid">
-<article class="product-card">
-<h3>Positivo Smart Plug Max Wi-Fi 16A</h3>
-<p><span class="product-label">Para quem:</span> Para automatizar ou monitorar um aparelho compatível que você já possui.</p>
-<p>Resolve um problema concreto sem exigir a troca do aparelho por uma versão inteligente.</p>
-<ul><li>16 A para carga resistiva</li><li>até 1600 W</li><li>Wi-Fi 2,4 GHz • monitoramento</li></ul>
-<p><span class="product-label">Trade-off:</span> É obrigatório conferir carga, tomada e tipo de aparelho antes do uso.</p>
-<p class="muted">Alternativa: Echo Pop para voz ou Fire TV HD para streaming.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-<article class="product-card">
-<h3>Echo Pop Branco — 1ª geração</h3>
-<p><span class="product-label">Para quem:</span> Para criar um ponto compacto de acesso à Alexa em um cômodo.</p>
-<p>Tem um papel claro de interface de voz para serviços e dispositivos compatíveis.</p>
-<ul><li>smart speaker compacto</li><li>Alexa</li><li>rotinas e controle de dispositivos compatíveis</li></ul>
-<p><span class="product-label">Trade-off:</span> Não substitui um dispositivo de streaming nem uma caixa de maior porte.</p>
-<p class="muted">Alternativa: Smart Plug Max para automação ou Fire TV HD para TV.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-<article class="product-card">
-<h3>Fire TV Stick HD — geração 2026</h3>
-<p><span class="product-label">Para quem:</span> Para adicionar streaming Full HD e a experiência Fire TV a uma televisão compatível.</p>
-<p>É a opção atual de entrada Full HD da linha no Brasil.</p>
-<ul><li>streaming Full HD</li><li>geração 2026</li><li>ecossistema Fire TV</li></ul>
-<p><span class="product-label">Trade-off:</span> É HD, não 4K.</p>
-<p class="muted">Alternativa: Linha Fire TV 4K quando a resolução superior é necessária.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-</div></section>
-<section class="card product-module" data-module-id="CO-MOD-PIL-CREATOR-001">
-<div class="eyebrow">Shortlist Córtex</div>
-<h2>Primeiro upgrade creator: voz ou imagem?</h2>
-<p>A shortlist separa dois problemas diferentes. Um microfone melhora a captura de voz; uma webcam melhora enquadramento e imagem. A prioridade vem do gargalo real.</p>
-<div class="comparison-grid">
-<article class="product-card">
-<h3>HyperX SoloCast 2</h3>
-<p><span class="product-label">Para quem:</span> Para quem quer uma rota USB simples para voz, aulas, reuniões ou streaming.</p>
-<p>A geração atual tem identidade clara, captação cardioide e proposta direta de entrada.</p>
-<ul><li>24-bit/96 kHz</li><li>padrão cardioide</li><li>tap-to-mute • USB-C</li></ul>
-<p><span class="product-label">Trade-off:</span> Padrão único e sem controle físico dedicado de ganho.</p>
-<p class="muted">Alternativa: C920s quando o gargalo principal é imagem e enquadramento.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-<article class="product-card">
-<h3>Logitech C920s</h3>
-<p><span class="product-label">Para quem:</span> Para quem precisa melhorar enquadramento Full HD e valoriza autofocus.</p>
-<p>É uma referência de imagem madura que cruza home office e criação básica.</p>
-<ul><li>1080p/30 fps</li><li>autofocus</li><li>obturador físico</li></ul>
-<p><span class="product-label">Trade-off:</span> Não substitui iluminação e não entrega 4K.</p>
-<p class="muted">Alternativa: SoloCast 2 quando a voz é o gargalo principal.</p>
-<span class="cta-disabled" data-merchant-state="blocked">Seleção comercial temporariamente indisponível. Continue pelo comparativo e pelos critérios acima.</span>
-</article>
-</div></section>
+
+
+
+
+
+
 </main>
 <footer id="transparencia"><p>Como associado da Amazon, eu ganho com compras qualificadas</p><p><a href="../sobre.html">Sobre a Córtex</a> · <a href="../metodologia.html">Como avaliamos</a> · <a href="../transparencia.html">Transparência</a></p>
 </footer></body></html>

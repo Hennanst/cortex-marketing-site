@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Headset gamer com fio ou sem fio</title>
+  <desc id="desc">Ilustração editorial original da Córtex comparando dois headsets genéricos: com fio para simplicidade sem recarga e sem fio para mobilidade com recarga.</desc>
+  <rect width="1200" height="800" rx="36" fill="#0b1020"/>
+  <rect x="54" y="54" width="1092" height="692" rx="30" fill="#11182b" stroke="#26314d" stroke-width="2"/>
+
+  <text x="96" y="130" fill="#f5f7fb" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700">Headset com fio ou sem fio?</text>
+  <text x="96" y="180" fill="#c5ccda" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="600">Escolha pela rotina, não por um vencedor universal.</text>
+
+  <g transform="translate(88 230)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="486" height="380" rx="30" fill="#0e2030" stroke="#31536c" stroke-width="4"/>
+    <rect x="28" y="24" width="192" height="58" rx="29" fill="#17354a"/>
+    <text x="124" y="64" text-anchor="middle" fill="#9bddff" font-size="34" font-weight="700">COM FIO</text>
+    <path d="M130 200 a116 116 0 0 1 232 0" fill="none" stroke="#8dd3ff" stroke-width="26" stroke-linecap="round"/>
+    <path d="M148 198 a98 98 0 0 1 196 0" fill="none" stroke="#203b54" stroke-width="10" stroke-linecap="round"/>
+    <rect x="92" y="198" width="78" height="112" rx="30" fill="#1d3348" stroke="#78e0b5" stroke-width="6"/>
+    <rect x="322" y="198" width="78" height="112" rx="30" fill="#1d3348" stroke="#78e0b5" stroke-width="6"/>
+    <path d="M360 310 C360 346 334 354 304 354" fill="none" stroke="#8dd3ff" stroke-width="9" stroke-linecap="round"/>
+    <text x="34" y="342" fill="#78e0b5" font-size="38" font-weight="700">SEM RECARGA</text>
+    <text x="34" y="382" fill="#f5f7fb" font-size="36" font-weight="700">CONEXÃO DIRETA</text>
+  </g>
+
+  <g transform="translate(626 230)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="486" height="380" rx="30" fill="#241c34" stroke="#594570" stroke-width="4"/>
+    <rect x="28" y="24" width="220" height="58" rx="29" fill="#34254b"/>
+    <text x="138" y="64" text-anchor="middle" fill="#d5baff" font-size="34" font-weight="700">SEM FIO</text>
+    <path d="M130 200 a116 116 0 0 1 232 0" fill="none" stroke="#c9a7ff" stroke-width="26" stroke-linecap="round"/>
+    <path d="M148 198 a98 98 0 0 1 196 0" fill="none" stroke="#45345d" stroke-width="10" stroke-linecap="round"/>
+    <rect x="92" y="198" width="78" height="112" rx="30" fill="#352847" stroke="#ffb56b" stroke-width="6"/>
+    <rect x="322" y="198" width="78" height="112" rx="30" fill="#352847" stroke="#ffb56b" stroke-width="6"/>
+    <path d="M400 142 q34 34 0 68" fill="none" stroke="#c9a7ff" stroke-width="8" stroke-linecap="round"/>
+    <path d="M424 120 q56 56 0 112" fill="none" stroke="#8b70ae" stroke-width="7" stroke-linecap="round"/>
+    <text x="34" y="342" fill="#d5baff" font-size="38" font-weight="700">MOBILIDADE</text>
+    <text x="34" y="382" fill="#f5f7fb" font-size="36" font-weight="700">ROTINA DE RECARGA</text>
+  </g>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="370" y="652" width="460" height="72" rx="36" fill="#152b2d" stroke="#2d5a56" stroke-width="3"/>
+    <text x="600" y="699" text-anchor="middle" fill="#78e0b5" font-size="34" font-weight="700">ESCOLHA PELO USO REAL</text>
+  </g>
+</svg>
