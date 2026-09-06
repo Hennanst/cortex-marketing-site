@@ -1,0 +1,40 @@
+name: Recovery Materialize Current Dist
+
+on:
+  push:
+    branches:
+      - 'recovery/source-truth-20260906'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cortex-recovery-materialize-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  capture-current-dist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout recovery source
+        uses: actions/checkout@v6
+
+      - name: Build current legacy publish bundle
+        run: bash scripts/build_cloudflare_pages.sh
+
+      - name: Apply current legacy premium visual pass
+        run: python3 scripts/apply_premium_visuals.py dist
+
+      - name: Assert no deployment occurs in this workflow
+        run: |
+          test -d dist
+          echo 'Recovery artifact only. No Cloudflare/Vercel deploy step exists in this workflow.'
+
+      - name: Upload materialization artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovery-current-dist-${{ github.sha }}
+          path: dist
+          if-no-files-found: error
+          retention-days: 3
