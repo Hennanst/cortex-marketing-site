@@ -7,18 +7,22 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: cortex-recovery-materialize-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  capture-current-dist:
+  materialize-reviewed-source:
+    if: ${{ !contains(github.event.head_commit.message || '', 'recovery(materialize):') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout recovery source
         uses: actions/checkout@v6
+        with:
+          ref: recovery/source-truth-20260906
+          fetch-depth: 0
 
       - name: Build current legacy publish bundle
         run: bash scripts/build_cloudflare_pages.sh
@@ -26,15 +30,44 @@ jobs:
       - name: Apply current legacy premium visual pass
         run: python3 scripts/apply_premium_visuals.py dist
 
-      - name: Assert no deployment occurs in this workflow
+      - name: Install recovery parser
+        run: python3 -m pip install --quiet beautifulsoup4
+
+      - name: Materialize buyer-facing output into source
+        run: python3 scripts/recovery_materialize_source.py
+
+      - name: Prove this workflow has no deployment step
         run: |
           test -d dist
-          echo 'Recovery artifact only. No Cloudflare/Vercel deploy step exists in this workflow.'
+          echo 'Recovery source materialization only. No Cloudflare/Vercel deployment occurs here.'
 
-      - name: Upload materialization artifact
+      - name: Show bounded source changes
+        run: |
+          git status --short
+          test -n "$(git status --porcelain)"
+
+      - name: Commit materialized source to recovery branch
+        run: |
+          git config user.name 'Cortex Recovery Bot'
+          git config user.email 'cortex-recovery@users.noreply.github.com'
+          git add -A
+          git commit -m 'recovery(materialize): commit premium deployed semantics into source'
+          git push origin HEAD:recovery/source-truth-20260906
+
+      - name: Upload reviewed materialization snapshot
         uses: actions/upload-artifact@v4
         with:
-          name: recovery-current-dist-${{ github.sha }}
-          path: dist
+          name: recovery-materialized-source-${{ github.sha }}
+          path: |
+            index.html
+            setup-games/index.html
+            trabalho-estudo/index.html
+            creator-streaming/index.html
+            casa-inteligente/index.html
+            guias/index.html
+            comparativos/index.html
+            recomendados/index.html
+            robots.txt
+            sitemap.xml
           if-no-files-found: error
           retention-days: 3
