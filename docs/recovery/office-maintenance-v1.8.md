@@ -25,9 +25,28 @@ não declara Market Ready, não altera main e não libera aquisição.
 
 `scripts/office_control.py` é uma biblioteca verificadora e CLI de schema,
 não um daemon nem um conector remoto. Recebe snapshot fresco de CONFIG, GATES,
-JOBS e RUN_CONTROL, com cabeçalhos. Os runners ainda precisam integrar o
-planejamento de patches e readback antes da reativação. Não apresentar esta
-biblioteca isolada como escritório autônomo concluído.
+JOBS, STATE, LOCKS, TRANSACTIONS e RUN_CONTROL, com cabeçalhos. A CLI também
+recebe `--plan plano.json --run-id <run_id>` para produzir patches mínimos e
+contrato de readback. Os três prompts recebem a exigência de executar a versão
+imutável referenciada em CONFIG antes de writes. A integração ainda exige
+revisão independente e teste operacional antes da reativação.
+
+O planejador bloqueia scheduler durante manutenção manual, lease alheio ou
+vencido, TX já existente, ID/identidade alterados, estado esperado divergente,
+campos duplicados e alterações em registros aprovados. Não aprova gates nem
+libera operações externas. O chamador deve persistir o artefato, reler lease e
+estado, anexar a transação no mesmo batch e conferir cada campo por ID depois.
+Sheets não oferece CAS; a biblioteca não transforma esse limite em garantia.
+
+Validação de manutenção: dez testes executados com sucesso e schema validado
+contra snapshot de 89 CONFIGs, 65 gates, 13 jobs, 7 estados, 5 locks, 73 TXs
+e uma lease. Isso não equivale a um ciclo agendado completo ou aprovação global.
+
+A revisão candidata do manuscrito foi copiada nativamente da v1.3, preservando
+o original, e verificada por readback:
+https://docs.google.com/document/d/17KM079qeSQgD6ljKdwNc9blVyrMFB1wjUc1PmY6gqs8/edit
+Ela permanece candidata enquanto CONFIG e revisão de release não a efetivarem.
+O PDF v1.3 continua histórico/canônico da versão vigente; não é PDF da v1.4.
 
 ## Proposta formal de reconciliação do release — pendente de revisão
 

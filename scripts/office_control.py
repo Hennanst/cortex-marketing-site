@@ -15,6 +15,20 @@ SCHEMAS = {
     "GATES": ("gate_id", {"gate_id", "domain_job", "gate_name", "status", "evidence_ref"}),
     "JOBS": ("job_id", {"job_id", "lane", "state", "priority", "next_gate"}),
     "RUN_CONTROL": ("lease_id", {"lease_id", "status", "run_id", "expires_at"}),
+    "LOCKS": ("lock_id", {"lock_id", "scope", "status", "release_condition"}),
+    "STATE": ("state_id", {"state_id", "domain", "status"}),
+    "TRANSACTIONS": ("tx_id", {"tx_id", "target_id", "operation"}),
+}
+
+SHEET_IDS = {"CONFIG": 607237811, "GATES": 1763579041, "JOBS": 349981761,
+             "STATE": 1212961709, "RECOVERY": 912609060}
+IDENTITY_FIELDS = {"GATES": {"gate_id", "domain_job", "gate_name"},
+                   "JOBS": {"job_id", "lane", "object"},
+                   "STATE": {"state_id", "domain"}}
+RELEASE_DAG = {
+    "RG2": [], "RG3": ["RG2"], "RG4": ["RG3"], "RG5": ["RG4"],
+    "RG6": ["RG5"], "RG7": ["RG6"], "RG7A": ["RG7"],
+    "DEPLOY": ["RG7A"], "RG8": ["DEPLOY"], "RG9": ["RG8"], "RG10": ["RG9"],
 }
 
 
@@ -41,6 +55,10 @@ def validate_snapshot(snapshot):
     cfg = {k: row["value"] for k, (_, row) in indexed["CONFIG"].items()}
     if cfg.get("ACCOUNT_CODE") != "CO" or str(cfg.get("TAILWIND_ACCOUNT_ID")) != "1653454":
         raise ValueError("SCOPE_ROUTE_MISMATCH")
+    if (cfg.get("CANONICAL_HOST", "").rstrip("/") != "https://cortex-ofertas.pages.dev"
+            or cfg.get("AFFILIATE_TAG") != "cortexofertas-20"
+            or cfg.get("GITHUB_MARKETING_REPO") != "Hennanst/cortex-marketing-site"):
+        raise ValueError("PRODUCTION_ROUTE_MISMATCH")
     for _, row in indexed["GATES"].values():
         if not re.fullmatch(r"[A-Z][A-Z0-9_]*", row["status"]):
             raise ValueError(f"INVALID_GATE_STATUS: {row['gate_id']}")
@@ -98,10 +116,91 @@ def validate_evidence(evidence, candidate_sha, total, producer_run):
         raise ValueError("INCOMPLETE_STALE_OR_SELF_REVIEWED_EVIDENCE")
 
 
+def plan_mutation(snapshot, plan, run_id, now):
+    """Validate state patches; emit minimal Sheets updates plus readback contract.
+
+    Public side effects and approval of gates deliberately have no generic path
+    through this helper. They require their dedicated independent release review.
+    """
+    indexed = validate_snapshot(snapshot)
+    assert_lease(snapshot["RUN_CONTROL"], run_id, now)
+    cfg = {key: row["value"] for key, (_, row) in indexed["CONFIG"].items()}
+    if plan.get("execution_context") not in {"manual", "scheduled"}:
+        raise ValueError("EXECUTION_CONTEXT_REQUIRED")
+    if plan["execution_context"] == "scheduled" and cfg.get("OFFICE_EXECUTION_MODE") == "MANUAL_MAINTENANCE":
+        raise ValueError("SCHEDULERS_PAUSED")
+    if plan.get("operation") != "state_patch":
+        raise ValueError("DEDICATED_REVIEW_REQUIRED_FOR_EXTERNAL_OPERATION")
+    if not plan.get("external_ref") or not plan.get("tx_id"):
+        raise ValueError("PERSISTED_ARTIFACT_AND_TRANSACTION_REQUIRED")
+    if plan["tx_id"] in indexed["TRANSACTIONS"]:
+        raise ValueError("TRANSACTION_ALREADY_EXISTS_RECONCILE_NO_REPLAY")
+    if not plan.get("patches"):
+        raise ValueError("EMPTY_BUSINESS_MUTATION")
+    requests, readback, seen = [], [], set()
+    for patch in plan["patches"]:
+        name, key, changes = patch["tab"], patch["id"], patch["changes"]
+        if name not in SHEET_IDS or name in {"CONFIG", "RECOVERY"}:
+            raise ValueError("NORMATIVE_OR_RELEASE_STATE_REQUIRES_DEDICATED_REVIEW")
+        if name == "STATE" and key == "CO-GLOBAL":
+            raise ValueError("GLOBAL_RELEASE_STATE_REQUIRES_DEDICATED_REVIEW")
+        if IDENTITY_FIELDS.get(name, set()) & changes.keys():
+            raise ValueError("IMMUTABLE_TARGET_IDENTITY")
+        if any(v in {"PASS", "RELEASED", "QUEUED", "PUBLISHED"} for v in changes.values() if isinstance(v, str)):
+            raise ValueError("GATE_OR_EXTERNAL_SUCCESS_REQUIRES_DEDICATED_REVIEW")
+        if "priority" in changes and changes["priority"] not in {"P0", "P1", "P2", "P3"}:
+            raise ValueError("INVALID_PRIORITY")
+        for field in {"state", "status"} & changes.keys():
+            if not isinstance(changes[field], str) or not re.fullmatch(r"[A-Z][A-Z0-9_]*", changes[field]):
+                raise ValueError("INVALID_STATE_VALUE")
+        rows = snapshot[name]
+        id_column = SCHEMAS[name][0]
+        if key not in indexed[name]:
+            raise ValueError("TARGET_MISSING_OR_ID_MUTATION")
+        current = indexed[name][key][1]
+        # Approved records and their evidence cannot be silently overwritten,
+        # even when the proposed patch only changes a timestamp or evidence URL.
+        if any(set(str(current.get(f, "")).split("_")) & {"PASS", "RELEASED", "QUEUED", "PUBLISHED"}
+               for f in ("status", "state")) and any(current.get(k) != v for k, v in changes.items()):
+            raise ValueError("APPROVED_STATE_CHANGE_REQUIRES_JUSTIFIED_REVIEW")
+        fields = plan_patch(rows, id_column, key, patch["expected"], changes)
+        for field in fields:
+            cell_key = (name, key, field["field"])
+            if cell_key in seen:
+                raise ValueError("DUPLICATE_FIELD_PATCH")
+            seen.add(cell_key)
+            value = field["after"]
+            if not isinstance(value, str):
+                raise ValueError("STATE_FIELDS_MUST_BE_TEXT")
+            requests.append({"updateCells": {"start": {"sheetId": SHEET_IDS[name],
+                              "rowIndex": field["rowIndex"], "columnIndex": field["columnIndex"]},
+                              "rows": [{"values": [{"userEnteredValue": {"stringValue": value}}]}],
+                              "fields": "userEnteredValue"}})
+            readback.append({"tab": name, "id": key, "field": field["field"], "value": value})
+    if not requests:
+        raise ValueError("NO_CHANGE_USE_RUNS_HEARTBEAT")
+    return {"status": "PATCH_PLAN_VALID", "requests": requests, "readback": readback,
+            "tx_id": plan["tx_id"], "external_ref": plan["external_ref"],
+            "requires_atomic_transaction_append": True,
+            "external_operation_authorized": False,
+            "warning": "Re-read lease and expected state before submitting with transaction. Verify IDs and values afterward."}
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("snapshot")
+    parser.add_argument("--plan")
+    parser.add_argument("--run-id")
     args = parser.parse_args()
-    result = validate_snapshot(json.load(open(args.snapshot)))
-    print(json.dumps({"schema_status": "PASS", "rows": {k: len(v) for k, v in result.items()},
-                      "scope": "CO", "release_approved": False}))
+    with open(args.snapshot) as source:
+        snapshot = json.load(source)
+    if args.plan:
+        with open(args.plan) as source:
+            result = plan_mutation(snapshot, json.load(source), args.run_id, datetime.now(timezone.utc))
+    else:
+        indexed = validate_snapshot(snapshot)
+        result = {"schema_status": "PASS", "rows": {k: len(v) for k, v in indexed.items()},
+                  "scope": "CO", "release_approved": False,
+                  "proposed_release_order": topological_order(RELEASE_DAG),
+                  "release_order_is_authorization": False}
+    print(json.dumps(result, ensure_ascii=False))
