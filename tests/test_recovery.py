@@ -6,11 +6,18 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from public_bundle import package
-from recovery_source_truth_guard import canonical_failures, compare_dist
+from recovery_source_truth_guard import canonical_failures, compare_dist, scan_source
 from office_control import table, plan_patch, assert_lease, topological_order, validate_evidence
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_dynamic_data_cannot_restore_obsolete_affiliate_tag(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'data').mkdir()
+            (root / 'data/products.json').write_text('{"tag":"hennanst-20"}')
+            self.assertIn('OBSOLETE_AFFILIATE_TAG_IN_SOURCE: data/products.json', scan_source(root))
+
     def test_canonical_parser_rejects_spoofed_origin_and_wrong_route(self):
         self.assertEqual(canonical_failures("<link href='https://cortex-ofertas.pages.dev/guia/a.html' REL='canonical'>", 'guia/a.html'), [])
         for url in ['https://cortex-ofertas.pages.dev.evil.test/', 'http://cortex-ofertas.pages.dev/', 'https://cortex-ofertas.pages.dev/wrong.html']:

@@ -110,11 +110,11 @@ def scan_source(root: Path) -> list[str]:
                 fail(f"FORBIDDEN_PRODUCTION_MARKER[{marker}]: {rel}", failures)
         failures.extend(canonical_failures(text, rel))
 
-    for rel in ("robots.txt", "sitemap.xml"):
-        path = root / rel
-        if path.exists():
+    # Client-side data/scripts can also reintroduce old destinations after load.
+    for path, rel in public_files(root):
+        if path.suffix in {".json", ".js", ".css", ".xml", ".txt", ".svg"}:
             text = path.read_text(encoding="utf-8")
-            if LEGACY in text:
+            if LEGACY in text or "hennanst.github.io/cortex-marketing-site" in text:
                 fail(f"LEGACY_ORIGIN_IN_SOURCE: {rel}", failures)
             if OBSOLETE_TAG in text:
                 fail(f"OBSOLETE_AFFILIATE_TAG_IN_SOURCE: {rel}", failures)
