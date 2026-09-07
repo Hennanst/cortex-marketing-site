@@ -1,0 +1,24 @@
+{
+  "source_commit": "6825b278af80f1760d8e8b6f1c009f3f683f9186",
+  "status": "INVENTORY_COMPLETE_REQUIRES_EVIDENCE_REVIEW",
+  "release_approved": false,
+  "html_files_reviewed": 784,
+  "pages_with_assertion": {
+    "price": 721,
+    "availability": 721,
+    "aggregateRating": 721,
+    "reviewRating": 721,
+    "datePublished": 0,
+    "dateModified": 0,
+    "priceValidUntil": 0,
+    "citation": 0,
+    "amazon_image_unsplash_fallback": 745,
+    "invalid_jsonld": 0
+  },
+  "limitations": [
+    "Presence of a static assertion is not proof it is false; absence of citation in JSON-LD is not proof no external evidence exists.",
+    "This inventories all published HTML including legacy reviews; it does not exclude pages or change buyer-facing content.",
+    "Copy claims outside JSON-LD and dynamic data need separate evidence review. No price, stock, rating or product fact was externally verified.",
+    "A commercial Amazon image that swaps to Unsplash on error risks wrong product imagery and requires source correction."
+  ]
+}
