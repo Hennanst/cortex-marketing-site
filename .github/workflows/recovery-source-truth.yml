@@ -23,14 +23,25 @@ jobs:
       - name: Checkout reviewed source
         uses: actions/checkout@v6
 
+      - name: Regression tests for source, bundle and office state
+        run: python3 -m unittest discover -s tests -v
+
       - name: RG source audit — fail closed
-        run: python3 scripts/recovery_source_truth_guard.py --source-only
+        run: python3 scripts/recovery_source_truth_guard.py --source-only --report /tmp/cortex-source-audit.json
 
       - name: Build publish bundle
         run: bash scripts/build_cloudflare_pages.sh
 
       - name: LIVE_PARITY — source equals publish bundle
         run: python3 scripts/recovery_source_truth_guard.py --compare-dist
+
+      - name: Preserve exact-SHA audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cortex-source-audit-${{ github.sha }}
+          path: /tmp/cortex-source-audit.json
+          if-no-files-found: error
 
       - name: Recovery invariant summary
         if: always()

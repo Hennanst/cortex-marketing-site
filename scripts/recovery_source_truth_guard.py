@@ -10,7 +10,11 @@ from __future__ import annotations
 import argparse
 import hashlib
 import re
+import json
+from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlparse
+from public_bundle import public_files
 
 CANONICAL = "https://cortex-ofertas.pages.dev"
 LEGACY = "cortex-public.vercel.app"
@@ -47,11 +51,36 @@ def sha256(path: Path) -> str:
 
 
 def production_html(root: Path):
-    for path in root.rglob("*.html"):
-        rel = path.relative_to(root)
-        if rel.parts and rel.parts[0] in {"dist", ".git"}:
-            continue
-        yield path, rel.as_posix()
+    for path, rel in public_files(root):
+        if path.suffix == ".html":
+            yield path, rel
+
+
+class Page(HTMLParser):
+    def __init__(self, text):
+        super().__init__(convert_charrefs=True)
+        self.canonicals = []
+        self.feed(text)
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "link" and "canonical" in attrs.get("rel", "").lower().split():
+            self.canonicals.append(attrs.get("href", ""))
+
+
+def canonical_failures(text, rel):
+    urls = Page(text).canonicals
+    if len(urls) != 1:
+        return [f"CANONICAL_COUNT[{len(urls)}]: {rel}"]
+    url = urlparse(urls[0])
+    expected = "/" + rel
+    if expected.endswith("index.html"):
+        expected = expected[:-len("index.html")]
+    if url.scheme != "https" or url.netloc != "cortex-ofertas.pages.dev" or url.query or url.fragment:
+        return [f"SPLIT_CANONICAL[{urls[0]}]: {rel}"]
+    if url.path not in {expected, "/" + rel}:
+        return [f"CANONICAL_WRONG_ROUTE[{urls[0]}]: {rel}"]
+    return []
 
 
 def fail(msg: str, failures: list[str]) -> None:
@@ -79,10 +108,7 @@ def scan_source(root: Path) -> list[str]:
         for marker in FORBIDDEN_SOURCE_MARKERS:
             if marker in text:
                 fail(f"FORBIDDEN_PRODUCTION_MARKER[{marker}]: {rel}", failures)
-        canonical_matches = re.findall(r'<link\s+rel=["\']canonical["\']\s+href=["\']([^"\']+)', text, re.I)
-        for url in canonical_matches:
-            if not url.startswith(CANONICAL):
-                fail(f"SPLIT_CANONICAL[{url}]: {rel}", failures)
+        failures.extend(canonical_failures(text, rel))
 
     for rel in ("robots.txt", "sitemap.xml"):
         path = root / rel
@@ -108,22 +134,17 @@ def compare_dist(root: Path, dist: Path) -> list[str]:
     if not dist.exists():
         return [f"DIST_MISSING: {dist}"]
 
-    # Strong recovery invariant: primary buyer-facing HTML must be byte-identical
-    # between reviewed source and publish bundle. Infrastructure packaging belongs
-    # outside those HTML files.
-    for rel in PRIMARY_ROUTES:
-        src = root / rel
+    # The complete publish inventory must be identical, including assets and data.
+    expected = dict((rel, src) for src, rel in public_files(root))
+    actual = {p.relative_to(dist).as_posix() for p in dist.rglob("*") if p.is_file()}
+    for rel in sorted(actual - expected.keys()):
+        fail(f"UNEXPECTED_DIST_FILE: {rel}", failures)
+    for rel, src in expected.items():
         out = dist / rel
-        if not src.exists() or not out.exists():
+        if out.is_symlink() or not out.is_file():
             fail(f"SOURCE_OR_DIST_ROUTE_MISSING: {rel}", failures)
             continue
         if sha256(src) != sha256(out):
-            fail(f"SOURCE_DEPLOY_DIVERGENCE: {rel}", failures)
-
-    for rel in ("robots.txt", "sitemap.xml"):
-        src = root / rel
-        out = dist / rel
-        if src.exists() and out.exists() and sha256(src) != sha256(out):
             fail(f"SOURCE_DEPLOY_DIVERGENCE: {rel}", failures)
 
     return failures
@@ -135,6 +156,7 @@ def main() -> int:
     parser.add_argument("--dist", default="dist")
     parser.add_argument("--source-only", action="store_true")
     parser.add_argument("--compare-dist", action="store_true")
+    parser.add_argument("--report", help="Write machine-readable diagnostics, including coverage")
     args = parser.parse_args()
 
     root = Path(args.root).resolve()
@@ -144,6 +166,13 @@ def main() -> int:
         failures.extend(scan_source(root))
     if args.compare_dist:
         failures.extend(compare_dist(root, (root / args.dist).resolve()))
+
+    coverage = len(list(production_html(root)))
+    print(f"AUDITED_HTML_FILES={coverage}")
+    if args.report:
+        report = Path(args.report)
+        report.parent.mkdir(parents=True, exist_ok=True)
+        report.write_text(json.dumps({"status": "FAIL" if failures else "PASS", "html_files": coverage, "checks": {"source": args.source_only or not args.compare_dist, "bundle_parity": args.compare_dist}, "failures": sorted(set(failures))}, ensure_ascii=False, indent=2) + "\n")
 
     if failures:
         print("CORTEX_SOURCE_TRUTH_GUARD_FAIL")
