@@ -1,0 +1,39 @@
+name: Córtex Source Truth Guard
+
+on:
+  push:
+    branches:
+      - main
+      - 'recovery/**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cortex-source-truth-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-truth:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout reviewed source
+        uses: actions/checkout@v6
+
+      - name: RG source audit — fail closed
+        run: python3 scripts/recovery_source_truth_guard.py --source-only
+
+      - name: Build publish bundle
+        run: bash scripts/build_cloudflare_pages.sh
+
+      - name: LIVE_PARITY — source equals publish bundle
+        run: python3 scripts/recovery_source_truth_guard.py --compare-dist
+
+      - name: Recovery invariant summary
+        if: always()
+        run: |
+          echo 'Córtex production invariant: SOURCE == BUILD INPUT == INTENDED DEPLOYED OUTPUT'
+          echo 'Buyer-facing visual/copy/merchant/canonical mutations are forbidden at build time.'
