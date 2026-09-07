@@ -28,9 +28,6 @@ jobs:
       - name: Build static publish directory
         run: bash scripts/build_cloudflare_pages.sh
 
-      - name: Apply G-IMG-01 premium visual pass
-        run: python3 scripts/apply_premium_visuals.py dist
-
       - name: Normalize Cloudflare credentials
         env:
           RAW_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
