@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout reviewed source
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Regression tests for source, bundle and office state
         run: python3 -m unittest discover -s tests -v
@@ -39,7 +41,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cortex-source-audit-${{ github.sha }}
+          name: cortex-source-audit-${{ github.event.pull_request.head.sha || github.sha }}
           path: /tmp/cortex-source-audit.json
           if-no-files-found: error
 
