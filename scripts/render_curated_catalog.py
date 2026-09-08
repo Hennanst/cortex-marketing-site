@@ -76,7 +76,7 @@ def readings(key):
 def context_photos(keys):
     photos=json.loads((ROOT/'data/editorial-visuals.json').read_text())['photos']
     destinations={'home':('/guias/','Planeje antes de comprar'),'gaming':('/setup-games/','Jogos e periféricos'),'work':('/trabalho-estudo/','Trabalho e estudo'),'creator':('/creator-streaming/','Criação de conteúdo'),'home_automation':('/casa-inteligente/','Casa inteligente')}
-    return '<section class="section"><h2>Continue a pesquisa por uso</h2><div class="reading">'+''.join(f'<a href="{destinations[k][0]}"><img class="context-photo" data-editorial-photo="{k}" src="{esc(photos[k]["url"])}" alt="Fotografia editorial de contexto: {esc(destinations[k][1])}" loading="lazy">{esc(destinations[k][1])}<span>Leia os critérios e explore as escolhas.</span></a>' for k in keys)+'</div></section>'
+    return '<section class="section"><h2>Continue a pesquisa por uso</h2><div class="reading">'+''.join(f'<a href="{destinations[k][0]}"><img class="context-photo" data-editorial-photo="{k}" src="{esc(photos[k]["url"])}" alt="Fotografia editorial de contexto: {esc(destinations[k][1])}" loading="lazy"><span class="visual-context-label">Foto de contexto; os produtos recomendados estão nas fichas acima.</span>{esc(destinations[k][1])}<span>Leia os critérios e explore as escolhas.</span></a>' for k in keys)+'</div></section>'
 
 def niche_items(key):
     order=['mouses','teclados','mousepads','headsets','monitores','notebooks','hubs','webcams','armazenamento','microfones','captura','controles','tomadas','cameras','iluminacao','rede','assistentes']
