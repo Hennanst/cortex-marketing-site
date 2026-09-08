@@ -53,3 +53,28 @@ jobs:
         run: |
           echo 'Córtex production invariant: SOURCE == BUILD INPUT == INTENDED DEPLOYED OUTPUT'
           echo 'Buyer-facing visual/copy/merchant/canonical mutations are forbidden at build time.'
+
+  preview-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Build reviewed source
+        run: bash scripts/build_cloudflare_pages.sh
+      - name: Install browser for preview evidence
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Capture mobile and desktop and detect rendering defects
+        run: node scripts/capture_recovery_preview.cjs
+      - name: Preserve screenshots and observed failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cortex-preview-${{ github.event.pull_request.head.sha || github.sha }}
+          path: /tmp/cortex-preview-qa/
+          if-no-files-found: error
+          retention-days: 14

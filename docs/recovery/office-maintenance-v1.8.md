@@ -174,3 +174,17 @@ o endereço da foto e o carregamento lazy. O manifesto
 O guard agora detecta atributos de imagem fragmentados e tem teste de regressão
 para medidas em polegadas. Dezesseis testes locais passaram. A revisão visual
 e de disponibilidade remota continua pendente; nenhum release foi autorizado.
+
+## Evidência visual reproduzível no CI
+
+Adicionado job de preview local do pacote em CI: 12 rotas selecionadas, em
+390×844 e 1440×900, com capturas completas, erros JavaScript, imagens sem
+carregamento e overflow horizontal. O relatório e as capturas são preservados
+por SHA mesmo quando uma página falha. Isso não publica o site e não concede
+aprovação visual: capturas sem erro aguardam revisão. A cobertura de 12 rotas
+é explícita e não representa o acervo inteiro.
+
+Diagnóstico local: a instalação do Chrome pelo agent-browser falhou com
+`invalid peer certificate: UnknownIssuer` ao consultar o catálogo de versões.
+A validação TLS foi preservada. O novo job executa em GitHub Actions, onde
+a dependência do navegador e seus erros ficam registrados.
