@@ -128,3 +128,19 @@ ainda precisa ser integrada e verificada no escritório antes de uso operacional
 Nenhum gate, scheduler, configuração ativa ou autorização de release é alterado
 por este commit. Continuam pendentes a validação do modo de execução agendado
 quando ausente/desconhecido e a verificação da presença e escopo dos locks.
+
+## Canonical e links na QA de deploy — 8 de setembro de 2026
+
+A QA agora usa comparação exata de origem e rota, exige canonical único e
+rejeita query, fragmento e credenciais no canonical. Links relativos e absolutos
+internos são resolvidos a partir da página efetiva, preservando query e removendo
+fragmento. A checagem HTTP cobre todos os destinos internos únicos coletados
+nas oito rotas de entrada; foi removido o corte silencioso em 140 destinos.
+Isso não constitui rastreamento recursivo de todo o site.
+
+Dois testes Node cobrem domínio por prefixo, duplicidade, rota incorreta e
+resolução de links, e passam a executar no CI de recovery. Os doze testes Python
+continuam passando. O JavaScript embutido no workflow passou na checagem de
+sintaxe. A QA ao vivo não foi executada nesta alteração, pois não houve deploy.
+Os critérios legados de imagens ainda precisam de revisão; nenhum gate de
+release foi aprovado por esta correção.

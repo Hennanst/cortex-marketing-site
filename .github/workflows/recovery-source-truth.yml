@@ -28,6 +28,9 @@ jobs:
       - name: Regression tests for source, bundle and office state
         run: python3 -m unittest discover -s tests -v
 
+      - name: URL validation regressions
+        run: node --test tests/test_qa_urls.cjs
+
       - name: RG source audit — fail closed
         run: python3 scripts/recovery_source_truth_guard.py --source-only --report /tmp/cortex-source-audit.json
 
