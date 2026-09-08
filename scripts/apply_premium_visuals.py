@@ -66,15 +66,11 @@ catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
 approved = {name: item["url"] for name, item in catalog["photos"].items()}
 approved_urls = set(approved.values())
 failures: list[str] = []
+observed: dict[str, set[str]] = {}
 
-for rel, required_roles in REQUIRED.items():
-    path = TARGET / rel
-    if not path.is_file():
-        failures.append(f"missing primary route {rel}")
-        continue
+for path in sorted(TARGET.rglob("*.html")):
+    rel = path.relative_to(TARGET).as_posix()
     text = path.read_text(encoding="utf-8")
-    if OLD_VISUAL_RE.search(text):
-        failures.append(f"old template visual remains in {rel}")
     parser = VisualParser(text)
     seen: set[str] = set()
     for attrs, inside_commercial in parser.images:
@@ -92,6 +88,16 @@ for rel, required_roles in REQUIRED.items():
                 failures.append(f"context photo inside exact-product card in {rel}: {role}")
         elif src in approved_urls:
             failures.append(f"approved photo missing role in {rel}: {src}")
+    observed[rel] = seen
+
+for rel, required_roles in REQUIRED.items():
+    path = TARGET / rel
+    if not path.is_file():
+        failures.append(f"missing primary route {rel}")
+        continue
+    if OLD_VISUAL_RE.search(path.read_text(encoding="utf-8")):
+        failures.append(f"old template visual remains in {rel}")
+    seen = observed.get(rel, set())
     for role in sorted(required_roles - seen):
         failures.append(f"required editorial photo missing in {rel}: {role}")
 

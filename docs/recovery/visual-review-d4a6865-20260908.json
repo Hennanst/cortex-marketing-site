@@ -1,0 +1,37 @@
+{
+  "schema": "cortex.recovery-visual-review.v1",
+  "account_code": "CO",
+  "candidate_sha": "d4a6865c8bfe21ae97cbb6640a6bb2d3acb3b8d1",
+  "workflow_run": 34245301642,
+  "artifact_id": 10063762299,
+  "artifact_name": "cortex-preview-d4a6865c8bfe21ae97cbb6640a6bb2d3acb3b8d1",
+  "automated_capture": {
+    "status": "PASS",
+    "routes": 14,
+    "viewports": [
+      "390x844",
+      "1440x900"
+    ],
+    "screenshots": 28,
+    "broken_images": 0,
+    "overflow_elements": 0,
+    "javascript_errors": 0
+  },
+  "manual_review": {
+    "reviewer_role": "recovery_implementer",
+    "gate_independence": false,
+    "decision": "REVISE",
+    "findings": [
+      "Home hero retained the portrait source ratio and made the first mobile step unnecessarily tall.",
+      "Casa Inteligente no longer overflowed, but permissive word breaking isolated the final letter of Entretenimento.",
+      "The newly discoverable Havit guide had exact-image evidence but did not yet display the exact product photo."
+    ],
+    "successor_changes": [
+      "Constrain the home hero media container to a 4:3 crop.",
+      "Use a smaller mobile Casa heading with normal word boundaries.",
+      "Add the evidence-backed exact Havit image to its dedicated guide."
+    ]
+  },
+  "release_approved": false,
+  "note": "A successful technical capture is not a visual PASS. The successor SHA requires a new CI artifact and separate independent gate review."
+}

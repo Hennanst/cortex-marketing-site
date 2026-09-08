@@ -226,3 +226,18 @@ na biblioteca e no sitemap.
 
 Esta alteração não muda main, não publica produção, não reativa scheduler, não
 faz write no Tailwind e não libera aquisição.
+
+## Revisão visual do SHA d4a6865 — REVISE
+
+O run 34245301642 concluiu os dois jobs e produziu 28 capturas de 14 rotas em
+390×844 e 1440×900, sem imagem quebrada, erro JavaScript ou elemento fora da
+largura. A revisão humana pelo próprio implementador não promove gate e marcou
+REVISE: a home mantinha a proporção retrato da foto no primeiro passo mobile,
+Casa quebrava a última letra de “Entretenimento”, e o guia Havit ainda não
+exibia a foto exata já documentada.
+
+O lote sucessor limita a mídia principal da home a 4:3, preserva palavras
+inteiras no título mobile de Casa e instala a foto exata do Havit a partir da
+evidência Opera existente. O registro
+`visual-review-d4a6865-20260908.json` vincula SHA, run, artefato, decisão e
+correções. O novo SHA precisa de outro CI e revisão; d4a6865 não é release.
