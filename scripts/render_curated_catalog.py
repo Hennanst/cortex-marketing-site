@@ -83,10 +83,11 @@ def niche_items(key):
     return sorted([p for p in PRODUCTS if p['niche']==key],key=lambda p:order.index(p['group']))
 
 def render_catalog():
-    body = f'<section class="intro"><div class="eyebrow">Produtos selecionados pela Córtex</div><h1>Entenda a escolha.<br>Depois, confira a oferta.</h1><p class="lead">Pesquisamos produtos vendidos na Amazon, comparamos recursos e limitações e explicamos quando cada opção merece seu dinheiro.</p><p class="method-note">{len(PRODUCTS)} produtos · 4 contextos de uso · <a href="/metodologia.html">Avaliação documental, com critérios e fontes</a>. Consulte preços atuais na Amazon.</p></section><div id="shortlists">{niche_nav(anchors=True)}'
+    body = f'<section class="intro catalog-intro"><div class="eyebrow">Curadoria Córtex</div><h1>Escolhas para você.</h1><p class="lead">Compare o que muda no uso e quando pagar mais faz sentido. Confira as ofertas na Amazon.</p><p class="method-note">{len(PRODUCTS)} produtos · 4 nichos · <a href="/metodologia.html">Como avaliamos</a></p></section><div id="shortlists">{niche_nav(anchors=True)}'
+    categories={'setup-games':'Mouses, teclado, mousepad, headsets e monitores.','trabalho-estudo':'Notebook, periféricos, chamadas, hubs e armazenamento.','creator-streaming':'Webcams, microfones, captura e atalhos.','casa-inteligente':'Tomada, câmeras, iluminação, rede e Alexa.'}
     for key,(name,headline,intro,_) in NICHES.items():
         items=niche_items(key)
-        body+=f'<section class="section" id="{key}"><div class="section-head"><div><div class="eyebrow">{len(items)} produtos</div><h2>{esc(name)}</h2><p>{esc(intro)}</p></div><a href="/{key}/">Como escolher neste nicho</a></div>'
+        body+=f'<section class="section" id="{key}"><div class="section-head"><div><div class="eyebrow">{len(items)} produtos</div><h2>{esc(name)}</h2><p>{esc(categories[key])}</p></div><a href="/{key}/">Como escolher neste nicho</a></div>'
         aliases={'g305':'mouses','lg-24gs60f':'monitores','havit-h2002d':'headsets','c920s':'webcams'}
         if key=='trabalho-estudo': body+='<span id="trabalho"></span>'
         body+='<div class="product-grid">'+''.join(card(p,alias=aliases.get(p['id'])) for p in items)+'</div></section>'
@@ -95,7 +96,8 @@ def render_catalog():
     page('recomendados/index.html','Produtos recomendados',f'{len(PRODUCTS)} produtos de tecnologia com fotos, razões de escolha, limitações, alternativas e links para consultar preços na Amazon.',body)
 
 def render_pairs():
-    body='<section class="intro"><div class="eyebrow">Comparações da Córtex</div><h1>O que você ganha ao pagar mais?</h1><p class="lead">Compare diferenças que mudam o uso. Cada confronto mostra em que situação uma escolha faz mais sentido.</p><p class="method-note">As tabelas comparam características documentadas. Os preços mudam; confira o total das duas ofertas na Amazon antes de decidir.</p></section><nav class="niche-nav" aria-label="Comparações">'+''.join(f'<a href="#{pair[0]}">{esc(pair[1].split(":")[0])}</a>' for pair in PAIR_DATA)+'</nav>'
+    labels={'microfones':'USB ou XLR','quadcast':'QuadCast 2 ou 2 S','atalhos':'Stream Deck'}
+    body='<section class="intro"><div class="eyebrow">Comparações da Córtex</div><h1>O que você ganha ao pagar mais?</h1><p class="lead">Compare diferenças que mudam o uso. Cada confronto mostra em que situação uma escolha faz mais sentido.</p><p class="method-note">As tabelas comparam características documentadas. Os preços mudam; confira o total das duas ofertas na Amazon antes de decidir.</p></section><nav class="niche-nav" aria-label="Comparações">'+''.join(f'<a href="#{pair[0]}">{esc(labels.get(pair[0],pair[1].split(":")[0]))}</a>' for pair in PAIR_DATA)+'</nav>'
     for anchor,title,a,b,rows,conclusion in PAIR_DATA:
         p,q=BY_ID[a],BY_ID[b]
         table='<div class="table-wrap"><table><thead><tr><th>Critério</th><th>'+esc(p['name'])+'</th><th>'+esc(q['name'])+'</th></tr></thead><tbody>'+''.join(f'<tr><td data-label="Critério">{esc(r[0])}</td><td data-label="{esc(p["name"])}">{esc(r[1])}</td><td data-label="{esc(q["name"])}">{esc(r[2])}</td></tr>' for r in rows)+'</tbody></table></div>'
