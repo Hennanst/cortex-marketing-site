@@ -11,6 +11,16 @@ from office_control import table, plan_patch, assert_lease, topological_order, v
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_product_image_cannot_fallback_to_unrelated_photo(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            page = root / 'index.html'
+            canonical = '<link rel="canonical" href="https://cortex-ofertas.pages.dev/">'
+            page.write_text(canonical + '<img src="https://m.media-amazon.com/images/I/product.jpg" onerror="this.src=\'https://images.unsplash.com/unrelated\'">')
+            self.assertIn('WRONG_PRODUCT_IMAGE_FALLBACK: index.html', scan_source(root))
+            page.write_text(canonical + '<img src="https://m.media-amazon.com/images/I/product.jpg">')
+            self.assertNotIn('WRONG_PRODUCT_IMAGE_FALLBACK: index.html', scan_source(root))
+
     def test_dynamic_data_cannot_restore_obsolete_affiliate_tag(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

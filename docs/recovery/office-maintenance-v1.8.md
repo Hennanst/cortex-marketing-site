@@ -144,3 +144,23 @@ continuam passando. O JavaScript embutido no workflow passou na checagem de
 sintaxe. A QA ao vivo não foi executada nesta alteração, pois não houve deploy.
 Os critérios legados de imagens ainda precisam de revisão; nenhum gate de
 release foi aprovado por esta correção.
+
+## Correções do site — fotos de produtos e destino quebrado
+
+Removidos 4.263 handlers que trocavam fotos da Amazon por fotografias genéricas
+do Unsplash em 745 páginas. A alteração preserva os atributos originais de
+imagem e os links de compra. O manifesto `image-fallback-repair-20260908.json`
+registra cada página com hashes antes/depois e contagem de handlers removidos.
+O guard de fonte agora rejeita esse padrão, com teste de regressão.
+
+O guia `guias/cadeira-gamer-vale-a-pena.html` apontava para o arquivo inexistente
+`review/B00DJCDRXJ4.html`. O destino foi corrigido para a página existente
+`review/B0DJCDRXJ4.html`, cujo título confirma Redragon Office Hela C214-B.
+
+Isso não verifica a disponibilidade de cada imagem remota: falhas reais de
+carregamento devem ser reparadas com assets do produto correto. A inspeção
+visual local foi tentada com agent-browser, mas seu daemon falhou ao iniciar
+inclusive na tentativa de diagnóstico. Não houve aprovação visual nem deploy.
+Foram observados atributos HTML antigos com aspas não escapadas em nomes de
+produtos; exigem revisão adicional. Os claims comerciais legados continuam
+pendentes de revisão de evidência. Schedulers permanecem pausados.
