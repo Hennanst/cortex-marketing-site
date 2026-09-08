@@ -1,89 +1,499 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Trabalho &amp; Estudo | Córtex Ofertas</title>
-  <meta name="description" content="Tecnologia para trabalho e estudo escolhida por mobilidade, multitarefa, tela, chamadas, conectividade e ergonomia — antes do produto.">
-  <link rel="canonical" href="https://cortex-ofertas.pages.dev/trabalho-estudo/">
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <meta property="og:title" content="Trabalho &amp; Estudo | Córtex Ofertas">
-  <meta property="og:description" content="Escolha notebook, tela e periféricos pelo gargalo real da sua rotina, com trade-offs e critérios explícitos.">
-  <meta property="og:url" content="https://cortex-ofertas.pages.dev/trabalho-estudo/">
-  <style>
-    :root{color-scheme:dark;--bg:#07090d;--surface:#11151c;--surface2:#171d26;--text:#f4f7fb;--muted:#a8b0bd;--accent:#62f6a5;--border:#26303d}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 520px at 85% -10%,rgba(98,246,165,.12),transparent 58%),linear-gradient(180deg,#080b10 0%,#07090d 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;letter-spacing:-.01em}
-    a{color:var(--accent)}header{border-bottom:1px solid rgba(255,255,255,.08);background:rgba(7,9,13,.86);backdrop-filter:blur(18px);position:sticky;top:0;z-index:20}header nav{max-width:1180px;margin:auto;padding:18px 24px;display:flex;align-items:center;gap:8px 22px}header nav a{text-decoration:none;color:#dfe6ee;font-size:.94rem;font-weight:650;white-space:nowrap}header nav a:first-child{color:#fff;font-size:1.08rem;font-weight:900;margin-right:auto;letter-spacing:-.03em}
-    .trustbar{max-width:1180px;margin:0 auto;padding:10px 24px 0;color:#a8b0bd;font-size:.8rem}.trustbar strong{color:#dfe6ee}
-    main{max-width:1180px;margin:auto;padding:72px 24px}h1{font-size:clamp(2.7rem,6vw,5.2rem);line-height:.94;letter-spacing:-.065em;max-width:900px;margin:.12em 0 .28em}h2{font-size:clamp(1.8rem,4vw,3rem);line-height:1.08;letter-spacing:-.04em;margin:.25em 0 .35em}h3{letter-spacing:-.025em}.muted{color:var(--muted)}.lead{font-size:1.15rem;max-width:760px;color:#b7c0cb}.eyebrow{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem}
-    section{margin:46px 0}.card{background:linear-gradient(145deg,rgba(25,31,40,.94),rgba(14,18,24,.96));border:1px solid rgba(255,255,255,.09);border-radius:24px;padding:26px}.card h3 a{text-decoration:none;color:#f2f5f8}.card h3 a:hover{color:var(--accent)}
-    .g8-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin:0 0 34px;align-items:stretch}.g8-hero img,.g8-tile img{display:block;width:100%;height:100%;object-fit:cover;border-radius:22px;border:1px solid rgba(255,255,255,.09);background:#10151c}.g8-copy{padding:28px;border:1px solid rgba(255,255,255,.09);border-radius:22px;background:linear-gradient(145deg,rgba(25,31,40,.94),rgba(14,18,24,.96));display:flex;flex-direction:column;justify-content:center}.g8-copy h2{font-size:clamp(1.7rem,4vw,3rem);margin:.25em 0}.g8-copy p{color:#b7c0cb;max-width:650px}.g8-link{display:inline-flex;width:max-content;margin-top:8px;padding:12px 18px;border-radius:999px;background:#62f6a5;color:#07110c!important;text-decoration:none;font-weight:850}.g8-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0 38px}.g8-tile{min-width:0}.g8-tile img{aspect-ratio:16/10}.g8-caption{padding:12px 2px 0;color:#c9d1db;font-size:.9rem}
-    .decision-grid,.comparison-grid,.pillar-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.decision-card{padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:rgba(255,255,255,.025)}.decision-card h3{margin:.25em 0 .45em;font-size:1.35rem}.decision-card p{color:#b7c0cb;margin:.25em 0}.decision-card ul{padding-left:20px;color:#cbd3dc}
-    .flow{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0;padding:0;list-style:none}.flow li{padding:8px 11px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.06);font-size:.84rem;color:#d7dee7}.flow li:after{content:" →";color:var(--accent)}.flow li:last-child:after{content:""}
-    .matrix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.matrix article{padding:20px;border-radius:18px;border:1px solid rgba(255,255,255,.08);background:#0e131a}.matrix h3{margin:0 0 8px}.matrix p{margin:0;color:#adb7c3}
-    .checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0;list-style:none}.checklist li{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.035);color:#cbd3dc}.checklist li strong{color:#fff}
-    .guide-list{display:grid;gap:14px}.guide-list .card{margin:0;box-shadow:none}.guide-list p{color:#aeb8c3}
-    .product-module{margin:46px 0;padding:32px}.product-module>p{max-width:760px;color:#b7c0cb}.product-card{border-radius:18px;border:1px solid rgba(255,255,255,.08);padding:27px;background:rgba(255,255,255,.025);display:flex;flex-direction:column}.product-card:before{content:"CÓRTEX PICK";display:inline-flex;width:max-content;margin-bottom:16px;padding:5px 9px;border:1px solid rgba(98,246,165,.3);border-radius:999px;color:#62f6a5;font-size:.66rem;font-weight:900;letter-spacing:.12em}.product-card ul{display:flex;flex-wrap:wrap;gap:7px;padding:0;list-style:none}.product-card li{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.045);font-size:.8rem;color:#c9d1db}.product-label{font-size:.73rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:var(--accent)}.product-visual{height:170px;border-radius:16px;margin:-5px 0 22px;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;position:relative;overflow:hidden;background:radial-gradient(circle at 72% 28%,rgba(98,246,165,.2),transparent 25%),linear-gradient(145deg,#1b2530,#0b0f14)}.product-visual:after{content:"";position:absolute;width:150px;height:94px;right:10%;top:25px;border:1px solid rgba(255,255,255,.22);border-radius:8px;transform:perspective(300px) rotateY(-8deg);box-shadow:0 28px 0 -18px #56606b}.product-visual span{font-size:.65rem;letter-spacing:.16em;color:#62f6a5;font-weight:900}.product-visual b{font-size:1.65rem;letter-spacing:-.05em}.cta{display:inline-block;background:var(--accent);color:#06130d;text-decoration:none;font-weight:850;padding:13px 20px;border-radius:999px;margin-top:auto;width:max-content}.local-disclosure{display:block;color:#7f8995;font-size:.7rem;margin-top:5px}
-    .disclosure{margin:20px 0;padding:14px 16px;border-left:3px solid var(--accent);background:rgba(98,246,165,.055);color:#b9c3cf;font-size:.86rem;border-radius:0 12px 12px 0}.disclosure strong{color:#eef5f8}
-    footer{border-top:1px solid rgba(255,255,255,.08);padding:36px 24px;color:#87929f}footer>*{max-width:1180px;margin:8px auto}footer a{color:#dfe6ee}
-    @media(max-width:760px){header nav{padding:14px 18px;overflow-x:hidden}main{padding:44px 18px}.g8-hero,.g8-grid,.decision-grid,.comparison-grid,.pillar-grid,.matrix,.checklist{grid-template-columns:1fr}.g8-copy{padding:21px}.g8-link{width:100%;justify-content:center}.card,.product-module{padding:20px}.product-card{padding:21px}.product-visual{height:145px}.cta{width:100%;text-align:center}}
-  @media(max-width:760px){header nav{flex-wrap:wrap;gap:8px 14px}header nav a{white-space:normal;min-height:36px;display:inline-flex;align-items:center}header nav a:first-child{flex-basis:100%}}
-</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Trabalho & Estudo | Córtex Ofertas","url":"https://cortex-ofertas.pages.dev/trabalho-estudo/","description":"Tecnologia para trabalho e estudo escolhida pelo contexto de uso, gargalo e trade-offs."}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trabalho &amp; Estudo | Córtex Ofertas</title>
+<meta name="description" content="Notebook, conexão e periféricos precisam atender seus programas e sua rotina. Compare o conjunto, incluindo acessórios e adaptações necessários.">
+<link rel="canonical" href="https://cortex-ofertas.pages.dev/trabalho-estudo/">
+<meta property="og:title" content="Trabalho &amp; Estudo | Córtex Ofertas">
+<meta property="og:description" content="Notebook, conexão e periféricos precisam atender seus programas e sua rotina. Compare o conjunto, incluindo acessórios e adaptações necessários.">
+<meta property="og:url" content="https://cortex-ofertas.pages.dev/trabalho-estudo/">
+<link rel="stylesheet" href="/assets/cortex/catalogo.css">
 </head>
 <body>
-<header><nav><a href="../">Córtex Ofertas</a><a href="../setup-games/">Setup &amp; Games</a><a href="../trabalho-estudo/">Trabalho &amp; Estudo</a><a href="../creator-streaming/">Creator &amp; Streaming</a><a href="../casa-inteligente/">Casa Inteligente</a><a href="../guias/">Guias</a><a href="../comparativos/">Comparativos</a><a href="../recomendados/">Recomendados</a></nav></header>
-<div class="trustbar"><strong>Curadoria independente.</strong> Comparamos pelo uso real, mostramos trade-offs e identificamos links comerciais com transparência.</div>
-<main>
-  <section class="g8-hero" aria-label="Destaque Trabalho e Estudo"><img data-editorial-photo="work" src="https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de notebook em uma mesa de trabalho" fetchpriority="high" loading="eager"><div class="g8-copy"><div class="eyebrow">Trabalho &amp; Estudo</div><h2>Monte a rotina pelo gargalo real.</h2><p>Notebook, tela e periféricos entram pela função: mobilidade, leitura, chamadas e produtividade — não por uma lista genérica de especificações.</p><a class="g8-link" href="#guias-para-decidir">Ver critérios de escolha →</a></div></section>
-  <div class="g8-grid"><div class="g8-tile"><img data-editorial-photo="home" src="https://images.unsplash.com/photo-1762096070873-63e82ab143ca?auto=format&amp;fit=crop&amp;w=1800&amp;q=86" alt="Fotografia editorial de uma mesa com monitor curvo" loading="lazy"><div class="g8-caption">Contexto de foco, leitura e organização de mesa — sem representar um SKU específico.</div></div><div class="g8-tile"><img data-editorial-photo="gaming" src="https://images.unsplash.com/photo-1779452525134-bb7c08326179?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de uma estação com múltiplas telas" loading="lazy"><div class="g8-caption">Mais telas e acessórios só entram quando resolvem um gargalo da rotina.</div></div></div>
-
-  <div class="eyebrow">Pilar Córtex</div>
-  <h1>Trabalho &amp; Estudo</h1>
-  <p class="lead">Notebook, monitor e periféricos só fazem sentido depois de entender sua rotina. A Córtex começa pelo gargalo: mobilidade, multitarefa, legibilidade, chamadas, conectividade ou ergonomia.</p>
-  <ul class="flow"><li>Perfil de uso</li><li>Gargalo atual</li><li>Compatibilidade</li><li>Prioridade de upgrade</li><li>Produto</li></ul>
-
-  <section aria-labelledby="perfis"><div class="eyebrow">1 · Perfil</div><h2 id="perfis">Qual rotina você está tentando melhorar?</h2><div class="decision-grid">
-    <article class="decision-card"><h3>Mobilidade primeiro</h3><p>Você leva o computador entre casa, faculdade, consultório, coworking ou reuniões.</p><ul><li>peso e volume importam</li><li>bateria e carregador entram na decisão</li><li>tela grande demais pode virar custo de transporte</li></ul></article>
-    <article class="decision-card"><h3>Mesa fixa e multitarefa</h3><p>O computador passa a maior parte do tempo conectado a uma estação de trabalho.</p><ul><li>RAM e múltiplas janelas ganham peso</li><li>monitor externo pode mudar mais a rotina que trocar de notebook</li><li>portas, dock e rede viram parte do sistema</li></ul></article>
-    <article class="decision-card"><h3>Aulas e videochamadas</h3><p>Você depende de câmera, microfone, tela legível e estabilidade durante horas.</p><ul><li>posição da câmera e iluminação contam</li><li>áudio ruim pode ser o gargalo real</li><li>ergonomia importa em uso prolongado</li></ul></article>
-    <article class="decision-card"><h3>Estudo + trabalho + uso pesado ocasional</h3><p>Uma máquina precisa cobrir rotina cotidiana e picos de carga sem virar compra excessiva.</p><ul><li>reserve folga para multitarefa</li><li>separe necessidade recorrente de uso eventual</li><li>não pague por GPU dedicada só pelo rótulo “gamer”</li></ul></article>
-  </div></section>
-
-  <section aria-labelledby="gargalos"><div class="eyebrow">2 · Gargalo</div><h2 id="gargalos">Descubra o que realmente limita sua rotina.</h2><div class="matrix">
-    <article><h3>Travamentos e muitas abas</h3><p>Antes de culpar o processador, observe RAM disponível, aplicativos simultâneos e armazenamento.</p></article>
-    <article><h3>Leitura e planilhas cansativas</h3><p>Tamanho, resolução, escala, brilho, distância e posição da tela podem ser mais importantes que trocar o computador.</p></article>
-    <article><h3>Chamadas ruins</h3><p>Câmera, iluminação, microfone, acústica e conexão são um conjunto; “1080p” sozinho não resolve o resultado.</p></article>
-    <article><h3>Notebook pesado demais</h3><p>Desempenho que não acompanha sua rotina de transporte pode ser uma escolha ruim mesmo sendo rápido.</p></article>
-    <article><h3>Poucas portas</h3><p>USB-C, HDMI, leitores, carregamento e dock precisam ser avaliados pelo ecossistema que você realmente conecta.</p></article>
-    <article><h3>Dor ou desconforto</h3><p>Altura da tela, teclado, mouse, apoio e tempo de uso podem transformar ergonomia no upgrade prioritário.</p></article>
-  </div></section>
-
-  <section class="card" aria-labelledby="check"><div class="eyebrow">3 · Compatibilidade</div><h2 id="check">Checklist antes de comprar um notebook.</h2><ul class="checklist">
-    <li><strong>Memória:</strong> pense na quantidade de aplicativos simultâneos, não apenas no mínimo que inicializa o sistema.</li>
-    <li><strong>SSD:</strong> avalie espaço real depois de sistema, nuvem, arquivos locais e aplicativos.</li>
-    <li><strong>Tela:</strong> tamanho, resolução e proporção precisam combinar com leitura, planilhas e transporte.</li>
-    <li><strong>Portas:</strong> confirme o que você conecta hoje e o que exigiria adaptador ou dock.</li>
-    <li><strong>Vídeo:</strong> GPU dedicada só entra quando o software ou jogo realmente pede isso.</li>
-    <li><strong>Mobilidade:</strong> notebook + fonte + acessórios contam como o peso que você realmente carrega.</li>
-    <li><strong>Chamadas:</strong> webcam, microfone, fone e iluminação formam um sistema.</li>
-    <li><strong>Ergonomia:</strong> para mesa fixa, considere monitor, teclado e mouse externos antes de trocar toda a máquina.</li>
-  </ul></section>
-
-  <section aria-labelledby="guias-para-decidir"><div class="eyebrow">4 · Aprofunde</div><h2 id="guias-para-decidir">Guias para decidir</h2><div class="guide-list">
-    <article class="card"><div class="eyebrow">setup híbrido</div><h3><a href="../guia/setup-gamer-home-office-e-jogos.html">Setup para home office e jogos: como equilibrar os dois usos</a></h3><p>Ergonomia, monitor, áudio, conectividade e necessidades reais sem duplicar equipamentos por padrão.</p></article>
-    <article class="card"><div class="eyebrow">notebooks</div><h3><a href="../guia/melhor-notebook-gamer-custo-beneficio.html">Notebook gamer custo-benefício: compare o sistema inteiro, não só a GPU</a></h3><p>Configuração, tela, memória, armazenamento, expansão e uso pretendido antes do nome da placa de vídeo.</p></article>
-    <article class="card"><div class="eyebrow">mobilidade</div><h3><a href="../guia/notebook-gamer-para-estudo-e-jogos.html">Notebook para estudo e jogos: como equilibrar mobilidade e desempenho</a></h3><p>Um único equipamento para estudar, trabalhar e jogar sem ignorar peso, bateria, tela e conectividade.</p></article>
-    <article class="card"><div class="eyebrow">formato</div><h3><a href="../guia/notebook-gamer-ou-pc-gamer.html">Notebook ou PC: escolha pelo formato de uso e pelo caminho de upgrade</a></h3><p>Mobilidade, espaço, manutenção, expansão e custo do ecossistema em vez de um ranking universal.</p></article>
-    <article class="card"><div class="eyebrow">videochamadas</div><h3><a href="../guia/melhor-webcam-para-stream.html">Webcam: resolução, enquadramento e foco sem comprar só pelo número</a></h3><p>Campo de visão, foco, conexão, iluminação e controles antes de tratar 4K ou HDR como sinônimo de melhor imagem.</p></article>
-  </div></section>
-
-  <section class="card product-module" aria-labelledby="ideapad"><div class="eyebrow">5 · Exemplo comercial validado</div><h2 id="ideapad">Lenovo IdeaPad 1 Ryzen 5</h2><p>Exemplo para uma rotina centrada em navegador, documentos, aulas e produtividade geral. Não tratamos esta escolha como máquina gamer; o foco é uso cotidiano e armazenamento SSD.</p><div class="comparison-grid"><article class="product-card"><a href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener" aria-label="Ver Lenovo IdeaPad 1 R5-7520U na Amazon"><img src="https://m.media-amazon.com/images/I/61jcw+EeK7L._AC_SL1500_.jpg" alt="Lenovo IdeaPad 1 R5-7520U 8GB 512GB SSD Linux 15,6 polegadas Cloud Grey" style="display:block;width:100%;height:220px;object-fit:contain;border-radius:16px;margin:-5px 0 22px;background:#fff"></a><h3>Lenovo IdeaPad 1 R5-7520U</h3><p><span class="product-label">Para quem:</span> rotina de navegador, documentos, aulas e produtividade geral.</p><ul><li>Ryzen 5 7520U</li><li>8 GB RAM</li><li>512 GB SSD</li><li>15,6″</li></ul><p class="muted"><strong>Trade-off:</strong> 8 GB exigem atenção se sua rotina envolve multitarefa pesada; confirme configuração, preço e disponibilidade atuais no varejista.</p><a class="cta merchant" data-merchant-state="active" href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon. Como associado da Amazon, eu ganho com compras qualificadas.</small></article></div></section>
-
-  <section class="card" aria-labelledby="webcam-editorial"><div class="eyebrow">Alternativa editorial</div><h2 id="webcam-editorial">Videochamadas: autofocus ou foco fixo?</h2><p>Se o gargalo da rotina for enquadramento em chamadas, trate webcam como uma decisão própria. Autofocus ganha importância quando você muda bastante de distância; foco fixo pode funcionar bem em uma posição estável. A validação comercial de webcams pertence ao pilar Creator &amp; Streaming e não é necessária para decidir se esse é o gargalo da sua estação de trabalho.</p><p><a href="../creator-streaming/">Ver critérios de webcam em Creator &amp; Streaming →</a></p></section>
-
-  <div class="disclosure" role="note"><strong>Transparência:</strong> alguns botões levam à Amazon por link de afiliado. Como associado da Amazon, eu ganho com compras qualificadas. Preço, estoque, vendedor e condições devem ser confirmados no varejista.</div>
+<header>
+<div class="nav">
+<a class="brand" href="/">Córtex Ofertas</a>
+<nav aria-label="Principal">
+<a href="/recomendados/">Produtos</a>
+<a href="/comparativos/">Comparativos</a>
+<a href="/guias/">Guias</a>
+<a href="/metodologia.html">Como avaliamos</a>
+</nav>
+<details class="mobile-menu">
+<summary>Menu</summary>
+<nav aria-label="Menu móvel">
+<a href="/recomendados/">Produtos</a>
+<a href="/comparativos/">Comparativos</a>
+<a href="/guias/">Guias</a>
+<a href="/metodologia.html">Como avaliamos</a>
+</nav>
+</details>
+</div>
+</header>
+<main class="wrap">
+<section class="intro">
+<div class="eyebrow">Trabalho &amp; Estudo</div>
+<h1>Escolhas para trabalhar e estudar com menos interrupções.</h1>
+<p class="lead">Notebook, conexão e periféricos precisam atender seus programas e sua rotina. Compare o conjunto, incluindo acessórios e adaptações necessários.</p>
+<p class="method-note">Curadoria documental · 10 produtos nesta seleção · <a href="/metodologia.html">Como avaliamos</a>
+</p>
+</section>
+<nav class="niche-nav" aria-label="Escolha por uso">
+<a href="/setup-games/">Setup &amp; Games</a>
+<a href="/trabalho-estudo/" aria-current="page">Trabalho &amp; Estudo</a>
+<a href="/creator-streaming/">Creator &amp; Streaming</a>
+<a href="/casa-inteligente/">Casa Inteligente</a>
+</nav>
+<section class="section" id="produtos">
+<h2>Escolhas para sua rotina</h2>
+<p>Abra a análise de cada produto para entender a recomendação, a versão selecionada e quando o preço compensa.</p>
+<div class="product-grid">
+<article class="product-card" id="mx-master-3s" data-asin="B09HM94VDS" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B09HM94VDS?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech MX Master 3S — grafite na Amazon">
+<img src="https://m.media-amazon.com/images/I/61+OT7FPABL._AC_SL1500_.jpg" alt="Logitech MX Master 3S — grafite: MX Master 3S grafite, edição padrão com receptor Logi Bolt" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para rolagem e atalhos no trabalho</span>
+<h3>Logitech MX Master 3S — grafite</h3>
+<p>Quem passa muitas horas em documentos ou planilhas e quer controles adicionais no mouse.</p>
+<ul class="specs">
+<li>Bluetooth e receptor Logi Bolt</li>
+<li>Edição padrão grafite</li>
+<li>Rolagem rápida e recarga USB-C</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não o escolha como substituto automático de um mouse leve para jogo competitivo. Confira tamanho, pegada e compatibilidade do software com suas funções desejadas.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B09HM94VDS?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Rolagem e controles programáveis são o motivo desta seleção. A forma da carcaça exige adaptação individual; o rótulo ergonômico não garante conforto para todas as mãos.</p>
+<h4>Quando não escolher</h4>
+<p>Não o escolha como substituto automático de um mouse leve para jogo competitivo. Confira tamanho, pegada e compatibilidade do software com suas funções desejadas.</p>
+<h4>Quando o preço compensa</h4>
+<p>O valor depende de usar rolagem e atalhos diariamente. Se você só precisa mover o cursor e clicar, compare uma opção mais simples antes de pagar o adicional.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#g305">Logitech G305 LIGHTSPEED</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> MX Master 3S grafite, edição padrão com receptor Logi Bolt.</p>
+<p class="source-links">
+<a href="https://www.logitechstore.com.br/mouse-sem-fio-logitech-mx-master-3s-graphite/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="k380s" data-asin="B0CJ3WFW9H" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0CJ3WFW9H?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech Pebble Keys 2 K380s — grafite na Amazon">
+<img src="https://m.media-amazon.com/images/I/61vqjDT56wL._AC_SL1500_.jpg" alt="Logitech Pebble Keys 2 K380s — grafite: Pebble Keys 2 K380s grafite, layout US" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para alternar dispositivos em pouco espaço</span>
+<h3>Logitech Pebble Keys 2 K380s — grafite</h3>
+<p>Quem procura teclado Bluetooth compacto e aceita layout americano.</p>
+<ul class="specs">
+<li>Bluetooth com Easy-Switch</li>
+<li>Layout US, cor grafite</li>
+<li>Pilha incluída no anúncio</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não é ABNT2 e não possui tecla Ç dedicada como um teclado brasileiro. Confira o layout e os sistemas compatíveis antes de comparar só o tamanho.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0CJ3WFW9H?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O formato compacto e a troca entre dispositivos atendem quem alterna trabalho e mobilidade. A versão selecionada é US: essa diferença afeta a posição dos símbolos e o hábito de digitação.</p>
+<h4>Quando não escolher</h4>
+<p>Não é ABNT2 e não possui tecla Ç dedicada como um teclado brasileiro. Confira o layout e os sistemas compatíveis antes de comparar só o tamanho.</p>
+<h4>Quando o preço compensa</h4>
+<p>Pague pela portabilidade e pela troca de aparelhos se essas funções forem frequentes. Para uso fixo com ABNT2 indispensável, procure uma opção no layout adequado.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#g213">Teclado Logitech G213 Prodigy ABNT2</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Pebble Keys 2 K380s grafite, layout US.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/shop/p/pebble-keys-2.920-011789" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="h390" data-asin="B000UXZQ42" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B000UXZQ42?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech H390 — headset USB-A preto na Amazon">
+<img src="https://m.media-amazon.com/images/I/6144+3nBNhL._AC_SL1500_.jpg" alt="Logitech H390 — headset USB-A preto: H390 preto, USB-A" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para chamadas com conexão USB-A</span>
+<h3>Logitech H390 — headset USB-A preto</h3>
+<p>Quem quer headset com fio e controles de áudio para reuniões no computador.</p>
+<ul class="specs">
+<li>USB-A com fio</li>
+<li>Controles de áudio no cabo</li>
+<li>Microfone com redução de ruído declarada</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Esta é a versão USB-A, não a USB-C. Não serve diretamente a um conector analógico 3,5 mm; confira as portas do seu aparelho.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B000UXZQ42?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A conexão USB e os controles acessíveis definem o uso de trabalho. A redução de ruído do microfone é um recurso declarado; não apresentamos uma medição própria de inteligibilidade.</p>
+<h4>Quando não escolher</h4>
+<p>Esta é a versão USB-A, não a USB-C. Não serve diretamente a um conector analógico 3,5 mm; confira as portas do seu aparelho.</p>
+<h4>Quando o preço compensa</h4>
+<p>Pagar por um headset dedicado faz sentido quando o áudio das reuniões é uma limitação. Compare com um equipamento que você já possui antes de duplicar funções.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> H390 preto, USB-A.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/shop/p/h390-usb-headset.981-000014" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="arzopa-z1fc" data-asin="B0CH9WTW56" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0CH9WTW56?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver ARZOPA Z1FC — monitor portátil de 16,1 polegadas na Amazon">
+<img src="https://m.media-amazon.com/images/I/71tSoS9v8rL._AC_SL1500_.jpg" alt="ARZOPA Z1FC — monitor portátil de 16,1 polegadas: Z1FC, 16,1 polegadas, Full HD, 144 Hz, preto" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para levar uma segunda tela</span>
+<h3>ARZOPA Z1FC — monitor portátil de 16,1 polegadas</h3>
+<p>Quem alterna locais de trabalho e quer mais área de tela em um formato portátil.</p>
+<ul class="specs">
+<li>16,1 polegadas Full HD</li>
+<li>Até 144 Hz declarados</li>
+<li>Modelo Z1FC</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confira vídeo e alimentação disponíveis no notebook, cabos e posição do apoio. Uma tela portátil não oferece a mesma área e ergonomia de um monitor de mesa maior.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0CH9WTW56?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A portabilidade e a segunda área de trabalho explicam sua presença no nicho. Para documentos, o tamanho útil e o apoio podem importar mais que a frequência máxima anunciada.</p>
+<h4>Quando não escolher</h4>
+<p>Confira vídeo e alimentação disponíveis no notebook, cabos e posição do apoio. Uma tela portátil não oferece a mesma área e ergonomia de um monitor de mesa maior.</p>
+<h4>Quando o preço compensa</h4>
+<p>O custo extra se justifica se você realmente precisa transportar a tela. Para uso fixo, compare monitores de mesa e a ergonomia do conjunto.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#lg-24gs60f">LG UltraGear 24GS60F-B</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Z1FC, 16,1 polegadas, Full HD, 144 Hz, preto.</p>
+<p class="source-links">
+<a href="https://www.amazon.com.br/dp/B0CH9WTW56?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="ideapad-1" data-asin="B0D6HXDRZL" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Lenovo IdeaPad 1 Ryzen 5 na Amazon">
+<img src="https://m.media-amazon.com/images/I/61jcw+EeK7L._AC_SL1500_.jpg" alt="Lenovo IdeaPad 1 Ryzen 5: Ryzen 5 7520U, 8 GB, SSD 512 GB, 15,6 polegadas, Linux" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para documentos, navegador e aulas</span>
+<h3>Lenovo IdeaPad 1 Ryzen 5</h3>
+<p>Quem procura um notebook para tarefas cotidianas e pode trabalhar com Linux.</p>
+<ul class="specs">
+<li>Ryzen 5 7520U</li>
+<li>8 GB de RAM e SSD 512 GB</li>
+<li>Tela de 15,6 polegadas; Linux</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> 8 GB pedem cautela para muitas tarefas simultâneas. Não o tratamos como notebook gamer. Confirme compatibilidade dos seus programas com Linux e possibilidade de expansão no SKU exato.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A configuração atende ao recorte de produtividade geral desta seleção. O nome Ryzen 5 não basta para compará-lo com outros notebooks: geração, memória, tela e sistema operacional também mudam a compra.</p>
+<h4>Quando não escolher</h4>
+<p>8 GB pedem cautela para muitas tarefas simultâneas. Não o tratamos como notebook gamer. Confirme compatibilidade dos seus programas com Linux e possibilidade de expansão no SKU exato.</p>
+<h4>Quando o preço compensa</h4>
+<p>Some ao preço do anúncio os custos de software ou acessórios de que você precisa. Se uma configuração com mais memória ficar próxima no custo final, compare antes de fechar a compra.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Ryzen 5 7520U, 8 GB, SSD 512 GB, 15,6 polegadas, Linux.</p>
+<p class="source-links">
+<a href="https://psref.lenovo.com/Product/IdeaPad/IdeaPad_1_15AMN7" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="uh400" data-asin="B00V4BGD00" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B00V4BGD00?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link UH400 — hub USB 3.0 de 4 portas na Amazon">
+<img src="https://m.media-amazon.com/images/I/51j4P2TTgaL._AC_SL1000_.jpg" alt="TP-Link UH400 — hub USB 3.0 de 4 portas: UH400, preto, USB-A, quatro portas USB 3.0" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para ampliar portas USB-A</span>
+<h3>TP-Link UH400 — hub USB 3.0 de 4 portas</h3>
+<p>Quem precisa conectar mais periféricos USB-A a um computador compatível.</p>
+<ul class="specs">
+<li>4 portas USB 3.0</li>
+<li>Conexão ao computador por USB-A</li>
+<li>Modelo UH400 preto</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não acrescenta saída HDMI nem carregamento USB-C do notebook. Confira a demanda de energia dos periféricos e a porta disponível.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B00V4BGD00?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O UH400 atende a expansão de portas de dados. Essa função é mais simples que a de um hub USB-C com vídeo e passagem de energia.</p>
+<h4>Quando não escolher</h4>
+<p>Não acrescenta saída HDMI nem carregamento USB-C do notebook. Confira a demanda de energia dos periféricos e a porta disponível.</p>
+<h4>Quando o preço compensa</h4>
+<p>Se faltam apenas portas USB-A, compare seu custo com soluções mais complexas. Não pague por HDMI ou carregamento de que você não precisa.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#anker-332">Anker 332 — hub USB-C 5 em 1 preto</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> UH400, preto, USB-A, quatro portas USB 3.0.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/computer-accessory/uh400/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="anker-332" data-asin="B0BQLLB61B" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0BQLLB61B?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Anker 332 — hub USB-C 5 em 1 preto na Amazon">
+<img src="https://m.media-amazon.com/images/I/71gphOU8gjL._AC_SL1500_.jpg" alt="Anker 332 — hub USB-C 5 em 1 preto: Anker 332/A8355, preto; HDMI, USB-C dados, 2 USB-A e USB-C PD de entrada" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para vídeo e periféricos por USB-C</span>
+<h3>Anker 332 — hub USB-C 5 em 1 preto</h3>
+<p>Quem tem um notebook com USB-C compatível com as funções de vídeo e energia desejadas.</p>
+<ul class="specs">
+<li>Hub USB-C 5 em 1</li>
+<li>HDMI até 4K a 30 Hz</li>
+<li>Portas USB para dados e entrada de energia PD</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não trate 4K30 como 4K60. Carregador, cabo e capacidade da porta limitam a alimentação; confira requisitos e acessórios incluídos.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0BQLLB61B?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Ele reúne funções que um hub USB-A comum não oferece. A saída HDMI depende de suporte de vídeo na porta USB-C do computador; o formato do conector, sozinho, não garante isso.</p>
+<h4>Quando não escolher</h4>
+<p>Não trate 4K30 como 4K60. Carregador, cabo e capacidade da porta limitam a alimentação; confira requisitos e acessórios incluídos.</p>
+<h4>Quando o preço compensa</h4>
+<p>Some o carregador adequado se for necessário. Se você precisa somente de mais USB-A, o UH400 é a comparação mais simples; se precisa de vídeo, compare hubs com a frequência desejada.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#uh400">TP-Link UH400 — hub USB 3.0 de 4 portas</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Anker 332/A8355, preto; HDMI, USB-C dados, 2 USB-A e USB-C PD de entrada.</p>
+<p class="source-links">
+<a href="https://www.anker.com/products/a8355" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="brio-300" data-asin="B0BX1PWTZ2" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0BX1PWTZ2?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech Brio 300 — webcam Full HD grafite na Amazon">
+<img src="https://m.media-amazon.com/images/I/51IMu4nn2DL._AC_SL1500_.jpg" alt="Logitech Brio 300 — webcam Full HD grafite: Brio 300, grafite, USB-C" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para chamadas com USB-C</span>
+<h3>Logitech Brio 300 — webcam Full HD grafite</h3>
+<p>Quem quer webcam Full HD e possui uma porta USB-C disponível no computador.</p>
+<ul class="specs">
+<li>Full HD</li>
+<li>Conexão USB-C</li>
+<li>Proteção física de privacidade</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confirme que o enquadramento e os recursos de foco atendem sua rotina. USB-C por si só não garante vídeo melhor que uma webcam USB-A.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0BX1PWTZ2?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O conector USB-C e o obturador são características úteis para uma mesa de trabalho compatível. A correção automática de luz não substitui iluminação adequada.</p>
+<h4>Quando não escolher</h4>
+<p>Confirme que o enquadramento e os recursos de foco atendem sua rotina. USB-C por si só não garante vídeo melhor que uma webcam USB-A.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare o preço completo com Brio 100 e C920s, incluindo adaptador quando necessário. Pague pela conexão e pelos recursos úteis, não pelo nome de uma série maior.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#brio-100">Logitech Brio 100</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Brio 300, grafite, USB-C.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/shop/p/brio-300-webcam" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="sandisk-portable" data-asin="B0C5JQ68FY" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0C5JQ68FY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver SanDisk Portable SSD — 1 TB na Amazon">
+<img src="https://m.media-amazon.com/images/I/71bBCTIvIIL._AC_SL1500_.jpg" alt="SanDisk Portable SSD — 1 TB: SDSSDE30-1T00-G26, 1 TB, preto, até 800 MB/s" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para transportar arquivos em SSD externo</span>
+<h3>SanDisk Portable SSD — 1 TB</h3>
+<p>Quem precisa de armazenamento portátil sem instalar uma unidade dentro do computador.</p>
+<ul class="specs">
+<li>1 TB</li>
+<li>SSD externo USB-C</li>
+<li>Modelo SDSSDE30-1T00-G26</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não confunda este modelo Portable com outras linhas SanDisk. Mantenha outra cópia dos arquivos importantes: uma unidade portátil não elimina o risco de perda.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0C5JQ68FY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O uso externo é o critério central. O teto de velocidade anunciado depende do dispositivo e da conexão; não representa desempenho sustentado garantido em qualquer transferência.</p>
+<h4>Quando não escolher</h4>
+<p>Não confunda este modelo Portable com outras linhas SanDisk. Mantenha outra cópia dos arquivos importantes: uma unidade portátil não elimina o risco de perda.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare capacidade útil para seus arquivos, conexão e garantia do anúncio. Um SSD interno pode custar menos, mas não substitui a portabilidade sem outros acessórios.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#kingston-a400">Kingston A400 — SSD SATA de 480 GB</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> SDSSDE30-1T00-G26, 1 TB, preto, até 800 MB/s.</p>
+<p class="source-links">
+<a href="https://www.amazon.com.br/dp/B0C5JQ68FY?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="kingston-a400" data-asin="B01N0TQPQB" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B01N0TQPQB?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Kingston A400 — SSD SATA de 480 GB na Amazon">
+<img src="https://m.media-amazon.com/images/I/81+9rUcRVTL._AC_SL1500_.jpg" alt="Kingston A400 — SSD SATA de 480 GB: SA400S37/480G, SATA 2,5 polegadas, 480 GB" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para um upgrade interno SATA compatível</span>
+<h3>Kingston A400 — SSD SATA de 480 GB</h3>
+<p>Quem tem computador com espaço e conexão para SSD SATA de 2,5 polegadas.</p>
+<ul class="specs">
+<li>480 GB</li>
+<li>SATA de 2,5 polegadas</li>
+<li>Modelo SA400S37/480G</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não é SSD M.2 NVMe e não encaixa em um slot M.2. Confira espaço, cabo ou adaptador necessário antes de comprar.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B01N0TQPQB?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A proposta é armazenamento interno para uma máquina compatível. A troca de um disco mecânico pode mudar a resposta do sistema, mas a instalação e a migração de dados fazem parte do trabalho.</p>
+<h4>Quando não escolher</h4>
+<p>Não é SSD M.2 NVMe e não encaixa em um slot M.2. Confira espaço, cabo ou adaptador necessário antes de comprar.</p>
+<h4>Quando o preço compensa</h4>
+<p>Inclua instalação e migração se precisar de ajuda. Para apenas transportar arquivos entre máquinas, compare com um SSD externo pronto para esse uso.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#sandisk-portable">SanDisk Portable SSD — 1 TB</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> SA400S37/480G, SATA 2,5 polegadas, 480 GB.</p>
+<p class="source-links">
+<a href="https://www.kingston.com/br/ssd/a400-solid-state-drive" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+</div>
+</section>
+<section class="section">
+<h2>Três decisões antes da compra</h2>
+<div class="decision-grid">
+<article class="decision">
+<h3>Comece pelos programas</h3>
+<p>Sistema operacional, memória e conexões precisam atender aos programas que você usa todos os dias.</p>
+</article>
+<article class="decision">
+<h3>Escolha pelo desconforto real</h3>
+<p>Tela, teclado, mouse ou chamadas podem ser um investimento mais útil do que trocar um computador que ainda atende.</p>
+</article>
+<article class="decision">
+<h3>Confira os acessórios</h3>
+<p>Um hub amplia portas, mas não necessariamente carrega o notebook ou transmite vídeo. Verifique a função exata.</p>
+</article>
+</div>
+</section>
+<section class="section">
+<h2>Aprofunde sua escolha</h2>
+<div class="reading">
+<a href="/guia/setup-gamer-home-office-e-jogos.html">Uma mesa para trabalho e jogos<span>Equilibre os dois usos.</span>
+</a>
+<a href="/guia/notebook-gamer-para-estudo-e-jogos.html">Notebook para estudar e jogar<span>Peso, memória e desempenho na decisão.</span>
+</a>
+<a href="/guia/notebook-gamer-ou-pc-gamer.html">Notebook ou computador de mesa?<span>Compare mobilidade e possibilidade de upgrades.</span>
+</a>
+<a href="/guia/melhor-notebook-gamer-custo-beneficio.html">Como comparar notebooks gamer<span>Confira a configuração completa.</span>
+</a>
+</div>
+</section>
+<section class="section">
+<h2>Continue a pesquisa por uso</h2>
+<div class="reading">
+<a href="/trabalho-estudo/">
+<img class="context-photo" data-editorial-photo="work" src="https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de contexto: Trabalho e estudo" loading="lazy">Trabalho e estudo<span>Leia os critérios e explore as escolhas.</span>
+</a>
+<a href="/guias/">
+<img class="context-photo" data-editorial-photo="home" src="https://images.unsplash.com/photo-1762096070873-63e82ab143ca?auto=format&amp;fit=crop&amp;w=1800&amp;q=86" alt="Fotografia editorial de contexto: Planeje antes de comprar" loading="lazy">Planeje antes de comprar<span>Leia os critérios e explore as escolhas.</span>
+</a>
+<a href="/setup-games/">
+<img class="context-photo" data-editorial-photo="gaming" src="https://images.unsplash.com/photo-1779452525134-bb7c08326179?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de contexto: Jogos e periféricos" loading="lazy">Jogos e periféricos<span>Leia os critérios e explore as escolhas.</span>
+</a>
+</div>
+</section>
 </main>
-<footer><p>Curadoria por perfil, critérios explícitos e trade-offs.</p><p><a href="../sobre.html">Sobre a Córtex</a> · <a href="../metodologia.html">Como avaliamos</a> · <a href="../transparencia.html">Transparência</a></p></footer>
+<footer>
+<div class="wrap">
+<nav aria-label="Rodapé">
+<a href="/sobre.html">Sobre a Córtex</a>
+<a href="/metodologia.html">Como avaliamos</a>
+<a href="/transparencia.html">Transparência</a>
+<a href="/politica-de-privacidade.html">Privacidade</a>
+<a href="/termos-de-uso.html">Termos</a>
+</nav>
+<p>Como associado da Amazon, eu ganho com compras qualificadas. Os links comerciais estão identificados. Preço, disponibilidade, frete e vendedor devem ser confirmados na Amazon.</p>
+</div>
+</footer>
 </body>
 </html>

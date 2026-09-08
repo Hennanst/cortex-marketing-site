@@ -1,0 +1,237 @@
+{
+  "researchedAt": "2026-09-08",
+  "scope": "Trabalho & Estudo asset research. Lenovo IdeaPad 1 B0D6HXDRZL excluded because retained by owner.",
+  "commercialData": "Prices, ratings, discounts and current Brazilian stock are intentionally unknown.",
+  "products": [
+    {
+      "id": "tplink-uh400",
+      "name": "TP-Link UH400 — hub USB 3.0 de 4 portas",
+      "asin": "B00V4BGD00",
+      "amazonBrUrl": "https://www.amazon.com.br/TP-Link-portas-Preto-UH400-Hubs/dp/B00V4BGD00",
+      "variant": "UH400, preto, USB-A, quatro portas USB 3.0",
+      "imageUrl": "https://m.media-amazon.com/images/I/51j4P2TTgaL._AC_SL1000_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/TP-Link-portas-Preto-UH400-Hubs/dp/B00V4BGD00",
+      "identitySources": [
+        "https://www.amazon.com.br/TP-Link-portas-Preto-UH400-Hubs/dp/B00V4BGD00",
+        "https://www.tp-link.com/br/home-networking/computer-accessory/uh400/"
+      ],
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        856,
+        493
+      ],
+      "legacyAsinPresent": true,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/tplink-uh400.png",
+      "amazonBrTitle": "Hub USB 3.0 TP-Link UH400, 4 Portas",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B00V4BGD00.html"
+    },
+    {
+      "id": "logitech-h390",
+      "name": "Logitech H390 — headset USB-A preto",
+      "asin": "B000UXZQ42",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B000UXZQ42",
+      "variant": "H390, USB-A, preto; not the USB-C graphite edition",
+      "imageUrl": "https://m.media-amazon.com/images/I/6144+3nBNhL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B000UXZQ42",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B000UXZQ42",
+        "https://www.amazon.com/dp/B000UXZQ42",
+        "https://www.logitech.com/pt-br/shop/p/h390-usb-headset.981-000014"
+      ],
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        1170,
+        1315
+      ],
+      "legacyAsinPresent": true,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/logitech-h390.png",
+      "amazonBrTitle": "Headset com fio USB Logitech H390 com Almofadas Confortáveis, Controles de Áudio Integrado e Microfone com Redução de Ruído - Preto",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B000UXZQ42.html"
+    },
+    {
+      "id": "anker-332",
+      "name": "Anker 332 — hub USB-C 5 em 1 preto",
+      "asin": "B0BQLLB61B",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0BQLLB61B",
+      "variant": "Anker 332/A8355, preto; HDMI, USB-C dados, 2 USB-A e USB-C PD de entrada",
+      "imageUrl": "https://m.media-amazon.com/images/I/71gphOU8gjL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0BQLLB61B",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B0BQLLB61B",
+        "https://www.amazon.com/dp/B0BQLLB61B",
+        "https://www.anker.com/products/a8355"
+      ],
+      "alternativeManufacturerImageUrl": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/A8355011_20241009_TD_926935c1-36c3-4f40-9793-09db763f1c1f.png?v=1728526881&width=3840",
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        1500,
+        1439
+      ],
+      "legacyAsinPresent": true,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/anker-332.png",
+      "amazonBrTitle": "Anker Hub USB-C 332 5 em 1, HDMI 4K@30Hz,5 Gbps 2*USB 3.0 e USB-C,PD 85W",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B0BQLLB61B.html"
+    },
+    {
+      "id": "sandisk-portable-1tb",
+      "name": "SanDisk Portable SSD — 1 TB",
+      "asin": "B0C5JQ68FY",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0C5JQ68FY",
+      "variant": "SDSSDE30-1T00-G26, 1 TB, preto, até 800 MB/s",
+      "imageUrl": "https://m.media-amazon.com/images/I/71bBCTIvIIL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0C5JQ68FY",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B0C5JQ68FY",
+        "https://www.amazon.com/dp/B0C5JQ68FY"
+      ],
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        811,
+        1500
+      ],
+      "legacyAsinPresent": true,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/sandisk-portable-1tb.png",
+      "amazonBrTitle": "SanDisk SSD portátil de 1 TB - até 800 MB/s, USB-C, USB 3.2 geração 2, firmware atualizado - Unidade de estado sólido externa - SDSSDE30-1T00-G26",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B0C5JQ68FY.html"
+    },
+    {
+      "id": "kingston-a400-480gb",
+      "name": "Kingston A400 — SSD SATA de 480 GB",
+      "asin": "B01N0TQPQB",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B01N0TQPQB",
+      "variant": "SA400S37/480G, SATA 2,5 polegadas, 480 GB",
+      "imageUrl": "https://m.media-amazon.com/images/I/81+9rUcRVTL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B01N0TQPQB",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B01N0TQPQB",
+        "https://www.amazon.com/dp/B01N0TQPQB",
+        "https://www.kingston.com/br/ssd/a400-solid-state-drive"
+      ],
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        1500,
+        1051
+      ],
+      "legacyAsinPresent": true,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/kingston-a400-480gb.png",
+      "amazonBrTitle": "SSD, Kingston, SA400S37/480G",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B01N0TQPQB.html"
+    },
+    {
+      "id": "logitech-brio300",
+      "name": "Logitech Brio 300 — webcam Full HD grafite",
+      "asin": "B0BX1PWTZ2",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0BX1PWTZ2",
+      "variant": "Brio 300, grafite, USB-C",
+      "imageUrl": "https://m.media-amazon.com/images/I/51IMu4nn2DL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0BX1PWTZ2",
+      "alternativeAmazonImageUrl": "https://m.media-amazon.com/images/I/51VySTsDnLL._AC_SL1500_.jpg",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B0BX1PWTZ2",
+        "https://www.amazon.com/dp/B0BX1PWTZ2",
+        "https://www.logitech.com/pt-br/shop/p/brio-300-webcam"
+      ],
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        1017,
+        1350
+      ],
+      "legacyAsinPresent": true,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/logitech-brio300.png",
+      "amazonBrTitle": "Webcam USB C Full HD Logitech Brio 300, Câmera para PC com Proteção de Privacidade, Correção Automática de Luz e Conexão USB-C - Grafite",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B0BX1PWTZ2.html"
+    },
+    {
+      "id": "arzopa-z1fc",
+      "name": "ARZOPA Z1FC — monitor portátil de 16,1 polegadas",
+      "asin": "B0CH9WTW56",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0CH9WTW56",
+      "variant": "Z1FC, 16,1 polegadas, Full HD, 144 Hz, preto",
+      "imageUrl": "https://m.media-amazon.com/images/I/71tSoS9v8rL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0CH9WTW56",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B0CH9WTW56",
+        "https://www.amazon.com/dp/B0CH9WTW56"
+      ],
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        1500,
+        1178
+      ],
+      "legacyAsinPresent": true,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/arzopa-z1fc.png",
+      "amazonBrTitle": "ARZOPA Monitor portátil para jogos de 16,1'' 144Hz, monitor portátil 1080P FHD Kickstand com HDR, ultrafino, cuidados com os olhos, segunda tela externa para laptop, PC, PS5, Mac",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B0CH9WTW56.html"
+    },
+    {
+      "id": "logitech-k380s",
+      "name": "Logitech Pebble Keys 2 K380s — grafite",
+      "asin": "B0CJ3WFW9H",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0CJ3WFW9H",
+      "variant": "Pebble Keys 2 K380s, grafite, layout US (confirmed in Amazon Brazil productTitle)",
+      "imageUrl": "https://m.media-amazon.com/images/I/61vqjDT56wL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0CJ3WFW9H",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B0CJ3WFW9H",
+        "https://www.logitech.com/pt-br/shop/p/pebble-keys-2.920-011789",
+        "https://www.instagram.com/reel/DWoxCW_kyU7/"
+      ],
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        1500,
+        734
+      ],
+      "legacyAsinPresent": false,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/logitech-k380s.png",
+      "amazonBrTitle": "Teclado sem fio Logitech Pebble Keys 2 K380s com Conexão Bluetooth Easy-Switch e Pilha Inclusa - Compatível com PC, Mac, Chrome OS, Android, iOS e Apple TV, Layout US - Grafite",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B0CJ3WFW9H.html"
+    },
+    {
+      "id": "logitech-mx-master3s",
+      "name": "Logitech MX Master 3S — grafite",
+      "asin": "B09HM94VDS",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B09HM94VDS",
+      "variant": "MX Master 3S, grafite, with Logi Bolt USB receiver",
+      "imageUrl": "https://m.media-amazon.com/images/I/61+OT7FPABL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B09HM94VDS",
+      "identitySources": [
+        "https://www.amazon.com.br/dp/B09HM94VDS",
+        "https://www.amazon.com/dp/B09HM94VDS",
+        "https://www.logitechstore.com.br/mouse-sem-fio-logitech-mx-master-3s-graphite/"
+      ],
+      "alternativeManufacturerStoreImageUrl": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/m/x/mx_n3.png",
+      "verification": "Ordinary public HTTP fetched this exact Amazon Brazil URL with status 200 on 2026-09-08. ProductTitle confirms identity; landingImage data-old-hires provides the exact observed image URL. Stock, price, discount and ratings not evaluated.",
+      "imageDimensions": [
+        1500,
+        851
+      ],
+      "legacyAsinPresent": false,
+      "status": "verified_amazon_brazil_identity_and_image",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/logitech-mx-master3s.png",
+      "amazonBrTitle": "Logitech Mouse sem fio MX Master 3S edição padrão com receptor USB Logi Bolt, rolagem ultrarrápida, Ergo, 8K DPI, Track on Glass, Cliques silenciosos, USB-C, Bluetooth, Windows, Linux, Chrome",
+      "brazilPageHttpStatus": 200,
+      "brazilPageEvidencePath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/B09HM94VDS.html"
+    }
+  ],
+  "visualReview": {
+    "status": "passed",
+    "contactSheetPath": "/workspace/scratch/672a3ffcea3f/work-assets-cache/contact-sheet.jpg",
+    "notes": "All nine downloaded images were visually checked together: distinct correct product silhouettes, colors and visible models. K380s is US layout. Images were not generated or retouched. Width/height measured from downloaded files."
+  }
+}

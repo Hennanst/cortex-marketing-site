@@ -1,0 +1,287 @@
+{
+  "category": "Casa Inteligente",
+  "products": [
+    {
+      "asin": "B0BNSVWWDR",
+      "name": "Positivo Smart Plug Max Wi-Fi 16A",
+      "variant": "Branco; modelo Max 16A; tomada brasileira com pinos de 4,8 mm",
+      "image": "https://m.media-amazon.com/images/I/51OHIk6OS1L._AC_SL1000_.jpg",
+      "manufacturer": "https://www.positivocasainteligente.com.br/smart-plug",
+      "facts": [
+        "Wi-Fi de 2,4 GHz e controle pelo aplicativo Positivo Casa Inteligente",
+        "Monitoramento de consumo e agendamento",
+        "Compatível com Alexa e Google Assistente"
+      ],
+      "notes": [
+        "A seção comparativa oficial distingue Max 16A/1600W do Plug 10A/1000W. O Max exige tomada compatível com pinos de 4,8 mm (20A); não reutilizar especificações do modelo 10A."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B0BNSVWWDR",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0BNSVWWDR",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B0BNSVWWDR.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B0BNSVWWDR.jpg",
+      "imageDimensions": [
+        1000,
+        938
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B07XLML2YS",
+      "name": "TP-Link Tapo C200",
+      "variant": "Câmera interna branca; Full HD 1080p; pan/tilt 360°",
+      "image": "https://m.media-amazon.com/images/I/41WQe9NiU6L._AC_SL1000_.jpg",
+      "manufacturer": "https://www.tp-link.com/br/home-networking/cloud-camera/tapo-c200/",
+      "facts": [
+        "Vídeo Full HD 1080p",
+        "Áudio bidirecional e visão noturna",
+        "Monitoramento pelo aplicativo Tapo"
+      ],
+      "notes": [
+        "A página oficial atual mostra V3; a revisão de hardware entregue pelo anúncio não foi determinada. O ASIN é ligado diretamente pelo fabricante."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B07XLML2YS",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B07XLML2YS",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B07XLML2YS.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B07XLML2YS.jpg",
+      "imageDimensions": [
+        626,
+        920
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B095CLQ1PT",
+      "name": "TP-Link Tapo C210",
+      "variant": "Câmera interna branca; resolução 2K 3MP; rotação 360°",
+      "image": "https://m.media-amazon.com/images/I/61cwy9wee6L._AC_SL1500_.jpg",
+      "manufacturer": "https://www.tp-link.com/br/home-networking/cloud-camera/tapo-c210/",
+      "facts": [
+        "Resolução 2K de 3 megapixels",
+        "Rotação 360° e áudio bidirecional",
+        "Visão noturna de até 9 metros"
+      ],
+      "notes": [
+        "O ASIN é ligado diretamente pelo fabricante. Não extrapolar versão de hardware a partir do ASIN."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B095CLQ1PT",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B095CLQ1PT",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B095CLQ1PT.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B095CLQ1PT.jpg",
+      "imageDimensions": [
+        1050,
+        1500
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B08GDC99PX",
+      "name": "TP-Link Tapo L530E",
+      "variant": "Lâmpada Wi-Fi multicolorida E27; 806 lúmens",
+      "image": "https://m.media-amazon.com/images/I/61siYI8yfKL._AC_SL1000_.jpg",
+      "manufacturer": "https://www.tp-link.com/br/home-networking/smart-bulb/tapo-l530e/",
+      "facts": [
+        "Soquete E27 e conexão Wi-Fi 2,4 GHz",
+        "Cores, brilho e temperatura ajustáveis pelo aplicativo Tapo",
+        "Compatível com Alexa e Google Home; sem hub adicional"
+      ],
+      "notes": [
+        "O título Amazon informa 8,3W, mas seus bullets e fabricante informam 8,7W. Omitir potência no cartão. O ASIN é ligado diretamente pelo fabricante."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B08GDC99PX",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B08GDC99PX",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B08GDC99PX.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B08GDC99PX.jpg",
+      "imageDimensions": [
+        918,
+        808
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B09CW3VLBX",
+      "name": "TP-Link Archer C6",
+      "variant": "Roteador preto; Wi-Fi dual band e portas Gigabit",
+      "image": "https://m.media-amazon.com/images/I/61wmctcN-hL._AC_SL1200_.jpg",
+      "manufacturer": "https://www.tp-link.com/br/home-networking/wifi-router/archer-c6/",
+      "facts": [
+        "Rede Wi-Fi dual band",
+        "Portas Gigabit e quatro antenas externas",
+        "Modos roteador e ponto de acesso"
+      ],
+      "notes": [
+        "Título/overview atual informam AC1300 (400+867 Mbps); bullets Amazon ainda dizem AC1200 (300+867). Omitir velocidade agregada e revisão de hardware no cartão. O ASIN é ligado diretamente pelo fabricante."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B09CW3VLBX",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B09CW3VLBX",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B09CW3VLBX.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B09CW3VLBX.jpg",
+      "imageDimensions": [
+        946,
+        955
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B07L44RHC2",
+      "name": "TP-Link Deco M4 — 1 unidade",
+      "variant": "Uma unidade branca; Wi-Fi 5 Mesh AC1200",
+      "image": "https://m.media-amazon.com/images/I/41DmK89655L._AC_SL1324_.jpg",
+      "manufacturer": "https://www.tp-link.com/br/home-networking/deco/deco-m4/",
+      "facts": [
+        "Uma unidade Deco M4, conforme título e descrição do anúncio",
+        "Sistema mesh expansível com outras unidades Deco",
+        "Wi-Fi dual band e conexões Gigabit"
+      ],
+      "notes": [
+        "Não apresentar como kit de duas ou três unidades. O ASIN é ligado diretamente pelo fabricante."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B07L44RHC2",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B07L44RHC2",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B07L44RHC2.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B07L44RHC2.jpg",
+      "imageDimensions": [
+        848,
+        1322
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B09FSTVWFF",
+      "name": "TP-Link Tapo L920-5",
+      "variant": "Fita LED Wi-Fi RGB endereçável; 5 metros",
+      "image": "https://m.media-amazon.com/images/I/51qeA2SV1tL._AC_SL1000_.jpg",
+      "manufacturer": "https://www.tp-link.com/br/home-networking/smart-bulb/tapo-l920-5/",
+      "facts": [
+        "Fita RGB endereçável de 5 metros",
+        "Controle pelo aplicativo Tapo e efeitos de iluminação",
+        "Compatível com Alexa e Google Assistente; sem hub adicional"
+      ],
+      "notes": [
+        "O ASIN é ligado diretamente pelo fabricante."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B09FSTVWFF",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B09FSTVWFF",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B09FSTVWFF.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B09FSTVWFF.jpg",
+      "imageDimensions": [
+        899,
+        407
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B09WXVH7WK",
+      "name": "Amazon Echo Pop — preto",
+      "variant": "Smart speaker compacto; cor preta",
+      "image": "https://m.media-amazon.com/images/I/81kPAyJJb1L._AC_SL1500_.jpg",
+      "manufacturer": "https://www.amazon.com.br/dp/B09WXVH7WK",
+      "facts": [
+        "Alexa integrada para música, timers e comandos",
+        "Controle de dispositivos de casa inteligente compatíveis",
+        "Conexão Bluetooth e botão para desligar o microfone"
+      ],
+      "notes": [
+        "A Amazon é a fabricante; a própria página do produto é a fonte oficial. Evitar a expressão temporal 'geração mais recente' no texto editorial."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B09WXVH7WK",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B09WXVH7WK",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B09WXVH7WK.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B09WXVH7WK-2.jpg",
+      "imageDimensions": [
+        1462,
+        1500
+      ],
+      "imageVerified": true,
+      "imageVerification": "Exact hiRes gallery URL observed in Amazon Brazil ASIN B09WXVH7WK source; JPEG downloaded successfully and decoded at 1462x1500; visually checked black Echo Pop. Original white-background product photo includes manufacturer-provided Brasil certification badge; no edits or guessed URL transformations."
+    },
+    {
+      "asin": "B09B8VGCR8",
+      "name": "Amazon Echo Dot — preto",
+      "variant": "Smart speaker esférico; cor preta; sensor interno de temperatura",
+      "image": "https://m.media-amazon.com/images/I/71xoR4A6q-L._AC_SL1000_.jpg",
+      "manufacturer": "https://www.amazon.com.br/dp/B09B8VGCR8",
+      "facts": [
+        "Alexa integrada e reprodução por Bluetooth",
+        "Rotinas com dispositivos compatíveis e sensor interno de temperatura",
+        "Botão para desligar o microfone"
+      ],
+      "notes": [
+        "A Amazon é a fabricante; a própria página do produto é a fonte oficial. O título observado não explicita número de geração, portanto o nome editorial omite esse número."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B09B8VGCR8",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B09B8VGCR8",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B09B8VGCR8.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B09B8VGCR8-1.jpg",
+      "imageDimensions": [
+        812,
+        797
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    },
+    {
+      "asin": "B0FLYFQL5M",
+      "name": "Positivo Smart Controle Universal Wi-Fi",
+      "variant": "Preto; controle infravermelho com conexão Wi-Fi 2,4 GHz",
+      "image": "https://m.media-amazon.com/images/I/410xwJzQRAL._AC_SL1200_.jpg",
+      "manufacturer": "https://www.positivocasainteligente.com.br/smart-controle-universal",
+      "facts": [
+        "Controle de aparelhos infravermelhos pelo aplicativo",
+        "Compatível com comandos por Alexa e Google Assistente",
+        "Rede Wi-Fi 2,4 GHz; recomendado um controle por ambiente"
+      ],
+      "notes": [
+        "ASIN observado em link do próprio Amazon e verificado na página direta. Não confundir com antigos ASINs de outros lotes/modelos do controle."
+      ],
+      "amazonUrl": "https://www.amazon.com.br/dp/B0FLYFQL5M",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0FLYFQL5M",
+      "sourceHtml": "/workspace/scratch/672a3ffcea3f/home-source/B0FLYFQL5M.html",
+      "verifiedAt": "2026-09-08",
+      "verification": "Amazon Brazil page HTTP 200; product identity from observed page title; image URL extracted verbatim from the page hiRes field.",
+      "imageLocal": "/workspace/scratch/672a3ffcea3f/home-source/images/B0FLYFQL5M.jpg",
+      "imageDimensions": [
+        896,
+        866
+      ],
+      "imageVerified": true,
+      "imageVerification": "Downloaded exact observed CDN URL successfully; JPEG decoded; visually checked against listing identity and color."
+    }
+  ],
+  "excluded": [
+    {
+      "candidate": "Fire TV Stick",
+      "status": "No verified selected listing/image collected; not included in the ten."
+    }
+  ],
+  "globalNotes": [
+    "No prices, ratings, discounts, stock availability or hands-on tests are claimed.",
+    "All image URLs are actual observed Amazon CDN values; none were invented or generated.",
+    "Manufacturer pages for six TP-Link products independently embed the verified Amazon Brazil ASIN link.",
+    "Positivo manufacturer pages were verified via web tool; raw HTTP source fetch returned 403 and was not retried."
+  ]
+}

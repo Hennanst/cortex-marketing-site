@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Source verification only; not independent editorial or public release approval",
+  "products": 40,
+  "niches": {
+    "setup-games": 10,
+    "creator-streaming": 10,
+    "trabalho-estudo": 10,
+    "casa-inteligente": 10
+  },
+  "public_pages": 27,
+  "guides_with_journeys": 14,
+  "comparisons": 11,
+  "amazon_links": 231,
+  "internal_links": 632,
+  "errors": []
+}

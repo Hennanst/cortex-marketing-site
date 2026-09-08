@@ -1,92 +1,1690 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Recomendados | Córtex Ofertas</title>
-  <meta name="description" content="9 produtos recomendados com imagens, contexto de uso, trade-offs e links comerciais validados.">
-  <link rel="canonical" href="https://cortex-ofertas.pages.dev/recomendados/">
-  <link rel="preconnect" href="https://images.unsplash.com">
-  <meta property="og:title" content="Recomendados | Córtex Ofertas">
-  <meta property="og:description" content="9 produtos recomendados com imagens, contexto de uso, trade-offs e links comerciais validados.">
-  <meta property="og:url" content="https://cortex-ofertas.pages.dev/recomendados/">
-  <style>
-    :root{color-scheme:dark;--bg:#07090d;--surface:#11151c;--surface2:#171d26;--text:#f4f7fb;--muted:#a8b0bd;--accent:#62f6a5;--border:#26303d}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(900px 520px at 85% -10%,rgba(98,246,165,.12),transparent 58%),linear-gradient(180deg,#080b10 0%,#07090d 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;letter-spacing:-.01em}
-    a{color:var(--accent)}header{border-bottom:1px solid rgba(255,255,255,.08);background:rgba(7,9,13,.86);backdrop-filter:blur(18px);position:sticky;top:0;z-index:20}header nav{max-width:1180px;margin:auto;padding:18px 24px;display:flex;align-items:center;gap:8px 22px}header nav a{text-decoration:none;color:#dfe6ee;font-size:.94rem;font-weight:650;white-space:nowrap}header nav a:first-child{color:#fff;font-size:1.08rem;font-weight:900;margin-right:auto;letter-spacing:-.03em}
-    .trustbar{max-width:1180px;margin:0 auto;padding:10px 24px 0;color:#a8b0bd;font-size:.8rem}.trustbar strong{color:#dfe6ee}
-    main{max-width:1180px;margin:auto;padding:72px 24px}h1{font-size:clamp(2.7rem,6vw,5.2rem);line-height:.94;letter-spacing:-.065em;max-width:900px;margin:.12em 0 .28em}h2{font-size:clamp(1.75rem,4vw,2.8rem);line-height:1.08;letter-spacing:-.04em;margin:.25em 0 .35em}h3{letter-spacing:-.025em}.muted{color:var(--muted)}.lead{font-size:1.15rem;max-width:760px;color:#b7c0cb}.eyebrow{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem}
-    .g8-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin:0 0 34px;align-items:stretch}.g8-hero img,.g8-tile img{display:block;width:100%;height:100%;object-fit:cover;border-radius:22px;border:1px solid rgba(255,255,255,.09);background:#10151c}.g8-copy{padding:28px;border:1px solid rgba(255,255,255,.09);border-radius:22px;background:linear-gradient(145deg,rgba(25,31,40,.94),rgba(14,18,24,.96));display:flex;flex-direction:column;justify-content:center}.g8-copy h2{font-size:clamp(1.7rem,4vw,3rem);margin:.25em 0}.g8-copy p{color:#b7c0cb;max-width:650px}.g8-link{display:inline-flex;width:max-content;margin-top:8px;padding:12px 18px;border-radius:999px;background:var(--accent);color:#07110c;text-decoration:none;font-weight:850}.g8-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0 40px}.g8-tile{min-width:0}.g8-tile img{aspect-ratio:16/10}.g8-caption{padding:12px 2px 0;color:#c9d1db;font-size:.9rem}
-    .catalog-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0}.catalog-stat{padding:16px 18px;border:1px solid rgba(98,246,165,.18);border-radius:16px;background:rgba(98,246,165,.045)}.catalog-stat strong{display:block;color:#fff;font-size:1.35rem}.catalog-stat span{color:#aeb8c4;font-size:.86rem}.catalog-nav{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 34px}.catalog-nav a{padding:8px 12px;border:1px solid rgba(255,255,255,.1);border-radius:999px;color:#dfe6ee;text-decoration:none;font-size:.84rem}
-    .shortlist{margin:28px 0;padding:30px;border:1px solid rgba(255,255,255,.09);border-radius:24px;background:linear-gradient(145deg,rgba(25,31,40,.94),rgba(14,18,24,.96))}.shortlist>p{max-width:820px;color:#b7c0cb}.shortlist-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}.shortlist-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.option-card{min-width:0;padding:24px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);display:flex;flex-direction:column}.option-card h3{font-size:1.36rem;margin:.1em 0 .55em}.option-card ul{display:flex;flex-wrap:wrap;gap:7px;padding:0;list-style:none}.option-card li{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.045);font-size:.8rem;color:#c9d1db}.product-label{font-size:.73rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:800}.product-image-link{display:block;margin:0 0 18px;padding:12px;border-radius:15px;background:#fff}.product-image{display:block;width:100%;height:230px;object-fit:contain}.cta{display:inline-flex;width:max-content;margin-top:auto;padding:12px 18px;border-radius:999px;background:var(--accent);color:#06130d;text-decoration:none;font-weight:850}.local-disclosure{display:block;margin-top:9px;color:#8f99a5;font-size:.72rem}.editorial-note{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);color:#87929f;font-size:.8rem}.pipeline-card{border-style:dashed}.pipeline-card .cta{background:transparent;color:var(--accent);border:1px solid rgba(98,246,165,.35)}
-    footer{border-top:1px solid rgba(255,255,255,.08);padding:36px 24px;color:#87929f}footer>*{max-width:1180px;margin:8px auto}footer a{color:#dfe6ee}
-    @media(max-width:900px){.shortlist-grid.three{grid-template-columns:1fr}}
-    @media(max-width:760px){header nav{padding:14px 18px;overflow-x:hidden}main{padding:44px 18px}.g8-hero,.g8-grid,.shortlist-grid,.catalog-strip{grid-template-columns:1fr}.g8-copy,.shortlist{padding:21px}.g8-link,.cta{width:100%;justify-content:center;text-align:center}.option-card{padding:20px}.product-image{height:210px}}
-  @media(max-width:760px){header nav{flex-wrap:wrap;gap:8px 14px}header nav a{white-space:normal;min-height:36px;display:inline-flex;align-items:center}header nav a:first-child{flex-basis:100%}}
-</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Recomendados | Córtex Ofertas","url":"https://cortex-ofertas.pages.dev/recomendados/","description":"9 produtos recomendados com imagens, contexto de uso, trade-offs e links comerciais validados.","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"Córtex Ofertas","url":"https://cortex-ofertas.pages.dev/"}}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Produtos recomendados | Córtex Ofertas</title>
+<meta name="description" content="40 produtos de tecnologia com fotos, razões de escolha, limitações, alternativas e links para consultar preços na Amazon.">
+<link rel="canonical" href="https://cortex-ofertas.pages.dev/recomendados/">
+<meta property="og:title" content="Produtos recomendados | Córtex Ofertas">
+<meta property="og:description" content="40 produtos de tecnologia com fotos, razões de escolha, limitações, alternativas e links para consultar preços na Amazon.">
+<meta property="og:url" content="https://cortex-ofertas.pages.dev/recomendados/">
+<link rel="stylesheet" href="/assets/cortex/catalogo.css">
 </head>
 <body>
-<header><nav><a href="../">Córtex Ofertas</a><a href="../setup-games/">Setup &amp; Games</a><a href="../trabalho-estudo/">Trabalho &amp; Estudo</a><a href="../creator-streaming/">Creator &amp; Streaming</a><a href="../casa-inteligente/">Casa Inteligente</a><a href="../guias/">Guias</a><a href="../comparativos/">Comparativos</a><a href="../recomendados/">Recomendados</a></nav></header>
-<div class="trustbar"><strong>Curadoria independente.</strong> Shortlists por contexto de uso, critérios e trade-offs — não por ranking universal.</div>
-<main>
-  <section class="g8-hero" aria-label="Destaque Recomendados"><img data-editorial-photo="home" src="https://images.unsplash.com/photo-1762096070873-63e82ab143ca?auto=format&amp;fit=crop&amp;w=1800&amp;q=86" alt="Fotografia editorial de uma estação de tecnologia" fetchpriority="high" loading="eager"><div class="g8-copy"><div class="eyebrow">Recomendados</div><h2>Produtos para comparar pelo uso — e comprar com contexto.</h2><p>Esta vitrine reúne somente produtos com identidade, imagem e destino comercial já validados. Cada card explica o perfil, o principal trade-off e a alternativa antes do clique.</p><a class="g8-link" href="#shortlists">Explorar produtos →</a></div></section>
-  <div class="g8-grid"><div class="g8-tile"><img data-editorial-photo="gaming" src="https://images.unsplash.com/photo-1779452525134-bb7c08326179?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de uma estação gamer" loading="lazy"><div class="g8-caption">Setup &amp; Games · conexão, ergonomia, taxa de atualização e áudio.</div></div><div class="g8-tile"><img data-editorial-photo="home_automation" src="https://images.unsplash.com/photo-1772475329864-e30a2f1278c0?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de uma sala contemporânea" loading="lazy"><div class="g8-caption">Casa Inteligente · automação, voz, streaming e compatibilidade.</div></div></div>
-
-  <div class="eyebrow">Córtex Ofertas</div><h1>Recomendados</h1><p class="lead">Uma vitrine curta, mas comprável: produtos exatos agrupados pela decisão que resolvem — sem preço, estoque ou ranking congelado.</p>
-  <div class="catalog-strip" aria-label="Resumo do catálogo"><div class="catalog-stat"><strong>9 produtos</strong><span>com imagem e destino comercial validados</span></div><div class="catalog-stat"><strong>4 contextos</strong><span>games, monitor, creator e trabalho</span></div><div class="catalog-stat"><strong>0 ranking universal</strong><span>a escolha começa pelo seu uso</span></div></div>
-  <nav class="catalog-nav" aria-label="Categorias recomendadas"><a href="#mouses">Mouses</a><a href="#monitores">Monitores</a><a href="#headsets">Headsets</a><a href="#webcams">Webcams</a><a href="#trabalho">Trabalho</a><a href="#proximos">Próximas curadorias</a></nav>
-
-  <div id="shortlists">
-    <section class="shortlist" id="mouses" data-shortlist-id="CO-REC-MOUSE-001">
-      <div class="eyebrow">Setup &amp; Games · 2 produtos</div><h2>Mouse: liberdade sem fio ou simplicidade com fio?</h2><p>O ponto de partida é o workflow de mesa: mobilidade e autonomia de um lado; leveza e conexão direta do outro.</p>
-      <div class="shortlist-grid">
-        <article class="option-card" data-asin="B07GPRWFC5" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/51sg9BLSMTL._AC_SL1500_.jpg" alt="Logitech G305 LIGHTSPEED preto" loading="lazy"></a><h3>Logitech G305 LIGHTSPEED</h3><p><span class="product-label">Para quem:</span> Para quem quer liberdade sem fio e longa autonomia.</p><p>Sensor HERO e LIGHTSPEED dão ao G305 um papel claro de wireless maduro e previsível.</p><ul><li>HERO 200–12.000 DPI</li><li>LIGHTSPEED</li><li>99 g • até 250 h com AA</li></ul><p><span class="product-label">Trade-off:</span> Usa pilha AA e não é ultraleve nem recarregável.</p><p class="muted">Alternativa: G203 se cabo e simplicidade forem aceitáveis.</p><a class="cta" href="https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver G305 na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-        <article class="option-card" data-asin="B087CT8PWY" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B087CT8PWY?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/61oE1NouXuL._AC_SL1500_.jpg" alt="Logitech G203 LIGHTSYNC preto" loading="lazy"></a><h3>Logitech G203 LIGHTSYNC</h3><p><span class="product-label">Para quem:</span> Para quem quer um mouse com fio simples e mais leve.</p><p>1000 Hz, 85 g e seis botões mantêm o G203 como uma opção de entrada fácil de entender.</p><ul><li>200–8.000 DPI</li><li>1000 Hz</li><li>85 g • 6 botões</li></ul><p><span class="product-label">Trade-off:</span> O cabo reduz a liberdade de mesa em relação ao G305.</p><p class="muted">Alternativa: G305 se liberdade sem fio e autonomia forem prioridade.</p><a class="cta" href="https://www.amazon.com.br/dp/B087CT8PWY?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver G203 na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-      </div><p class="editorial-note">Imagens dos produtos exatos. Confirme variante, preço, estoque e vendedor na Amazon.</p>
-    </section>
-
-    <section class="shortlist" id="monitores" data-shortlist-id="CO-REC-MONITOR-001">
-      <div class="eyebrow">Setup &amp; Games · 2 produtos</div><h2>Monitor 1080p 180 Hz: base simples ou ajuste de altura?</h2><p>Os dois perfis partem de FHD/IPS/180 Hz; o que muda a decisão é se a própria base precisa oferecer ajuste de altura.</p>
-      <div class="shortlist-grid">
-        <article class="option-card" data-asin="B0D8DPT7ZY" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B0D8DPT7ZY?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/61aIuJu0M0L._AC_SL1400_.jpg" alt="Monitor LG UltraGear 24GS60F-B preto" loading="lazy"></a><h3>LG UltraGear 24GS60F-B</h3><p><span class="product-label">Para quem:</span> Para quem quer 1080p/180 Hz com IPS e aceita uma base simples.</p><ul><li>23,8/24 pol. FHD IPS</li><li>180 Hz • 1 ms GtG</li><li>inclinação • VESA 100×100</li></ul><p><span class="product-label">Trade-off:</span> A base oferece poucos ajustes além de inclinação.</p><p class="muted">Alternativa: AOC 24G4/P se ergonomia na própria base for prioridade.</p><a class="cta" href="https://www.amazon.com.br/dp/B0D8DPT7ZY?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver LG na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-        <article class="option-card" data-asin="B0DLPB4CH6" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B0DLPB4CH6?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/71Qt-mok7UL._AC_SL1400_.jpg" alt="Monitor AOC 24G4/P com base ajustável" loading="lazy"></a><h3>AOC 24G4/P</h3><p><span class="product-label">Para quem:</span> Para quem quer 1080p/180 Hz e ajuste de altura na própria base.</p><ul><li>24 pol. FHD IPS</li><li>180 Hz</li><li>base com ajuste de altura</li></ul><p><span class="product-label">Trade-off:</span> A ergonomia da base pesa menos se você já usa braço VESA.</p><p class="muted">Alternativa: LG 24GS60F-B se uma base simples já resolve.</p><a class="cta" href="https://www.amazon.com.br/dp/B0DLPB4CH6?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver AOC na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-      </div><p class="editorial-note">Imagens dos produtos exatos. Confirme variante, preço, estoque e vendedor na Amazon.</p>
-    </section>
-
-    <section class="shortlist" id="headsets" data-shortlist-id="CO-REC-HEADSET-001">
-      <div class="eyebrow">Setup &amp; Games · 2 produtos</div><h2>Headset com fio: entrada direta ou mais rotas de conexão?</h2><p>A diferença útil aqui não é “qual é melhor” de forma universal, mas quanta flexibilidade de conexão seu setup realmente exige.</p>
-      <div class="shortlist-grid">
-        <article class="option-card" data-asin="B0DGQLYST1" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B0DGQLYST1?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/71nuOzj9qwL._AC_SL1500_.jpg" alt="Headset gamer Havit H2002D preto" loading="lazy"></a><h3>Havit H2002D</h3><p><span class="product-label">Para quem:</span> Para quem quer um headset com fio 3,5 mm e microfone destacável.</p><p>O papel de entrada é claro e a conexão analógica simplifica o uso entre plataformas compatíveis.</p><ul><li>driver de 53 mm</li><li>conexão 3,5 mm</li><li>microfone destacável</li></ul><p><span class="product-label">Trade-off:</span> Variantes próximas exigem conferir o modelo exato antes da compra.</p><p class="muted">Alternativa: Cloud III se mais rotas físicas de conexão forem prioridade.</p><a class="cta" href="https://www.amazon.com.br/dp/B0DGQLYST1?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver Havit na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-        <article class="option-card" data-asin="B0C3BV19Q3" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B0C3BV19Q3?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/71pz2njkNRL._AC_SL1500_.jpg" alt="Headset HyperX Cloud III Wired preto e vermelho" loading="lazy"></a><h3>HyperX Cloud III Wired</h3><p><span class="product-label">Para quem:</span> Para quem quer alternar entre 3,5 mm, USB-C e USB-A em dispositivos compatíveis.</p><p>As três rotas físicas de conexão criam um motivo de seleção concreto e verificável.</p><ul><li>drivers angulados de 53 mm</li><li>microfone destacável de 10 mm</li><li>3,5 mm • USB-C • USB-A</li></ul><p><span class="product-label">Trade-off:</span> Continua com fio e conforto/assinatura sonora dependem do usuário.</p><p class="muted">Alternativa: Havit H2002D para uma proposta de entrada mais direta.</p><a class="cta" href="https://www.amazon.com.br/dp/B0C3BV19Q3?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver Cloud III na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-      </div><p class="editorial-note">Imagens dos produtos exatos. Confirme variante, preço, estoque e vendedor na Amazon.</p>
-    </section>
-
-    <section class="shortlist" id="webcams" data-shortlist-id="CO-REC-WEBCAM-001">
-      <div class="eyebrow">Creator &amp; Trabalho · 2 produtos</div><h2>Webcam Full HD: autofocus ou foco fixo?</h2><p>Para uma posição estável, foco fixo pode bastar; para mudanças frequentes de distância, autofocus pode pesar mais na rotina.</p>
-      <div class="shortlist-grid">
-        <article class="option-card" data-asin="B07K986YLL" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B07K986YLL?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SX679_.jpg" alt="Webcam Logitech C920s Full HD" loading="lazy"></a><h3>Logitech C920s</h3><p><span class="product-label">Para quem:</span> Para chamadas, aulas e criação básica quando autofocus pesa na rotina.</p><p>É uma referência Full HD madura com autofocus, microfones duplos e obturador físico.</p><ul><li>1080p/30 fps</li><li>autofocus</li><li>microfones estéreo duplos</li></ul><p><span class="product-label">Trade-off:</span> Não oferece 4K nem maior taxa de quadros em Full HD.</p><p class="muted">Alternativa: Brio 100 para uso estável com foco fixo.</p><a class="cta" href="https://www.amazon.com.br/dp/B07K986YLL?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver C920s na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-        <article class="option-card" data-asin="B0CJRXT3L6" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B0CJRXT3L6?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/51LQrdKVhFL._AC_SX679_.jpg" alt="Webcam Logitech Brio 100 Graphite" loading="lazy"></a><h3>Logitech Brio 100 Graphite</h3><p><span class="product-label">Para quem:</span> Para uma posição estável de trabalho ou estudo em Full HD.</p><p>O SKU brasileiro confirma foco fixo, RightLight 2, microfone integrado e obturador de privacidade.</p><ul><li>1080p/30 fps</li><li>foco fixo • RightLight 2</li><li>USB-A • obturador integrado</li></ul><p><span class="product-label">Trade-off:</span> O foco fixo não acompanha grandes mudanças de distância.</p><p class="muted">Alternativa: C920s quando autofocus e microfones duplos forem prioridade.</p><a class="cta" href="https://www.amazon.com.br/dp/B0CJRXT3L6?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver Brio 100 na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-      </div><p class="editorial-note">Imagens dos produtos exatos. Confirme variante, preço, estoque e vendedor na Amazon.</p>
-    </section>
-
-    <section class="shortlist" id="trabalho" data-shortlist-id="CO-REC-TRABALHO-001">
-      <div class="eyebrow">Trabalho &amp; Estudo · 1 produto</div><h2>Notebook para rotina geral: um ponto de partida claro</h2><p>Esta indicação atende navegador, documentos, aulas e produtividade cotidiana. Não é apresentada como máquina gamer nem como resposta para multitarefa pesada.</p>
-      <div class="shortlist-grid">
-        <article class="option-card" data-asin="B0D6HXDRZL" data-merchant-state="active"><a class="product-image-link" href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener"><img class="product-image" src="https://m.media-amazon.com/images/I/61jcw+EeK7L._AC_SL1500_.jpg" alt="Lenovo IdeaPad 1 Ryzen 5 7520U cinza" loading="lazy"></a><h3>Lenovo IdeaPad 1 Ryzen 5 7520U</h3><p><span class="product-label">Para quem:</span> Para navegador, documentos, aulas e produtividade geral.</p><ul><li>Ryzen 5 7520U</li><li>8 GB RAM</li><li>512 GB SSD</li><li>tela de 15,6 polegadas</li></ul><p><span class="product-label">Trade-off:</span> 8 GB exigem atenção em multitarefa pesada; esta configuração utiliza Linux.</p><p class="muted">Antes de comprar, confirme memória, sistema operacional e configuração exata.</p><a class="cta" href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Ver IdeaPad na Amazon →</a><small class="local-disclosure">Publicidade · link de afiliado Amazon</small></article>
-        <article class="option-card pipeline-card"><div class="eyebrow">Escolha pelo gargalo</div><h3>Talvez o notebook não seja o primeiro upgrade</h3><p>Se a máquina atual ainda acompanha sua rotina, melhorar imagem, áudio ou ergonomia pode resolver mais com menos mudança.</p><ul><li><a href="#webcams">Comparar webcams</a></li><li><a href="#monitores">Comparar monitores</a></li><li><a href="../trabalho-estudo/">Abrir guia de trabalho</a></li></ul><p class="muted">Esse bloco orienta a decisão e não representa uma oferta.</p></article>
-      </div><p class="editorial-note">Imagem do produto exato. Confirme variante, preço, estoque e vendedor na Amazon.</p>
-    </section>
-
-    <section class="shortlist" id="proximos">
-      <div class="eyebrow">Próximas curadorias</div><h2>Mais categorias, sem misturar pesquisa com oferta</h2><p>Casa inteligente e microfones continuam no roteiro editorial, mas só entram nesta vitrine quando produto, imagem e destino comercial passarem pela mesma validação dos nove itens acima.</p>
-      <div class="shortlist-grid">
-        <article class="option-card pipeline-card"><h3>Casa inteligente</h3><p>Automação, voz e streaming exigem checagens diferentes. Enquanto a seleção comercial não fecha, o guia de compatibilidade ajuda a evitar uma compra inadequada.</p><a class="cta" href="../guia/smart-plug-max-quando-faz-sentido.html">Ver guia de smart plug →</a></article>
-        <article class="option-card pipeline-card"><h3>Creator &amp; Streaming</h3><p>Microfones e outros upgrades de creator permanecem em pesquisa. As webcams já validadas estão disponíveis acima.</p><a class="cta" href="../creator-streaming/">Explorar critérios de creator →</a></article>
-      </div><p class="editorial-note">Itens em pesquisa não recebem botão de compra nem aparência de oferta.</p>
-    </section>
-  </div>
+<header>
+<div class="nav">
+<a class="brand" href="/">Córtex Ofertas</a>
+<nav aria-label="Principal">
+<a href="/recomendados/">Produtos</a>
+<a href="/comparativos/">Comparativos</a>
+<a href="/guias/">Guias</a>
+<a href="/metodologia.html">Como avaliamos</a>
+</nav>
+<details class="mobile-menu">
+<summary>Menu</summary>
+<nav aria-label="Menu móvel">
+<a href="/recomendados/">Produtos</a>
+<a href="/comparativos/">Comparativos</a>
+<a href="/guias/">Guias</a>
+<a href="/metodologia.html">Como avaliamos</a>
+</nav>
+</details>
+</div>
+</header>
+<main class="wrap">
+<section class="intro catalog-intro">
+<div class="eyebrow">Curadoria Córtex</div>
+<h1>Escolhas para você.</h1>
+<p class="lead">Compare o que muda no uso e quando pagar mais faz sentido. Confira as ofertas na Amazon.</p>
+<p class="method-note">40 produtos · 4 nichos · <a href="/metodologia.html">Como avaliamos</a>
+</p>
+</section>
+<div id="shortlists">
+<nav class="niche-nav" aria-label="Escolha por uso">
+<a href="#setup-games">Setup &amp; Games</a>
+<a href="#trabalho-estudo">Trabalho &amp; Estudo</a>
+<a href="#creator-streaming">Creator &amp; Streaming</a>
+<a href="#casa-inteligente">Casa Inteligente</a>
+</nav>
+<section class="section" id="setup-games">
+<div class="section-head">
+<div>
+<div class="eyebrow">10 produtos</div>
+<h2>Setup &amp; Games</h2>
+<p>Mouses, teclado, mousepad, headsets e monitores.</p>
+</div>
+<a href="/setup-games/">Como escolher neste nicho</a>
+</div>
+<div class="product-grid">
+<article class="product-card" id="g305" data-asin="B07GPRWFC5" data-merchant-state="active">
+<span id="mouses">
+</span>
+<a class="product-photo" href="https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech G305 LIGHTSPEED na Amazon">
+<img src="https://m.media-amazon.com/images/I/51sg9BLSMTL._AC_SL1500_.jpg" alt="Logitech G305 LIGHTSPEED: Preto, receptor USB, alimentação por pilha AA" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para tirar o cabo da mesa</span>
+<h3>Logitech G305 LIGHTSPEED</h3>
+<p>Quem joga no PC e quer liberdade de movimento, aceitando pilha e um formato compacto.</p>
+<ul class="specs">
+<li>LIGHTSPEED com receptor USB</li>
+<li>Pilha AA</li>
+<li>99 g documentados</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Evite se precisa de Bluetooth, recarga por USB ou de um mouse ultraleve. O encaixe na mão pesa mais que a quantidade de DPI.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A seleção se apoia na conexão sem fio e no formato compacto. O ganho frente ao G203 é a liberdade de movimento; o número máximo de DPI não é, sozinho, motivo para pagar mais.</p>
+<h4>Quando não escolher</h4>
+<p>Evite se precisa de Bluetooth, recarga por USB ou de um mouse ultraleve. O encaixe na mão pesa mais que a quantidade de DPI.</p>
+<h4>Quando o preço compensa</h4>
+<p>O adicional sobre o G203 faz sentido se o cabo atrapalha seu uso diário. Se isso não ocorre, prefira o menor custo total entre as opções que atendem sua mão.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#g203">Logitech G203 LIGHTSYNC</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto, receptor USB, alimentação por pilha AA.</p>
+<p class="source-links">
+<a href="https://www.logitechg.com/pt-br/products/gaming-mice/g305-lightspeed-wireless-gaming-mouse.html" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="g203" data-asin="B087CT8PWY" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B087CT8PWY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech G203 LIGHTSYNC na Amazon">
+<img src="https://m.media-amazon.com/images/I/61oE1NouXuL._AC_SL1500_.jpg" alt="Logitech G203 LIGHTSYNC: Preto, com fio USB" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para um mouse com fio direto ao ponto</span>
+<h3>Logitech G203 LIGHTSYNC</h3>
+<p>Quem aceita cabo, usa poucos comandos laterais e quer evitar gerenciamento de bateria.</p>
+<ul class="specs">
+<li>Conexão USB com fio</li>
+<li>6 botões</li>
+<li>85 g documentados</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não escolha pelo RGB se você precisa, de fato, de liberdade sem fio ou de muitos botões para atalhos. O cabo continua sendo uma limitação física.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B087CT8PWY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A conexão direta elimina a necessidade de carregar ou trocar pilhas. É uma escolha coerente para começar um setup quando o formato compacto serve à mão e o cabo tem espaço para se mover.</p>
+<h4>Quando não escolher</h4>
+<p>Não escolha pelo RGB se você precisa, de fato, de liberdade sem fio ou de muitos botões para atalhos. O cabo continua sendo uma limitação física.</p>
+<h4>Quando o preço compensa</h4>
+<p>Priorize-o quando custar menos que o G305 e a conexão sem fio não resolver um problema seu. Compare também frete e vendedor para o mesmo modelo.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#g305">Logitech G305 LIGHTSPEED</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto, com fio USB.</p>
+<p class="source-links">
+<a href="https://www.logitechg.com/pt-br/products/gaming-mice/g203-lightsync-rgb-gaming-mouse.html" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="g502-hero" data-asin="B07JM7DR7K" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B07JM7DR7K?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Mouse Logitech G502 HERO na Amazon">
+<img src="https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg" alt="Mouse Logitech G502 HERO: Preto; com fio; sensor HERO 25K" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para muitos comandos no mouse</span>
+<h3>Mouse Logitech G502 HERO</h3>
+<p>Quem usa atalhos em jogos ou programas e quer mais botões acessíveis.</p>
+<ul class="specs">
+<li>Sensor HERO 25K, até 25.600 DPI</li>
+<li>11 botões programáveis</li>
+<li>Iluminação RGB LIGHTSYNC</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> O corpo, os botões e o cabo precisam combinar com sua pegada. Não é a escolha para quem procura simplicidade máxima ou liberdade sem fio.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B07JM7DR7K?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Os 11 botões programáveis oferecem uma razão para sair de um mouse compacto mais simples. Os pesos adicionais permitem alterar a massa; isso não o transforma em um ultraleve.</p>
+<h4>Quando não escolher</h4>
+<p>O corpo, os botões e o cabo precisam combinar com sua pegada. Não é a escolha para quem procura simplicidade máxima ou liberdade sem fio.</p>
+<h4>Quando o preço compensa</h4>
+<p>O adicional compensa quando os comandos extras substituem ações frequentes no teclado. Se você usa poucos botões, compare G203 e G305 primeiro.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#g305">Logitech G305 LIGHTSPEED</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto; com fio; sensor HERO 25K.</p>
+<p class="source-links">
+<a href="https://www.logitechg.com/pt-br/shop/p/g502-hero-gaming-mouse" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="g213" data-asin="B081P3Z565" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B081P3Z565?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Teclado Logitech G213 Prodigy ABNT2 na Amazon">
+<img src="https://m.media-amazon.com/images/I/71Nqzh-u2rL._AC_SL1500_.jpg" alt="Teclado Logitech G213 Prodigy ABNT2: Preto; português do Brasil; layout ABNT2" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para layout brasileiro e controles de mídia</span>
+<h3>Teclado Logitech G213 Prodigy ABNT2</h3>
+<p>Quem quer teclado ABNT2 de tamanho completo com apoio de mãos integrado.</p>
+<ul class="specs">
+<li>Teclas Mech-Dome</li>
+<li>Cinco zonas de iluminação LIGHTSYNC RGB</li>
+<li>Apoio para as mãos integrado</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> O tamanho completo ocupa mais mesa. Evite se precisa de teclado compacto, sem fio ou de switches mecânicos substituíveis.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B081P3Z565?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O layout brasileiro, os controles dedicados e o apoio integrado são os motivos de seleção. As teclas Mech-Dome não devem ser confundidas com switches mecânicos individuais.</p>
+<h4>Quando não escolher</h4>
+<p>O tamanho completo ocupa mais mesa. Evite se precisa de teclado compacto, sem fio ou de switches mecânicos substituíveis.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare com teclados ABNT2 que atendam seu espaço e tipo de tecla. A iluminação só justifica preço extra se tiver utilidade ou valor para você.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto; português do Brasil; layout ABNT2.</p>
+<p class="source-links">
+<a href="https://www.logitechg.com/pt-br/shop/p/g213-rgb-gaming-keyboard" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="g240" data-asin="B0BHMLWH3Z" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0BHMLWH3Z?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Mouse Pad Logitech G240 na Amazon">
+<img src="https://m.media-amazon.com/images/I/61tZSb-bTUL._AC_SL1500_.jpg" alt="Mouse Pad Logitech G240: Preto; tecido; 340 × 280 × 1 mm; logotipo G escuro" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para uma superfície de tecido compacta</span>
+<h3>Mouse Pad Logitech G240</h3>
+<p>Quem tem espaço para um mousepad de 340 × 280 mm e prefere tecido a uma superfície rígida.</p>
+<ul class="specs">
+<li>Superfície de tecido com atrito moderado</li>
+<li>Base de borracha</li>
+<li>Textura otimizada para sensores Logitech G</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Movimentos amplos em baixa sensibilidade podem exigir um pad maior. A espessura de 1 mm oferece pouca altura de acolchoamento.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0BHMLWH3Z?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A superfície de tecido e a base de borracha oferecem um ponto de partida definido. A área útil é mais importante que a promessa de combinar com uma marca de sensor.</p>
+<h4>Quando não escolher</h4>
+<p>Movimentos amplos em baixa sensibilidade podem exigir um pad maior. A espessura de 1 mm oferece pouca altura de acolchoamento.</p>
+<h4>Quando o preço compensa</h4>
+<p>Meça a área de movimento antes de pagar pelo produto. Um pad do tamanho errado continua inadequado mesmo com desconto.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto; tecido; 340 × 280 × 1 mm; logotipo G escuro.</p>
+<p class="source-links">
+<a href="https://www.logitechg.com/pt-br/shop/p/g240-cloth-gaming-mouse-pad" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="havit-h2002d" data-asin="B0DGQLYST1" data-merchant-state="active">
+<span id="headsets">
+</span>
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0DGQLYST1?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Havit H2002D na Amazon">
+<img src="https://m.media-amazon.com/images/I/71nuOzj9qwL._AC_SL1500_.jpg" alt="Havit H2002D: H2002D preto, conexão analógica" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para áudio com conexão 3,5 mm</span>
+<h3>Havit H2002D</h3>
+<p>Quem quer headset com fio e microfone destacável para uma entrada analógica compatível.</p>
+<ul class="specs">
+<li>Conexão 3,5 mm</li>
+<li>Microfone destacável</li>
+<li>Drivers de 53 mm</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confira se seu computador usa uma entrada combinada ou entradas separadas para áudio e microfone. Não confunda H2002D com variantes sem fio de nome parecido.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0DGQLYST1?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A conexão analógica pode facilitar a troca entre aparelhos compatíveis. O diâmetro do driver descreve uma característica, mas não prova maior qualidade sonora nem melhor percepção de passos.</p>
+<h4>Quando não escolher</h4>
+<p>Confira se seu computador usa uma entrada combinada ou entradas separadas para áudio e microfone. Não confunda H2002D com variantes sem fio de nome parecido.</p>
+<h4>Quando o preço compensa</h4>
+<p>Faz sentido quando custa menos que o Cloud III e a conexão 3,5 mm resolve seu uso. Inclua no orçamento qualquer adaptador necessário.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#cloud-iii">HyperX Cloud III Wired</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> H2002D preto, conexão analógica.</p>
+<p class="source-links">
+<a href="https://havitsmart.com/products/h2002d-3-5mm-gaming-headphone" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="cloud-iii" data-asin="B0C3BV19Q3" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0C3BV19Q3?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver HyperX Cloud III Wired na Amazon">
+<img src="https://m.media-amazon.com/images/I/71pz2njkNRL._AC_SL1500_.jpg" alt="HyperX Cloud III Wired: Preto e vermelho, 727A9AA, com fio" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para alternar entre USB e 3,5 mm</span>
+<h3>HyperX Cloud III Wired</h3>
+<p>Quem usa dispositivos com conexões diferentes e quer mais opções físicas no mesmo headset.</p>
+<ul class="specs">
+<li>USB-C, USB-A e 3,5 mm</li>
+<li>Microfone destacável</li>
+<li>Versão Wired</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não é a versão Wireless. Não há nesta seleção teste próprio de conforto ou de assinatura sonora; ajuste e preferência auditiva continuam individuais.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0C3BV19Q3?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>As opções de conexão são seu diferencial verificável nesta comparação. Isso pode reduzir a necessidade de adaptadores, mas a compatibilidade exata ainda depende do aparelho e da conexão escolhida.</p>
+<h4>Quando não escolher</h4>
+<p>Não é a versão Wireless. Não há nesta seleção teste próprio de conforto ou de assinatura sonora; ajuste e preferência auditiva continuam individuais.</p>
+<h4>Quando o preço compensa</h4>
+<p>Pagar mais que no Havit exige uma utilidade concreta para USB ou para os demais recursos. Se você usará apenas a entrada analógica, compare a diferença com mais cuidado.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#havit-h2002d">Havit H2002D</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto e vermelho, 727A9AA, com fio.</p>
+<p class="source-links">
+<a href="https://row.hyperx.com/pt/products/hyperx-cloud-iii-wired-gaming-headset" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="g335" data-asin="B08KKBSDTY" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B08KKBSDTY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Headset Logitech G335 — Preto na Amazon">
+<img src="https://m.media-amazon.com/images/I/71YEF3ZjzkL._AC_SL1500_.jpg" alt="Headset Logitech G335 — Preto: Preto; com fio; conexão de áudio 3,5 mm" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para silenciar o microfone com um gesto</span>
+<h3>Headset Logitech G335 — Preto</h3>
+<p>Quem prefere um headset analógico com microfone que silencia ao levantar.</p>
+<ul class="specs">
+<li>Conexão de áudio 3,5 mm</li>
+<li>Drivers de neodímio de 40 mm</li>
+<li>Microfone com função de silenciar ao levantar</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> O microfone não é destacável e a conexão é com fio. Confira a entrada 3,5 mm do aparelho e o ajuste da faixa.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B08KKBSDTY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O mecanismo de levantar para silenciar é um diferencial prático frente a microfones destacáveis. O peso documentado de 240 g ajuda a comparar a construção, mas não prova conforto para todas as cabeças.</p>
+<h4>Quando não escolher</h4>
+<p>O microfone não é destacável e a conexão é com fio. Confira a entrada 3,5 mm do aparelho e o ajuste da faixa.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare com Havit e Cloud III pelo tipo de controle e conexão que você usará. Não pague mais apenas por um peso menor na ficha.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#havit-h2002d">Havit H2002D</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto; com fio; conexão de áudio 3,5 mm.</p>
+<p class="source-links">
+<a href="https://www.logitechg.com/pt-br/shop/p/g335-gaming-headset" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="lg-24gs60f" data-asin="B0D8DPT7ZY" data-merchant-state="active">
+<span id="monitores">
+</span>
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0D8DPT7ZY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver LG UltraGear 24GS60F-B na Amazon">
+<img src="https://m.media-amazon.com/images/I/61aIuJu0M0L._AC_SL1400_.jpg" alt="LG UltraGear 24GS60F-B: 24GS60F-B, preto" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para Full HD com base simples</span>
+<h3>LG UltraGear 24GS60F-B</h3>
+<p>Quem procura tela IPS de alta frequência e já está satisfeito com a altura da mesa ou usa braço compatível.</p>
+<ul class="specs">
+<li>Full HD IPS</li>
+<li>Até 180 Hz</li>
+<li>Base com inclinação</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> A base não substitui um suporte com ajuste de altura. Confira as portas, a resolução e a frequência aceitas pelo seu equipamento antes de comprar.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0D8DPT7ZY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Full HD exige menos da GPU que resoluções maiores. O teto de 180 Hz é útil quando o computador entrega quadros suficientes; ele não garante, sozinho, ausência de borrão ou baixa latência em todos os modos.</p>
+<h4>Quando não escolher</h4>
+<p>A base não substitui um suporte com ajuste de altura. Confira as portas, a resolução e a frequência aceitas pelo seu equipamento antes de comprar.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare o custo do LG somado a um eventual braço com o AOC 24G4/P. Uma diferença pequena pode favorecer a ergonomia do AOC; com braço já instalado, esse extra perde importância.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#aoc-24g4">AOC 24G4/P</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> 24GS60F-B, preto.</p>
+<p class="source-links">
+<a href="https://www.lg.com/br/monitores/monitores-ultragear/24gs60f-b/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="aoc-24g4" data-asin="B0DLPB4CH6" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0DLPB4CH6?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver AOC 24G4/P na Amazon">
+<img src="https://m.media-amazon.com/images/I/71Qt-mok7UL._AC_SL1400_.jpg" alt="AOC 24G4/P: 24G4/P, base ajustável" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para ajustar a tela à sua altura</span>
+<h3>AOC 24G4/P</h3>
+<p>Quem combina jogos e trabalho e quer regulagem de altura na própria base.</p>
+<ul class="specs">
+<li>Full HD IPS</li>
+<li>Até 180 Hz</li>
+<li>Base com ajuste de altura</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Se já possui braço VESA compatível, não pague a mais apenas pela base. Confirme o sufixo /P: nomes de modelos próximos podem esconder diferenças.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0DLPB4CH6?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O motivo concreto para escolhê-lo frente ao LG é a base ajustável. A frequência nominal é semelhante, mas isso não comprova desempenho idêntico de imagem ou resposta entre os painéis.</p>
+<h4>Quando não escolher</h4>
+<p>Se já possui braço VESA compatível, não pague a mais apenas pela base. Confirme o sufixo /P: nomes de modelos próximos podem esconder diferenças.</p>
+<h4>Quando o preço compensa</h4>
+<p>A regulagem pode evitar a compra de um suporte separado. Compare o valor final do conjunto, e não apenas o menor preço anunciado de cada tela.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#lg-24gs60f">LG UltraGear 24GS60F-B</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> 24G4/P, base ajustável.</p>
+<p class="source-links">
+<a href="https://aoc.com/br/gaming/products/monitors/24g4-p" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+</div>
+</section>
+<section class="section" id="trabalho-estudo">
+<div class="section-head">
+<div>
+<div class="eyebrow">10 produtos</div>
+<h2>Trabalho &amp; Estudo</h2>
+<p>Notebook, periféricos, chamadas, hubs e armazenamento.</p>
+</div>
+<a href="/trabalho-estudo/">Como escolher neste nicho</a>
+</div>
+<span id="trabalho">
+</span>
+<div class="product-grid">
+<article class="product-card" id="mx-master-3s" data-asin="B09HM94VDS" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B09HM94VDS?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech MX Master 3S — grafite na Amazon">
+<img src="https://m.media-amazon.com/images/I/61+OT7FPABL._AC_SL1500_.jpg" alt="Logitech MX Master 3S — grafite: MX Master 3S grafite, edição padrão com receptor Logi Bolt" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para rolagem e atalhos no trabalho</span>
+<h3>Logitech MX Master 3S — grafite</h3>
+<p>Quem passa muitas horas em documentos ou planilhas e quer controles adicionais no mouse.</p>
+<ul class="specs">
+<li>Bluetooth e receptor Logi Bolt</li>
+<li>Edição padrão grafite</li>
+<li>Rolagem rápida e recarga USB-C</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não o escolha como substituto automático de um mouse leve para jogo competitivo. Confira tamanho, pegada e compatibilidade do software com suas funções desejadas.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B09HM94VDS?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Rolagem e controles programáveis são o motivo desta seleção. A forma da carcaça exige adaptação individual; o rótulo ergonômico não garante conforto para todas as mãos.</p>
+<h4>Quando não escolher</h4>
+<p>Não o escolha como substituto automático de um mouse leve para jogo competitivo. Confira tamanho, pegada e compatibilidade do software com suas funções desejadas.</p>
+<h4>Quando o preço compensa</h4>
+<p>O valor depende de usar rolagem e atalhos diariamente. Se você só precisa mover o cursor e clicar, compare uma opção mais simples antes de pagar o adicional.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#g305">Logitech G305 LIGHTSPEED</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> MX Master 3S grafite, edição padrão com receptor Logi Bolt.</p>
+<p class="source-links">
+<a href="https://www.logitechstore.com.br/mouse-sem-fio-logitech-mx-master-3s-graphite/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="k380s" data-asin="B0CJ3WFW9H" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0CJ3WFW9H?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech Pebble Keys 2 K380s — grafite na Amazon">
+<img src="https://m.media-amazon.com/images/I/61vqjDT56wL._AC_SL1500_.jpg" alt="Logitech Pebble Keys 2 K380s — grafite: Pebble Keys 2 K380s grafite, layout US" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para alternar dispositivos em pouco espaço</span>
+<h3>Logitech Pebble Keys 2 K380s — grafite</h3>
+<p>Quem procura teclado Bluetooth compacto e aceita layout americano.</p>
+<ul class="specs">
+<li>Bluetooth com Easy-Switch</li>
+<li>Layout US, cor grafite</li>
+<li>Pilha incluída no anúncio</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não é ABNT2 e não possui tecla Ç dedicada como um teclado brasileiro. Confira o layout e os sistemas compatíveis antes de comparar só o tamanho.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0CJ3WFW9H?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O formato compacto e a troca entre dispositivos atendem quem alterna trabalho e mobilidade. A versão selecionada é US: essa diferença afeta a posição dos símbolos e o hábito de digitação.</p>
+<h4>Quando não escolher</h4>
+<p>Não é ABNT2 e não possui tecla Ç dedicada como um teclado brasileiro. Confira o layout e os sistemas compatíveis antes de comparar só o tamanho.</p>
+<h4>Quando o preço compensa</h4>
+<p>Pague pela portabilidade e pela troca de aparelhos se essas funções forem frequentes. Para uso fixo com ABNT2 indispensável, procure uma opção no layout adequado.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#g213">Teclado Logitech G213 Prodigy ABNT2</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Pebble Keys 2 K380s grafite, layout US.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/shop/p/pebble-keys-2.920-011789" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="h390" data-asin="B000UXZQ42" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B000UXZQ42?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech H390 — headset USB-A preto na Amazon">
+<img src="https://m.media-amazon.com/images/I/6144+3nBNhL._AC_SL1500_.jpg" alt="Logitech H390 — headset USB-A preto: H390 preto, USB-A" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para chamadas com conexão USB-A</span>
+<h3>Logitech H390 — headset USB-A preto</h3>
+<p>Quem quer headset com fio e controles de áudio para reuniões no computador.</p>
+<ul class="specs">
+<li>USB-A com fio</li>
+<li>Controles de áudio no cabo</li>
+<li>Microfone com redução de ruído declarada</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Esta é a versão USB-A, não a USB-C. Não serve diretamente a um conector analógico 3,5 mm; confira as portas do seu aparelho.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B000UXZQ42?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A conexão USB e os controles acessíveis definem o uso de trabalho. A redução de ruído do microfone é um recurso declarado; não apresentamos uma medição própria de inteligibilidade.</p>
+<h4>Quando não escolher</h4>
+<p>Esta é a versão USB-A, não a USB-C. Não serve diretamente a um conector analógico 3,5 mm; confira as portas do seu aparelho.</p>
+<h4>Quando o preço compensa</h4>
+<p>Pagar por um headset dedicado faz sentido quando o áudio das reuniões é uma limitação. Compare com um equipamento que você já possui antes de duplicar funções.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> H390 preto, USB-A.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/shop/p/h390-usb-headset.981-000014" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="arzopa-z1fc" data-asin="B0CH9WTW56" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0CH9WTW56?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver ARZOPA Z1FC — monitor portátil de 16,1 polegadas na Amazon">
+<img src="https://m.media-amazon.com/images/I/71tSoS9v8rL._AC_SL1500_.jpg" alt="ARZOPA Z1FC — monitor portátil de 16,1 polegadas: Z1FC, 16,1 polegadas, Full HD, 144 Hz, preto" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para levar uma segunda tela</span>
+<h3>ARZOPA Z1FC — monitor portátil de 16,1 polegadas</h3>
+<p>Quem alterna locais de trabalho e quer mais área de tela em um formato portátil.</p>
+<ul class="specs">
+<li>16,1 polegadas Full HD</li>
+<li>Até 144 Hz declarados</li>
+<li>Modelo Z1FC</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confira vídeo e alimentação disponíveis no notebook, cabos e posição do apoio. Uma tela portátil não oferece a mesma área e ergonomia de um monitor de mesa maior.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0CH9WTW56?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A portabilidade e a segunda área de trabalho explicam sua presença no nicho. Para documentos, o tamanho útil e o apoio podem importar mais que a frequência máxima anunciada.</p>
+<h4>Quando não escolher</h4>
+<p>Confira vídeo e alimentação disponíveis no notebook, cabos e posição do apoio. Uma tela portátil não oferece a mesma área e ergonomia de um monitor de mesa maior.</p>
+<h4>Quando o preço compensa</h4>
+<p>O custo extra se justifica se você realmente precisa transportar a tela. Para uso fixo, compare monitores de mesa e a ergonomia do conjunto.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#lg-24gs60f">LG UltraGear 24GS60F-B</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Z1FC, 16,1 polegadas, Full HD, 144 Hz, preto.</p>
+<p class="source-links">
+<a href="https://www.amazon.com.br/dp/B0CH9WTW56?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="ideapad-1" data-asin="B0D6HXDRZL" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Lenovo IdeaPad 1 Ryzen 5 na Amazon">
+<img src="https://m.media-amazon.com/images/I/61jcw+EeK7L._AC_SL1500_.jpg" alt="Lenovo IdeaPad 1 Ryzen 5: Ryzen 5 7520U, 8 GB, SSD 512 GB, 15,6 polegadas, Linux" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para documentos, navegador e aulas</span>
+<h3>Lenovo IdeaPad 1 Ryzen 5</h3>
+<p>Quem procura um notebook para tarefas cotidianas e pode trabalhar com Linux.</p>
+<ul class="specs">
+<li>Ryzen 5 7520U</li>
+<li>8 GB de RAM e SSD 512 GB</li>
+<li>Tela de 15,6 polegadas; Linux</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> 8 GB pedem cautela para muitas tarefas simultâneas. Não o tratamos como notebook gamer. Confirme compatibilidade dos seus programas com Linux e possibilidade de expansão no SKU exato.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0D6HXDRZL?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A configuração atende ao recorte de produtividade geral desta seleção. O nome Ryzen 5 não basta para compará-lo com outros notebooks: geração, memória, tela e sistema operacional também mudam a compra.</p>
+<h4>Quando não escolher</h4>
+<p>8 GB pedem cautela para muitas tarefas simultâneas. Não o tratamos como notebook gamer. Confirme compatibilidade dos seus programas com Linux e possibilidade de expansão no SKU exato.</p>
+<h4>Quando o preço compensa</h4>
+<p>Some ao preço do anúncio os custos de software ou acessórios de que você precisa. Se uma configuração com mais memória ficar próxima no custo final, compare antes de fechar a compra.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Ryzen 5 7520U, 8 GB, SSD 512 GB, 15,6 polegadas, Linux.</p>
+<p class="source-links">
+<a href="https://psref.lenovo.com/Product/IdeaPad/IdeaPad_1_15AMN7" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="uh400" data-asin="B00V4BGD00" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B00V4BGD00?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link UH400 — hub USB 3.0 de 4 portas na Amazon">
+<img src="https://m.media-amazon.com/images/I/51j4P2TTgaL._AC_SL1000_.jpg" alt="TP-Link UH400 — hub USB 3.0 de 4 portas: UH400, preto, USB-A, quatro portas USB 3.0" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para ampliar portas USB-A</span>
+<h3>TP-Link UH400 — hub USB 3.0 de 4 portas</h3>
+<p>Quem precisa conectar mais periféricos USB-A a um computador compatível.</p>
+<ul class="specs">
+<li>4 portas USB 3.0</li>
+<li>Conexão ao computador por USB-A</li>
+<li>Modelo UH400 preto</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não acrescenta saída HDMI nem carregamento USB-C do notebook. Confira a demanda de energia dos periféricos e a porta disponível.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B00V4BGD00?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O UH400 atende a expansão de portas de dados. Essa função é mais simples que a de um hub USB-C com vídeo e passagem de energia.</p>
+<h4>Quando não escolher</h4>
+<p>Não acrescenta saída HDMI nem carregamento USB-C do notebook. Confira a demanda de energia dos periféricos e a porta disponível.</p>
+<h4>Quando o preço compensa</h4>
+<p>Se faltam apenas portas USB-A, compare seu custo com soluções mais complexas. Não pague por HDMI ou carregamento de que você não precisa.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#anker-332">Anker 332 — hub USB-C 5 em 1 preto</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> UH400, preto, USB-A, quatro portas USB 3.0.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/computer-accessory/uh400/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="anker-332" data-asin="B0BQLLB61B" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0BQLLB61B?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Anker 332 — hub USB-C 5 em 1 preto na Amazon">
+<img src="https://m.media-amazon.com/images/I/71gphOU8gjL._AC_SL1500_.jpg" alt="Anker 332 — hub USB-C 5 em 1 preto: Anker 332/A8355, preto; HDMI, USB-C dados, 2 USB-A e USB-C PD de entrada" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para vídeo e periféricos por USB-C</span>
+<h3>Anker 332 — hub USB-C 5 em 1 preto</h3>
+<p>Quem tem um notebook com USB-C compatível com as funções de vídeo e energia desejadas.</p>
+<ul class="specs">
+<li>Hub USB-C 5 em 1</li>
+<li>HDMI até 4K a 30 Hz</li>
+<li>Portas USB para dados e entrada de energia PD</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não trate 4K30 como 4K60. Carregador, cabo e capacidade da porta limitam a alimentação; confira requisitos e acessórios incluídos.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0BQLLB61B?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Ele reúne funções que um hub USB-A comum não oferece. A saída HDMI depende de suporte de vídeo na porta USB-C do computador; o formato do conector, sozinho, não garante isso.</p>
+<h4>Quando não escolher</h4>
+<p>Não trate 4K30 como 4K60. Carregador, cabo e capacidade da porta limitam a alimentação; confira requisitos e acessórios incluídos.</p>
+<h4>Quando o preço compensa</h4>
+<p>Some o carregador adequado se for necessário. Se você precisa somente de mais USB-A, o UH400 é a comparação mais simples; se precisa de vídeo, compare hubs com a frequência desejada.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#uh400">TP-Link UH400 — hub USB 3.0 de 4 portas</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Anker 332/A8355, preto; HDMI, USB-C dados, 2 USB-A e USB-C PD de entrada.</p>
+<p class="source-links">
+<a href="https://www.anker.com/products/a8355" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="brio-300" data-asin="B0BX1PWTZ2" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0BX1PWTZ2?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech Brio 300 — webcam Full HD grafite na Amazon">
+<img src="https://m.media-amazon.com/images/I/51IMu4nn2DL._AC_SL1500_.jpg" alt="Logitech Brio 300 — webcam Full HD grafite: Brio 300, grafite, USB-C" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para chamadas com USB-C</span>
+<h3>Logitech Brio 300 — webcam Full HD grafite</h3>
+<p>Quem quer webcam Full HD e possui uma porta USB-C disponível no computador.</p>
+<ul class="specs">
+<li>Full HD</li>
+<li>Conexão USB-C</li>
+<li>Proteção física de privacidade</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confirme que o enquadramento e os recursos de foco atendem sua rotina. USB-C por si só não garante vídeo melhor que uma webcam USB-A.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0BX1PWTZ2?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O conector USB-C e o obturador são características úteis para uma mesa de trabalho compatível. A correção automática de luz não substitui iluminação adequada.</p>
+<h4>Quando não escolher</h4>
+<p>Confirme que o enquadramento e os recursos de foco atendem sua rotina. USB-C por si só não garante vídeo melhor que uma webcam USB-A.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare o preço completo com Brio 100 e C920s, incluindo adaptador quando necessário. Pague pela conexão e pelos recursos úteis, não pelo nome de uma série maior.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#brio-100">Logitech Brio 100</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Brio 300, grafite, USB-C.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/shop/p/brio-300-webcam" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="sandisk-portable" data-asin="B0C5JQ68FY" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0C5JQ68FY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver SanDisk Portable SSD — 1 TB na Amazon">
+<img src="https://m.media-amazon.com/images/I/71bBCTIvIIL._AC_SL1500_.jpg" alt="SanDisk Portable SSD — 1 TB: SDSSDE30-1T00-G26, 1 TB, preto, até 800 MB/s" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para transportar arquivos em SSD externo</span>
+<h3>SanDisk Portable SSD — 1 TB</h3>
+<p>Quem precisa de armazenamento portátil sem instalar uma unidade dentro do computador.</p>
+<ul class="specs">
+<li>1 TB</li>
+<li>SSD externo USB-C</li>
+<li>Modelo SDSSDE30-1T00-G26</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não confunda este modelo Portable com outras linhas SanDisk. Mantenha outra cópia dos arquivos importantes: uma unidade portátil não elimina o risco de perda.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0C5JQ68FY?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O uso externo é o critério central. O teto de velocidade anunciado depende do dispositivo e da conexão; não representa desempenho sustentado garantido em qualquer transferência.</p>
+<h4>Quando não escolher</h4>
+<p>Não confunda este modelo Portable com outras linhas SanDisk. Mantenha outra cópia dos arquivos importantes: uma unidade portátil não elimina o risco de perda.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare capacidade útil para seus arquivos, conexão e garantia do anúncio. Um SSD interno pode custar menos, mas não substitui a portabilidade sem outros acessórios.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#kingston-a400">Kingston A400 — SSD SATA de 480 GB</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> SDSSDE30-1T00-G26, 1 TB, preto, até 800 MB/s.</p>
+<p class="source-links">
+<a href="https://www.amazon.com.br/dp/B0C5JQ68FY?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="kingston-a400" data-asin="B01N0TQPQB" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B01N0TQPQB?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Kingston A400 — SSD SATA de 480 GB na Amazon">
+<img src="https://m.media-amazon.com/images/I/81+9rUcRVTL._AC_SL1500_.jpg" alt="Kingston A400 — SSD SATA de 480 GB: SA400S37/480G, SATA 2,5 polegadas, 480 GB" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para um upgrade interno SATA compatível</span>
+<h3>Kingston A400 — SSD SATA de 480 GB</h3>
+<p>Quem tem computador com espaço e conexão para SSD SATA de 2,5 polegadas.</p>
+<ul class="specs">
+<li>480 GB</li>
+<li>SATA de 2,5 polegadas</li>
+<li>Modelo SA400S37/480G</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não é SSD M.2 NVMe e não encaixa em um slot M.2. Confira espaço, cabo ou adaptador necessário antes de comprar.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B01N0TQPQB?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A proposta é armazenamento interno para uma máquina compatível. A troca de um disco mecânico pode mudar a resposta do sistema, mas a instalação e a migração de dados fazem parte do trabalho.</p>
+<h4>Quando não escolher</h4>
+<p>Não é SSD M.2 NVMe e não encaixa em um slot M.2. Confira espaço, cabo ou adaptador necessário antes de comprar.</p>
+<h4>Quando o preço compensa</h4>
+<p>Inclua instalação e migração se precisar de ajuda. Para apenas transportar arquivos entre máquinas, compare com um SSD externo pronto para esse uso.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#sandisk-portable">SanDisk Portable SSD — 1 TB</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> SA400S37/480G, SATA 2,5 polegadas, 480 GB.</p>
+<p class="source-links">
+<a href="https://www.kingston.com/br/ssd/a400-solid-state-drive" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+</div>
+</section>
+<section class="section" id="creator-streaming">
+<div class="section-head">
+<div>
+<div class="eyebrow">10 produtos</div>
+<h2>Creator &amp; Streaming</h2>
+<p>Webcams, microfones, captura e atalhos.</p>
+</div>
+<a href="/creator-streaming/">Como escolher neste nicho</a>
+</div>
+<div class="product-grid">
+<article class="product-card" id="c920s" data-asin="B07K986YLL" data-merchant-state="active">
+<span id="webcams">
+</span>
+<a class="product-photo" href="https://www.amazon.com.br/dp/B07K986YLL?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech C920s na Amazon">
+<img src="https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SX679_.jpg" alt="Logitech C920s: C920s preta, obturador de privacidade" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para chamadas com foco automático</span>
+<h3>Logitech C920s</h3>
+<p>Quem muda de distância da câmera em aulas, reuniões ou gravações simples.</p>
+<ul class="specs">
+<li>1080p a 30 fps</li>
+<li>Foco automático</li>
+<li>Obturador físico</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não oferece 4K nem 60 fps em Full HD. Quem precisa de recorte intenso ou movimento mais fluido deve considerar outra categoria.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B07K986YLL?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O foco automático é o critério que a diferencia da Brio 100. Ele pode ajudar quando a distância varia, mas não transforma a webcam em uma câmera adequada para qualquer iluminação ou gravação de objetos muito próximos.</p>
+<h4>Quando não escolher</h4>
+<p>Não oferece 4K nem 60 fps em Full HD. Quem precisa de recorte intenso ou movimento mais fluido deve considerar outra categoria.</p>
+<h4>Quando o preço compensa</h4>
+<p>A diferença de preço sobre a Brio 100 se justifica quando você realmente precisa de autofocus. Para uma posição fixa, iluminação melhor pode ser um investimento mais útil.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#brio-100">Logitech Brio 100</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> C920s preta, obturador de privacidade.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/products/webcams/c920s-pro-hd-webcam.html" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="brio-100" data-asin="B0CJRXT3L6" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0CJRXT3L6?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Logitech Brio 100 na Amazon">
+<img src="https://m.media-amazon.com/images/I/51LQrdKVhFL._AC_SX679_.jpg" alt="Logitech Brio 100: Grafite, foco fixo, USB-A" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para chamadas em uma posição fixa</span>
+<h3>Logitech Brio 100</h3>
+<p>Quem permanece sentado à mesma distância da câmera e precisa de vídeo Full HD para reuniões ou aulas.</p>
+<ul class="specs">
+<li>1080p a 30 fps</li>
+<li>Foco fixo</li>
+<li>USB-A e obturador integrado</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Se você se movimenta para perto e para longe da câmera, o foco fixo limita a flexibilidade. Verifique se o computador tem USB-A ou se precisará de adaptador.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0CJRXT3L6?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Foco fixo simplifica uma rotina com enquadramento estável. O obturador permite cobrir a lente fisicamente. A seleção considera esses recursos, sem prometer qualidade superior em pouca luz.</p>
+<h4>Quando não escolher</h4>
+<p>Se você se movimenta para perto e para longe da câmera, o foco fixo limita a flexibilidade. Verifique se o computador tem USB-A ou se precisará de adaptador.</p>
+<h4>Quando o preço compensa</h4>
+<p>Escolha-a quando estiver mais barata que a C920s e o foco fixo atender sua rotina. Se os preços estiverem próximos, reavalie a utilidade do foco automático.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#c920s">Logitech C920s</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Grafite, foco fixo, USB-A.</p>
+<p class="source-links">
+<a href="https://www.logitech.com/pt-br/products/webcams/brio-100-webcam.html" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="solocast" data-asin="B08KFL3SFV" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B08KFL3SFV?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver HyperX SoloCast na Amazon">
+<img src="https://m.media-amazon.com/images/I/51ilSVrpiYL._AC_SL1200_.jpg" alt="HyperX SoloCast: SoloCast preto, conexão USB" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para começar com um microfone USB</span>
+<h3>HyperX SoloCast</h3>
+<p>Quem grava voz sozinho e quer conexão ao computador com controle de mute acessível.</p>
+<ul class="specs">
+<li>Conexão USB</li>
+<li>Padrão cardioide</li>
+<li>Sensor de mute</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não é uma solução XLR para uma interface de áudio. Confira conexão, suporte e distância da boca antes de atribuir o resultado apenas ao microfone.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B08KFL3SFV?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O padrão cardioide e o sensor de mute atendem a uma rotina individual simples. Posicionamento e acústica continuam influenciando o resultado; não prometemos eliminar o ruído da sala.</p>
+<h4>Quando não escolher</h4>
+<p>Não é uma solução XLR para uma interface de áudio. Confira conexão, suporte e distância da boca antes de atribuir o resultado apenas ao microfone.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare com o AM8 se pretende adotar uma interface no futuro. Para uso somente USB, recursos adicionais precisam justificar o aumento de preço.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#fifine-am8">FIFINE AmpliGame AM8</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> SoloCast preto, conexão USB.</p>
+<p class="source-links">
+<a href="https://row.hyperx.com/products/hyperx-solocast-usb-microphone" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="fifine-am8" data-asin="B0BMFQP2ZZ" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0BMFQP2ZZ?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver FIFINE AmpliGame AM8 na Amazon">
+<img src="https://m.media-amazon.com/images/I/71k6li+9vFL._AC_SL1500_.jpg" alt="FIFINE AmpliGame AM8: AM8 preto, base e cabo USB" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para começar em USB e considerar XLR</span>
+<h3>FIFINE AmpliGame AM8</h3>
+<p>Quem quer um microfone dinâmico com duas rotas de conexão.</p>
+<ul class="specs">
+<li>Microfone dinâmico cardioide</li>
+<li>USB e XLR</li>
+<li>Confira recursos disponíveis em cada conexão</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Interface e cabo XLR devem entrar no planejamento. Mute, RGB e controles do microfone não funcionam da mesma forma em XLR; confira o manual.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0BMFQP2ZZ?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>USB permite uso direto em um computador compatível; XLR abre uma rota com interface de áudio. Essa flexibilidade é o diferencial da seleção, sem promessa de som superior em todo ambiente.</p>
+<h4>Quando não escolher</h4>
+<p>Interface e cabo XLR devem entrar no planejamento. Mute, RGB e controles do microfone não funcionam da mesma forma em XLR; confira o manual.</p>
+<h4>Quando o preço compensa</h4>
+<p>O adicional compensa se você vai usar a flexibilidade de conexão. Se ficar apenas no USB básico, compare o custo com o SoloCast.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#solocast">HyperX SoloCast</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> AM8 preto, base e cabo USB.</p>
+<p class="source-links">
+<a href="https://fifinemicrophone.com/products/fifine-ampligame-am8-microphone" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="quadcast-2s" data-asin="B0DG9X4WHW" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0DG9X4WHW?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver HyperX QuadCast 2 S na Amazon">
+<img src="https://m.media-amazon.com/images/I/71yLcw8yj6L._AC_SL1500_.jpg" alt="HyperX QuadCast 2 S: QuadCast 2 S preto" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para padrões de captação e iluminação configurável</span>
+<h3>HyperX QuadCast 2 S</h3>
+<p>Quem cria conteúdo com cenários de captação variados e valoriza a personalização visual.</p>
+<ul class="specs">
+<li>Quatro padrões polares</li>
+<li>USB-C e saída de fones</li>
+<li>Iluminação aRGB configurável</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não escolha apenas pelo número de bits ou kHz. Plataforma, configuração e ambiente limitam o benefício audível; ainda é necessário posicionar o microfone corretamente.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0DG9X4WHW?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Os quatro padrões polares ampliam as configurações de uso. A iluminação e a resolução digital são recursos, mas não provam que sua transmissão terá áudio melhor que com uma opção mais simples.</p>
+<h4>Quando não escolher</h4>
+<p>Não escolha apenas pelo número de bits ou kHz. Plataforma, configuração e ambiente limitam o benefício audível; ainda é necessário posicionar o microfone corretamente.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare com o QuadCast 2: se você não precisa da personalização adicional, a diferença de preço pode render mais em suporte ou tratamento do ambiente.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#quadcast-2">HyperX QuadCast 2</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> QuadCast 2 S preto.</p>
+<p class="source-links">
+<a href="https://hyperx.com/products/hyperx-quadcast-2-s-usb-microphone" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="quadcast-2" data-asin="B0D9MCK4R8" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0D9MCK4R8?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver HyperX QuadCast 2 na Amazon">
+<img src="https://m.media-amazon.com/images/I/71qTtU45xSL._AC_SL1500_.jpg" alt="HyperX QuadCast 2: QuadCast 2 preto" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para alternar padrões de captação em USB</span>
+<h3>HyperX QuadCast 2</h3>
+<p>Quem precisa mudar a captação conforme grava sozinho ou com outras pessoas.</p>
+<ul class="specs">
+<li>Quatro padrões polares</li>
+<li>USB-C e saída de fones</li>
+<li>Controle de mute e botão multifunção</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Para uma única voz em posição estável, parte dessa flexibilidade pode ficar sem uso. Verifique as conexões e os controles de monitoração necessários.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0D9MCK4R8?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Os quatro padrões e o controle no próprio microfone ajudam a adaptar a operação. Padrão selecionável não elimina ecos nem substitui o posicionamento adequado.</p>
+<h4>Quando não escolher</h4>
+<p>Para uma única voz em posição estável, parte dessa flexibilidade pode ficar sem uso. Verifique as conexões e os controles de monitoração necessários.</p>
+<h4>Quando o preço compensa</h4>
+<p>Faz sentido frente ao 2 S quando você quer os padrões de captação sem pagar pela personalização adicional. Compare também com opções USB mais simples.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#quadcast-2s">HyperX QuadCast 2 S</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> QuadCast 2 preto.</p>
+<p class="source-links">
+<a href="https://hyperx.com/products/hyperx-quadcast-2-usb-microphone" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="wave-dx" data-asin="B0B8GRCXB6" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0B8GRCXB6?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Elgato Wave DX na Amazon">
+<img src="https://m.media-amazon.com/images/I/71MPyIUvr8L._AC_SL1500_.jpg" alt="Elgato Wave DX: Wave DX dinâmico XLR, preto, 10MAH9901" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para quem já planeja uma cadeia XLR</span>
+<h3>Elgato Wave DX</h3>
+<p>Quem usa ou pretende montar interface, cabo e suporte para um microfone dinâmico.</p>
+<ul class="specs">
+<li>Microfone dinâmico cardioide</li>
+<li>Conexão XLR</li>
+<li>Exige interface, cabo e suporte</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não conecta diretamente a uma porta USB. Interface de áudio, cabo XLR e suporte ou braço são necessários para o uso planejado.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0B8GRCXB6?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A conexão XLR permite integrá-lo a uma cadeia de áudio compatível. A comparação com um USB precisa considerar o sistema completo, não apenas o preço do microfone.</p>
+<h4>Quando não escolher</h4>
+<p>Não conecta diretamente a uma porta USB. Interface de áudio, cabo XLR e suporte ou braço são necessários para o uso planejado.</p>
+<h4>Quando o preço compensa</h4>
+<p>Faz mais sentido se você já tem os acessórios adequados. Para começar do zero com orçamento restrito, compare o custo completo com SoloCast ou AM8.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#fifine-am8">FIFINE AmpliGame AM8</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Wave DX dinâmico XLR, preto, 10MAH9901.</p>
+<p class="source-links">
+<a href="https://www.reddit.com/r/elgato/comments/xrb0s7/introducing_elgato_wave_dx_incredible_sound_right/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="elgato-4ks" data-asin="B0FFTFYGLV" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0FFTFYGLV?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Elgato Game Capture 4K S na Amazon">
+<img src="https://m.media-amazon.com/images/I/51n-AAn1UBL._AC_SL1500_.jpg" alt="Elgato Game Capture 4K S: Game Capture 4K S preto, 10GBR9901" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para capturar uma fonte HDMI compatível</span>
+<h3>Elgato Game Capture 4K S</h3>
+<p>Quem precisa levar vídeo de um console ou outra fonte HDMI compatível para uma gravação no computador.</p>
+<ul class="specs">
+<li>Captura de até 4K60</li>
+<li>USB-C 3.2 Gen 1</li>
+<li>Entrada e saída HDMI 2.0</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não resolve gargalo de um computador que já grava seu próprio jogo. Confira os requisitos completos, modos HDR/VRR e restrições da fonte antes da compra.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0FFTFYGLV?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A função é capturar vídeo externo; a ficha informa captura de até 4K60. Resolução disponível depende do sinal, da conexão e dos requisitos do computador e do software.</p>
+<h4>Quando não escolher</h4>
+<p>Não resolve gargalo de um computador que já grava seu próprio jogo. Confira os requisitos completos, modos HDR/VRR e restrições da fonte antes da compra.</p>
+<h4>Quando o preço compensa</h4>
+<p>Só inclua a placa quando houver uma fonte externa para capturar. Para começar transmitindo no mesmo PC, ela pode ser um gasto desnecessário.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Game Capture 4K S preto, 10GBR9901.</p>
+<p class="source-links">
+<a href="https://www.elgato.com/us/en/p/game-capture-4k-s" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="stream-deck-mini" data-asin="B07DYRS1WH" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B07DYRS1WH?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Elgato Stream Deck Mini na Amazon">
+<img src="https://m.media-amazon.com/images/I/61w+a4IDpsL._AC_SL1500_.jpg" alt="Elgato Stream Deck Mini: Mini preto, seis teclas LCD, 10GAI9901" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para poucos atalhos físicos frequentes</span>
+<h3>Elgato Stream Deck Mini</h3>
+<p>Quem quer seis teclas LCD para ações recorrentes em programas compatíveis.</p>
+<ul class="specs">
+<li>6 teclas LCD configuráveis</li>
+<li>Modelo 10GAI9901</li>
+<li>Verifique sistema e integrações</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Se precisa de muitas ações visíveis ao mesmo tempo, seis teclas podem exigir mudanças de página. Confira compatibilidade de sistema e integrações.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B07DYRS1WH?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>As teclas identificáveis podem reduzir a procura por comandos. O benefício depende de configurar ações que você realmente repete; o aparelho não automatiza sozinho a produção.</p>
+<h4>Quando não escolher</h4>
+<p>Se precisa de muitas ações visíveis ao mesmo tempo, seis teclas podem exigir mudanças de página. Confira compatibilidade de sistema e integrações.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare com atalhos de teclado que você já usa. O Mini faz sentido quando poucas ações físicas resolvem a rotina e custa menos que o MK.2.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#stream-deck-mk2">Elgato Stream Deck MK.2</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Mini preto, seis teclas LCD, 10GAI9901.</p>
+<p class="source-links">
+<a href="https://www.elgato.com/us/en/p/stream-deck-mini" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="stream-deck-mk2" data-asin="B09738CV2G" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B09738CV2G?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Elgato Stream Deck MK.2 na Amazon">
+<img src="https://m.media-amazon.com/images/I/61gtdFnK+UL._AC_SL1500_.jpg" alt="Elgato Stream Deck MK.2: MK.2 preto, quinze teclas LCD, 10GBA9901" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para quinze comandos à vista</span>
+<h3>Elgato Stream Deck MK.2</h3>
+<p>Quem trabalha com mais ações frequentes e quer reduzir a troca entre páginas de atalhos.</p>
+<ul class="specs">
+<li>15 teclas LCD configuráveis</li>
+<li>Versão MK.2 preta</li>
+<li>Integrações com programas compatíveis</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Ocupa espaço e exige definir suas ações. Não compre esperando corrigir limitações de áudio, vídeo ou desempenho do computador.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B09738CV2G?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>As 15 teclas oferecem acesso simultâneo a mais comandos que o Mini. Esse é o ganho central; a seleção não pressupõe aumento de produtividade sem configuração e uso recorrente.</p>
+<h4>Quando não escolher</h4>
+<p>Ocupa espaço e exige definir suas ações. Não compre esperando corrigir limitações de áudio, vídeo ou desempenho do computador.</p>
+<h4>Quando o preço compensa</h4>
+<p>O adicional sobre o Mini compensa quando seis teclas são uma limitação real. Se seu fluxo usa poucas ações, comece pela opção mais simples.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#stream-deck-mini">Elgato Stream Deck Mini</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> MK.2 preto, quinze teclas LCD, 10GBA9901.</p>
+<p class="source-links">
+<a href="https://www.elgato.com/us/en/p/stream-deck" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+</div>
+</section>
+<section class="section" id="casa-inteligente">
+<div class="section-head">
+<div>
+<div class="eyebrow">10 produtos</div>
+<h2>Casa Inteligente</h2>
+<p>Tomada, câmeras, iluminação, rede e Alexa.</p>
+</div>
+<a href="/casa-inteligente/">Como escolher neste nicho</a>
+</div>
+<div class="product-grid">
+<article class="product-card" id="positivo-ir" data-asin="B0FLYFQL5M" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0FLYFQL5M?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Positivo Smart Controle Universal Wi-Fi na Amazon">
+<img src="https://m.media-amazon.com/images/I/410xwJzQRAL._AC_SL1200_.jpg" alt="Positivo Smart Controle Universal Wi-Fi: Preto; controle infravermelho com conexão Wi-Fi 2,4 GHz" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para reunir comandos infravermelhos</span>
+<h3>Positivo Smart Controle Universal Wi-Fi</h3>
+<p>Quem quer controlar aparelhos com infravermelho, como uma TV compatível, pelo aplicativo ou assistente.</p>
+<ul class="specs">
+<li>Controle de aparelhos infravermelhos pelo aplicativo</li>
+<li>Compatível com comandos por Alexa e Google Assistente</li>
+<li>Rede Wi-Fi 2,4 GHz; recomendado um controle por ambiente</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confira o suporte ao modelo do aparelho e o alcance no ambiente. Infravermelho não atravessa paredes; planeje a posição e siga a orientação do fabricante.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0FLYFQL5M?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Ele envia comandos infravermelhos; sua função é diferente da tomada que corta energia. A seleção atende quem precisa de comandos como ligar, volume ou modos compatíveis.</p>
+<h4>Quando não escolher</h4>
+<p>Confira o suporte ao modelo do aparelho e o alcance no ambiente. Infravermelho não atravessa paredes; planeje a posição e siga a orientação do fabricante.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare o custo por ambiente. Uma unidade não deve ser comprada esperando controlar todos os cômodos, e um aparelho já inteligente pode dispensar esse acessório.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#smart-plug-max">Positivo Smart Plug Max</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Preto; controle infravermelho com conexão Wi-Fi 2,4 GHz.</p>
+<p class="source-links">
+<a href="https://www.positivocasainteligente.com.br/smart-controle-universal" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="smart-plug-max" data-asin="B0BNSVWWDR" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B0BNSVWWDR?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Positivo Smart Plug Max na Amazon">
+<img src="https://m.media-amazon.com/images/I/51OHIk6OS1L._AC_SL1000_.jpg" alt="Positivo Smart Plug Max: Smart Plug Max Wi-Fi, até 16 A" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para automatizar um aparelho compatível</span>
+<h3>Positivo Smart Plug Max</h3>
+<p>Quem quer ligar e desligar remotamente um equipamento que aceita esse tipo de acionamento.</p>
+<ul class="specs">
+<li>Wi-Fi 2,4 GHz</li>
+<li>Até 16 A, conforme especificação</li>
+<li>Confira tomada e carga do aparelho</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> O encaixe físico e a carga elétrica precisam ser compatíveis. Não use adaptador improvisado, não trate o limite de corrente como autorização para qualquer carga e siga o manual.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B0BNSVWWDR?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A utilidade está no controle de energia de um aparelho compatível. Ele não adiciona comandos internos ao equipamento nem garante que um aparelho com botão eletrônico volte a funcionar depois de receber energia.</p>
+<h4>Quando não escolher</h4>
+<p>O encaixe físico e a carga elétrica precisam ser compatíveis. Não use adaptador improvisado, não trate o limite de corrente como autorização para qualquer carga e siga o manual.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare a função que você vai usar, a instalação necessária e o custo final. Automação conveniente não é, por si só, garantia de economia na conta de energia.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Smart Plug Max Wi-Fi, até 16 A.</p>
+<p class="source-links">
+<a href="https://www.positivocasainteligente.com.br/smart-plug" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="tapo-c200" data-asin="B07XLML2YS" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B07XLML2YS?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link Tapo C200 na Amazon">
+<img src="https://m.media-amazon.com/images/I/41WQe9NiU6L._AC_SL1000_.jpg" alt="TP-Link Tapo C200: Câmera interna branca; Full HD 1080p; pan/tilt 360°" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para acompanhar um ambiente em Full HD</span>
+<h3>TP-Link Tapo C200</h3>
+<p>Quem precisa de uma câmera interna com rotação e áudio bidirecional.</p>
+<ul class="specs">
+<li>Vídeo Full HD 1080p</li>
+<li>Áudio bidirecional e visão noturna</li>
+<li>Monitoramento pelo aplicativo Tapo</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não a escolha para exposição externa sem proteção apropriada. Confirme revisão do hardware, opções de gravação e custos de armazenamento.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B07XLML2YS?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A C200 cobre o recorte de monitoramento interno em 1080p. A rotação permite mudar o enquadramento; não significa ver todas as direções ao mesmo tempo.</p>
+<h4>Quando não escolher</h4>
+<p>Não a escolha para exposição externa sem proteção apropriada. Confirme revisão do hardware, opções de gravação e custos de armazenamento.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare com a C210. Se a diferença for pequena e mais resolução ajudar na sua cena, a C210 merece atenção; caso contrário, a C200 pode bastar.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#tapo-c210">TP-Link Tapo C210</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Câmera interna branca; Full HD 1080p; pan/tilt 360°.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/cloud-camera/tapo-c200/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="tapo-c210" data-asin="B095CLQ1PT" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B095CLQ1PT?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link Tapo C210 na Amazon">
+<img src="https://m.media-amazon.com/images/I/61cwy9wee6L._AC_SL1500_.jpg" alt="TP-Link Tapo C210: Câmera interna branca; resolução 2K 3MP; rotação 360°" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para mais resolução no monitoramento interno</span>
+<h3>TP-Link Tapo C210</h3>
+<p>Quem quer comparar uma câmera de 3 MP com alternativas Full HD.</p>
+<ul class="specs">
+<li>Resolução 2K de 3 megapixels</li>
+<li>Rotação 360° e áudio bidirecional</li>
+<li>Visão noturna de até 9 metros</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> O alcance e o resultado dependem da instalação. Confira a versão entregue e não trate a câmera interna como modelo externo.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B095CLQ1PT?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A resolução documentada é o avanço concreto sobre a C200 nesta seleção. Mais pixels não garantem melhor identificação em toda iluminação ou distância.</p>
+<h4>Quando não escolher</h4>
+<p>O alcance e o resultado dependem da instalação. Confira a versão entregue e não trate a câmera interna como modelo externo.</p>
+<h4>Quando o preço compensa</h4>
+<p>Pague a diferença sobre a C200 quando o detalhe adicional for útil na área observada. Inclua cartão ou serviço de armazenamento no custo.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#tapo-c200">TP-Link Tapo C200</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Câmera interna branca; resolução 2K 3MP; rotação 360°.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/cloud-camera/tapo-c210/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="tapo-l530e" data-asin="B08GDC99PX" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B08GDC99PX?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link Tapo L530E na Amazon">
+<img src="https://m.media-amazon.com/images/I/61siYI8yfKL._AC_SL1000_.jpg" alt="TP-Link Tapo L530E: Lâmpada Wi-Fi multicolorida E27; 806 lúmens" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para luz ajustável em um soquete E27</span>
+<h3>TP-Link Tapo L530E</h3>
+<p>Quem quer controlar cor e brilho de uma lâmpada pelo aplicativo, sem hub adicional.</p>
+<ul class="specs">
+<li>Soquete E27 e conexão Wi-Fi 2,4 GHz</li>
+<li>Cores, brilho e temperatura ajustáveis pelo aplicativo Tapo</li>
+<li>Compatível com Alexa e Google Home; sem hub adicional</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confira alimentação e espaço na luminária. O interruptor precisa permitir que a lâmpada continue alimentada para receber comandos.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B08GDC99PX?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Ela concentra a mudança na lâmpada: cores, brilho e comandos compatíveis. Isso pode simplificar uma instalação quando o soquete E27 e a rede atendem.</p>
+<h4>Quando não escolher</h4>
+<p>Confira alimentação e espaço na luminária. O interruptor precisa permitir que a lâmpada continue alimentada para receber comandos.</p>
+<h4>Quando o preço compensa</h4>
+<p>Uma única lâmpada pode resolver um ponto de luz. Compare com fita LED apenas se o objetivo for luz indireta distribuída; são usos diferentes.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#tapo-l920">TP-Link Tapo L920-5</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Lâmpada Wi-Fi multicolorida E27; 806 lúmens.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/smart-bulb/tapo-l530e/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="tapo-l920" data-asin="B09FSTVWFF" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B09FSTVWFF?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link Tapo L920-5 na Amazon">
+<img src="https://m.media-amazon.com/images/I/51qeA2SV1tL._AC_SL1000_.jpg" alt="TP-Link Tapo L920-5: Fita LED Wi-Fi RGB endereçável; 5 metros" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para iluminação indireta de cinco metros</span>
+<h3>TP-Link Tapo L920-5</h3>
+<p>Quem quer efeitos de cor ao longo de uma superfície, como atrás da mesa ou em uma estante.</p>
+<ul class="specs">
+<li>Fita RGB endereçável de 5 metros</li>
+<li>Controle pelo aplicativo Tapo e efeitos de iluminação</li>
+<li>Compatível com Alexa e Google Assistente; sem hub adicional</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Meça o percurso e confira instalação, alimentação e instruções de corte. Não a trate como substituta automática de iluminação de trabalho.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B09FSTVWFF?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A fita RGB endereçável atende a um papel diferente de uma lâmpada central. Seu benefício é a distribuição da iluminação e os efeitos configuráveis.</p>
+<h4>Quando não escolher</h4>
+<p>Meça o percurso e confira instalação, alimentação e instruções de corte. Não a trate como substituta automática de iluminação de trabalho.</p>
+<h4>Quando o preço compensa</h4>
+<p>Pague pela extensão e pelos efeitos que você realmente vai usar. Para um único ponto de luz no teto ou abajur, a L530E pode fazer mais sentido.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#tapo-l530e">TP-Link Tapo L530E</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Fita LED Wi-Fi RGB endereçável; 5 metros.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/smart-bulb/tapo-l920-5/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="archer-c6" data-asin="B09CW3VLBX" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B09CW3VLBX?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link Archer C6 na Amazon">
+<img src="https://m.media-amazon.com/images/I/61wmctcN-hL._AC_SL1200_.jpg" alt="TP-Link Archer C6: Roteador preto; Wi-Fi dual band e portas Gigabit" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para rede dual band com portas Gigabit</span>
+<h3>TP-Link Archer C6</h3>
+<p>Quem quer um roteador ou ponto de acesso e consegue posicioná-lo para atender a área necessária.</p>
+<ul class="specs">
+<li>Rede Wi-Fi dual band</li>
+<li>Portas Gigabit e quatro antenas externas</li>
+<li>Modos roteador e ponto de acesso</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Paredes, posição e interferência mudam o resultado. Confira a revisão de hardware; não escolha por uma soma teórica de velocidades.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B09CW3VLBX?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>As portas Gigabit e os modos de operação são critérios documentados. A seleção não promete cobertura para qualquer casa nem melhora automática na conexão da operadora.</p>
+<h4>Quando não escolher</h4>
+<p>Paredes, posição e interferência mudam o resultado. Confira a revisão de hardware; não escolha por uma soma teórica de velocidades.</p>
+<h4>Quando o preço compensa</h4>
+<p>Antes de comprar mais equipamentos, teste uma posição melhor e conexão por cabo. Compare com Deco quando a necessidade for expansão com múltiplos pontos.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#deco-m4">TP-Link Deco M4 — 1 unidade</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Roteador preto; Wi-Fi dual band e portas Gigabit.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/wifi-router/archer-c6/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="deco-m4" data-asin="B07L44RHC2" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B07L44RHC2?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver TP-Link Deco M4 — 1 unidade na Amazon">
+<img src="https://m.media-amazon.com/images/I/41DmK89655L._AC_SL1324_.jpg" alt="TP-Link Deco M4 — 1 unidade: Uma unidade branca; Wi-Fi 5 Mesh AC1200" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para começar ou ampliar uma rede Deco</span>
+<h3>TP-Link Deco M4 — 1 unidade</h3>
+<p>Quem procura uma unidade Deco M4 para uma instalação compatível.</p>
+<ul class="specs">
+<li>Uma unidade Deco M4, conforme título e descrição do anúncio</li>
+<li>Sistema mesh expansível com outras unidades Deco</li>
+<li>Wi-Fi dual band e conexões Gigabit</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não compre supondo que receberá duas ou três unidades. Planeje posição e conexão entre os pontos antes de esperar melhora de cobertura.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B07L44RHC2?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>Este anúncio é de uma unidade. A proposta expansível permite adicionar outros pontos compatíveis, mas uma unidade sozinha não oferece a cobertura de um kit distribuído.</p>
+<h4>Quando não escolher</h4>
+<p>Não compre supondo que receberá duas ou três unidades. Planeje posição e conexão entre os pontos antes de esperar melhora de cobertura.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare o preço por unidade e o valor de kits completos. Se você já sabe que precisa de vários pontos, o anúncio unitário pode não ser o melhor custo total.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#archer-c6">TP-Link Archer C6</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Uma unidade branca; Wi-Fi 5 Mesh AC1200.</p>
+<p class="source-links">
+<a href="https://www.tp-link.com/br/home-networking/deco/deco-m4/" target="_blank" rel="noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="echo-pop" data-asin="B09WXVH7WK" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B09WXVH7WK?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Amazon Echo Pop — preto na Amazon">
+<img src="https://m.media-amazon.com/images/I/81kPAyJJb1L._AC_SL1500_.jpg" alt="Amazon Echo Pop — preto: Smart speaker compacto; cor preta" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para começar com comandos Alexa</span>
+<h3>Amazon Echo Pop — preto</h3>
+<p>Quem quer um speaker compacto para comandos, timers e música em uma rotina simples.</p>
+<ul class="specs">
+<li>Alexa integrada para música, timers e comandos</li>
+<li>Controle de dispositivos de casa inteligente compatíveis</li>
+<li>Conexão Bluetooth e botão para desligar o microfone</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Confira os serviços e dispositivos que pretende usar. O acesso por voz não garante compatibilidade universal com todo aparelho inteligente.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B09WXVH7WK?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>A seleção prioriza o acesso à Alexa e o controle de dispositivos compatíveis. Não afirmamos superioridade sonora nem resultado igual em qualquer tamanho de ambiente.</p>
+<h4>Quando não escolher</h4>
+<p>Confira os serviços e dispositivos que pretende usar. O acesso por voz não garante compatibilidade universal com todo aparelho inteligente.</p>
+<h4>Quando o preço compensa</h4>
+<p>Compare o preço final com o Echo Dot. Se você não vai usar os recursos adicionais do Dot, o Pop pode atender com menor gasto.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#echo-dot">Amazon Echo Dot — preto</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Smart speaker compacto; cor preta.</p>
+<p class="source-links">
+<a href="https://www.amazon.com.br/dp/B09WXVH7WK?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+<article class="product-card" id="echo-dot" data-asin="B09B8VGCR8" data-merchant-state="active">
+<a class="product-photo" href="https://www.amazon.com.br/dp/B09B8VGCR8?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank" aria-label="Ver Amazon Echo Dot — preto na Amazon">
+<img src="https://m.media-amazon.com/images/I/71xoR4A6q-L._AC_SL1000_.jpg" alt="Amazon Echo Dot — preto: Smart speaker esférico; cor preta; sensor interno de temperatura" loading="lazy" width="600" height="450">
+</a>
+<div class="product-copy">
+<span class="role">Para rotinas com sensor de temperatura</span>
+<h3>Amazon Echo Dot — preto</h3>
+<p>Quem quer comandos Alexa e vê utilidade em automatizações compatíveis baseadas em temperatura.</p>
+<ul class="specs">
+<li>Alexa integrada e reprodução por Bluetooth</li>
+<li>Rotinas com dispositivos compatíveis e sensor interno de temperatura</li>
+<li>Botão para desligar o microfone</li>
+</ul>
+<p class="verdict">
+<b>Atenção:</b> Não o confunda com um controlador universal de qualquer eletrodoméstico. Sensor e comando por voz não substituem a compatibilidade do conjunto.</p>
+<a class="cta" href="https://www.amazon.com.br/dp/B09B8VGCR8?tag=cortexofertas-20" rel="sponsored nofollow noopener" target="_blank">Consultar preço na Amazon</a>
+<small class="disclosure">Publicidade · link de afiliado. Confira preço, variante, frete e vendedor.</small>
+<details>
+<summary>Por que escolhemos e quando evitar</summary>
+<div class="detail-body">
+<h4>Nossa análise</h4>
+<p>O sensor interno é um motivo concreto para compará-lo com o Echo Pop. Uma rotina precisa de dispositivos compatíveis para executar a ação desejada.</p>
+<h4>Quando não escolher</h4>
+<p>Não o confunda com um controlador universal de qualquer eletrodoméstico. Sensor e comando por voz não substituem a compatibilidade do conjunto.</p>
+<h4>Quando o preço compensa</h4>
+<p>O adicional sobre o Pop faz sentido se o sensor e os outros recursos entrarem no seu uso. Comprar por uma função que ficará desativada reduz o valor da escolha.</p>
+<p>
+<strong>Compare também:</strong> <a href="/recomendados/#echo-pop">Amazon Echo Pop — preto</a>.</p>
+<p class="variant">
+<strong>Versão desta seleção:</strong> Smart speaker esférico; cor preta; sensor interno de temperatura.</p>
+<p class="source-links">
+<a href="https://www.amazon.com.br/dp/B09B8VGCR8?tag=cortexofertas-20" target="_blank" rel="sponsored nofollow noopener">Fonte do produto</a>
+<a href="/metodologia.html">Entenda nossa avaliação</a>
+</p>
+<small class="disclosure">Curadoria documental revista em 08/09/2026. Sem teste próprio deste produto. A oferta atual é confirmada no varejista.</small>
+</div>
+</details>
+</div>
+</article>
+</div>
+</section>
+</div>
+<section class="section">
+<h2>Está em dúvida entre duas opções?</h2>
+<p>Veja o que muda no uso, a limitação de cada modelo e quando o adicional de preço se justifica.</p>
+<a href="/comparativos/">Abrir comparações lado a lado</a>
+</section>
+<section class="section">
+<h2>Continue a pesquisa por uso</h2>
+<div class="reading">
+<a href="/guias/">
+<img class="context-photo" data-editorial-photo="home" src="https://images.unsplash.com/photo-1762096070873-63e82ab143ca?auto=format&amp;fit=crop&amp;w=1800&amp;q=86" alt="Fotografia editorial de contexto: Planeje antes de comprar" loading="lazy">Planeje antes de comprar<span>Leia os critérios e explore as escolhas.</span>
+</a>
+<a href="/setup-games/">
+<img class="context-photo" data-editorial-photo="gaming" src="https://images.unsplash.com/photo-1779452525134-bb7c08326179?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de contexto: Jogos e periféricos" loading="lazy">Jogos e periféricos<span>Leia os critérios e explore as escolhas.</span>
+</a>
+<a href="/casa-inteligente/">
+<img class="context-photo" data-editorial-photo="home_automation" src="https://images.unsplash.com/photo-1772475329864-e30a2f1278c0?auto=format&amp;fit=crop&amp;w=1500&amp;q=86" alt="Fotografia editorial de contexto: Casa inteligente" loading="lazy">Casa inteligente<span>Leia os critérios e explore as escolhas.</span>
+</a>
+</div>
+</section>
 </main>
-<footer id="transparencia"><p>Como associado da Amazon, eu ganho com compras qualificadas quando houver links comerciais identificados.</p><p><a href="../sobre.html">Sobre a Córtex</a> · <a href="../metodologia.html">Como avaliamos</a> · <a href="../transparencia.html">Transparência</a></p></footer>
+<footer>
+<div class="wrap">
+<nav aria-label="Rodapé">
+<a href="/sobre.html">Sobre a Córtex</a>
+<a href="/metodologia.html">Como avaliamos</a>
+<a href="/transparencia.html">Transparência</a>
+<a href="/politica-de-privacidade.html">Privacidade</a>
+<a href="/termos-de-uso.html">Termos</a>
+</nav>
+<p>Como associado da Amazon, eu ganho com compras qualificadas. Os links comerciais estão identificados. Preço, disponibilidade, frete e vendedor devem ser confirmados na Amazon.</p>
+</div>
+</footer>
 </body>
 </html>
