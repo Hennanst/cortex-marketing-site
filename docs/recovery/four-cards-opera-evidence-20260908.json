@@ -16,7 +16,7 @@
       "observed_identity": "C920s 1080p/30fps, autofocus, stereo microphones, privacy cover",
       "destination": "https://www.amazon.com.br/dp/B07K986YLL?tag=cortexofertas-20",
       "observed_page_image": "https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SX679_.jpg",
-      "installed_image": "https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SL1500_.jpg",
+      "installed_image": "https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SX679_.jpg",
       "method": "OPERA_AMAZON_AUTHORIZED",
       "verification": "Product page accessed in authenticated Opera; exact family resized URL opened successfully; intrinsic dimensions read from image tab title and screenshot inspected. Screenshot is evidence only, not installed asset.",
       "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA"
@@ -46,7 +46,7 @@
       "observed_identity": "24G4/P 24-inch180Hz IPS, adjustable height",
       "destination": "https://www.amazon.com.br/dp/B0DLPB4CH6?tag=cortexofertas-20",
       "observed_page_image": "https://m.media-amazon.com/images/I/71Qt-mok7UL._AC_SX679_.jpg",
-      "installed_image": "https://m.media-amazon.com/images/I/71Qt-mok7UL._AC_SL1500_.jpg",
+      "installed_image": "https://m.media-amazon.com/images/I/71Qt-mok7UL._AC_SL1400_.jpg",
       "method": "OPERA_AMAZON_AUTHORIZED",
       "verification": "Product page accessed in authenticated Opera; exact family resized URL opened successfully; intrinsic dimensions read from image tab title and screenshot inspected. Screenshot is evidence only, not installed asset.",
       "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA"
@@ -61,7 +61,7 @@
       "observed_identity": "24GS60F-B IPS FullHD180Hz,HDMI/DisplayPort",
       "destination": "https://www.amazon.com.br/dp/B0D8DPT7ZY?tag=cortexofertas-20",
       "observed_page_image": "https://m.media-amazon.com/images/I/61aIuJu0M0L._AC_SX679_.jpg",
-      "installed_image": "https://m.media-amazon.com/images/I/61aIuJu0M0L._AC_SL1500_.jpg",
+      "installed_image": "https://m.media-amazon.com/images/I/61aIuJu0M0L._AC_SL1400_.jpg",
       "method": "OPERA_AMAZON_AUTHORIZED",
       "verification": "Product page accessed in authenticated Opera; exact family resized URL opened successfully; intrinsic dimensions read from image tab title and screenshot inspected. Screenshot is evidence only, not installed asset.",
       "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA"
