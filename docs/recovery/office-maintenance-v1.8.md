@@ -241,3 +241,20 @@ inteiras no título mobile de Casa e instala a foto exata do Havit a partir da
 evidência Opera existente. O registro
 `visual-review-d4a6865-20260908.json` vincula SHA, run, artefato, decisão e
 correções. O novo SHA precisa de outro CI e revisão; d4a6865 não é release.
+
+## Cobertura visual dirigida pelo manifesto — 8 de setembro de 2026
+
+O sucessor `2df684098cfd21a3e121aa05f614f482937f1403` concluiu CI com
+sucesso no run 34246463661. O artefato 10064349436 registrou 28 capturas,
+sem imagens quebradas, erros JavaScript ou overflow. A revisão visual do
+implementador confirmou as três correções de d4a6865, mas não promove gate.
+
+A captura de recovery deixa de manter uma amostra manual de 14 rotas. Ela
+passa a derivar as rotas diretamente de `data/publication-manifest.json` e a
+exigir uma combinação única de cada rota pública nos viewports 390×844 e
+1440×900. Na superfície atual, isso significa 27 rotas e 54 capturas. O teste
+Node garante igualdade de conjuntos entre manifesto e QA, rejeita caminho
+inseguro e rota duplicada; erros de console também entram no resultado.
+
+A ampliação de cobertura exige CI e revisão do novo SHA. Não autoriza deploy,
+merge, aprovação de RG4–RG9, Tailwind ou retomada dos schedulers.

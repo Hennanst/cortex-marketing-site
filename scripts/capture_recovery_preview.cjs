@@ -3,15 +3,16 @@ const fs = require('node:fs');
 const path = require('node:path');
 const {spawn, execFileSync} = require('node:child_process');
 const {chromium} = require('playwright');
-const routes = ['/', '/setup-games/', '/trabalho-estudo/', '/creator-streaming/',
-  '/casa-inteligente/', '/guias/', '/comparativos/', '/recomendados/',
-  '/guia/melhor-webcam-para-stream.html', '/guia/melhor-headset-gamer-custo-beneficio.html',
-  '/guia/setup-gamer-custo-beneficio.html', '/guia/havit-h2002d-quando-faz-sentido.html',
-  '/guia/smart-plug-max-quando-faz-sentido.html', '/politica-de-privacidade.html'];
+const {loadPublicationRoutes} = require('./publication_routes.cjs');
+const routes = loadPublicationRoutes();
+const viewports = [{name:'mobile',width:390,height:844}, {name:'desktop',width:1440,height:900}];
 const output = path.resolve(process.env.CORTEX_QA_OUTPUT || '/tmp/cortex-preview-qa');
 const base = 'http://127.0.0.1:8765';
 const report = {sha: execFileSync('git', ['rev-parse', 'HEAD'], {encoding:'utf8'}).trim(),
-  status:'RUNNING', release_approved:false, coverage:`${routes.length} selected public routes; not a full-publication visual review`,
+  status:'RUNNING', release_approved:false,
+  coverage:`All ${routes.length} public routes from data/publication-manifest.json at ${viewports.length} viewports`,
+  manifest:{path:'data/publication-manifest.json',html:routes.length,viewports:viewports.length,
+    expectedCaptures:routes.length*viewports.length},
   pages:[], errors:[]};
 (async () => {
   fs.mkdirSync(output, {recursive:true});
@@ -26,12 +27,16 @@ const report = {sha: execFileSync('git', ['rev-parse', 'HEAD'], {encoding:'utf8'
     }
     if (!ready) throw new Error('Preview server did not become ready');
     browser = await chromium.launch();
-    for (const viewport of [{name:'mobile',width:390,height:844}, {name:'desktop',width:1440,height:900}]) {
+    for (const viewport of viewports) {
       const page = await browser.newPage({viewport:{width:viewport.width,height:viewport.height}});
       for (const [index,route] of routes.entries()) {
-        const record = {route,viewport:viewport.name,errors:[]};
+        const record = {route,viewport:viewport.name,errors:[],consoleErrors:[]};
         const onPageError = error => record.errors.push(error.message);
+        const onConsole = message => {
+          if (message.type()==='error') record.consoleErrors.push(message.text());
+        };
         page.on('pageerror', onPageError);
+        page.on('console', onConsole);
         try {
           const response = await page.goto(base+route,{waitUntil:'domcontentloaded',timeout:30000});
           if (!response?.ok()) record.errors.push(`HTTP ${response?.status()}`);
@@ -66,14 +71,20 @@ const report = {sha: execFileSync('git', ['rev-parse', 'HEAD'], {encoding:'utf8'
           record.screenshot=`${viewport.name}-${String(index).padStart(2,'0')}.png`;
           await page.screenshot({path:path.join(output,record.screenshot),fullPage:true,timeout:20000});
         } catch(error) {record.errors.push(error.message);}
-        finally {page.off('pageerror',onPageError);}
-        record.status = record.errors.length || record.overflow || record.brokenImages?.length ? 'REVISE':'CAPTURED_AWAITING_VISUAL_REVIEW';
+        finally {page.off('pageerror',onPageError); page.off('console',onConsole);}
+        record.status = record.errors.length || record.consoleErrors.length || record.overflow || record.brokenImages?.length
+          ? 'REVISE':'CAPTURED_AWAITING_VISUAL_REVIEW';
         report.pages.push(record);
         console.log(JSON.stringify(record));
       }
       await page.close();
     }
-    report.status=report.pages.some(p=>p.status==='REVISE')?'REVISE':'CAPTURED_AWAITING_VISUAL_REVIEW';
+    const observed = new Set(report.pages.map(page => `${page.viewport}:${page.route}`));
+    if (report.pages.length !== report.manifest.expectedCaptures || observed.size !== report.manifest.expectedCaptures) {
+      report.errors.push(`Manifest coverage mismatch: expected ${report.manifest.expectedCaptures}, observed ${observed.size}`);
+    }
+    report.status=report.errors.length ? 'FAILED'
+      : report.pages.some(p=>p.status==='REVISE') ? 'REVISE' : 'CAPTURED_AWAITING_VISUAL_REVIEW';
   } catch(error) {report.errors.push(error.message); report.status='FAILED';}
   finally {
     fs.writeFileSync(path.join(output,'report.json'),JSON.stringify(report,null,2)+'\n');

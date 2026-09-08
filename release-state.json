@@ -10,7 +10,9 @@
   "deployment_authorized": false,
   "schedulers": "PAUSED",
   "canonical_production": "https://cortex-ofertas.pages.dev",
-  "current_gate": "AWAITING_EXACT_SHA_CI_REVIEW",
-  "next_required_evidence": "CI preview evidence followed by independent mobile and desktop review",
-  "updated_at": "2026-09-08T00:00:00Z"
+  "preview_route_coverage": 27,
+  "preview_viewports": ["390x844", "1440x900"],
+  "current_gate": "AWAITING_FULL_MANIFEST_EXACT_SHA_CI_AND_INDEPENDENT_REVIEW",
+  "next_required_evidence": "Exact-SHA CI preview of all 27 public routes at two viewports, followed by independent visual and commercial review",
+  "updated_at": "2026-09-08T16:20:00Z"
 }

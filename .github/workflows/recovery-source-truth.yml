@@ -28,8 +28,8 @@ jobs:
       - name: Regression tests for source, bundle and office state
         run: python3 -m unittest discover -s tests -v
 
-      - name: URL validation regressions
-        run: node --test tests/test_qa_urls.cjs
+      - name: URL and publication coverage regressions
+        run: node --test tests/*.cjs
 
       - name: RG source audit — fail closed
         run: python3 scripts/recovery_source_truth_guard.py --source-only --report /tmp/cortex-source-audit.json
@@ -57,7 +57,7 @@ jobs:
 
   preview-evidence:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - name: Checkout exact candidate
         uses: actions/checkout@v6
@@ -69,7 +69,7 @@ jobs:
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium
-      - name: Capture mobile and desktop and detect rendering defects
+      - name: Capture every public route in mobile and desktop
         run: node scripts/capture_recovery_preview.cjs
       - name: Preserve screenshots and observed failures
         if: always()
