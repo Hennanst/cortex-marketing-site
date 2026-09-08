@@ -1,0 +1,166 @@
+name: Validate exact-product visual manifest gate
+
+on:
+  push:
+    branches:
+      - feat/creators-api-visuals-20260905
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Syntax check
+        run: python3 -m py_compile scripts/validate_product_visual_manifest.py
+
+      - name: Positive exact-product manifest
+        run: |
+          cat > /tmp/category-assets.json <<'JSON'
+          {
+            "image_urls": [
+              "https://images.unsplash.com/category-hero.jpg"
+            ]
+          }
+          JSON
+          cat > /tmp/products.json <<'JSON'
+          {
+            "schema": "cortex.product-visuals.v1",
+            "products": [
+              {
+                "asin": "B07GPRWFC5",
+                "product_name": "Logitech G305 LIGHTSPEED",
+                "source_type": "amazon_creators_api",
+                "rights_basis": "Amazon Creators API / Associates Program Content",
+                "source_ref": "creators-api:GetItems:B07GPRWFC5",
+                "verified_at": "2026-09-05T00:00:00Z",
+                "destination_url": "https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20",
+                "image_url": "https://m.media-amazon.com/images/I/g305-exact.jpg",
+                "width": 1200,
+                "height": 1200
+              },
+              {
+                "asin": "B087CT8PWY",
+                "product_name": "Logitech G203 LIGHTSYNC",
+                "source_type": "manufacturer_explicit_permission",
+                "rights_basis": "Explicit written reuse permission recorded in source_ref",
+                "source_ref": "rights-record:example-g203",
+                "verified_at": "2026-09-05T00:00:00Z",
+                "destination_url": "https://www.amazon.com.br/dp/B087CT8PWY?tag=cortexofertas-20",
+                "image_url": "https://authorized.example.com/g203-exact.jpg",
+                "width": 1600,
+                "height": 1200
+              }
+            ]
+          }
+          JSON
+          python3 scripts/validate_product_visual_manifest.py \
+            /tmp/products.json \
+            --category-assets /tmp/category-assets.json \
+            --output /tmp/validated.json
+          grep -q '"status": "PASS"' /tmp/validated.json
+          grep -q '"asin": "B07GPRWFC5"' /tmp/validated.json
+          grep -q '"asin": "B087CT8PWY"' /tmp/validated.json
+
+      - name: Positive Amazon SiteStripe image-link manifest
+        run: |
+          cat > /tmp/sitestripe.json <<'JSON'
+          {
+            "schema": "cortex.product-visuals.v1",
+            "products": [
+              {
+                "asin": "B07GPRWFC5",
+                "product_name": "Logitech G305 LIGHTSPEED",
+                "source_type": "amazon_sitestripe_image_link",
+                "rights_basis": "Amazon Associates SiteStripe - Obter link: Imagem",
+                "source_ref": "sitestripe:B07GPRWFC5:generated-2026-09-05",
+                "verified_at": "2026-09-05T00:00:00Z",
+                "destination_url": "https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20",
+                "image_url": "https://m.media-amazon.com/images/I/g305-sitestripe-exact.jpg",
+                "width": 1000,
+                "height": 1000
+              }
+            ]
+          }
+          JSON
+          python3 scripts/validate_product_visual_manifest.py /tmp/sitestripe.json --output /tmp/sitestripe-pass.json
+          grep -q '"source_type": "amazon_sitestripe_image_link"' /tmp/sitestripe-pass.json
+
+      - name: Fail closed on invalid SiteStripe provenance
+        run: |
+          cp /tmp/sitestripe.json /tmp/bad-sitestripe.json
+          sed -i 's/sitestripe:B07GPRWFC5:generated-2026-09-05/manual-copy:B07GPRWFC5/' /tmp/bad-sitestripe.json
+          if python3 scripts/validate_product_visual_manifest.py /tmp/bad-sitestripe.json; then
+            echo 'validator incorrectly accepted unstructured SiteStripe provenance' >&2
+            exit 1
+          fi
+
+      - name: Fail closed on obsolete tag
+        run: |
+          cp /tmp/products.json /tmp/bad-tag.json
+          sed -i '0,/cortexofertas-20/s//hennanst-20/' /tmp/bad-tag.json
+          if python3 scripts/validate_product_visual_manifest.py /tmp/bad-tag.json; then
+            echo 'validator incorrectly accepted obsolete tag' >&2
+            exit 1
+          fi
+
+      - name: Fail closed on category/product image reuse
+        run: |
+          cat > /tmp/reused.json <<'JSON'
+          {
+            "schema": "cortex.product-visuals.v1",
+            "products": [
+              {
+                "asin": "B07GPRWFC5",
+                "product_name": "Logitech G305 LIGHTSPEED",
+                "source_type": "owner_supplied_original",
+                "rights_basis": "Owner supplied original exact-product photograph",
+                "source_ref": "owner-asset:g305-001",
+                "verified_at": "2026-09-05T00:00:00Z",
+                "destination_url": "https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20",
+                "image_url": "https://images.unsplash.com/category-hero.jpg",
+                "width": 1400,
+                "height": 1000
+              }
+            ]
+          }
+          JSON
+          if python3 scripts/validate_product_visual_manifest.py \
+            /tmp/reused.json --category-assets /tmp/category-assets.json; then
+            echo 'validator incorrectly accepted category/product image reuse' >&2
+            exit 1
+          fi
+
+      - name: Fail closed on low-resolution named-product visual
+        run: |
+          cat > /tmp/lowres.json <<'JSON'
+          {
+            "schema": "cortex.product-visuals.v1",
+            "products": [
+              {
+                "asin": "B07GPRWFC5",
+                "product_name": "Logitech G305 LIGHTSPEED",
+                "source_type": "owner_supplied_original",
+                "rights_basis": "Owner supplied original exact-product photograph",
+                "source_ref": "owner-asset:g305-002",
+                "verified_at": "2026-09-05T00:00:00Z",
+                "destination_url": "https://www.amazon.com.br/dp/B07GPRWFC5?tag=cortexofertas-20",
+                "image_url": "https://assets.example.com/g305-lowres.jpg",
+                "width": 500,
+                "height": 500
+              }
+            ]
+          }
+          JSON
+          if python3 scripts/validate_product_visual_manifest.py /tmp/lowres.json; then
+            echo 'validator incorrectly accepted low-resolution image' >&2
+            exit 1
+          fi
+
+      - name: Gate summary
+        run: echo 'G_IMG_01P_MANIFEST_STATIC_CHECK_PASS'
