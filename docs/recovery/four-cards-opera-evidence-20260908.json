@@ -1,0 +1,83 @@
+{
+  "account_code": "CO",
+  "tailwind_account_id": "1653454",
+  "producer_run": "CO-MAINT-20260908T000446037Z",
+  "observed_at": "2026-09-08T00:10:34.670Z",
+  "status": "AWAITING_INDEPENDENT_QA",
+  "production_changed": false,
+  "products": [
+    {
+      "asin": "B07K986YLL",
+      "product": "Logitech C920s preta",
+      "image_family": "61-6uAf8soL",
+      "width": 918,
+      "height": 1239,
+      "page": "guia/melhor-webcam-para-stream.html",
+      "observed_identity": "C920s 1080p/30fps, autofocus, stereo microphones, privacy cover",
+      "destination": "https://www.amazon.com.br/dp/B07K986YLL?tag=cortexofertas-20",
+      "observed_page_image": "https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SX679_.jpg",
+      "installed_image": "https://m.media-amazon.com/images/I/61-6uAf8soL._AC_SL1500_.jpg",
+      "method": "OPERA_AMAZON_AUTHORIZED",
+      "verification": "Product page accessed in authenticated Opera; exact family resized URL opened successfully; intrinsic dimensions read from image tab title and screenshot inspected. Screenshot is evidence only, not installed asset.",
+      "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA"
+    },
+    {
+      "asin": "B0C3BV19Q3",
+      "product": "HyperX Cloud III Wired preto/vermelho 727A9AA",
+      "image_family": "71pz2njkNRL",
+      "width": 1414,
+      "height": 1500,
+      "page": "guia/melhor-headset-gamer-custo-beneficio.html",
+      "observed_identity": "Wired 727A9AA; 53mm angled drivers,10mm microphone,USB-C/USB-A/3.5mm",
+      "destination": "https://www.amazon.com.br/dp/B0C3BV19Q3?tag=cortexofertas-20",
+      "observed_page_image": "https://m.media-amazon.com/images/I/71pz2njkNRL._AC_SX679_.jpg",
+      "installed_image": "https://m.media-amazon.com/images/I/71pz2njkNRL._AC_SL1500_.jpg",
+      "method": "OPERA_AMAZON_AUTHORIZED",
+      "verification": "Product page accessed in authenticated Opera; exact family resized URL opened successfully; intrinsic dimensions read from image tab title and screenshot inspected. Screenshot is evidence only, not installed asset.",
+      "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA"
+    },
+    {
+      "asin": "B0DLPB4CH6",
+      "product": "AOC 24G4/P",
+      "image_family": "71Qt-mok7UL",
+      "width": 1500,
+      "height": 1407,
+      "page": "guia/setup-gamer-custo-beneficio.html",
+      "observed_identity": "24G4/P 24-inch180Hz IPS, adjustable height",
+      "destination": "https://www.amazon.com.br/dp/B0DLPB4CH6?tag=cortexofertas-20",
+      "observed_page_image": "https://m.media-amazon.com/images/I/71Qt-mok7UL._AC_SX679_.jpg",
+      "installed_image": "https://m.media-amazon.com/images/I/71Qt-mok7UL._AC_SL1500_.jpg",
+      "method": "OPERA_AMAZON_AUTHORIZED",
+      "verification": "Product page accessed in authenticated Opera; exact family resized URL opened successfully; intrinsic dimensions read from image tab title and screenshot inspected. Screenshot is evidence only, not installed asset.",
+      "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA"
+    },
+    {
+      "asin": "B0D8DPT7ZY",
+      "product": "LG UltraGear 24GS60F-B",
+      "image_family": "61aIuJu0M0L",
+      "width": 906,
+      "height": 708,
+      "page": "guia/setup-gamer-custo-beneficio.html",
+      "observed_identity": "24GS60F-B IPS FullHD180Hz,HDMI/DisplayPort",
+      "destination": "https://www.amazon.com.br/dp/B0D8DPT7ZY?tag=cortexofertas-20",
+      "observed_page_image": "https://m.media-amazon.com/images/I/61aIuJu0M0L._AC_SX679_.jpg",
+      "installed_image": "https://m.media-amazon.com/images/I/61aIuJu0M0L._AC_SL1500_.jpg",
+      "method": "OPERA_AMAZON_AUTHORIZED",
+      "verification": "Product page accessed in authenticated Opera; exact family resized URL opened successfully; intrinsic dimensions read from image tab title and screenshot inspected. Screenshot is evidence only, not installed asset.",
+      "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA"
+    }
+  ],
+  "scope_limit": "SKU/image identity and source installation only. Does not approve all commercial claims, legacy corpus or public render.",
+  "limitations": [
+    "Opera new-tab navigation returned unchanged even though a tab later appeared; readback/reuse prevented repeated creation.",
+    "Transient connection errors resolved by one bounded retry; view-source not used after explicit URL block.",
+    "Existing monitor claims such as exact height range and response-time test conditions still require claims-gate review."
+  ],
+  "notices_replaced_in": [
+    "guia/como-montar-setup-gamer.html",
+    "guia/setup-gamer-custo-beneficio.html",
+    "guia/headset-gamer-com-ou-sem-fio.html",
+    "guia/setup-gamer-home-office-e-jogos.html",
+    "guia/melhor-headset-gamer-custo-beneficio.html"
+  ]
+}

@@ -38,6 +38,8 @@ FORBIDDEN_SOURCE_MARKERS = (
     "Card comercial intencionalmente sem imagem de produto",
     "Seleção comercial temporariamente indisponível",
     "Link de produto será ativado após a revalidação final da oferta",
+    "Opções comerciais em validação",
+    "Os links permanecem desativados nesta prévia",
 )
 
 FORBIDDEN_BUILD_BEHAVIORS = (
