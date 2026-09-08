@@ -1,20 +1,16 @@
 {
   "account_code": "CO",
   "tailwind_account_id": "1653454",
-  "mode": "premium_affiliate_release_candidate",
-  "commercial_links_enabled": true,
-  "routes": [
-    "/",
-    "/casa-inteligente/",
-    "/comparativos/",
-    "/creator-streaming/",
-    "/guias/",
-    "/recomendados/",
-    "/setup-games/",
-    "/trabalho-estudo/"
-  ],
-  "landings": 12,
-  "modules": 6,
-  "release_attempt": "2026-09-03T20:24:00-03:00",
-  "gate": "G6_DEPLOY_PARITY_RETRY"
+  "mode": "recovery_source_truth_candidate",
+  "publication_manifest": "data/publication-manifest.json",
+  "public_html_files": 27,
+  "quarantined_html_files": 757,
+  "commercial_links_present_in_candidate": true,
+  "release_approved": false,
+  "deployment_authorized": false,
+  "schedulers": "PAUSED",
+  "canonical_production": "https://cortex-ofertas.pages.dev",
+  "current_gate": "AWAITING_EXACT_SHA_CI_REVIEW",
+  "next_required_evidence": "CI preview evidence followed by independent mobile and desktop review",
+  "updated_at": "2026-09-08T00:00:00Z"
 }

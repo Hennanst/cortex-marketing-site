@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "reason": "UNVERIFIED_LEGACY_COMMERCIAL_OR_GENERATED_CONTENT",
+  "files": [
+    "analytics.html",
+    "ferramentas.html",
+    "monte-seu-setup.html"
+  ],
+  "patterns": [
+    "categoria/*.html",
+    "guias/*.html",
+    "review/*.html"
+  ],
+  "exceptions": [
+    "guias/index.html"
+  ],
+  "expected_html_count": 757,
+  "policy": "Retained in source for provenance and remediation; excluded from deploy until claims, identity, citations and visual evidence are independently reviewed."
+}

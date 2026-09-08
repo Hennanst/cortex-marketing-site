@@ -37,7 +37,7 @@ jobs:
       - name: Build publish bundle
         run: bash scripts/build_cloudflare_pages.sh
 
-      - name: LIVE_PARITY — source equals publish bundle
+      - name: LIVE_PARITY — reviewed publication manifest equals publish bundle
         run: python3 scripts/recovery_source_truth_guard.py --compare-dist
 
       - name: Preserve exact-SHA audit evidence
@@ -51,7 +51,8 @@ jobs:
       - name: Recovery invariant summary
         if: always()
         run: |
-          echo 'Córtex production invariant: SOURCE == BUILD INPUT == INTENDED DEPLOYED OUTPUT'
+          echo 'Córtex production invariant: REVIEWED PUBLICATION MANIFEST == BUILD INPUT == INTENDED DEPLOYED OUTPUT'
+          echo 'Every source HTML must be classified as public or quarantined; quarantine is never a PASS.'
           echo 'Buyer-facing visual/copy/merchant/canonical mutations are forbidden at build time.'
 
   preview-evidence:

@@ -6,3 +6,21 @@
 
 /assets/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/review/*
+  X-Robots-Tag: noindex, nofollow
+
+/categoria/*
+  X-Robots-Tag: noindex, nofollow
+
+/guias/*.html
+  X-Robots-Tag: noindex, nofollow
+
+/analytics.html
+  X-Robots-Tag: noindex, nofollow
+
+/ferramentas.html
+  X-Robots-Tag: noindex, nofollow
+
+/monte-seu-setup.html
+  X-Robots-Tag: noindex, nofollow

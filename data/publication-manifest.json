@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "invariant": "REVIEWED_PUBLICATION_MANIFEST_EQUALS_BUILD_OUTPUT",
+  "html": [
+    "casa-inteligente/index.html",
+    "comparativos/index.html",
+    "creator-streaming/index.html",
+    "guia/como-montar-setup-gamer.html",
+    "guia/havit-h2002d-quando-faz-sentido.html",
+    "guia/headset-gamer-com-ou-sem-fio.html",
+    "guia/headset-gamer-para-fps.html",
+    "guia/melhor-headset-gamer-custo-beneficio.html",
+    "guia/melhor-notebook-gamer-custo-beneficio.html",
+    "guia/melhor-webcam-para-stream.html",
+    "guia/notebook-gamer-ou-pc-gamer.html",
+    "guia/notebook-gamer-para-estudo-e-jogos.html",
+    "guia/setup-gamer-custo-beneficio.html",
+    "guia/setup-gamer-home-office-e-jogos.html",
+    "guia/setup-streaming-iniciante.html",
+    "guia/smart-plug-max-quando-faz-sentido.html",
+    "guia/webcam-1080p-ou-4k-para-streaming.html",
+    "guias/index.html",
+    "index.html",
+    "metodologia.html",
+    "politica-de-privacidade.html",
+    "recomendados/index.html",
+    "setup-games/index.html",
+    "sobre.html",
+    "termos-de-uso.html",
+    "trabalho-estudo/index.html",
+    "transparencia.html"
+  ],
+  "static": [
+    "_headers",
+    "robots.txt",
+    "sitemap.xml"
+  ]
+}

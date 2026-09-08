@@ -1,17 +1,22 @@
 # Córtex Ofertas — Migração para Cloudflare Pages
 
+> Runbook histórico. Cloudflare Pages é a origem canônica atual em
+> `https://cortex-ofertas.pages.dev`; Vercel não é fallback de publicação e
+> permanece apenas como legado/telemetria. Uma nova publicação continua sujeita
+> aos gates de recovery e não é autorizada por este documento.
+
 ## Objetivo
-Migrar a hospedagem pública da Córtex Ofertas para Cloudflare Pages sem desligar a Vercel antes da validação do novo ambiente.
+Registrar o fluxo usado para migrar a hospedagem pública da Córtex Ofertas para Cloudflare Pages.
 
 ## Arquitetura alvo
 GitHub (`Hennanst/cortex-marketing-site`) → GitHub Actions → Cloudflare Pages (`cortex-ofertas`) → domínio definitivo após QA.
 
 ## Estratégia
 - Direct Upload via Wrangler, acionado por GitHub Actions.
-- Preview antes do cutover.
-- Produção somente quando a branch `main` for implantada e o smoke test passar.
-- Vercel permanece como fallback durante a migração.
-- O pacote publicado exclui `.git`, `.github`, scripts operacionais e `release-state.json`.
+- Preview e revisão independente antes de produção.
+- Produção somente após autorização do SHA exato, implantação e smoke test.
+- O pacote publicado deriva de `data/publication-manifest.json`; todo HTML fora
+  dele precisa estar classificado na quarentena e não entra em `dist`.
 
 ## Secrets obrigatórios no GitHub
 No repositório, em Settings → Secrets and variables → Actions → Repository secrets:
@@ -21,17 +26,19 @@ No repositório, em Settings → Secrets and variables → Actions → Repositor
 
 O token Cloudflare deve ter, no mínimo, permissão **Account → Cloudflare Pages → Edit** para a conta escolhida.
 
-## Fluxo de primeira implantação
+## Fluxo histórico de primeira implantação
 1. Configurar os dois secrets acima.
 2. Abrir Actions → `Deploy Córtex to Cloudflare Pages`.
 3. Executar `Run workflow` na branch `migrate/cloudflare-pages-20260904` para criar/validar um preview.
 4. Validar Home, Setup & Games, imagens, links, disclosures e responsividade no `pages.dev`.
 5. Só depois integrar a branch em `main`.
 6. O push em `main` fará a implantação de produção e smoke test automático.
-7. Custom domain/canonical/DNS só devem ser alterados depois do Public Render Gate.
+7. Canonical/DNS só devem ser alterados depois do Public Render Gate.
 
 ## Rollback
-Enquanto o domínio definitivo não for apontado para Cloudflare, nenhuma mudança é necessária no ambiente Vercel. Se o Cloudflare falhar no QA, basta não concluir o cutover.
+Para uma candidata nova, não promover o SHA se Cloudflare ou a QA falharem. O
+rollback deve usar um artefato Cloudflare previamente aprovado; não redirecionar
+para a origem Vercel legada.
 
 ## Projeto Cloudflare
 Nome operacional sugerido: `cortex-ofertas`.

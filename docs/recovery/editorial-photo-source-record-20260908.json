@@ -1,0 +1,25 @@
+{
+  "schema": "cortex.editorial-photo-source-record.v1",
+  "account_code": "CO",
+  "status": "PORTED_TO_SOURCE_AWAITING_CURRENT_SHA_QA",
+  "ported_from": {
+    "branch": "feat/premium-category-visuals-20260905",
+    "candidate_record_commit": "3ebbb3a37f550aa73add08658d9a03903c21feaf",
+    "independent_review_record_commit": "fc10b484e51f03b0da6d7461683c54ea7c96d156",
+    "gate": "G-IMG-01C",
+    "decision": "PASS",
+    "reviewed_commit": "25024a0b07dc802cc77210fc82197c00629c14aa",
+    "cloudflare_preview_run": 33978661699,
+    "artifact_id": 9973090644,
+    "viewports": [
+      "390x844",
+      "1440x900"
+    ]
+  },
+  "implementation_change": "The same reviewed photo identities and URLs are now declared directly in buyer-facing source HTML; the build validator is read-only.",
+  "catalog": "data/editorial-visuals.json",
+  "license": "https://unsplash.com/license",
+  "scope": "Primary hero and category context photography only.",
+  "exclusions": "Exact named-product identity is a separate evidence gate; contextual photos cannot be used as product photos.",
+  "release_rule": "The current recovery SHA still requires its own CI capture and independent review. This record does not authorize merge, deploy, scheduler resume or acquisition."
+}

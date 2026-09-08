@@ -188,3 +188,41 @@ Diagnóstico local: a instalação do Chrome pelo agent-browser falhou com
 `invalid peer certificate: UnknownIssuer` ao consultar o catálogo de versões.
 A validação TLS foi preservada. O novo job executa em GitHub Actions, onde
 a dependência do navegador e seus erros ficam registrados.
+
+## Manifesto público, quarentena e fotos na fonte — 8 de setembro de 2026
+
+A candidata passa a distinguir acervo auditado de superfície publicável sem
+apagar histórico. Os 784 HTMLs continuam classificados: 27 páginas revisadas
+estão no manifesto público e 757 páginas antigas ficam em quarentena por claims
+comerciais ou texto gerado ainda sem evidência suficiente. Arquivo novo ou não
+classificado reprova o guard. Link de página pública para HTML em quarentena ou
+fora do manifesto também reprova.
+
+O build empacota apenas o manifesto público e dependências locais alcançáveis,
+sem transformar conteúdo. Na árvore atual são 36 arquivos: 27 HTMLs, três
+arquivos de infraestrutura e seis SVGs editoriais usados pelos guias. Reviews,
+categorias históricas, ferramentas, analytics e bases de reviews permanecem na
+fonte para proveniência, mas não entram em `dist`. A paridade passa a significar
+`MANIFESTO PÚBLICO REVISADO == BUILD`, enquanto a cobertura da auditoria continua
+explicitando as três contagens. Quarentena não representa revisão nem aprovação.
+
+O guard também rejeita preço, disponibilidade, rating, selo de frete e linguagem
+de experiência prática não comprovada nas páginas públicas. Os documentos de
+privacidade e termos foram reescritos para a superfície estática atual, sem o
+branding antigo ou scripts de publicidade e sem links para rotas em quarentena.
+
+As cinco fotografias que já haviam passado G-IMG-01C foram movidas para o HTML
+fonte, com catálogo de URL/função e validador read-only. Isso elimina a antiga
+mutação visual em `dist`; foto contextual com papel de produto exato reprova.
+O registro `editorial-photo-source-record-20260908.json` preserva commits, run,
+artefato e limites da revisão anterior. O SHA atual ainda exige capturas próprias
+em mobile e desktop e revisão independente antes de qualquer release.
+
+A QA de preview agora mede os limites de cada elemento visível, além de
+`scrollWidth`, para não considerar PASS quando `overflow-x:hidden` apenas esconde
+conteúdo cortado. A rota legada de review saiu da amostra; Havit, Smart Plug e a
+política de privacidade entraram. Os dois guias também passaram a ser encontráveis
+na biblioteca e no sitemap.
+
+Esta alteração não muda main, não publica produção, não reativa scheduler, não
+faz write no Tailwind e não libera aquisição.
