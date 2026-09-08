@@ -164,3 +164,13 @@ inclusive na tentativa de diagnóstico. Não houve aprovação visual nem deploy
 Foram observados atributos HTML antigos com aspas não escapadas em nomes de
 produtos; exigem revisão adicional. Os claims comerciais legados continuam
 pendentes de revisão de evidência. Schedulers permanecem pausados.
+
+## Atributos das imagens — correção de aspas
+
+Corrigidas 212 imagens em 63 páginas: aspas literais em medidas e nomes de
+produtos foram escapadas dentro do atributo `alt`, preservando o texto completo,
+o endereço da foto e o carregamento lazy. O manifesto
+`html-image-attributes-repair-20260908.json` contém hashes por página.
+O guard agora detecta atributos de imagem fragmentados e tem teste de regressão
+para medidas em polegadas. Dezesseis testes locais passaram. A revisão visual
+e de disponibilidade remota continua pendente; nenhum release foi autorizado.

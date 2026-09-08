@@ -1,0 +1,387 @@
+{
+  "base_commit": "6c1b8f6f22908eb92172b9099f2a9aaf4f0796aa",
+  "pages": 63,
+  "images": 212,
+  "operation": "escape_literal_double_quotes_in_alt_only",
+  "release_approved": false,
+  "records": [
+    {
+      "path": "categoria/armazenamento.html",
+      "images_repaired": 1,
+      "before_sha256": "ce19534130ad64d450bafec008ba8393ee5a511538416b041a3418338649f239",
+      "after_sha256": "4775604c0acc4be4a5b7a19a14ac61542c2116e890fa9ee53f24f4b3708630d4"
+    },
+    {
+      "path": "categoria/monitores-gamer.html",
+      "images_repaired": 12,
+      "before_sha256": "3296103640bb42b8ac7ab9ba03a065abde8ac115c5f27c8d5b644855297a3c54",
+      "after_sha256": "9852915b95525cdcbaa9a9fcda89f7fd035df7ade8c57776d8c99798a4abe29b"
+    },
+    {
+      "path": "categoria/notebooks-gamer.html",
+      "images_repaired": 8,
+      "before_sha256": "08ad2ac250175f12e66ec48c76d672a4bff2f55abf2860685e93bcc7656aaf8a",
+      "after_sha256": "6327b99260ecf0d3a4e1d5341211a0cbd991f4236c754fdcb04280876554e8e0"
+    },
+    {
+      "path": "categoria/placas-de-video.html",
+      "images_repaired": 1,
+      "before_sha256": "8f55b656645fdd41861ed6b180fb91d961532a5a7dcef0cfbb74df733df2b16b",
+      "after_sha256": "4ba9a6ed625867ce20b0986650db6c8dc4d3bec44b448a1ca9f9ff0a297a6dc9"
+    },
+    {
+      "path": "categoria/processadores.html",
+      "images_repaired": 6,
+      "before_sha256": "d4d8c1cef8e18009b6ac50ae9182c88081057951189e328e39c73af88ea2a554",
+      "after_sha256": "1158e25ccf09a6f5b28532952b14a8221e220d6725be20ff3558516ffb302e7d"
+    },
+    {
+      "path": "categoria/streaming.html",
+      "images_repaired": 1,
+      "before_sha256": "2f003e4089a7950031a514970c0739c8c8f42d4dfb3b6a6d53d7f2a1a68d92fc",
+      "after_sha256": "35a4cbd294fe4372f952aea50bd1e40beca6548a81ff3aaa61d35139db2713df"
+    },
+    {
+      "path": "monte-seu-setup.html",
+      "images_repaired": 7,
+      "before_sha256": "8f46a03985f1d464a9b72554587865f13b1b54182a0298b41f163e248850b596",
+      "after_sha256": "76358eb7e2b6b5cd0a7d19447c1c4f256d9e2a78e1cc12063cf0df1dd432f3b7"
+    },
+    {
+      "path": "review/B01EMXO3DK.html",
+      "images_repaired": 1,
+      "before_sha256": "937a8a84270f87897568b946b90379c2fe2320898deb15c8be486cc160d99424",
+      "after_sha256": "9e0246dccc4dee7490ca6f6e6b36c1cc23d1a61067d358413f6d02c11c09b173"
+    },
+    {
+      "path": "review/B0842XB4BN.html",
+      "images_repaired": 1,
+      "before_sha256": "9757dfbbc200f13e99ed11bff3c2cdbb1d84c667ccb04ee566d4b05c8418dd14",
+      "after_sha256": "13ff93ece14f69fb1b4409ccf04671094e0026c3d10bf95df211a7ef7fb78a03"
+    },
+    {
+      "path": "review/B089DMRD2Y.html",
+      "images_repaired": 1,
+      "before_sha256": "8be7abb6f5862c3c80978bc2e1c3004ddd480098aba621f518367b37d9095b51",
+      "after_sha256": "db2a1c9d4e12233184fd261771a788e22d8cb2048f4f47b7e8b6122271cf79fb"
+    },
+    {
+      "path": "review/B08B3JBDJ6.html",
+      "images_repaired": 1,
+      "before_sha256": "25b147b19ee0e9847e6f0556ce603b8d16db752bb1d210977dd045fab538cd42",
+      "after_sha256": "27a26199ad766c9ee553fab98ea406f77bdc546dc2b79892b6fe039f789e4ed9"
+    },
+    {
+      "path": "review/B08LKGMLMF.html",
+      "images_repaired": 1,
+      "before_sha256": "6b8a88088ac51df5ee084fb87f51c79127a42183e899c698e493cc6e2292f74c",
+      "after_sha256": "e0f8dd6e9cff8599f7eba6503dd7fb7271b7a818c4a54249068b3af390fe9b54"
+    },
+    {
+      "path": "review/B08QBJ2YMG.html",
+      "images_repaired": 1,
+      "before_sha256": "d97c1de37bdb8ecd3e0a42f3a92d919c5c855028666192a6b869431f9dcdd036",
+      "after_sha256": "c40a24aa0fdff60ebdf35ba750606f4b5606e9c46c8da1703206025d04e97f02"
+    },
+    {
+      "path": "review/B08TQGCYMB.html",
+      "images_repaired": 4,
+      "before_sha256": "3802cd6188b7b5ec97c07697cb7780d287425a93c831f2ec69e29949291a9cdb",
+      "after_sha256": "a3b5b31f08a9689058911a4f97c99cc8948c1cf84320ad7834994df3a7358fb6"
+    },
+    {
+      "path": "review/B096B3PBFZ.html",
+      "images_repaired": 5,
+      "before_sha256": "cf171f0edf6f5d2f89b9096a34f3540e1e54e2cebc97fe9ad268b3721e965d59",
+      "after_sha256": "7975cf11c7119486d80a87bbeea3bd37ee4e568a99fe95308cbb015a9e7b2482"
+    },
+    {
+      "path": "review/B096WGMXG2.html",
+      "images_repaired": 4,
+      "before_sha256": "c150ee5e3b38b420610343ad348182cb5cd5253520ca5a37d3ca0f715b2e2e79",
+      "after_sha256": "6366700ced55a4825f4e5585438381d734748383529d23c3313298bbffccd2f0"
+    },
+    {
+      "path": "review/B09BJVZVTB.html",
+      "images_repaired": 5,
+      "before_sha256": "467b4c5ff6feb7833303d14a34dee9e448f95bcf766590ebe2ae3787ef6eb9ca",
+      "after_sha256": "311dfef42ccd353bcf807791dc95a6c6601f0ce7563385fc6483fc71c30a4689"
+    },
+    {
+      "path": "review/B09GP7NVHK.html",
+      "images_repaired": 4,
+      "before_sha256": "4b8692617f2b65276a09bc893d1e87e58075ffc2663d478ffdfb1a20ac02ed51",
+      "after_sha256": "89cf5e06156c978f061f72693b2f0ba7325aefa6390dddb191958f45f5679b38"
+    },
+    {
+      "path": "review/B09NQJMW28.html",
+      "images_repaired": 1,
+      "before_sha256": "6ce67d68e32a032ce4b7b24821081c9abee21a649d146c10baecb9f6853a0aa2",
+      "after_sha256": "931d61a4977ac7a2cf6fd876d63d38766ab00f41590c69e9ba8d32be8f114773"
+    },
+    {
+      "path": "review/B09VJ6135Q.html",
+      "images_repaired": 4,
+      "before_sha256": "de58f28acaeeac1536af95222c02f586c862bc31d6548193af2cdf28fb0019dd",
+      "after_sha256": "b985be93f68b6c234d5eff9f82bf9d2bd275b3681c3e70b402aa56dff2abc0b6"
+    },
+    {
+      "path": "review/B0B7SNNMNG.html",
+      "images_repaired": 5,
+      "before_sha256": "82e0feda56f6638ec78fd2f3d5afd982f8fb9fd71bb288ad8fc0d91cab7d76ae",
+      "after_sha256": "b0de7c41f345d3020d48e01e15af8140643dd3e3e0c322acba6831496ca00262"
+    },
+    {
+      "path": "review/B0BK9LXKRM.html",
+      "images_repaired": 4,
+      "before_sha256": "ba4bfe6df2aaba9b9baa5a5fd4d2d5e4c1365b0a0e84485ee87582490613662b",
+      "after_sha256": "39730bbd5db99def242222ffb46079d612c2d38186b021d1da76e432273ab1bd"
+    },
+    {
+      "path": "review/B0BQ7KJ9NV.html",
+      "images_repaired": 5,
+      "before_sha256": "d1cb0e078e4af4bc31bd2bd928e89938ef2ea62b2e837551ee2e9b1093a77dfa",
+      "after_sha256": "de0c163e018f375238da1f371c41007cbbf3da8433bc7439cfaf881b356e352b"
+    },
+    {
+      "path": "review/B0BT3CD75G.html",
+      "images_repaired": 1,
+      "before_sha256": "327a63534dc246d98d39ef886a8172f406a7c06490a4d681da3562cb48334297",
+      "after_sha256": "fc028566c7b31b690cfb0e7af07bc607880967a90f2089f76c99ee7d619f8dc4"
+    },
+    {
+      "path": "review/B0CF2D2XSG.html",
+      "images_repaired": 4,
+      "before_sha256": "2bf0b09f363918d014fddeb17787988c859da59ba652a9b475107eac1c0dc189",
+      "after_sha256": "94f87e2a55cf05a2d7722556ff70228c45e7795a68b4366ce53adc70221d4d2b"
+    },
+    {
+      "path": "review/B0CH9WTW56.html",
+      "images_repaired": 4,
+      "before_sha256": "48b3a35d5969998725ef14b665106d59f3c3b61220f42d829f72353f03e240c6",
+      "after_sha256": "7212508e4f7d14e514d44edafbb1e17820c7f966a5cba5814b673a6e602e7148"
+    },
+    {
+      "path": "review/B0CLS8XXGF.html",
+      "images_repaired": 1,
+      "before_sha256": "e859e9d5735f1e29d7df0fb009892278ad2ca1a4f95d27b676657235cf9f38ab",
+      "after_sha256": "feb44312deb5857dd0eb1451efa683b890c22afe190a1a19f30fdf868e60afe5"
+    },
+    {
+      "path": "review/B0CS4QS2LN.html",
+      "images_repaired": 5,
+      "before_sha256": "fead40a82245b2a61f63757d3020cb53ba45f9c2026d08d8b1b1b9516ec02cd8",
+      "after_sha256": "a190f68694e579f0a427aa2f1bf0a12c960f61686d6ed1ead3c25b1613dec103"
+    },
+    {
+      "path": "review/B0CYW2N6TX.html",
+      "images_repaired": 1,
+      "before_sha256": "9b358fc52958b52af34adcb2e4bfa72e16aaa5fef4ffcd184b7824711bbc5388",
+      "after_sha256": "aea9b371e66c0a5d4275b1bd22a37f76332985346e0199a6187763f5c9d8c749"
+    },
+    {
+      "path": "review/B0D2QJ9W2G.html",
+      "images_repaired": 1,
+      "before_sha256": "61fdde8f6682478420685698ddc8a261d00221ce3e4c404cfbc5a0a613a57033",
+      "after_sha256": "e9f213a150b93cc05743f39685846031b086e5103afc541c450208824b9d5da9"
+    },
+    {
+      "path": "review/B0D3J76C63.html",
+      "images_repaired": 4,
+      "before_sha256": "b87d3c4527ec361c1cccd2937b7c5cdcf09dde0cd3ccac43b4c8da0701d27dca",
+      "after_sha256": "4f26ab1e9518322670c623dcda237ba314f00c369301420bb77795c8aeddd4f5"
+    },
+    {
+      "path": "review/B0D4NRBBMR.html",
+      "images_repaired": 1,
+      "before_sha256": "c3c1d7b132b5d53fbeb8d9d393a84f45800f562b774201f4dffa0d95d9a3095b",
+      "after_sha256": "5670fe88b90a42955bdca5074c89d712a731b79169cfd07c6a95637873dda7c5"
+    },
+    {
+      "path": "review/B0D4NSS9XV.html",
+      "images_repaired": 1,
+      "before_sha256": "4107e79aa03dfb24db1072fb7dc953370dcf2cad4966af6d90ff713114345103",
+      "after_sha256": "8b7160c604dd22edd718e59885e788b6d8992b1b73b05666444278cb35fd92d7"
+    },
+    {
+      "path": "review/B0D6DT84JD.html",
+      "images_repaired": 4,
+      "before_sha256": "c2c60784874afe211daec51df348c1c247b05d24ce74c356e77b34b2b863a94d",
+      "after_sha256": "36cebce1c695ded71d70d3bd7c13aac145b5263ac44754578dbf620429c9ac86"
+    },
+    {
+      "path": "review/B0DCW6W5BK.html",
+      "images_repaired": 4,
+      "before_sha256": "457014bda59b4ccfb393b20c1cb2cfe18cc4162d5409ceb497881f281095320a",
+      "after_sha256": "07af9247f335aeaad502ec946be43939ac92aed9840cfe6c7d079b41d7a81a5f"
+    },
+    {
+      "path": "review/B0DF9ZLFTN.html",
+      "images_repaired": 5,
+      "before_sha256": "bfbccb99156680479118462b2863968612ea56f705af5a94d79ad1a68a4c324c",
+      "after_sha256": "4532be56b3b41cbcc7bb0438a4a99a4f2d8185dbe83f838fc082c83b5fde8251"
+    },
+    {
+      "path": "review/B0DJQ11WXY.html",
+      "images_repaired": 5,
+      "before_sha256": "4525c3ff151e8bd856c79d5fdf15e44ed1e75cde013b185d5bca31a6ac62c96e",
+      "after_sha256": "34e2e9a2357abedc738fbe4bdf65f2004210140050c13ee08262d49cfaf28707"
+    },
+    {
+      "path": "review/B0DSXN1XBL.html",
+      "images_repaired": 1,
+      "before_sha256": "ce79f5263b6cb258a19bda3bba9e3ca81fd0a7c063c57167fa36841aeb43b599",
+      "after_sha256": "251eeab2836cc98b7cab1fcffae019be526dbbcfe0295242ba31531c66b8930c"
+    },
+    {
+      "path": "review/B0DV5LPB2P.html",
+      "images_repaired": 5,
+      "before_sha256": "2394dcdb0d679fdd5ad497d4408ef6425662258724db63fcc2ec54445dcafa75",
+      "after_sha256": "0b95fe2fcb4ad1a5071e9ac9ec92de5a5048cd81a3b18695913be7df59206bdd"
+    },
+    {
+      "path": "review/B0DWQK1Q8S.html",
+      "images_repaired": 4,
+      "before_sha256": "a61fd2b39f828488ece776a4b5bce58d789773974f1bf3aa51fe23f054e83a84",
+      "after_sha256": "11d7fca99ca19af723a0b896825b9a8504eb3ccab56ed958a35da44cf14135be"
+    },
+    {
+      "path": "review/B0DWQNS8TN.html",
+      "images_repaired": 4,
+      "before_sha256": "5c2415eed396b16695159239d7179b716ec93f5538950662cd81eb80f91f0b79",
+      "after_sha256": "bd68be3a124b83cd79ae7f4f214770d04714c1ba48a106bde52ce2a9b4bc2ebb"
+    },
+    {
+      "path": "review/B0DYL44KXR.html",
+      "images_repaired": 1,
+      "before_sha256": "e0ffd91c08ee6c747e7d3dc4e1d5e1a254ec118009e72aae9d879e3d0b761c5f",
+      "after_sha256": "a4e9b34df498ca0a9b7179ed82c2ff24f1008cf8bc4158e46190945e50beef42"
+    },
+    {
+      "path": "review/B0F1C49115.html",
+      "images_repaired": 4,
+      "before_sha256": "ab1f35015e0099d040b2d83b36a76fc4e3c4399b95cbf17aadf2b1ecc56fc8d9",
+      "after_sha256": "d8e368f779109773fd5e411a8564983fbfb1eb8fbf35daa30dd321794a9bf605"
+    },
+    {
+      "path": "review/B0F1DBX48S.html",
+      "images_repaired": 5,
+      "before_sha256": "c384b61e0e7a7d9e43034f4702afd540ecb63ee59b4f5139e592a5b37a821b22",
+      "after_sha256": "0970ef121692d8c71683208898ea1b5b8943246fdbaeda98246ee18e2c3d55ed"
+    },
+    {
+      "path": "review/B0F2KBZ7WQ.html",
+      "images_repaired": 4,
+      "before_sha256": "b4ac49fdd52d677bd2ef742c54b17502fbb2f9f11c0aa2ea7942f8b1fd7a8dee",
+      "after_sha256": "ece7cdcb95c7012c1900bbe2bf23ea0808ae15c00f64676e7b97566d759c6390"
+    },
+    {
+      "path": "review/B0F6N3S4LS.html",
+      "images_repaired": 4,
+      "before_sha256": "b798ed6a2f14117a0b46078295438f315b3c4a5a07f231a6d577313c5f0ded61",
+      "after_sha256": "e9e2a7bf697ea2fa434b4e157b5b7fbaa80570f5371610629c95a0279a5faad5"
+    },
+    {
+      "path": "review/B0F81WGSYP.html",
+      "images_repaired": 5,
+      "before_sha256": "efb6e21aa7b800d8b1dacf783bbf5eac186a1dbbbf8c6a6013e5e4eae3fb96d8",
+      "after_sha256": "66d1b0f48f25b65a8acb6b1d472dc334e33bda8976e495b65af7980648f7a879"
+    },
+    {
+      "path": "review/B0FBRZ1ZPB.html",
+      "images_repaired": 5,
+      "before_sha256": "06193900e2bc7bb1e7120873adf02760b0549d40fbf085ab40895fe1748f8d0e",
+      "after_sha256": "e83f91ed007cebf87a40769af82a78186e2d0c8e34d608a5bfdbcb248b814a0b"
+    },
+    {
+      "path": "review/B0FCW79ZM3.html",
+      "images_repaired": 1,
+      "before_sha256": "cd4d9ca00172d31fa7466c685a02af03e678614b252bbcf584720b1feefdb57e",
+      "after_sha256": "c1c8db6b011981d40409006326563f59334bac256cbdf2231e11fcb7074ebe19"
+    },
+    {
+      "path": "review/B0FG5XLWNV.html",
+      "images_repaired": 4,
+      "before_sha256": "97102d5745a5ed4f1d25b61903c1b87ae866ff0af7c36aeca01c9d965923bf4b",
+      "after_sha256": "e6905b5de4c39a2322f68213047d36c3c0550298829f2a1ce1b98f00641be431"
+    },
+    {
+      "path": "review/B0FGDK8DJM.html",
+      "images_repaired": 4,
+      "before_sha256": "58464446de9f438d0c38cabe3878860e3f5059ee6a903af4819fc6b0b54ee1ae",
+      "after_sha256": "e9f56a0c97af37a664df276d064f6d22b38f6a2a54272b389c236077496e3bb8"
+    },
+    {
+      "path": "review/B0FH38NMLP.html",
+      "images_repaired": 1,
+      "before_sha256": "e557d3a689ca1cf8b1d3b8b3d7dbc693559d8344d8e018bf15f8285e6343d7a6",
+      "after_sha256": "15fe2654f371ca468328b249618eca0cf1638627cab04e189cab2a5258a47740"
+    },
+    {
+      "path": "review/B0FH5NMXHK.html",
+      "images_repaired": 5,
+      "before_sha256": "6e7a81f1a4ce6523ccd3df7bd392cd4de965f7f3f821c921a69030c1399b91d3",
+      "after_sha256": "6333de4bdf9182726b41d4e363c626eebc2496f95edf2845274c84d7f8d2b649"
+    },
+    {
+      "path": "review/B0FLL354M2.html",
+      "images_repaired": 4,
+      "before_sha256": "6d3ff47d0569c531acffa7ae1daaab9ae474d3fef2701f09a97e75540a820657",
+      "after_sha256": "536871894fa99518fba518db16a4045c5313b8d58b2cfddf0e1a449bbdc7e360"
+    },
+    {
+      "path": "review/B0FM7N4JK1.html",
+      "images_repaired": 1,
+      "before_sha256": "e472cced1ce7ec6ed54d234e983d1a805b4bbb87948712d7fa136f605260a9d8",
+      "after_sha256": "4a8f2e33a211785740dff923b448d9a222960a73dd925589f2b1e5fefc05fe4f"
+    },
+    {
+      "path": "review/B0FML8TQRS.html",
+      "images_repaired": 1,
+      "before_sha256": "bbe060cce3d3fef1db65702b24265b3f3623c861a12ee32b30431116b471dbcb",
+      "after_sha256": "02971240b9d5dc9cd0bd9ba1e687885a23c9d16340bddc042788c6a5c9bad334"
+    },
+    {
+      "path": "review/B0G1CPG1KT.html",
+      "images_repaired": 1,
+      "before_sha256": "e87b0d62f4912430c745306ca7d667bd4297385fffc58055aa76bab2e70cfa13",
+      "after_sha256": "1818d99ce3512a1c77b285e1511547c098e74b56bb6d4a84dda4c61f4289ca1b"
+    },
+    {
+      "path": "review/B0G1M874PM.html",
+      "images_repaired": 4,
+      "before_sha256": "61b90f10213b516467bc7ee77e9a9836a2af89a0820e5d8fac20d706390afbc4",
+      "after_sha256": "465f7e3d8039a8889dfb256c61eeb81bad6e0d03c739f17b351b243feebef2d9"
+    },
+    {
+      "path": "review/B0G1M9DLTW.html",
+      "images_repaired": 4,
+      "before_sha256": "d7d6d143a01889422036cf5626d5f35f692b948b56b93b89cf0597755d11d7bd",
+      "after_sha256": "8956aece50c163bc61f78309f8a286dad2508a21af07c3c2642c824188a22839"
+    },
+    {
+      "path": "review/B0G1M9FQFS.html",
+      "images_repaired": 4,
+      "before_sha256": "273aeecb185a7245d48d36ca491275abfb6c2ca119484443f092172ef63f66c3",
+      "after_sha256": "4bc903839eff78583058ea3e6f28e8891868775fb977a2a469b35df82f2e89ad"
+    },
+    {
+      "path": "review/B0G1M9VY9K.html",
+      "images_repaired": 4,
+      "before_sha256": "bc4a294bfc3826830e75d9f838d38ff09bcdf853d928afa1f6efca0f5ffa6226",
+      "after_sha256": "a23d58f958c94210c867487ecb5039b8ce6507dba376ef6012c7685e73c51a46"
+    },
+    {
+      "path": "review/B0G1MCRZ9W.html",
+      "images_repaired": 4,
+      "before_sha256": "5da8ab0c334a0322d5be417897bd4f39f2659d31987fff3357a603183f2fda7d",
+      "after_sha256": "7ef88193257032ae32efda5ec38bbb8eeefd8fd5ce6942beaddc2d670a880e6f"
+    },
+    {
+      "path": "review/B0G1MCVZJF.html",
+      "images_repaired": 4,
+      "before_sha256": "78d391a9a582dc78bd6f0a11bca6a16add64363b86c44f2653bbc5028de0885b",
+      "after_sha256": "68b024f8f525feb684955d9e028ca68049b0eaf345c2be17f94da9c6c41bbcef"
+    }
+  ]
+}

@@ -11,6 +11,15 @@ from office_control import table, plan_patch, assert_lease, topological_order, v
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_inches_in_image_alt_must_be_escaped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            page = root / 'index.html'
+            page.write_text('<img src="monitor.jpg" alt="Monitor 24" IPS" loading="lazy">')
+            self.assertIn('MALFORMED_IMAGE_ATTRIBUTES: index.html', scan_source(root))
+            page.write_text('<img src="monitor.jpg" alt="Monitor 24&quot; IPS" loading="lazy" hidden>')
+            self.assertNotIn('MALFORMED_IMAGE_ATTRIBUTES: index.html', scan_source(root))
+
     def test_product_image_cannot_fallback_to_unrelated_photo(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

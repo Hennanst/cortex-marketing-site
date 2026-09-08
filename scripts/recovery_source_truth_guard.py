@@ -63,9 +63,12 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.canonicals = []
         self.wrong_product_fallbacks = 0
+        self.malformed_images = 0
         self.feed(text)
 
     def handle_starttag(self, tag, attrs):
+        if tag == "img" and any(value is None and key not in {"hidden", "ismap", "inert", "itemscope"} for key, value in attrs):
+            self.malformed_images += 1
         attrs = dict(attrs)
         if tag == "img" and "m.media-amazon.com" in attrs.get("src", "") and "unsplash.com" in attrs.get("onerror", ""):
             self.wrong_product_fallbacks += 1
@@ -114,8 +117,11 @@ def scan_source(root: Path) -> list[str]:
             if marker in text:
                 fail(f"FORBIDDEN_PRODUCTION_MARKER[{marker}]: {rel}", failures)
         failures.extend(canonical_failures(text, rel))
-        if Page(text).wrong_product_fallbacks:
+        page = Page(text)
+        if page.wrong_product_fallbacks:
             fail(f"WRONG_PRODUCT_IMAGE_FALLBACK: {rel}", failures)
+        if page.malformed_images:
+            fail(f"MALFORMED_IMAGE_ATTRIBUTES: {rel}", failures)
 
     # Client-side data/scripts can also reintroduce old destinations after load.
     for path, rel in public_files(root):
