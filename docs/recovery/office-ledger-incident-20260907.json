@@ -1,0 +1,140 @@
+{
+  "observed_at": "2026-09-07T15:34:10.417Z",
+  "scope": "CO",
+  "spreadsheet_id": "1EyvXaQ9NVaah5YSNLOJggU_wRiGkOBojAfoVnuHjR4I",
+  "tab": "TRANSACTIONS",
+  "headers_before": [
+    "tx_id",
+    "timestamp",
+    "actor",
+    "operation",
+    "target_type",
+    "target_id",
+    "prev_state",
+    "new_state",
+    "evidence_ref",
+    "commit_ref",
+    "notes"
+  ],
+  "historical_rows": [
+    [
+      "TX-CO-20260906-046",
+      "2026-09-06T17:43:00-03:00",
+      "A14_WEB_BUILD+A23_TRANSACTION_LEDGER",
+      "COMMIT_RECOVERY_RESTORE_SETUP_GAMES_FULL_SOURCE_WITH_G305_HIGHRES",
+      "RECOVERY_SOURCE",
+      "setup-games/index.html",
+      "COMMIT_RECOVERY_SETUP_GAMES_FULL_SOURCE_RESTORE_REQUIRED",
+      "RG3_G305_HIGHRES_SOURCE_RESTORED_AWAITING_REGATE",
+      "Authoritative pre-incident blob 02bf8585 from commit 0f3b12b8 + exact G305 high-res _AC_SL1500_ acquired in TX-044",
+      "098e831af2656a8a0faf0da65ce22df13c5966c5 / PR#5",
+      "COMMIT_RECOVERY only: restored complete pre-incident Setup & Games source semantics and changed only G305 image URL SX679→SL1500. No repeat acquisition; no other business action.",
+      "FALSE",
+      "PASS"
+    ],
+    [
+      "TX-CO-20260906-047",
+      "2026-09-06T18:08:00-03:00",
+      "A13_RIGHTS_PROVENANCE+A12_VISUAL_STRATEGY+A11_RED_TEAM+A23_TRANSACTION_LEDGER",
+      "RG3_INDEPENDENT_REGATE_G305_HIGHRES_PASS",
+      "RECOVERY_GATE",
+      "RG3-ASSET-IMAGE-INTEGRITY:G305",
+      "RG3_G305_HIGHRES_SOURCE_RESTORED_AWAITING_REGATE",
+      "RG3_G305_REGATE_PASS_G203_RESTORE_NEXT",
+      "PR#5 recovery source commit 098e831a + authenticated Opera Amazon B07GPRWFC5 + image tab 660518814 777×1500; exact high-res asset 51sg9BLSMTL._AC_SL1500_; canonical CTA/disclosure verified.",
+      "NO_GITHUB_WRITE|NO_CLOUDFLARE|NO_TAILWIND",
+      "Independent regate only. G305 G9P PASS; owner-frozen authorization unchanged. Global RG3 remains REVISE for G203/IdeaPad/Brio regression repair. Next atomic operation: restore G203 commercial exact image + CTA.",
+      "FALSE",
+      "PASS"
+    ],
+    [
+      "TX-CO-20260906-048",
+      "2026-09-06T18:31:00-03:00",
+      "A13_RIGHTS_PROVENANCE+A14_WEB_BUILD+A23_TRANSACTION_LEDGER",
+      "RG3_RESTORE_G203_COMMERCIAL_SOURCE",
+      "RECOVERY_SOURCE",
+      "setup-games/index.html:G203",
+      "RG3_G305_REGATE_PASS_G203_RESTORE_NEXT",
+      "RG3_G203_COMMERCIAL_RESTORED_AWAITING_REGATE",
+      "Authenticated Opera Amazon B087CT8PWY confirms exact G203; observed image https://m.media-amazon.com/images/I/61oE1NouXuL._AC_SX679_.jpg. Historical commercial lineage commit 415d0a35 confirms same asset family/ASIN. PR#5 source now restores product image + deterministic affiliate CTA while preserving G305 high-res.",
+      "03b838a5b606704e259a176074d541053bab275d / PR#5",
+      "One atomic transition: restore G203 commercial state under owner-frozen Opera/Amazon authorization. Image dimension was not promoted to PASS; independent regate is next. PR changed-file set remains 9 paths; main/Cloudflare/Tailwind untouched.",
+      "FALSE",
+      "PASS"
+    ],
+    [
+      "TX-CO-20260906-049",
+      "2026-09-06T18:49:00-03:00",
+      "A13_RIGHTS_PROVENANCE+A12_VISUAL_STRATEGY+A11_RED_TEAM+A23_TRANSACTION_LEDGER",
+      "RG3_INDEPENDENT_REGATE_G203_REVISE_HIGHRES",
+      "RECOVERY_GATE",
+      "RG3-ASSET-IMAGE-INTEGRITY:G203",
+      "RG3_G203_COMMERCIAL_RESTORED_AWAITING_REGATE",
+      "RG3_G203_REGATE_REVISE_HIGHRES_REQUIRED",
+      "Authenticated Opera Amazon B087CT8PWY confirms exact G203; high-res exact asset 61oE1NouXuL._AC_SL1500_.jpg opened live as 1082×1500; PR#5 head 03b838a5 currently installs same asset family as _AC_SX679_.",
+      "NO_GITHUB_WRITE|NO_CLOUDFLARE|NO_TAILWIND",
+      "Independent regate only. Owner-frozen Opera/Amazon authorization remains PASS; REVISE strictly image-resolution/integrity. Commercial image/CTA preserved. Next atomic operation: G203 SX679→SL1500 source upgrade only.",
+      "FALSE",
+      "PASS"
+    ],
+    [
+      "TX-CO-20260906-054",
+      "2026-09-06T20:29:00-03:00",
+      "A13_RIGHTS_PROVENANCE+A12_VISUAL_STRATEGY+A11_RED_TEAM+A23_TRANSACTION_LEDGER",
+      "RG3_INDEPENDENT_REGATE_IDEAPAD_HIGHRES_PASS",
+      "RECOVERY_GATE",
+      "RG3-ASSET-IMAGE-INTEGRITY:IDEAPAD",
+      "RG3_IDEAPAD_HIGHRES_SOURCE_RESTORED_AWAITING_REGATE",
+      "RG3_IDEAPAD_REGATE_PASS_BRIO_RESTORE_NEXT",
+      "PR#5 commit 3babfa61 + authenticated Opera Amazon B0D6HXDRZL + exact asset 61jcw+EeK7L._AC_SL1500_ 847x587; source readback confirms exact image, canonical affiliate CTA, disclosure and contain presentation.",
+      "NO_GITHUB_WRITE|NO_CLOUDFLARE|NO_TAILWIND",
+      "Independent gate only. IdeaPad G9P PASS; G305/G203 PASS preserved. Global RG3 remains REVISE for Brio. Next production target: Brio exact high-res commercial restore.",
+      "FALSE",
+      "PASS",
+      "CO-20260906T202232-03-20"
+    ],
+    [
+      "TX-CO-20260906-057",
+      "2026-09-06T21:27:00-03:00",
+      "A11_RED_TEAM+A23_TRANSACTION_LEDGER",
+      "RG4_INDEPENDENT_COMMERCIAL_COMPLETENESS_PASS",
+      "RECOVERY_GATE",
+      "RG4-COMMERCIAL-COMPLETENESS",
+      "RG3_PASS_RG4_COMMERCIAL_COMPLETENESS_NEXT",
+      "RG4_PASS_RG5_CANONICAL_UNIFICATION_NEXT",
+      "PR#5 head e32fec8d; source audit of setup-games, trabalho-estudo, creator-streaming, casa-inteligente, comparativos, recomendados and guias. Exact commercial modules G305/G203/IdeaPad/Brio complete; intentional editorial siblings contain no blocked-state UI.",
+      "NO_GITHUB_WRITE|NO_CLOUDFLARE|NO_TAILWIND",
+      "Independent RG4 gate only. No source mutation. Next stage RG5 canonical unification; root index/robots/sitemap Vercel residues already isolated as RG5 blockers.",
+      "FALSE",
+      "PASS",
+      "20260906T211835-0300_:20"
+    ]
+  ],
+  "repair": {
+    "append_header_names": [
+      "legacy_extra_1",
+      "legacy_extra_2",
+      "legacy_extra_3"
+    ],
+    "preserve_every_existing_value": true,
+    "interpret_legacy_extras_as_current_status": false
+  },
+  "candidate_manuscript": {
+    "document_id": "17KM079qeSQgD6ljKdwNc9blVyrMFB1wjUc1PmY6gqs8",
+    "text_readback_verified": true,
+    "source_v13_preserved": true,
+    "effective": false
+  },
+  "dependency": {
+    "capability": "Opera Amazon exact-image acquisition",
+    "last_error": "Browser not connected. Make sure to enable Allow AI connection and sign in.",
+    "affected_products": [
+      "HyperX Cloud III Wired",
+      "Logitech C920s",
+      "LG 24GS60F-B",
+      "AOC 24G4/P"
+    ],
+    "authorization_unchanged": true,
+    "retry_policy": "One connection check after user reconnects or next authorized maintenance; no repeated discovery during this run."
+  }
+}

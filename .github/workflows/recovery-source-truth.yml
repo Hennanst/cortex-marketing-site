@@ -1,0 +1,81 @@
+name: Córtex Source Truth Guard
+
+on:
+  push:
+    branches:
+      - main
+      - 'recovery/**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cortex-source-truth-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-truth:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout reviewed source
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+
+      - name: Regression tests for source, bundle and office state
+        run: python3 -m unittest discover -s tests -v
+
+      - name: URL and publication coverage regressions
+        run: node --test tests/*.cjs
+
+      - name: RG source audit — fail closed
+        run: python3 scripts/recovery_source_truth_guard.py --source-only --report /tmp/cortex-source-audit.json
+
+      - name: Build publish bundle
+        run: bash scripts/build_cloudflare_pages.sh
+
+      - name: LIVE_PARITY — reviewed publication manifest equals publish bundle
+        run: python3 scripts/recovery_source_truth_guard.py --compare-dist
+
+      - name: Preserve exact-SHA audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cortex-source-audit-${{ github.event.pull_request.head.sha || github.sha }}
+          path: /tmp/cortex-source-audit.json
+          if-no-files-found: error
+
+      - name: Recovery invariant summary
+        if: always()
+        run: |
+          echo 'Córtex production invariant: REVIEWED PUBLICATION MANIFEST == BUILD INPUT == INTENDED DEPLOYED OUTPUT'
+          echo 'Every source HTML must be classified as public or quarantined; quarantine is never a PASS.'
+          echo 'Buyer-facing visual/copy/merchant/canonical mutations are forbidden at build time.'
+
+  preview-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Build reviewed source
+        run: bash scripts/build_cloudflare_pages.sh
+      - name: Install browser for preview evidence
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Capture every public route in mobile and desktop
+        run: node scripts/capture_recovery_preview.cjs
+      - name: Preserve screenshots and observed failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cortex-preview-${{ github.event.pull_request.head.sha || github.sha }}
+          path: /tmp/cortex-preview-qa/
+          if-no-files-found: error
+          retention-days: 14

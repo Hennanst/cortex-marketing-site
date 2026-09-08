@@ -1,0 +1,15 @@
+{
+  "asin": "B0DGQLYST1",
+  "variant": "Havit H2002D preto e vermelho",
+  "route": "OPERA_AMAZON_AUTHORIZED",
+  "amazon_tab": 660518804,
+  "observed_image": "https://m.media-amazon.com/images/I/71nuOzj9qwL._AC_SX679_.jpg",
+  "validated_image": "https://m.media-amazon.com/images/I/71nuOzj9qwL._AC_SL1500_.jpg",
+  "image_tab": 660518876,
+  "intrinsic_dimensions": [
+    1337,
+    1500
+  ],
+  "status": "SOURCE_INSTALLED_AWAITING_INDEPENDENT_QA",
+  "note": "Same image family from exact Amazon product page. High resolution URL opened successfully in Opera; dimensions read from image document title. No screenshot asset."
+}

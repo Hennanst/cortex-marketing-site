@@ -28,9 +28,6 @@ jobs:
       - name: Build static publish directory
         run: bash scripts/build_cloudflare_pages.sh
 
-      - name: Apply G-IMG-01 premium visual pass
-        run: python3 scripts/apply_premium_visuals.py dist
-
       - name: Normalize Cloudflare credentials
         env:
           RAW_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -131,6 +128,7 @@ jobs:
           npx playwright install chromium >/dev/null 2>&1
           node <<'NODE'
           const { chromium } = require('playwright');
+          const { canonicalMatches, internalPath } = require('./scripts/qa_urls.cjs');
           const deployBase = process.env.DEPLOY_URL;
           const productionBase = `https://${process.env.CLOUDFLARE_PAGES_PROJECT}.pages.dev`;
           const bases = [{name:'deployment', url:deployBase}];
@@ -141,7 +139,13 @@ jobs:
             {name:'desktop', width:1440, height:900}
           ];
           const oldVisualRe = /(?:hero-tech-v1|category-(?:gaming|work|creator|home)-v1|product-(?:g305|g203|ideapad)-editorial-v1)\.svg/;
-          const premiumMin = {'/':5,'/setup-games/':3,'/trabalho-estudo/':2,'/creator-streaming/':2,'/casa-inteligente/':2,'/guias/':2,'/comparativos/':2,'/recomendados/':2};
+          const editorialRequired = {
+            '/':['home','gaming','work','creator','home_automation'],
+            '/setup-games/':['gaming'], '/trabalho-estudo/':['work','home','gaming'],
+            '/creator-streaming/':['creator','home','work'], '/casa-inteligente/':['home_automation','home','work'],
+            '/guias/':['home','gaming','work'], '/comparativos/':['home','gaming','creator'],
+            '/recomendados/':['home','gaming','home_automation']
+          };
           (async()=>{
             const browser = await chromium.launch({headless:true});
             const failures=[];
@@ -165,46 +169,57 @@ jobs:
                     const badImgs=imgs.filter(x=>!x.complete || x.naturalWidth===0);
                     const premiumImgs=imgs.filter(x=>x.src.includes('images.unsplash.com'));
                     const smallPremium=premiumImgs.filter(x=>x.naturalWidth>0 && x.naturalWidth<600);
-                    const overflow=document.documentElement.scrollWidth > window.innerWidth + 2;
+                    const overflowElements=[...document.body.querySelectorAll('*')].flatMap(el=>{
+                      const style=getComputedStyle(el); const rect=el.getBoundingClientRect();
+                      if (style.display==='none' || style.visibility==='hidden' || !rect.width || !rect.height) return [];
+                      return rect.left < -2 || rect.right > innerWidth+2
+                        ? [{element:el.tagName.toLowerCase(),left:Math.round(rect.left),right:Math.round(rect.right)}] : [];
+                    }).slice(0,20);
+                    const overflow=document.documentElement.scrollWidth > window.innerWidth + 2 || overflowElements.length>0;
                     const html=document.documentElement.innerHTML;
-                    const canonical=document.querySelector('link[rel="canonical"]')?.href || '';
+                    const canonicals=[...document.querySelectorAll('link[rel~="canonical" i]')].map(el=>el.getAttribute('href')||'');
+                    const canonical=canonicals[0] || '';
                     const ctas=[...document.querySelectorAll('a')].filter(a=>/Amazon|Ver na Amazon|Ver produto/i.test(a.textContent||''));
                     const currentTagLinks=[...document.querySelectorAll('a[href*="amazon.com.br"]')].filter(a=>a.href.includes('tag=cortexofertas-20'));
                     const disclosures=[...document.querySelectorAll('body *')].filter(el=>/link de afiliado|associado da amazon|publicidade/i.test(el.textContent||'')).length;
                     const blocked=[...document.querySelectorAll('[data-merchant-state="blocked"]')].filter(el=>el.getClientRects().length>0 && getComputedStyle(el).visibility!=='hidden').length;
                     const contextLabels=[...document.querySelectorAll('.visual-context-label')].filter(el=>el.getClientRects().length>0).length;
+                    const editorialRoles=[...new Set([...document.querySelectorAll('img[data-editorial-photo]')]
+                      .map(img=>img.dataset.editorialPhoto).filter(Boolean))];
                     const links=[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')).filter(Boolean);
                     return {
-                      title:document.title, overflow, badImgs, images:imgs.length, premiumImages:premiumImgs.length,
+                      title:document.title, overflow, overflowElements, badImgs, images:imgs.length, premiumImages:premiumImgs.length,
+                      editorialRoles,
                       smallPremium, contextLabels, ctas:ctas.length, currentTagLinks:currentTagLinks.length,
-                      disclosures, blocked, canonical, links, html,
-                      staleOrigin:html.includes('cortex-public.vercel.app'), staleTag:html.includes('hennanst-20'),
-                      productionCanonical:canonical.startsWith(productionBase)
+                      disclosures, blocked, canonical, canonicals, links, html,
+                      staleOrigin:html.includes('cortex-public.vercel.app'), staleTag:html.includes('hennanst-20')
                     };
                   }, {productionBase});
-                  console.log(JSON.stringify({target:target.name,viewport:vp.name,route,title:result.title,overflow:result.overflow,badImgs:result.badImgs.length,images:result.images,premiumImages:result.premiumImages,smallPremium:result.smallPremium.length,contextLabels:result.contextLabels,ctas:result.ctas,currentTagLinks:result.currentTagLinks,disclosures:result.disclosures,blocked:result.blocked,canonical:result.canonical}));
+                  console.log(JSON.stringify({target:target.name,viewport:vp.name,route,title:result.title,overflow:result.overflow,overflowElements:result.overflowElements,badImgs:result.badImgs.length,images:result.images,premiumImages:result.premiumImages,editorialRoles:result.editorialRoles,smallPremium:result.smallPremium.length,contextLabels:result.contextLabels,ctas:result.ctas,currentTagLinks:result.currentTagLinks,disclosures:result.disclosures,blocked:result.blocked,canonical:result.canonical}));
                   if (result.overflow) failures.push(`${target.name} ${vp.name} ${route}: horizontal overflow`);
                   if (result.badImgs.length) failures.push(`${target.name} ${vp.name} ${route}: ${result.badImgs.length} broken images`);
                   if (result.smallPremium.length) failures.push(`${target.name} ${vp.name} ${route}: premium image below 600px natural width`);
                   if (result.staleOrigin) failures.push(`${target.name} ${vp.name} ${route}: stale Vercel origin`);
                   if (result.staleTag) failures.push(`${target.name} ${vp.name} ${route}: obsolete affiliate tag`);
                   if (oldVisualRe.test(result.html)) failures.push(`${target.name} ${vp.name} ${route}: old model/template visual reference remains`);
-                  if (!result.productionCanonical) failures.push(`${target.name} ${vp.name} ${route}: canonical not Cloudflare production`);
-                  if (result.premiumImages < premiumMin[route]) failures.push(`${target.name} ${vp.name} ${route}: premium visual count ${result.premiumImages} < ${premiumMin[route]}`);
+                  if (!canonicalMatches(result.canonicals, productionBase, route)) failures.push(`${target.name} ${vp.name} ${route}: canonical not Cloudflare production`);
+                  for (const role of editorialRequired[route]) if (!result.editorialRoles.includes(role)) failures.push(`${target.name} ${vp.name} ${route}: missing editorial photo role ${role}`);
                   if (route==='/setup-games/' && result.ctas < 2) failures.push(`${target.name} ${vp.name} setup: expected >=2 merchant CTAs`);
                   if (route==='/setup-games/' && result.currentTagLinks < 2) failures.push(`${target.name} ${vp.name} setup: current affiliate tag missing`);
                   if (route==='/setup-games/' && result.disclosures < 1) failures.push(`${target.name} ${vp.name} setup: affiliate disclosure missing`);
-                  if (route==='/setup-games/' && result.contextLabels < 2) failures.push(`${target.name} ${vp.name} setup: editorial-context labels missing`);
+                  if (route==='/setup-games/' && result.contextLabels < 1) failures.push(`${target.name} ${vp.name} setup: editorial-context label missing`);
                   if (['/creator-streaming/','/casa-inteligente/'].includes(route) && result.blocked > 0) failures.push(`${target.name} ${vp.name} ${route}: unfinished merchant blocks still visible`);
                   for (const href of result.links) {
-                    if (href.startsWith('/')) internal.add(href.split('#')[0]);
-                    else if (href.startsWith(productionBase)) internal.add(new URL(href).pathname);
+                    try {
+                      const path = internalPath(href, page.url(), [target.url, productionBase]);
+                      if (path) internal.add(path);
+                    } catch (e) { failures.push(`${target.name} ${route}: invalid link ${href}: ${e.message}`); }
                   }
                 }
                 await page.close();
               }
               const request = await browser.newPage();
-              for (const href of [...internal].filter(Boolean).slice(0,140)) {
+              for (const href of [...internal].filter(Boolean)) {
                 try {
                   const r = await request.request.get(target.url + href, {timeout:30000});
                   if (r.status() >= 400) failures.push(`${target.name} internal link ${href}: HTTP ${r.status()}`);
