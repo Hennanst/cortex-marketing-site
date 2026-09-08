@@ -92,9 +92,11 @@ nunca atribuir a ele uma execução de outro commit.
 
 ## Pendências conhecidas de conteúdo e verificação
 
-Quatro cards comerciais ainda requerem fechamento de SKU/asset/destino:
-HyperX Cloud III Wired, Logitech C920s, LG 24GS60F-B e AOC 24G4/P. Permanecem
-visíveis no inventário e bloqueiam release. G305, G203, Brio e Havit tiveram
+Os quatro cards HyperX Cloud III Wired, Logitech C920s, LG 24GS60F-B e
+AOC 24G4/P foram instalados na fonte em fde84212e0b964fe5a000469f440310d936d6615.
+Identidade, URLs e dimensões observadas pelo Opera estão em
+`four-cards-opera-evidence-20260908.json`. A revisão comercial e visual
+independente continua pendente; instalação não equivale a aprovação de gate. G305, G203, Brio e Havit tiveram
 imagens exatas instaladas em guias; requerem revisão do novo candidato.
 
 O acervo legado de reviews possui ratings/preços/estoque estáticos e caminhos
@@ -110,3 +112,19 @@ fazer inspeção mobile e desktop antes de qualquer liberação.
 Concluir essa revisão normativa, integrar guardas aos runners, revisar o
 candidato e validar produção são trabalho pendente. Nenhum PASS global é
 atribuído por este documento.
+
+## Revisão adicional do guard — 8 de setembro de 2026
+
+A candidata agora rejeita estados compostos que contenham tokens de aprovação
+ou publicação (por exemplo, `PASS_QUEUED`), como já fazia para registros
+aprovados existentes. Evidência deve declarar `unknown: 0` explicitamente,
+com contagens inteiras e execução produtora identificada. Ausência de dados
+não representa ausência de pendências. Lease ausente, data inválida ou sem
+fuso horário produz rejeição controlada antes da geração de patches.
+
+Doze testes locais passaram, incluindo essas regressões. A referência imutável
+ativa em CONFIG ainda aponta para a versão 6825b278; esta revisão de código
+ainda precisa ser integrada e verificada no escritório antes de uso operacional.
+Nenhum gate, scheduler, configuração ativa ou autorização de release é alterado
+por este commit. Continuam pendentes a validação do modo de execução agendado
+quando ausente/desconhecido e a verificação da presença e escopo dos locks.

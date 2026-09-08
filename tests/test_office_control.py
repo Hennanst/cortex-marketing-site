@@ -52,6 +52,23 @@ class OfficeMutationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'SCHEDULERS_PAUSED'):
             self.run_plan(self.plan | {'execution_context': 'scheduled'})
 
+    def test_compound_approval_states_cannot_bypass_review(self):
+        for status in ['PASS_QUEUED', 'SOURCE_PASS', 'RELEASED_PENDING_QA', 'PUBLISHED_DONE']:
+            patch = self.plan['patches'][0] | {'changes': {'status': status}}
+            with self.subTest(status=status), self.assertRaisesRegex(ValueError, 'DEDICATED_REVIEW'):
+                self.run_plan(self.plan | {'patches': [patch]})
+
+    def test_missing_and_malformed_leases_reject_before_planning(self):
+        original = copy.deepcopy(self.snapshot['RUN_CONTROL'])
+        for expiry in ['', None, 'invalid', '2026-09-07T10:00:00']:
+            self.snapshot['RUN_CONTROL'] = copy.deepcopy(original)
+            self.snapshot['RUN_CONTROL'][1][3] = expiry
+            with self.subTest(expiry=expiry), self.assertRaisesRegex(ValueError, 'LEASE_MISSING_OR_INVALID'):
+                self.run_plan()
+        self.snapshot['RUN_CONTROL'] = original[:1]
+        with self.assertRaisesRegex(ValueError, 'LEASE_MISSING_OR_INVALID'):
+            self.run_plan()
+
     def test_approved_evidence_and_state_cannot_be_overwritten(self):
         for changes, expected in [({'status': 'REVISE'}, {'status': 'PASS'}),
                                   ({'evidence_ref': 'replacement'}, {'evidence_ref': 'artifact/1'})]:

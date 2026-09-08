@@ -56,11 +56,20 @@ class RecoveryTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 assert_lease(rows, holder, datetime.fromisoformat(now))
         sha = 'a' * 40
-        evidence = {'sha': sha, 'executed': True, 'status': 'PASS', 'artifact': 'CI/1', 'reviewed': 784, 'review_run': 'independent'}
+        evidence = {'sha': sha, 'executed': True, 'status': 'PASS', 'artifact': 'CI/1', 'reviewed': 784, 'unknown': 0, 'review_run': 'independent'}
         validate_evidence(evidence, sha, 784, 'producer')
         for override in [{'executed': False}, {'sha': 'b'*40}, {'reviewed': 0}, {'review_run': 'producer'}, {'unknown': 1}]:
             with self.assertRaises(ValueError):
                 validate_evidence(evidence | override, sha, 784, 'producer')
+        for field in ['unknown', 'reviewed', 'review_run']:
+            incomplete = {k: v for k, v in evidence.items() if k != field}
+            with self.subTest(missing=field), self.assertRaises(ValueError):
+                validate_evidence(incomplete, sha, 784, 'producer')
+        for override in [{'unknown': False}, {'reviewed': 784.0}]:
+            with self.assertRaises(ValueError):
+                validate_evidence(evidence | override, sha, 784, 'producer')
+        with self.assertRaises(ValueError):
+            validate_evidence(evidence, sha, 784, '')
 
     def test_release_order_has_no_circular_dependency(self):
         graph = {'QA': [], 'AUTHORIZE_SHA': ['QA'], 'DEPLOY': ['AUTHORIZE_SHA'], 'PUBLIC_QA': ['DEPLOY'], 'MARKET_READY': ['PUBLIC_QA'], 'ACQUISITION': ['MARKET_READY']}

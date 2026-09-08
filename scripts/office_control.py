@@ -25,6 +25,7 @@ SHEET_IDS = {"CONFIG": 607237811, "GATES": 1763579041, "JOBS": 349981761,
 IDENTITY_FIELDS = {"GATES": {"gate_id", "domain_job", "gate_name"},
                    "JOBS": {"job_id", "lane", "object"},
                    "STATE": {"state_id", "domain"}}
+PROTECTED_STATE_TOKENS = {"PASS", "RELEASED", "QUEUED", "PUBLISHED"}
 RELEASE_DAG = {
     "RG2": [], "RG3": ["RG2"], "RG4": ["RG3"], "RG5": ["RG4"],
     "RG6": ["RG5"], "RG7": ["RG6"], "RG7A": ["RG7"],
@@ -72,8 +73,15 @@ def validate_snapshot(snapshot):
 
 def assert_lease(rows, run_id, now):
     _, records = table(rows, *SCHEMAS["RUN_CONTROL"])
+    if "CO-DYNAMIC-RUNNER-LEASE" not in records:
+        raise ValueError("LEASE_MISSING_OR_INVALID")
     lease = records["CO-DYNAMIC-RUNNER-LEASE"][1]
-    expires = datetime.fromisoformat(lease["expires_at"].replace("Z", "+00:00"))
+    try:
+        expires = datetime.fromisoformat(lease["expires_at"].replace("Z", "+00:00"))
+        if expires.utcoffset() is None or now.utcoffset() is None:
+            raise ValueError("timezone required")
+    except (ValueError, TypeError, AttributeError) as exc:
+        raise ValueError("LEASE_MISSING_OR_INVALID") from exc
     if not run_id or lease["status"] != "HELD" or lease["run_id"] != run_id or expires <= now:
         raise ValueError("LEASE_NOT_OWNED_OR_EXPIRED")
 
@@ -110,8 +118,10 @@ def validate_evidence(evidence, candidate_sha, total, producer_run):
         raise ValueError("FULL_CANDIDATE_SHA_REQUIRED")
     if (evidence.get("sha") != candidate_sha or evidence.get("status") != "PASS"
             or evidence.get("executed") is not True or not evidence.get("artifact")
-            or evidence.get("reviewed") != total or total <= 0
-            or evidence.get("unknown", 0) != 0 or not evidence.get("review_run")
+            or type(total) is not int or total <= 0
+            or type(evidence.get("reviewed")) is not int or evidence["reviewed"] != total
+            or type(evidence.get("unknown")) is not int or evidence["unknown"] != 0
+            or not producer_run or not evidence.get("review_run")
             or evidence["review_run"] == producer_run):
         raise ValueError("INCOMPLETE_STALE_OR_SELF_REVIEWED_EVIDENCE")
 
@@ -153,6 +163,8 @@ def plan_mutation(snapshot, plan, run_id, now):
         for field in {"state", "status"} & changes.keys():
             if not isinstance(changes[field], str) or not re.fullmatch(r"[A-Z][A-Z0-9_]*", changes[field]):
                 raise ValueError("INVALID_STATE_VALUE")
+            if set(changes[field].split("_")) & PROTECTED_STATE_TOKENS:
+                raise ValueError("GATE_OR_EXTERNAL_SUCCESS_REQUIRES_DEDICATED_REVIEW")
         rows = snapshot[name]
         id_column = SCHEMAS[name][0]
         if key not in indexed[name]:
@@ -160,7 +172,7 @@ def plan_mutation(snapshot, plan, run_id, now):
         current = indexed[name][key][1]
         # Approved records and their evidence cannot be silently overwritten,
         # even when the proposed patch only changes a timestamp or evidence URL.
-        if any(set(str(current.get(f, "")).split("_")) & {"PASS", "RELEASED", "QUEUED", "PUBLISHED"}
+        if any(set(str(current.get(f, "")).split("_")) & PROTECTED_STATE_TOKENS
                for f in ("status", "state")) and any(current.get(k) != v for k, v in changes.items()):
             raise ValueError("APPROVED_STATE_CHANGE_REQUIRES_JUSTIFIED_REVIEW")
         fields = plan_patch(rows, id_column, key, patch["expected"], changes)
