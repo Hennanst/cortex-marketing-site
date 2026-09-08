@@ -1,0 +1,422 @@
+{
+  "researchedAt": "2026-09-08",
+  "scope": "Creator & Streaming; 8 distinct product candidates excluding C920s and Brio 100",
+  "summary": "Eight distinct products have verified Amazon Brazil listing identity: public HTTP returned 200 and matching productTitle plus page ASIN for every record. Original image URLs were observed in the matching Brazilian product pages, downloaded, dimension checked, and visually reviewed. Prices and stock are deliberately unknown.",
+  "verificationLimit": "web.run could not retrieve Amazon Brazil pages, but ordinary public HTTP GET succeeded for all eight. This verifies listing identity and image provenance; it does not assert current price, seller quality, stock, delivery, or availability.",
+  "products": [
+    {
+      "name": "HyperX SoloCast",
+      "variant": "Black",
+      "manufacturerSku": "HMIS1XXXBK/G",
+      "candidateAsinFromLegacy": "B08KFL3SFV",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B08KFL3SFV",
+      "sourcePageUrl": "https://row.hyperx.com/products/hyperx-solocast-usb-microphone",
+      "manufacturerSpecUrl": "https://row.hyperx.com/products/hyperx-solocast-usb-microphone",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/51ilSVrpiYL._AC_SL1200_.jpg",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "USB-C connection",
+        "Cardioid pickup",
+        "Tap-to-mute sensor and LED indicator"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "asin": "B08KFL3SFV",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "amazonIdentityVerification": "Exact Amazon.com ASIN/model/variant match observed externally",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B08KFL3SFV",
+      "manufacturerImageUrl": "https://row.hyperx.com/cdn/shop/products/hyperx_solocast_01_main.jpg?v=1662449693",
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B08KFL3SFV",
+      "amazonBrAsin": "B08KFL3SFV",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B08KFL3SFV",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B08KFL3SFV",
+        "pageAsin": "B08KFL3SFV",
+        "productTitle": "HyperX Solocast HMIS1XXXBK/G Microfone USB (Preto)",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B08KFL3SFV.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B08KFL3SFV.jpg",
+      "imageDimensions": [
+        440,
+        1000
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: original product photo matches the stated model and black variant; no generated imagery.",
+      "specNote": "Manufacturer page uses successor HP SKU 4P5P8AA; use common verified SoloCast features such as USB-C, cardioid and tap-to-mute. Avoid a firmware-dependent bit-depth/sample-rate promise for the older Amazon model unless confirmed."
+    },
+    {
+      "name": "FIFINE AmpliGame AM8",
+      "variant": "Black, base stand and USB cable",
+      "manufacturerSku": "AM8",
+      "candidateAsinFromLegacy": "B0BMFQP2ZZ",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B0BMFQP2ZZ",
+      "sourcePageUrl": "https://fifinemicrophone.com/products/fifine-ampligame-am8-microphone",
+      "manufacturerSpecUrl": "https://fifinemicrophone.com/products/fifine-ampligame-am8-microphone",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/71k6li+9vFL._AC_SL1500_.jpg",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "Dynamic cardioid microphone",
+        "USB and XLR",
+        "50–16 kHz frequency response",
+        "Mute, RGB and function keys inactive in XLR mode"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "legacyCorrection": "Legacy page gives 20 Hz–20 kHz; official AM8 specification states 50–16 kHz. Do not reuse the legacy range.",
+      "asin": "B0BMFQP2ZZ",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "amazonIdentityVerification": "Exact Amazon.com ASIN/model/variant match observed externally",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B0BMFQP2ZZ",
+      "manufacturerImageUrl": "https://fifinemicrophone.com/cdn/shop/files/FIFINE-ampligame-AM8-microphone-2023-red-dot-winner-black-01.png?v=1765333133&width=1206",
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B0BMFQP2ZZ",
+      "amazonBrAsin": "B0BMFQP2ZZ",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0BMFQP2ZZ",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B0BMFQP2ZZ",
+        "pageAsin": "B0BMFQP2ZZ",
+        "productTitle": "FIFINE AM8 Microfone dinâmico USB/XLR para gravação de podcast Streaming",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B0BMFQP2ZZ.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B0BMFQP2ZZ.jpg",
+      "imageDimensions": [
+        714,
+        1500
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: original product photo matches the stated model and black variant; no generated imagery."
+    },
+    {
+      "name": "HyperX QuadCast 2 S",
+      "variant": "Black",
+      "manufacturerSku": "9A273AA",
+      "candidateAsinFromLegacy": "B0DG9X4WHW",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B0DG9X4WHW",
+      "sourcePageUrl": "https://hyperx.com/products/hyperx-quadcast-2-s-usb-microphone",
+      "manufacturerSpecUrl": "https://hyperx.com/products/hyperx-quadcast-2-s-usb-microphone",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/71yLcw8yj6L._AC_SL1500_.jpg",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "32-bit / 192 kHz",
+        "Four selectable polar patterns",
+        "USB-C and 3.5 mm headphone output",
+        "100+ individually customizable aRGB LEDs"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "asin": "B0DG9X4WHW",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "amazonIdentityVerification": "Exact Amazon.com ASIN/model/variant match observed externally",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B0DG9X4WHW",
+      "manufacturerImageUrl": "https://hyperx.com/cdn/shop/files/hyperx_quadcast_2_s_9a273aa_main_1.jpg?v=1787066289",
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B0DG9X4WHW",
+      "amazonBrAsin": "B0DG9X4WHW",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0DG9X4WHW",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B0DG9X4WHW",
+        "pageAsin": "B0DG9X4WHW",
+        "productTitle": "Microfone USB HyperX QuadCast 2 S – com Iluminação RGB, Ideal para Streaming e Podcast, com Controles Integrados, Iluminação LED, Suporte Antichoque Removível, Preto (9A273AA)",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B0DG9X4WHW.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B0DG9X4WHW.jpg",
+      "imageDimensions": [
+        588,
+        1500
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: original product photo matches the stated model and black variant; no generated imagery."
+    },
+    {
+      "name": "HyperX QuadCast 2",
+      "variant": "Black",
+      "manufacturerSku": "872V1AA",
+      "candidateAsinFromLegacy": "B0D9MCK4R8",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B0D9MCK4R8",
+      "sourcePageUrl": "https://hyperx.com/products/hyperx-quadcast-2-usb-microphone",
+      "manufacturerSpecUrl": "https://hyperx.com/products/hyperx-quadcast-2-usb-microphone",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/71qTtU45xSL._AC_SL1500_.jpg",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "24-bit / 96 kHz",
+        "Four selectable polar patterns",
+        "USB-C and 3.5 mm headphone output",
+        "Tap-to-mute and onboard multifunction knob"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "asin": "B0D9MCK4R8",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "amazonIdentityVerification": "Exact Amazon.com ASIN/model/variant match observed externally",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B0D9MCK4R8",
+      "manufacturerImageUrl": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/kf-1-hyperx-quadcast-2-usb-microphone.jpg",
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B0D9MCK4R8",
+      "amazonBrAsin": "B0D9MCK4R8",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0D9MCK4R8",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B0D9MCK4R8",
+        "pageAsin": "B0D9MCK4R8",
+        "productTitle": "Microfone Condensador USB HyperX QuadCast 2 - Gravação em Alta Resolução para Streaming e Podcasts, com Controles Integrados, Suporte Antichoque Removível, 4 Padrões Polares, Preto (872V1AA)",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B0D9MCK4R8.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B0D9MCK4R8.jpg",
+      "imageDimensions": [
+        625,
+        1500
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: original product photo matches the stated model and black variant; no generated imagery."
+    },
+    {
+      "name": "Elgato Game Capture 4K S",
+      "variant": "Black",
+      "manufacturerSku": "10GBR9901",
+      "candidateAsinFromLegacy": "B0FFTFYGLV",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B0FFTFYGLV",
+      "sourcePageUrl": "https://www.elgato.com/us/en/p/game-capture-4k-s",
+      "manufacturerSpecUrl": "https://www.elgato.com/us/en/p/game-capture-4k-s",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/51n-AAn1UBL._AC_SL1500_.jpg",
+      "observedButUnretrievedImageUrl": "https://res.cloudinary.com/elgato-pwa/image/upload/f_auto/q_auto%3Abest/v1753194553/Products/10GBR9901%20%284K%20S%29/Explorer/Article_1.png",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "4K60 capture",
+        "USB-C 3.2 Gen 1 5 Gbps",
+        "HDMI 2.0 input and output",
+        "3.5 mm analog input",
+        "Windows, Mac and iPad support"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "asin": "B0FFTFYGLV",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "amazonIdentityVerification": "Exact Amazon.com ASIN/model/variant match observed externally",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B0FFTFYGLV",
+      "manufacturerImageUrl": null,
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B0FFTFYGLV",
+      "amazonBrAsin": "B0FFTFYGLV",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0FFTFYGLV",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B0FFTFYGLV",
+        "pageAsin": "B0FFTFYGLV",
+        "productTitle": "Elgato 4K S – Placa de captura externa para PS5, Xbox Series X/S, Switch 2, PC, Mac, iPad | 4K60, 1440p120 ou 1080p240 Passthrough and Capture, HDR10, VRR, USB-C, Latência Quase Zero",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B0FFTFYGLV.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B0FFTFYGLV.jpg",
+      "imageDimensions": [
+        1271,
+        466
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: original product photo matches the stated model and black variant; no generated imagery."
+    },
+    {
+      "name": "Elgato Stream Deck Mini",
+      "variant": "Black, six LCD keys, 10GAI9901",
+      "manufacturerSku": "10GAI9901",
+      "asin": "B07DYRS1WH",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B07DYRS1WH",
+      "amazonIdentityVerification": "Exact productTitle states Elgato Stream Deck Mini, 6 Customizable LCD Macro Keys; detailed record states black 10GAI9901.",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B07DYRS1WH",
+      "sourcePageUrl": "https://www.elgato.com/us/en/p/stream-deck-mini",
+      "manufacturerSpecUrl": "https://www.elgato.com/us/en/p/stream-deck-mini",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/61w+a4IDpsL._AC_SL1500_.jpg",
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B07DYRS1WH",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "Six customizable LCD keys",
+        "84 x 60 x 58 mm",
+        "160 g",
+        "Windows and macOS"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "amazonBrAsin": "B07DYRS1WH",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B07DYRS1WH",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B07DYRS1WH",
+        "pageAsin": "B07DYRS1WH",
+        "productTitle": "Stream Deck Elgato Mini, 6 Teclas Personalizáveis de LCD, USB Integrado, Preto - 10GAI9901",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B07DYRS1WH.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B07DYRS1WH.jpg",
+      "imageDimensions": [
+        1500,
+        1270
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: original product photo matches the stated model and black variant; no generated imagery.",
+      "specNote": "Amazon Brazil confirms original 10GAI9901 with integrated USB cable. Current manufacturer page may include refreshed connection details; do not assert USB-C for this older variant."
+    },
+    {
+      "name": "Elgato Stream Deck MK.2",
+      "variant": "Black, 15 macro keys, 10GBA9901",
+      "manufacturerSku": "10GBA9901",
+      "asin": "B09738CV2G",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B09738CV2G",
+      "amazonIdentityVerification": "Exact productTitle states Stream Deck MK.2 Studio Controller, 15 Macro Keys; selected color Black and 10GBA9901 observed.",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B09738CV2G",
+      "sourcePageUrl": "https://www.elgato.com/us/en/p/stream-deck",
+      "manufacturerSpecUrl": "https://www.elgato.com/us/en/p/stream-deck",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/61gtdFnK+UL._AC_SL1500_.jpg",
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B09738CV2G",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "15 customizable LCD keys",
+        "Mac and PC support",
+        "OBS, Twitch and YouTube integrations",
+        "Removable USB-C cable"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "amazonBrAsin": "B09738CV2G",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B09738CV2G",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B09738CV2G",
+        "pageAsin": "B09738CV2G",
+        "productTitle": "Stream Deck Elgato MK.2, 15 teclas Personalizáveis deLCD, USB-C Removível, Preto - 10GBA9901",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B09738CV2G.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B09738CV2G.jpg",
+      "imageDimensions": [
+        1500,
+        1273
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: original product photo matches the stated model and black variant; no generated imagery.",
+      "specNote": "Brazil title confirms MK.2 10GBA9901, distinct from any newer scissor-key variants."
+    },
+    {
+      "name": "Elgato Wave DX",
+      "variant": "Black, dynamic XLR microphone, 10MAH9901",
+      "manufacturerSku": "10MAH9901",
+      "asin": "B0B8GRCXB6",
+      "amazonIdentitySourceUrl": "https://www.amazon.com/dp/B0B8GRCXB6",
+      "amazonIdentityVerification": "Exact productTitle states Elgato Wave DX Dynamic XLR Microphone, Cardioid Pattern; model 10MAH9901 observed in Amazon page.",
+      "amazonBrOfferStatus": "not checked",
+      "amazonBrListingStatus": "verified identity by public HTTP",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B0B8GRCXB6",
+      "sourcePageUrl": "https://www.amazon.com/dp/B0B8GRCXB6",
+      "manufacturerSpecUrl": "https://www.reddit.com/r/elgato/comments/xrb0s7/introducing_elgato_wave_dx_incredible_sound_right/",
+      "manufacturerSpecEvidence": "Elgato official product announcement posted by Elgato and labeled Official Post. Manufacturer product site did not open; exact specifications are present in the official announcement.",
+      "observedImageUrl": "https://m.media-amazon.com/images/I/71MPyIUvr8L._AC_SL1500_.jpg",
+      "imageSourcePageUrl": "https://www.amazon.com.br/dp/B0B8GRCXB6",
+      "imageEvidence": "Exact original URL observed in data-old-hires on matching Amazon Brazil page; downloaded successfully.",
+      "imageStatus": "downloaded and visually verified",
+      "verifiedSpecs": [
+        "Dynamic cardioid capsule",
+        "3-pin XLR",
+        "50–15000 Hz",
+        "Requires XLR audio interface, XLR cable and stand or boom arm"
+      ],
+      "unknowns": [
+        "Current price, stock, seller and delivery were not checked."
+      ],
+      "amazonBrAsin": "B0B8GRCXB6",
+      "amazonBrUrl": "https://www.amazon.com.br/dp/B0B8GRCXB6",
+      "amazonBrIdentityEvidence": {
+        "httpStatus": 200,
+        "finalUrl": "https://www.amazon.com.br/dp/B0B8GRCXB6",
+        "pageAsin": "B0B8GRCXB6",
+        "productTitle": "Microfone Elgato Wave DX -XLR Dinâmico, Filtro Pop Interno, Para Podcast, Streaming e Transmissões, Preto - 10MAH9901",
+        "checkedAt": "2026-09-08",
+        "localEvidencePath": "/workspace/scratch/672a3ffcea3f/creator-research-http/B0B8GRCXB6.html"
+      },
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/creator-media/B0B8GRCXB6.jpg",
+      "imageDimensions": [
+        1298,
+        1500
+      ],
+      "imageFormat": "JPEG",
+      "visualReview": "Passed: black Wave DX product matches. Original photo includes a faint contextual arm attachment at the top; the microphone does not include a boom arm.",
+      "packageNote": "Requires a separate XLR audio interface, cable and stand or boom arm."
+    }
+  ],
+  "alternates": [
+    {
+      "name": "Logitech C922 Pro HD Stream Webcam",
+      "variant": "Black",
+      "manufacturerSku": null,
+      "amazonBrAsin": null,
+      "candidateAsinFromLegacy": "B01MTTMPKT",
+      "candidateAmazonUrl": "https://www.amazon.com.br/dp/B01MTTMPKT",
+      "amazonVerification": "unverified",
+      "sourcePageUrl": "https://www.logitech.com/pt-br/shop/p/c922-pro-stream-webcam",
+      "manufacturerSpecUrl": "https://www.logitech.com/pt-br/shop/p/c922-pro-stream-webcam",
+      "observedImageUrl": "https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c922/gallery/c922-gallery-1.png",
+      "imageEvidence": "Followed image link 9 from official Brazilian C922 page; exact observed transformation URL preserved.",
+      "imageStatus": "original manufacturer URL observed and opened",
+      "verifiedSpecs": [
+        "1080p at 30 fps",
+        "720p at 60 fps",
+        "Glass lens and autofocus",
+        "78° diagonal field of view",
+        "Two omnidirectional microphones"
+      ],
+      "unknowns": [
+        "Amazon Brazil listing and tripod package not independently confirmed."
+      ]
+    },
+    {
+      "name": "Logitech Brio 500",
+      "variant": "Rose",
+      "manufacturerSku": "960-001418",
+      "amazonBrAsin": null,
+      "candidateAsinFromLegacy": null,
+      "candidateAmazonUrl": null,
+      "amazonVerification": "unknown",
+      "sourcePageUrl": "https://www.logitech.com/pt-br/shop/p/brio-500-webcam",
+      "manufacturerSpecUrl": "https://www.logitech.com/pt-br/shop/p/brio-500-webcam",
+      "observedImageUrl": "https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio-500/gallery/brio-500-gallery-rose-1.png",
+      "imageEvidence": "Followed main image link 62. Official page selected Rose and identifies Rose SKU as 960-001418; image filename confirms rose.",
+      "imageStatus": "original manufacturer URL observed and opened",
+      "verifiedSpecs": [
+        "1080p at 30 fps",
+        "720p at 60 fps",
+        "USB-C",
+        "Autofocus",
+        "Built-in privacy shutter",
+        "90° / 78° / 65° diagonal fields of view"
+      ],
+      "unknowns": [
+        "No exact Amazon Brazil ASIN located; do not manufacture a deep link."
+      ]
+    }
+  ],
+  "contactSheetPath": "/workspace/scratch/672a3ffcea3f/creator-media/contact-sheet.jpg",
+  "visualReviewNote": "Contact sheet reviewed for all eight; replacement SoloCast image from the Brazil page was also opened individually and reviewed."
+}

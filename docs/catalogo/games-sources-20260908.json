@@ -1,0 +1,160 @@
+{
+  "category": "Setup & Games",
+  "checkedAt": "2026-09-08",
+  "status": "four_exact_products_verified",
+  "method": "Product identity and exact image URLs were observed in successful HTTP 200 responses from public Amazon Brazil product pages. Manufacturer specifications were verified on Logitech G Brazil product pages, including their public structured data. Downloaded photographs were inspected visually and pixel dimensions read from the files.",
+  "offerPolicy": "No current price, discount, stock, rating or review-count claims were collected or approved. Product-page identity verification does not imply current offer availability.",
+  "products": [
+    {
+      "id": "logitech-g335-preto",
+      "name": "Headset Logitech G335 — Preto",
+      "brand": "Logitech G",
+      "model": "G335",
+      "variant": "Preto; com fio; conexão de áudio 3,5 mm",
+      "asin": "B08KKBSDTY",
+      "amazonBRUrl": "https://www.amazon.com.br/dp/B08KKBSDTY",
+      "identityVerified": true,
+      "observedProductTitle": "Headset Gamer Logitech G335 com Almofadas com Espuma de Memória, Design Leve e Conexão 3,5mm para PC, PlayStation, Xbox, Nintendo Switch e Mobile - Preto",
+      "identityEvidence": "Amazon Brazil HTTP 200; page title and landingImage alt explicitly identify G335 Preto. Independently corroborated by Amazon US exact ASIN and Logitech G Brazil black variant.",
+      "imageUrl": "https://m.media-amazon.com/images/I/71YEF3ZjzkL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B08KKBSDTY",
+      "imageEvidence": "Exact URL observed in landingImage data-old-hires on the Brazilian product page; visually checked black G335 with blue-purple suspension strap and boom microphone.",
+      "imageWidth": 1002,
+      "imageHeight": 1373,
+      "imageMime": "image/jpeg",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/games-research/B08KKBSDTY.jpg",
+      "manufacturerSpecUrl": "https://www.logitechg.com/pt-br/shop/p/g335-gaming-headset",
+      "manufacturerPartNumber": "981-000977",
+      "manufacturerFacts": [
+        "Conexão de áudio 3,5 mm",
+        "Drivers de neodímio de 40 mm",
+        "Microfone com função de silenciar ao levantar",
+        "Peso informado: 240 g"
+      ],
+      "manufacturerDimensionsMm": {
+        "height": 79,
+        "width": 180,
+        "depth": 189
+      },
+      "alternateManufacturerImageUrl": "https://resource.logitechg.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g335/g335-black-gallery-1.png",
+      "price": null,
+      "stock": null,
+      "rating": null
+    },
+    {
+      "id": "logitech-g502-hero",
+      "name": "Mouse Logitech G502 HERO",
+      "brand": "Logitech G",
+      "model": "G502 HERO",
+      "variant": "Preto; com fio; sensor HERO 25K",
+      "asin": "B07JM7DR7K",
+      "amazonBRUrl": "https://www.amazon.com.br/dp/B07JM7DR7K",
+      "identityVerified": true,
+      "observedProductTitle": "Mouse Gamer Logitech G502 HERO com RGB LIGHTSYNC, Ajustes de Peso, 11 Botões Programáveis e Sensor HERO 25K",
+      "identityEvidence": "Amazon Brazil HTTP 200; exact product title and landingImage alt. Independently corroborated by Amazon Mexico exact ASIN and Logitech G Brazil G502 HERO black variant.",
+      "imageUrl": "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B07JM7DR7K",
+      "imageEvidence": "Exact URL observed in landingImage data-old-hires on the Brazilian product page; visually checked wired black G502 HERO shape, scroll wheel and thumb controls.",
+      "imageWidth": 1480,
+      "imageHeight": 854,
+      "imageMime": "image/jpeg",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/games-research/B07JM7DR7K.jpg",
+      "manufacturerSpecUrl": "https://www.logitechg.com/pt-br/shop/p/g502-hero-gaming-mouse",
+      "manufacturerPartNumber": "910-005550",
+      "manufacturerFacts": [
+        "Sensor HERO 25K, até 25.600 DPI",
+        "11 botões programáveis",
+        "Iluminação RGB LIGHTSYNC",
+        "Pesos opcionais: até 18 g, em cinco peças de 3,6 g"
+      ],
+      "manufacturerDimensionsMm": {
+        "height": 40,
+        "width": 75,
+        "depth": 131.2
+      },
+      "manufacturerWeightG": 121,
+      "price": null,
+      "stock": null,
+      "rating": null
+    },
+    {
+      "id": "logitech-g213-abnt2",
+      "name": "Teclado Logitech G213 Prodigy ABNT2",
+      "brand": "Logitech G",
+      "model": "G213 Prodigy",
+      "variant": "Preto; português do Brasil; layout ABNT2",
+      "asin": "B081P3Z565",
+      "amazonBRUrl": "https://www.amazon.com.br/dp/B081P3Z565",
+      "identityVerified": true,
+      "observedProductTitle": "Teclado Gamer Logitech G213 com Layout ABNT2, RGB LIGHTSYNC, Controles de Mídia Dedicados, Design Durável e Resistente à Respingos",
+      "identityEvidence": "Amazon Brazil HTTP 200; exact product title and landingImage alt explicitly identify ABNT2. Logitech Brazil structured data identifies part 920-009438 as Português do Brasil (QWERTY).",
+      "imageUrl": "https://m.media-amazon.com/images/I/71Nqzh-u2rL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B081P3Z565",
+      "imageEvidence": "Exact URL observed in landingImage data-old-hires on the Brazilian product page; visually checked Ç key, AltGr and tall inverted-L Enter. This is the exact Brazilian layout.",
+      "imageWidth": 1500,
+      "imageHeight": 951,
+      "imageMime": "image/jpeg",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/games-research/B081P3Z565.jpg",
+      "manufacturerSpecUrl": "https://www.logitechg.com/pt-br/shop/p/g213-rgb-gaming-keyboard",
+      "manufacturerPartNumber": "920-009438",
+      "manufacturerFacts": [
+        "Teclas Mech-Dome",
+        "Cinco zonas de iluminação LIGHTSYNC RGB",
+        "Apoio para as mãos integrado",
+        "Controles de mídia dedicados"
+      ],
+      "manufacturerDimensionsMm": {
+        "height": 33,
+        "width": 452,
+        "depth": 218
+      },
+      "manufacturerWeightG": 1000,
+      "manufacturerCableLengthM": 1.8,
+      "rejectedImage": {
+        "url": "https://resource.logitechg.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/non-braid/g213-finch/g213-gallery-1-nb.png",
+        "reason": "Although associated with the Brazilian product in manufacturer structured data, this generic gallery image visibly shows US ANSI keys, no Ç and horizontal Enter. Do not use it for an ABNT2 card."
+      },
+      "price": null,
+      "stock": null,
+      "rating": null
+    },
+    {
+      "id": "logitech-g240",
+      "name": "Mouse Pad Logitech G240",
+      "brand": "Logitech G",
+      "model": "G240",
+      "variant": "Preto; tecido; 340 × 280 × 1 mm; logotipo G escuro",
+      "asin": "B0BHMLWH3Z",
+      "amazonBRUrl": "https://www.amazon.com.br/dp/B0BHMLWH3Z",
+      "identityVerified": true,
+      "observedProductTitle": "Mouse Pad de Tecido com Base Antiderrapante Logitech G240 Otimizado para Jogos e com Superfície de Atrito Moderado",
+      "identityEvidence": "Amazon Brazil HTTP 200; exact G240 product title. Independently corroborated by Amazon US exact-ASIN product page specifying 340x280x1 and black color.",
+      "imageUrl": "https://m.media-amazon.com/images/I/61tZSb-bTUL._AC_SL1500_.jpg",
+      "imageSourceUrl": "https://www.amazon.com.br/dp/B0BHMLWH3Z",
+      "imageEvidence": "Exact URL observed in the Brazilian product page gallery and in US landingImage data-old-hires for the same ASIN. Visually checked black cloth pad with dark G logo.",
+      "imageWidth": 1500,
+      "imageHeight": 989,
+      "imageMime": "image/jpeg",
+      "localImagePath": "/workspace/scratch/672a3ffcea3f/games-research/g240-amazon.jpg",
+      "manufacturerSpecUrl": "https://www.logitechg.com/pt-br/shop/p/g240-cloth-gaming-mouse-pad",
+      "manufacturerPartNumber": null,
+      "manufacturerPartNumberNote": "Current Logitech Brazil page lists 943-000783. Its exact mapping to this ASIN was not separately checked; do not label the Amazon item with that part number.",
+      "manufacturerFacts": [
+        "Superfície de tecido com atrito moderado",
+        "Base de borracha",
+        "Textura otimizada para sensores Logitech G",
+        "Espessura de 1 mm"
+      ],
+      "manufacturerDimensionsMm": {
+        "height": 280,
+        "width": 340,
+        "depth": 1
+      },
+      "manufacturerWeightG": 90,
+      "price": null,
+      "stock": null,
+      "rating": null
+    }
+  ]
+}
+
