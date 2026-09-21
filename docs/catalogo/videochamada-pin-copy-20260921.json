@@ -1,0 +1,39 @@
+{
+  "schema": "CO_PIN_COPY_CANDIDATE_V2",
+  "account_code": "CO",
+  "producer_run": "CO-WORK-SITE-VIDEOCHAMADA-20260921T203205Z",
+  "status": "DRAFT_PENDING_DESTINATION_RELEASE_AND_PIN_QA",
+  "release_authorized": false,
+  "reason": "Align the two existing Pins with the new practical guide using one primary outbound-click call to action. Preserve creative files and deduplicate the shared canonical destination.",
+  "canonical_destination": "https://cortex-ofertas.pages.dev/guia/videochamada-luz-microfone.html",
+  "pins": [
+    {
+      "job_id": "CO-IG-LUZ-20260921-v1",
+      "creative_drive_id": "1X2UyiOTm9KdlmFBBRIHYzPlkZupJhcCl",
+      "creative_sha256": "3a7f6a8865d2f37381b45532e5dc2ea75d874b35969cc39744d8810ddb44a20e",
+      "title": "Webcam escura? Confira a luz antes de trocar",
+      "description": "Webcam escura nas videochamadas? Abra o guia e teste a posição da luz com a mesma câmera e o mesmo aplicativo. Um roteiro para avaliar o seu home office antes de comprar equipamento. Ilustração por IA, não teste de webcam. Publicidade: site com links de afiliado.",
+      "alt": "Pin azul-marinho com a pergunta “Sua webcam está escura?”. Duas ilustrações mostram uma pessoa no notebook com luz atrás e luz à frente. Recomenda testar luz suave e comparar no mesmo aplicativo; contém identificação de IA e publicidade.",
+      "destination": "https://cortex-ofertas.pages.dev/guia/videochamada-luz-microfone.html?utm_source=pinterest&utm_medium=organic&utm_campaign=co_videochamada_20260921&utm_content=pin_luz_v1",
+      "primary_caption_cta": "Abrir o guia e testar a posição da luz"
+    },
+    {
+      "job_id": "CO-IG-MIC-POSICAO-20260921-v1",
+      "creative_drive_id": "1VA0GWhu7L9ZiwW-rVhT8Sae64VSGpO7C",
+      "creative_sha256": "e3eb926f4d3c2af43d0db5aca853f1c30f6b90630017e85177daca3b86fdc168",
+      "title": "Microfone distante? Teste a posição antes de comprar",
+      "description": "Mais som da sala do que voz? Abra o guia e confira como testar a posição do microfone, ajustar o ganho e comparar gravações. Consulte o manual: a distância depende do modelo. Ilustração por IA, não teste de áudio. Publicidade: site com links de afiliado.",
+      "alt": "Pin azul-marinho com a pergunta “Mais sala do que voz?”. Duas ilustrações mostram um microfone distante e mais perto da boca de uma pessoa fictícia. Destaca lado correto, ganho sem distorção e comparação com fones; contém identificação de IA e publicidade.",
+      "destination": "https://cortex-ofertas.pages.dev/guia/videochamada-luz-microfone.html?utm_source=pinterest&utm_medium=organic&utm_campaign=co_videochamada_20260921&utm_content=pin_microfone_v1",
+      "primary_caption_cta": "Abrir o guia e testar a posição do microfone"
+    }
+  ],
+  "continuity": {
+    "previous_copy": "Drive file 11WHeSrfLIiNq7Wl5j9AkaJ_YqrE5lzAS remains immutable history. Only Pin descriptions change in this candidate; titles, alt text, UTM destinations and creatives remain the same.",
+    "reels": "No changes to Reel files or Instagram captions; save CTA remains independent of site publication.",
+    "board_id": null,
+    "dedup": "UTM variations share the same canonical destination; use the existing spacing and account cap, not separate URL counts.",
+    "scheduler": "Resolve from the existing JOBS asset_ref after ledger commit. No policy or scheduler executable change.",
+    "measurement": "Outbound clicks and saves in comparable post-publication windows; hypothesis only, not a reach prediction. Different topics are not a causal A/B test."
+  }
+}
