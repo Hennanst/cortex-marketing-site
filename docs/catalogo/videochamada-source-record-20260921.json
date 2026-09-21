@@ -1,0 +1,58 @@
+{
+  "schema": "CO_EDITORIAL_SOURCE_CANDIDATE_V1",
+  "account_code": "CO",
+  "job_id": "CO-SITE-VIDEOCHAMADA-20260921-v1",
+  "producer_run": "CO-WORK-SITE-VIDEOCHAMADA-20260921T203205Z",
+  "base_sha": "e3ee5f83d87c342dc762ceaa95075e877f9ed9a0",
+  "branch": "content/videochamada-luz-microfone-20260921",
+  "status": "SOURCE_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+  "release_authorized": false,
+  "route": "/guia/videochamada-luz-microfone.html",
+  "source_article": {
+    "drive_id": "1cOgfd45PY8x7n0drmyEgGudyQtO1hUaY",
+    "sha256": "cd2621e8995411ef64094eafe17c9884c9ca6492dad83ea2e20a408de6b458b7",
+    "local_bytes_verified": true,
+    "origin_package": "CO-REELS-EDITORIAL-20260921-v1"
+  },
+  "paths": [
+    "guia/videochamada-luz-microfone.html",
+    "creator-streaming/index.html",
+    "guias/index.html",
+    "data/publication-manifest.json",
+    "sitemap.xml",
+    "docs/catalogo/videochamada-source-record-20260921.json",
+    "docs/catalogo/videochamada-pin-copy-20260921.json"
+  ],
+  "editorial_adaptation": [
+    "Preserve practical lighting and microphone tests; no universal distance, guaranteed result or original hardware test claim.",
+    "Use existing brand CSS, semantic steps, anchor navigation and native checklist; no external script or new product offer.",
+    "Remove AI illustration and synthetic narration notices from the article because neither medium is embedded in this page.",
+    "Keep sources near the supported advice and preserve the site's affiliate disclosure.",
+    "Add discoverability through the Creator hub, guide library and complete publication manifest/sitemap."
+  ],
+  "sources_checked_on": "2026-09-21",
+  "sources": [
+    {
+      "url": "https://vimeo.com/blog/post/best-webcam-light",
+      "scope": "Lighting position, strong backlight, comfortable light angle"
+    },
+    {
+      "url": "https://rode.com/en-fr/about/news-info/how-to-position-your-microphone-for-streaming",
+      "scope": "Microphone direction, proximity, gain and plosives; distances remain model-specific"
+    }
+  ],
+  "pin_dependencies": {
+    "CO-IG-LUZ-20260921-v1": "PIN_WAITS_EXACT_DESTINATION_PUBLIC_RELEASE",
+    "CO-IG-MIC-POSICAO-20260921-v1": "PIN_WAITS_EXACT_DESTINATION_PUBLIC_RELEASE"
+  },
+  "review_required": "Existing RG2-RG7 and independent RG7A bound to exact candidate SHA/tree/PR, then authorized deploy, public RG8 and RG9 before acquisition.",
+  "scheduler_contract": "Existing scheduler reads live CONFIG/JOBS/STATE. This is a content candidate, with no change to executable workflow, cadence, permissions or quality policy.",
+  "preserved": [
+    "Main branch and existing production release",
+    "All existing offers, assets, affiliate identities and route approvals",
+    "Publication quarantine and source/build parity guards",
+    "Existing Reel QA requests, Pinterest queue and channel caps",
+    "No reuse or merge of historical PRs 2 or 3"
+  ],
+  "pin_copy_candidate": "docs/catalogo/videochamada-pin-copy-20260921.json"
+}
