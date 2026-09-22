@@ -1,0 +1,76 @@
+name: Validate exact Amazon product visuals
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-exact-products:
+    runs-on: ubuntu-latest
+    env:
+      AMAZON_CREATORS_CLIENT_ID: ${{ secrets.AMAZON_CREATORS_CLIENT_ID }}
+      AMAZON_CREATORS_CLIENT_SECRET: ${{ secrets.AMAZON_CREATORS_CLIENT_SECRET }}
+      AMAZON_CREATORS_VERSION: '3.1'
+      AMAZON_MARKETPLACE: www.amazon.com.br
+      AMAZON_PARTNER_TAG: cortexofertas-20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Confirm credential presence without disclosure
+        run: |
+          set -euo pipefail
+          if [ -z "${AMAZON_CREATORS_CLIENT_ID}" ] || [ -z "${AMAZON_CREATORS_CLIENT_SECRET}" ]; then
+            echo "Creators API repository secrets are not configured." >&2
+            exit 2
+          fi
+          echo "Creators API credential presence confirmed."
+
+      - name: Fetch exact G305 and G203 catalog visuals
+        run: |
+          set -euo pipefail
+          python3 scripts/amazon_creators_catalog.py \
+            B07GPRWFC5 B087CT8PWY \
+            --output /tmp/cortex-amazon-catalog.json
+
+      - name: Validate exact product identity and image readiness
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('/tmp/cortex-amazon-catalog.json').read_text(encoding='utf-8'))
+          items = {item['asin']: item for item in data['items']}
+          expected = {
+              'B07GPRWFC5': ('logitech', 'g305'),
+              'B087CT8PWY': ('logitech', 'g203'),
+          }
+          for asin, needles in expected.items():
+              item = items.get(asin)
+              assert item, f'missing exact ASIN {asin}'
+              title = (item.get('title') or '').lower()
+              assert all(token in title for token in needles), f'{asin}: unexpected title {item.get("title")!r}'
+              detail = item.get('detail_page_url') or ''
+              assert asin in detail, f'{asin}: detail URL does not contain exact ASIN'
+              image = item.get('primary_image') or {}
+              url = image.get('url') or ''
+              assert url.startswith('https://m.media-amazon.com/'), f'{asin}: unexpected image host'
+              width = image.get('width') or 0
+              height = image.get('height') or 0
+              assert max(width, height) >= 400, f'{asin}: primary image too small ({width}x{height})'
+              assert item.get('partner_tag') == 'cortexofertas-20'
+              assert item.get('marketplace') == 'www.amazon.com.br'
+              print(f'{asin}: exact identity PASS; primary image {width}x{height}')
+          print('G_IMG_01P_EXACT_PRODUCT_SOURCE_PASS')
+          PY
+
+      - name: Upload sanitized catalog evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: cortex-amazon-exact-product-catalog
+          path: /tmp/cortex-amazon-catalog.json
+          if-no-files-found: error
+          retention-days: 7

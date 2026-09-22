@@ -1,0 +1,26 @@
+{
+  "schema": "cortex.active-affiliate-products.v1",
+  "marketplace": "www.amazon.com.br",
+  "tracking_tag": "cortexofertas-20",
+  "products": [
+    {
+      "asin": "B07GPRWFC5",
+      "product_name": "Logitech G305 LIGHTSPEED",
+      "primary_route": "/setup-games/",
+      "status": "ACTIVE_NAMED_PRODUCT_VISUAL_HOLD"
+    },
+    {
+      "asin": "B087CT8PWY",
+      "product_name": "Logitech G203 LIGHTSYNC",
+      "primary_route": "/setup-games/",
+      "status": "ACTIVE_NAMED_PRODUCT_VISUAL_HOLD"
+    },
+    {
+      "asin": "B0D6HXDRZL",
+      "product_name": "Lenovo IdeaPad 1 R5-7520U",
+      "primary_route": "/trabalho-estudo/",
+      "status": "ACTIVE_NAMED_PRODUCT_VISUAL_HOLD_DESTINATION_RECHECK"
+    }
+  ],
+  "claims_boundary": "Registry proves the intended named-product identity only. It does not assert current price, stock, seller, delivery or availability."
+}
