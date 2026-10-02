@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-02",
+  "scope": "Seleção Córtex de consoles e portáteis com links de afiliado do Mercado Livre. Preço, estoque, vendedor e frete não são armazenados.",
+  "products": [
+    {
+      "id": "switch-2-ml",
+      "name": "Nintendo Switch 2 — modelo nacional",
+      "merchant": "Mercado Livre",
+      "affiliate_url": "https://meli.la/1TsdbH5",
+      "source_listing": "https://www.mercadolivre.com.br/console-nintendo-switch-2-modelo-nacional-de-tomada/p/MLB49200061",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_785396-MLA99867558581_112025-F.webp",
+      "manufacturer_source": "https://www.nintendo.com/pt-br/gaming-systems/switch-2/tech-specs/",
+      "role": "Para entrar na geração atual da Nintendo",
+      "fit": "Quem quer jogar em modo portátil e na TV com a biblioteca e os recursos do Switch 2.",
+      "specs": [
+        "Tela LCD de 7,9 pol, 1920 × 1080",
+        "HDR10 e VRR de até 120 Hz",
+        "256 GB de armazenamento interno"
+      ],
+      "attention": "A tela é LCD, não OLED. Confirme a versão nacional, o conteúdo da caixa e as condições do anúncio antes da compra."
+    },
+    {
+      "id": "switch-oled-ml",
+      "name": "Nintendo Switch OLED — 64 GB",
+      "merchant": "Mercado Livre",
+      "affiliate_url": "https://meli.la/255efuw",
+      "source_listing": "https://www.mercadolivre.com.br/nintendo-switch-console-oled-64gb/p/MLB58623212",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_928841-MLA93525033946_102025-F.webp",
+      "manufacturer_source": "https://www.nintendo.com/pt-br/store/products/nintendo-switch-oled-model-115461-3/",
+      "role": "Para priorizar a tela OLED na biblioteca do Switch",
+      "fit": "Quem quer o catálogo do Nintendo Switch com tela OLED de 7 polegadas e uso híbrido portátil + TV.",
+      "specs": [
+        "Tela OLED de 7 pol",
+        "64 GB de armazenamento interno",
+        "Dock com porta LAN integrada"
+      ],
+      "attention": "É a geração anterior ao Switch 2. Compare o preço final e os jogos que pretende usar antes de escolher pela tela."
+    },
+    {
+      "id": "ps5-slim-disc-ml",
+      "name": "PlayStation 5 Slim — edição com disco, 1 TB",
+      "merchant": "Mercado Livre",
+      "affiliate_url": "https://www.mercadolivre.com.br/console-sony-playstation-5-edicao-slim-disk-1tb-branco/p/MLB52897777?matt_event_ts=1790487652848&matt_d2id=2f4a8059-7c2d-4529-80a1-d89eeb5f35d5&matt_tracing_id=a5785dfa-a1f4-4a40-ba9c-96b74c6a1875#polycard_client=recommendations_home_affiliate_profile_v2p-recommendations&reco_backend=ranker_retrieval_system_vpp_v2p&reco_model=coldstart_low_exposition&reco_client=home_affiliate_profile_v2p-recommendations&matt_tool_id=48778863&reco_item_pos=15&source=affiliate-profile&reco_backend_type=low_level&reco_id=ef64f2fd-ff70-4379-9682-b9a79616abcc&tracking_id=ebd70c0b-791d-43e9-a011-1eebccd97524&wid=MLB4270030011&sid=recos&c_id=/home/affiliate-profile-recommendations/element&c_uid=f89bbfa4-eae9-4de5-8b54-6ca7751b1f85",
+      "source_listing": "https://www.mercadolivre.com.br/console-sony-playstation-5-edicao-slim-disk-1tb-branco/p/MLB52897777",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_921596-MLA100042443481_122025-F.webp",
+      "manufacturer_source": "https://www.playstation.com/pt-br/ps5/",
+      "role": "Para jogar na TV e manter mídia física",
+      "fit": "Quem prioriza o ecossistema PlayStation e quer a opção de usar discos compatíveis.",
+      "specs": [
+        "SSD interno de 1 TB",
+        "Unidade de disco instalada",
+        "Compatibilidade com expansão SSD M.2"
+      ],
+      "attention": "É um console de mesa, não portátil. Confirme o grupo/modelo, acessórios incluídos, vendedor e garantia no anúncio."
+    },
+    {
+      "id": "rog-ally-ml",
+      "name": "ROG Xbox Ally RC73YA — 16 GB / 512 GB",
+      "merchant": "Mercado Livre",
+      "affiliate_url": "https://www.mercadolivre.com.br/rog-ally-rc73ya-nh002w-amd-ryzen-z2-16-gb-512-gb-7-fhd/p/MLB62548063?matt_event_ts=1790487652848&matt_d2id=2f4a8059-7c2d-4529-80a1-d89eeb5f35d5&matt_tracing_id=a5785dfa-a1f4-4a40-ba9c-96b74c6a1875#polycard_client=recommendations_home_affiliate_profile_v2p-recommendations&reco_backend=ranker_retrieval_system_vpp_v2p&reco_model=coldstart_low_exposition&reco_client=home_affiliate_profile_v2p-recommendations&matt_tool_id=48778863&reco_item_pos=13&source=affiliate-profile&reco_backend_type=low_level&reco_id=ef64f2fd-ff70-4379-9682-b9a79616abcc&tracking_id=ebd70c0b-791d-43e9-a011-1eebccd97524&wid=MLB6070039800&sid=recos&c_id=/home/affiliate-profile-recommendations/element&c_uid=ee4b0bea-e9b8-446a-93f5-206a742fce37",
+      "source_listing": "https://www.mercadolivre.com.br/rog-ally-rc73ya-nh002w-amd-ryzen-z2-16-gb-512-gb-7-fhd/p/MLB62548063",
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_793083-MLA99126402146_112025-F.webp",
+      "manufacturer_source": "https://rog.asus.com/br/gaming-handhelds/rog-ally/rog-xbox-ally-2025/",
+      "role": "Para bibliotecas de PC em um portátil com Windows",
+      "fit": "Quem quer acessar bibliotecas compatíveis de PC em formato portátil e aceita uma experiência mais próxima de um computador.",
+      "specs": [
+        "Windows 11",
+        "Tela de 7 pol FHD, 120 Hz",
+        "16 GB de memória e SSD de 512 GB"
+      ],
+      "attention": "O Windows aumenta a flexibilidade, mas também exige mais configuração que um console tradicional. Confirme o submodelo exato RC73YA e a configuração do anúncio."
+    }
+  ]
+}
