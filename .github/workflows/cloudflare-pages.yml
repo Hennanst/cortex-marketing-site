@@ -104,7 +104,7 @@ jobs:
       - name: HTTP parity and premium visual smoke test
         run: |
           set -euo pipefail
-          routes=(/ /setup-games/ /trabalho-estudo/ /creator-streaming/ /casa-inteligente/ /guias/ /comparativos/ /recomendados/)
+          routes=(/ /setup-games/ /trabalho-estudo/ /creator-streaming/ /casa-inteligente/ /guias/ /comparativos/ /recomendados/ /mercado-livre/)
           for route in "${routes[@]}"; do
             out="/tmp/http$(echo "$route" | tr '/-' '__').html"
             curl --fail --silent --show-error --location "${DEPLOY_URL}${route}" -o "$out"
@@ -133,7 +133,7 @@ jobs:
           const productionBase = `https://${process.env.CLOUDFLARE_PAGES_PROJECT}.pages.dev`;
           const bases = [{name:'deployment', url:deployBase}];
           if (process.env.GITHUB_REF === 'refs/heads/main') bases.push({name:'production', url:productionBase});
-          const routes = ['/', '/setup-games/', '/trabalho-estudo/', '/creator-streaming/', '/casa-inteligente/', '/guias/', '/comparativos/', '/recomendados/'];
+          const routes = ['/', '/setup-games/', '/trabalho-estudo/', '/creator-streaming/', '/casa-inteligente/', '/guias/', '/comparativos/', '/recomendados/', '/mercado-livre/'];
           const viewports = [
             {name:'mobile', width:390, height:844},
             {name:'desktop', width:1440, height:900}
@@ -144,7 +144,7 @@ jobs:
             '/setup-games/':['gaming'], '/trabalho-estudo/':['work','home','gaming'],
             '/creator-streaming/':['creator','home','work'], '/casa-inteligente/':['home_automation','home','work'],
             '/guias/':['home','gaming','work'], '/comparativos/':['home','gaming','creator'],
-            '/recomendados/':['home','gaming','home_automation']
+            '/recomendados/':['home','gaming','home_automation'], '/mercado-livre/':[]
           };
           (async()=>{
             const browser = await chromium.launch({headless:true});
