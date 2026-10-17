@@ -1,0 +1,83 @@
+{
+  "reviewed_on": "2026-10-16",
+  "scope": "CO",
+  "research_method": "Busca pública no Mercado Livre e consulta a páginas de fabricantes. Sem compra ou teste físico. Preços, estoque, frete, avaliação do vendedor e comissão não confirmados ao vivo.",
+  "affiliate_status": "Novos links afiliados não gerados: página do Mercado Livre retornou erro no navegador disponível. URLs de consulta abaixo são links comuns, não têm atribuição de comissão. Preservar os links afiliados já existentes.",
+  "products": [
+    {
+      "id": "elg-f80n",
+      "name": "ELG F80N",
+      "kind": "Braço articulado para monitor",
+      "source": "https://elg.com.br/produto/suporte-multiarticulado-com-pistao-a-gas-para-monitores-de-17-a-35-f80n/",
+      "marketplace": "https://www.mercadolivre.com.br/suporte-ergonmico-articulado-de-mesa-com-pisto-a-gas-para-monitortvteleviso-de-17-a-35-elg-f80n/p/MLB15200666",
+      "validation": "Modelo identificado no catálogo ML; fabricante confirma 17–35 pol, VESA 75×75 e 100×100 mm, até 9 kg. Conferir revisão/manual para carga mínima e fixação."
+    },
+    {
+      "id": "ugreen-80348",
+      "name": "UGREEN 80348",
+      "kind": "Suporte ajustável para notebook aberto",
+      "source": "https://ugreen.com.tr/urun/ugreen-ayarlanabilir-katlanabilir-masaustu-notebook-standi/",
+      "marketplace": "https://lista.mercadolivre.com.br/ugreen-suporte-notebook",
+      "validation": "Modelo presente nos resultados ML; página regional Ugreen identifica 80348 como ajustável. Não extrapolar dados do 40289 ou do suporte vertical 20471."
+    },
+    {
+      "id": "ugreen-40356",
+      "name": "UGREEN 40356",
+      "kind": "Fita reutilizável de 5 m",
+      "source": "https://nz.ugreen.com/products/ugreen-40356-velcro-straps-cable-organizer-5m-black-custom-cut-to-length-easy-cable-management-and-re-usable",
+      "marketplace": "https://lista.mercadolivre.com.br/organizador-de-cabos-ugreen-fita-de-velcro-5-metros",
+      "validation": "Modelo e função confirmados na página regional oficial nz.ugreen.com; resultados ML incluem fita de 5 m. SKU do anúncio escolhido ainda precisa ser conferido ao gerar link."
+    },
+    {
+      "id": "bandeja-grampo",
+      "name": "Bandeja para cabos com fixação por grampo",
+      "kind": "Categoria de organização",
+      "source": "https://produto.mercadolivre.com.br/MLB-6828147536-bandeja-canaleta-de-fios-e-cabos-em-metal-embaixo-da-mesa-_JM",
+      "marketplace": "https://lista.mercadolivre.com.br/bandeja-de-cabos",
+      "validation": "Categoria encontrada; dimensões, carga e abertura do grampo dependem do anúncio. Não recomendar a alegação do vendedor de eliminar superaquecimento/curto."
+    },
+    {
+      "id": "presilha",
+      "name": "Presilhas de mesa para cabos",
+      "kind": "Categoria de organização",
+      "source": "https://www.mercadolivre.com.br/loja/ugreen-300062?category_id=MLB1648&client=recoview-selleritems&item_id=MLB3634888383&official_store_id=300062&recos_listing=true",
+      "marketplace": "https://lista.mercadolivre.com.br/organizador-de-cabos-ugreen",
+      "validation": "Kit de presilhas localizado na loja Ugreen do ML. Nenhuma capacidade de carga ou promessa de adesão universal."
+    },
+    {
+      "id": "xiaomi-lightbar",
+      "name": "Xiaomi Mi Computer Monitor Light Bar",
+      "kind": "Barra de iluminação para monitor",
+      "source": "https://www.mi.com/us/product/mi-computer-monitor-light-bar/",
+      "marketplace": "https://lista.mercadolivre.com.br/xiaomi-mi-computer-monitor-light-bar",
+      "validation": "Fabricante confirma brilho/temperatura ajustáveis, controle remoto, USB e encaixe em monitores; não recomenda notebooks. Resultados ML misturam barra e controle avulso: conferir kit completo."
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Baseus i-Wok DGIWK-B01, anúncio MLB-3173866883",
+      "reason": "Anúncio indexado informa ausência de nota fiscal e tem captura antiga. Não entrou nos criativos nem na seleção principal."
+    }
+  ],
+  "editorial_test": {
+    "period_days": 30,
+    "keep_account": true,
+    "new_accounts": false,
+    "distribution": {
+      "home_office": 0.5,
+      "organization_lighting": 0.3,
+      "gaming_control": 0.2
+    },
+    "cadence": "3 pins originais/semana no piloto, até 2 novos pins/dia conforme regra existente; 1 carrossel/semana. Não é agendamento executado.",
+    "metrics": [
+      "impressions",
+      "saves",
+      "outbound_clicks",
+      "outbound_click_rate",
+      "affiliate_clicks",
+      "confirmed_orders",
+      "commission"
+    ],
+    "decision": "Comparar coortes de idade equivalente em 14 e 30 dias. Cinco ou dez cliques isolados não provam vencedor. Sem 1.000 impressões por tema, tratar como exposição insuficiente, limiar operacional do piloto, não regra do Pinterest."
+  }
+}
