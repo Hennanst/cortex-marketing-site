@@ -1,56 +1,90 @@
 {
-  "reviewed_on": "2026-10-16",
+  "reviewed_on": "2026-10-17",
   "scope": "CO",
-  "research_method": "Busca pública no Mercado Livre e consulta a páginas de fabricantes. Sem compra ou teste físico. Preços, estoque, frete, avaliação do vendedor e comissão não confirmados ao vivo.",
-  "affiliate_status": "Novos links afiliados não gerados: página do Mercado Livre retornou erro no navegador disponível. URLs de consulta abaixo são links comuns, não têm atribuição de comissão. Preservar os links afiliados já existentes.",
+  "research_method": "Consulta a páginas de produtos da Amazon Brasil e fontes dos fabricantes. Identidade conferida por título, modelo e ASIN. Sem compra ou teste físico. Não publicamos preço, estoque ou prazo de entrega.",
+  "affiliate_status": "Links convencionais Amazon com a tag existente cortexofertas-20: cinco páginas de produto e uma busca explicitamente identificada para o UGREEN 80348/LP230, cujo anúncio exato não foi confirmado. A presença da tag não comprova venda nem comissão.",
   "products": [
     {
       "id": "elg-f80n",
       "name": "ELG F80N",
       "kind": "Braço articulado para monitor",
       "source": "https://elg.com.br/produto/suporte-multiarticulado-com-pistao-a-gas-para-monitores-de-17-a-35-f80n/",
-      "marketplace": "https://www.mercadolivre.com.br/suporte-ergonmico-articulado-de-mesa-com-pisto-a-gas-para-monitortvteleviso-de-17-a-35-elg-f80n/p/MLB15200666",
-      "validation": "Modelo identificado no catálogo ML; fabricante confirma 17–35 pol, VESA 75×75 e 100×100 mm, até 9 kg. Conferir revisão/manual para carga mínima e fixação."
+      "marketplace": "https://www.amazon.com.br/dp/B0765KZ264?tag=cortexofertas-20",
+      "validation": "Braço articulado para retirar o pedestal do tampo. O anúncio da Amazon identifica o F80N preto para monitores de 17 a 35 polegadas e peso de 2 a 9 kg; a ELG informa VESA 75×75 e 100×100 mm. Confira a revisão, o peso do monitor sem a base e as condições de fixação no manual da unidade anunciada.",
+      "previous_marketplace": "https://www.mercadolivre.com.br/suporte-ergonmico-articulado-de-mesa-com-pisto-a-gas-para-monitortvteleviso-de-17-a-35-elg-f80n/p/MLB15200666",
+      "affiliate_url": "https://www.amazon.com.br/dp/B0765KZ264?tag=cortexofertas-20",
+      "checked_on": "2026-10-17",
+      "link_type": "product",
+      "asin": "B0765KZ264"
     },
     {
       "id": "ugreen-80348",
       "name": "UGREEN 80348",
       "kind": "Suporte ajustável para notebook aberto",
       "source": "https://ugreen.com.tr/urun/ugreen-ayarlanabilir-katlanabilir-masaustu-notebook-standi/",
-      "marketplace": "https://lista.mercadolivre.com.br/ugreen-suporte-notebook",
-      "validation": "Modelo presente nos resultados ML; página regional Ugreen identifica 80348 como ajustável. Não extrapolar dados do 40289 ou do suporte vertical 20471."
+      "marketplace": "https://www.amazon.com.br/s?k=UGREEN+80348+LP230&tag=cortexofertas-20",
+      "validation": "Suporte ajustável para usar o notebook aberto. Não localizamos um anúncio da Amazon com o código 80348/LP230 confirmado nesta pesquisa. O botão abre uma busca, que pode mostrar outros modelos. Confira o código e o formato antes de escolher; suportes verticais têm outra função.",
+      "previous_marketplace": "https://lista.mercadolivre.com.br/ugreen-suporte-notebook",
+      "affiliate_url": "https://www.amazon.com.br/s?k=UGREEN+80348+LP230&tag=cortexofertas-20",
+      "checked_on": "2026-10-17",
+      "link_type": "search",
+      "asin": null
     },
     {
       "id": "ugreen-40356",
       "name": "UGREEN 40356",
       "kind": "Fita reutilizável de 5 m",
       "source": "https://nz.ugreen.com/products/ugreen-40356-velcro-straps-cable-organizer-5m-black-custom-cut-to-length-easy-cable-management-and-re-usable",
-      "marketplace": "https://lista.mercadolivre.com.br/organizador-de-cabos-ugreen-fita-de-velcro-5-metros",
-      "validation": "Modelo e função confirmados na página regional oficial nz.ugreen.com; resultados ML incluem fita de 5 m. SKU do anúncio escolhido ainda precisa ser conferido ao gerar link."
+      "marketplace": "https://www.amazon.com.br/dp/B07B3R9968?tag=cortexofertas-20",
+      "validation": "A ficha da Amazon identifica o modelo 40356 e o rolo de 5 metros. A fita pode ser cortada para agrupar os fios que seguem na mesma direção e reaberta quando o trajeto mudar. Confira o comprimento e a quantidade de rolos da oferta escolhida.",
+      "previous_marketplace": "https://lista.mercadolivre.com.br/organizador-de-cabos-ugreen-fita-de-velcro-5-metros",
+      "affiliate_url": "https://www.amazon.com.br/dp/B07B3R9968?tag=cortexofertas-20",
+      "checked_on": "2026-10-17",
+      "link_type": "product",
+      "asin": "B07B3R9968"
     },
     {
       "id": "bandeja-grampo",
-      "name": "Bandeja para cabos com fixação por grampo",
-      "kind": "Categoria de organização",
-      "source": "https://produto.mercadolivre.com.br/MLB-6828147536-bandeja-canaleta-de-fios-e-cabos-em-metal-embaixo-da-mesa-_JM",
-      "marketplace": "https://lista.mercadolivre.com.br/bandeja-de-cabos",
-      "validation": "Categoria encontrada; dimensões, carga e abertura do grampo dependem do anúncio. Não recomendar a alegação do vendedor de eliminar superaquecimento/curto."
+      "name": "Bandeja para cabos com grampo — bigjvbfv",
+      "kind": "Bandeja sob a mesa sem perfuração",
+      "source": "https://www.amazon.com.br/dp/B0FNQGLFB7",
+      "marketplace": "https://www.amazon.com.br/dp/B0FNQGLFB7?tag=cortexofertas-20",
+      "validation": "Exemplo de bandeja de aço carbono com fixação por grampo, anunciado na Amazon pela marca bigjvbfv. A descrição informa 36,5 × 20 × 18 cm e montagem sem perfurar o tampo. Antes de comprar, confirme com o vendedor a abertura do grampo e a carga suportada: esses limites não ficaram claros na ficha consultada.",
+      "previous_marketplace": "https://lista.mercadolivre.com.br/bandeja-de-cabos",
+      "affiliate_url": "https://www.amazon.com.br/dp/B0FNQGLFB7?tag=cortexofertas-20",
+      "checked_on": "2026-10-17",
+      "link_type": "product",
+      "asin": "B0FNQGLFB7",
+      "unconfirmed_specs": [
+        "abertura do grampo",
+        "carga máxima"
+      ]
     },
     {
       "id": "presilha",
-      "name": "Presilhas de mesa para cabos",
-      "kind": "Categoria de organização",
-      "source": "https://www.mercadolivre.com.br/loja/ugreen-300062?category_id=MLB1648&client=recoview-selleritems&item_id=MLB3634888383&official_store_id=300062&recos_listing=true",
-      "marketplace": "https://lista.mercadolivre.com.br/organizador-de-cabos-ugreen",
-      "validation": "Kit de presilhas localizado na loja Ugreen do ML. Nenhuma capacidade de carga ou promessa de adesão universal."
+      "name": "UGREEN 50320 — presilha adesiva com 7 divisões",
+      "kind": "Presilha para pontas de cabos",
+      "source": "https://ugreendobrasil.com.br/produto/organizador-adesivo-de-cabos-ugreen-7-slots-para-fios-50320/",
+      "marketplace": "https://www.amazon.com.br/dp/B08C3W6MCB?tag=cortexofertas-20",
+      "validation": "O anúncio identifica a UGREEN 50320 com sete divisões e fixação adesiva. É uma opção para manter as pontas dos cabos ao alcance. Confira o diâmetro admitido e a superfície de aplicação; ela não substitui um suporte para fontes pesadas.",
+      "previous_marketplace": "https://lista.mercadolivre.com.br/organizador-de-cabos-ugreen",
+      "affiliate_url": "https://www.amazon.com.br/dp/B08C3W6MCB?tag=cortexofertas-20",
+      "checked_on": "2026-10-17",
+      "link_type": "product",
+      "asin": "B08C3W6MCB"
     },
     {
       "id": "xiaomi-lightbar",
       "name": "Xiaomi Mi Computer Monitor Light Bar",
       "kind": "Barra de iluminação para monitor",
       "source": "https://www.mi.com/us/product/mi-computer-monitor-light-bar/",
-      "marketplace": "https://lista.mercadolivre.com.br/xiaomi-mi-computer-monitor-light-bar",
-      "validation": "Fabricante confirma brilho/temperatura ajustáveis, controle remoto, USB e encaixe em monitores; não recomenda notebooks. Resultados ML misturam barra e controle avulso: conferir kit completo."
+      "marketplace": "https://www.amazon.com.br/dp/B09X13LS7F?tag=cortexofertas-20",
+      "validation": "O anúncio selecionado apresenta a barra Xiaomi Mi para monitor com ajuste por controle remoto sem fio. Confira o conteúdo da caixa e a alimentação da oferta escolhida. A fabricante não recomenda o uso em notebooks; meça o encaixe do monitor e verifique o espaço ocupado pela webcam.",
+      "previous_marketplace": "https://lista.mercadolivre.com.br/xiaomi-mi-computer-monitor-light-bar",
+      "affiliate_url": "https://www.amazon.com.br/dp/B09X13LS7F?tag=cortexofertas-20",
+      "checked_on": "2026-10-17",
+      "link_type": "product",
+      "asin": "B09X13LS7F"
     }
   ],
   "excluded": [
@@ -79,5 +113,6 @@
       "commission"
     ],
     "decision": "Comparar coortes de idade equivalente em 14 e 30 dias. Cinco ou dez cliques isolados não provam vencedor. Sem 1.000 impressões por tema, tratar como exposição insuficiente, limiar operacional do piloto, não regra do Pinterest."
-  }
+  },
+  "publication_request": "Faça a pesquisa desses produtos pela Amazon e os divulgue pelo link convencional."
 }
