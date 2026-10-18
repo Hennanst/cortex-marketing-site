@@ -1,0 +1,44 @@
+{
+  "reviewed_on": "2026-10-18",
+  "route": "/guia/switch-2-vs-oled.html",
+  "scope": "Comparação documental Switch 2 e OLED; recomendações editoriais por perfil; sem teste físico, preços ou descontos alegados.",
+  "sources": [
+    "https://www.nintendo.com/pt-br/gaming-systems/switch-2/tech-specs/",
+    "https://www.nintendo.com/pt-br/gaming-systems/switch/tech-specs/",
+    "https://www.nintendo.com/pt-br/gaming-systems/switch-2/features/",
+    "https://www.nintendo.com/pt-br/store/products/nintendo-switch-oled-model-115461-3/",
+    "https://www.nintendo.com/pt-br/gaming-systems/switch-2/transfer-guide/compatible-games/"
+  ],
+  "affiliate_links": [
+    {
+      "code": "RAJ70A-5TVU",
+      "url": "https://meli.la/1AtdEWv",
+      "provenance": "Provided verbatim by owner in this conversation",
+      "destination_verification": "HTTP 403; exact product, variant, price and discount unconfirmed; neutral offer label used"
+    },
+    {
+      "code": "GG93F2-JCNV",
+      "url": "https://meli.la/1gBDmWV",
+      "provenance": "Provided verbatim by owner in this conversation",
+      "destination_verification": "HTTP 403; exact product, variant, price and discount unconfirmed; neutral offer label used"
+    }
+  ],
+  "images": [
+    {
+      "path": "assets/cortex/switch-comparativo/switch-2.webp",
+      "source": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/ccb3e8ca3c296e21a8c933e8369031511589d0ef6b079cf5bb3667b09893482c/features/system-angled",
+      "processing": "Resized proportionally to 1100 px width and encoded WebP; no crop or generative modification"
+    },
+    {
+      "path": "assets/cortex/switch-comparativo/switch-oled.webp",
+      "source": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/ncom/en_US/switch/site-design-update/photo01.png",
+      "processing": "Resized proportionally to 1100 px width and encoded WebP; no crop or generative modification"
+    }
+  ],
+  "editorial_notes": [
+    "Battery ranges are manufacturer estimates, not like-for-like measurements.",
+    "Video output maxima do not guarantee game rendering resolution/frame rate.",
+    "No invented defect rate, benchmark, price, savings or review score.",
+    "Original general console guide and unrelated merchant links preserved."
+  ]
+}
